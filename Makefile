@@ -4,7 +4,10 @@
 
 mirror: prepare-mirror cran-src cran-web
 
-prepare-mirror:
+clean:
+	rm -rf target
+
+prepare-mirror: clean
 	mkdir -p target && \
 	cd target && \
 	rm -f gh-pages.tar.gz && \
