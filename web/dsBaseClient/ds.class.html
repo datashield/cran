@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Retrieves the class of an object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for ds.class {dsBaseClient}"><tr><td>ds.class {dsBaseClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Retrieves the class of an object</h2>
+
+<h3>Description</h3>
+
+<p>This function is similar to R function <code>class</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.class(x = NULL, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>an R object</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login in to opal servers; these objects hold also
+the data assign to R, as <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Same as for the R function <code>class</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a character the type of x
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.; Isaeva, J.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+
+# load that contains the login details
+data(logindata)
+
+# login and assign all the stored variables
+# (by default the assigned dataset is a dataframe named 'D')
+opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+
+# Example 1: Get the class of the whole dataset
+ds.class(x='D')
+
+# Example 2: Get the class of the variable PM_BMI_CONTINUOUS
+ds.class(x='D$LAB_TSC')
+
+# clear the Datashield R sessions and logout
+datashield.logout(opals)
+
+}
+</pre>
+
+<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.0 ]</div>
+</body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Gets a pooled statistical mean</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for getPooledMean {dsBaseClient}"><tr><td>getPooledMean {dsBaseClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Gets a pooled statistical mean</h2>
+
+<h3>Description</h3>
+
+<p>This is an internal function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getPooledMean(dtsources, x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dtsources</code></td>
+<td>
+<p>a list of opal object(s) obtained after
+login in to opal servers; these objects hold also the
+data assign to R, as <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character, the name of a numeric vector</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is called to avoid calling the client
+function 'ds.mean' which may stop the process due to some
+checks not required when computing a mean inside a
+function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a pooled mean
+</p>
+
+<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.0 ]</div>
+</body></html>

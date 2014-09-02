@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Fits a Generalized Linear Model (GLM) model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for ds.glm {dsModellingClient}"><tr><td>ds.glm {dsModellingClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Fits a Generalized Linear Model (GLM) model</h2>
+
+<h3>Description</h3>
+
+<p>A function that fits generalized linear models
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.glm(x = NULL, formula = NULL, family = NULL, startCoeff = NULL,
+  maxit = 15, CI = 0.95, viewIter = FALSE, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the name if any of the data frame that hold the
+variables in the regression formula</p>
+</td></tr>
+<tr valign="top"><td><code>formula</code></td>
+<td>
+<p>an object of class <code>formula</code> which
+describes the model to be fitted</p>
+</td></tr>
+<tr valign="top"><td><code>family</code></td>
+<td>
+<p>a character, the description of the error
+distribution function to use in the model</p>
+</td></tr>
+<tr valign="top"><td><code>startCoeff</code></td>
+<td>
+<p>a numeric vector, the starting values
+for the beta coefficients. If starting values are not
+provided they are set to 0 for each beta at the start of
+the iterations.</p>
+</td></tr>
+<tr valign="top"><td><code>maxit</code></td>
+<td>
+<p>the number of iterations of IWLS used
+instructions to each computer requesting non-disclosing
+summary statistics. The summaries are then combined to
+estimate the parameters of the model; these parameters
+are the same as those obtained if the data were
+'physically' pooled</p>
+</td></tr>
+<tr valign="top"><td><code>CI</code></td>
+<td>
+<p>a numeric, the confidence interval.</p>
+</td></tr>
+<tr valign="top"><td><code>viewIter</code></td>
+<td>
+<p>a boolean, tells whether the results of
+the intermediate iterations should be printed on screen
+or not. Default is FALSE (i.e. only final results are
+shown)</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login to opal servers; these objects also hold the
+data assigned to R, as a <code>dataframe</code>, from opal
+datasources</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>It enables a parallelized analysis of individual-level data
+sitting on distinct servers by sending commands to each
+data computer to fit a regression model. The estimates
+returned are then combined and updated coefficients
+estimate sent back for a new fit. This iterative process
+goes on until convergence is achieved.
+</p>
+
+
+<h3>Value</h3>
+
+<p>coefficients a named vector of coefficients
+</p>
+<p>residuals the 'working' residuals, that is the residuals in
+the final iteration of the IWLS fit.
+</p>
+<p>fitted.values the fitted mean values, obtained by
+transforming the linear predictors by the inverse of the
+link function
+</p>
+<p>rank the numeric rank of the fitted linear model
+</p>
+<p>family the <code>family</code> object used
+</p>
+<p>linear.predictors the linear fit on link scale
+</p>
+<p>aic A version of Akaike's An Information Criterion, which
+tells how well the model fits
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Burton,P;Gaye,A;Laflamme,P
+</p>
+
+
+<h3>References</h3>
+
+<p>Jones EM, 'DataSHIELD-shared individual-level analysis
+without sharing the data: a biostatistical perspective',
+Norsk epidemiologi - Norwegian journal of epidemiology
+2012;21(2): 231-9.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+
+# load the file that contains the login details
+data(logindata)
+
+# login and assign some variables to R
+myvar &lt;- list('DIS_DIAB', 'PM_BMI_CONTINUOUS', 'LAB_HDL', 'PM_BMI_CATEGORICAL', 'GENDER')
+opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+
+# Example 1: run a GLM without interaction (e.g. diabetes prediction using BMI and HDL levels and GENDER)
+mod &lt;- ds.glm(x='D', formula=D$DIS_DIAB~D$PM_BMI_CONTINUOUS+D$LAB_HDL+D$GENDER,family='binomial')
+
+# Example 2: run the above GLM model with an intercept (eg. intercept = 1)
+mod &lt;- ds.glm(x='D', formula=D$DIS_DIAB~1+D$PM_BMI_CONTINUOUS+D$LAB_HDL+D$GENDER,family='binomial')
+
+# Example 3: run the above GLM with interaction HDL and GENDER
+mod &lt;- ds.glm(x='D', formula=D$DIS_DIAB~D$PM_BMI_CONTINUOUS+D$LAB_HDL*D$GENDER,family='binomial')
+
+# Example 4: now run a GLM but with interaction where the error follows a poisson distribution
+mod &lt;- ds.glm(x='D', formula=D$PM_BMI_CATEGORICAL~D$PM_BMI_CONTINUOUS+D$LAB_HDL+D$GENDER,family='poisson')
+
+# clear the Datashield R sessions and logout
+datashield.logout(opals)
+
+}
+</pre>
+
+<hr><div align="center">[Package <em>dsModellingClient</em> version 3.0.0 ]</div>
+</body></html>

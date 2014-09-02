@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Generates the summary of an object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for ds.summary {dsBaseClient}"><tr><td>ds.summary {dsBaseClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Generates the summary of an object</h2>
+
+<h3>Description</h3>
+
+<p>Provides some insight about an object. Unlike the similar R
+function only a limited class of objects can be used as
+input to reduce the risk of disclosure.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.summary(x = NULL, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a numeric or factor variable</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login in to opal servers; these objects hold also
+the data assign to R, as <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The class and size of the object are returned and various
+other information are also returned depending of the class
+of the object. Potentially disclosive information such as
+the minimum and maximum values of numeric vectors are not
+returned. The summary is given for each study separately.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the returned information depends on the class of the
+objects.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+# load the login data
+data(logindata)
+
+# login and assign all the variable held in the opal database
+opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+
+# Example 1: suummary of a numerical variable
+ds.summary(x='D$LAB_TSC')
+
+# Example 1: suummary of a binary variable
+ds.summary(x='D$GENDER')
+
+# clear the Datashield R sessions and logout
+datashield.logout(opals)
+
+}
+</pre>
+
+<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.0 ]</div>
+</body></html>

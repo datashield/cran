@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Fits a Generalized Estimating Equation (GEE) model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for ds.gee {dsModellingClient}"><tr><td>ds.gee {dsModellingClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Fits a Generalized Estimating Equation (GEE) model</h2>
+
+<h3>Description</h3>
+
+<p>A function that fits generalized estimated equations to
+deal with correlation structures arising from repeated
+measures on individuals, or from clustering as in family
+data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.gee(x = NULL, formula = NULL, family = NULL, corStructure = "ar1",
+  clusterID = NULL, startCoeff = NULL, userMatrix = NULL, maxit = 20,
+  display = FALSE, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the name of the data frame that hold the
+variables in the regression formula.</p>
+</td></tr>
+<tr valign="top"><td><code>formula</code></td>
+<td>
+<p>an object of class <code>formula</code> which
+describes the linear predictor of the model to fit.</p>
+</td></tr>
+<tr valign="top"><td><code>family</code></td>
+<td>
+<p>a character, the description of the error
+distribution: 'binomial', 'gaussian', 'Gamma' or
+'poisson'.</p>
+</td></tr>
+<tr valign="top"><td><code>corStructure</code></td>
+<td>
+<p>a character, the correlation
+structure: 'ar1', 'exchangeable', 'independence', 'fixed'
+or 'unstructure'.</p>
+</td></tr>
+<tr valign="top"><td><code>clusterID</code></td>
+<td>
+<p>a character, the name of the column that
+hold the cluster IDs</p>
+</td></tr>
+<tr valign="top"><td><code>startCoeff</code></td>
+<td>
+<p>a numeric vector, the starting values
+for the beta coefficients.</p>
+</td></tr>
+<tr valign="top"><td><code>userMatrix</code></td>
+<td>
+<p>a list of user defined matrix (one for
+each study). These matrices are required if the
+correlation structure is set to 'fixed'.</p>
+</td></tr>
+<tr valign="top"><td><code>maxit</code></td>
+<td>
+<p>an integer, the maximum number of iteration
+to use for convergence.</p>
+</td></tr>
+<tr valign="top"><td><code>display</code></td>
+<td>
+<p>a boolean to display or not the
+intermediate results. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login to opal servers; these objects also hold the
+data assigned to R, as a <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>It enables a parallelized analysis of individual-level data
+sitting on distinct servers by sending commands to each
+data computer to fit a GEE model model. The estimates
+returned are then combined and updated coefficients
+estimate sent back for a new fit. This iterative process
+goes on until convergence is achieved. The input data
+should not contain missing values. The data must be in a
+data.frame obejct and the variables must be refer to
+through the data.frame.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list which contains the final coefficient estimates (beta
+values), the pooled alpha value and the pooled phi value.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.; Jones EM.
+</p>
+
+
+<h3>References</h3>
+
+<p>Jones EM, Sheehan NA, Gaye A, Laflamme P, Burton P.
+Combined analysis of correlated data when data cannot be
+pooled. Stat 2013; 2: 72-85.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+
+  # load the login data file for the correlated data
+  data(geeLoginData)
+
+  # login and assign all the stored variables
+  opals &lt;- datashield.login(logins=geeLoginData,assign=TRUE)
+
+  # set some parameters for the function 9the rest are set to default values)
+  myformula &lt;- response~1+sex+age.60
+  myfamily &lt;- 'binomial'
+  startbetas &lt;- c(-1,1,0)
+  clusters &lt;- 'id'
+  mycorr &lt;- 'ar1'
+
+  # run a GEE analysis with the above specifed parameters
+  xx &lt;- ds.gee(x='D',formula=myformula,family=myfamily,corStructure=mycorr,clusterID=clusters,startCoeff=startbetas)
+
+# clear the Datashield R sessions and logout
+datashield.logout(opals)
+
+}
+</pre>
+
+<hr><div align="center">[Package <em>dsModellingClient</em> version 3.0.0 ]</div>
+</body></html>

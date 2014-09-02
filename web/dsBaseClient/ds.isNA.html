@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Checks if a vector is empty</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for ds.isNA {dsBaseClient}"><tr><td>ds.isNA {dsBaseClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Checks if a vector is empty</h2>
+
+<h3>Description</h3>
+
+<p>this function is similar to R function <code>is.na</code> but
+instead of a vector of booleans it returns just one boolean
+to tell if all the elements are missing values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.isNA(x = NULL, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character, the name of the vector to check.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login in to opal servers; these objects hold also
+the data assign to R, as <code>dataframe</code>, from opal
+datasources. By default an internal function looks for
+'opal' objects in the environment and sets this
+parameter.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>In certain analyses such as GLM none of the variable should
+be missing at complete (i.e. missing value for each
+observation). since in DataSHIELD it is not possible to see
+the data it is important to know whether or not a vector is
+empty to proceed accordingly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a boolean 'TRUE' if the vector is empty (all values are
+'NA') and 'FALSE' otherwise.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+# load the login data
+data(logindata)
+
+# login and assign specific variable(s)
+myvar &lt;- list("LAB_HDL")
+opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+
+# check if all the observation of the variable 'LAB_HDL' are missing (NA)
+ds.isNA(x='D$LAB_HDL')
+
+# clear the Datashield R sessions and logout
+datashield.logout(opals)
+
+}
+</pre>
+
+<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.0 ]</div>
+</body></html>

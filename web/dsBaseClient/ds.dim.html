@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Retrieves the dimension of an object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for ds.dim {dsBaseClient}"><tr><td>ds.dim {dsBaseClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Retrieves the dimension of an object</h2>
+
+<h3>Description</h3>
+
+<p>this function is similar to R function <code>dim</code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.dim(x = NULL, type = "split", datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character, the name of R table object, for
+example a matrix, array or data frame</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>a character which represents the type of
+analysis to carry out. If <code>type</code> is set to
+'combine', a global variance is calculated .</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login in to opal servers; these objects hold also
+the data assign to R, as <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>the function returns the unpooled or pooled dimension of
+the object by summing up the individual dimensions returned
+from each study or the dimension of the object in each
+study. Unlike the other DataSHIELD function the default
+behaviour is to output the dimension of each study
+separately.
+</p>
+
+
+<h3>Value</h3>
+
+<p>for an array, <code>NULL</code> or a vector of mode
+<code>integer</code>
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.; Isaeva, J.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+
+# load that contains the login details
+data(logindata)
+
+# login and assign all the stored variables.
+opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+
+# Example 1: Get the dimension of the assigned datasets in each study
+ds.dim(x='D')
+
+# Example 2: Get the pooled dimension of the assigned datasets
+ds.dim(x='D', type='combine')
+
+# Example 2: Input has to be either matrix, data frame or an array
+# In the below example, the inpout is a vector so it will not work.
+## Not run:  ds.dim(x='D$LAB_TSC') 
+
+# clear the Datashield R sessions and logout
+datashield.logout(opals)
+
+}
+</pre>
+
+<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.0 ]</div>
+</body></html>

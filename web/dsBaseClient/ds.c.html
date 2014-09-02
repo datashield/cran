@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Combines values into a vector or list</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for ds.c {dsBaseClient}"><tr><td>ds.c {dsBaseClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Combines values into a vector or list</h2>
+
+<h3>Description</h3>
+
+<p>Concatenates object into one object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.c(x = NULL, newobj = NULL, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character, a vector that holds the names of
+the objects to combine.</p>
+</td></tr>
+<tr valign="top"><td><code>newobj</code></td>
+<td>
+<p>the name of the output object. If this
+argument is set to NULL, the name of the new object is
+'newObject'.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login in to opal servers; these objects hold also
+the data assign to R, as <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>To avoid combining the character names and not the vectors
+on the client side, the names are coerce into a list and
+the server side function loops through that list to
+concatenate the list's elements into a vector.
+</p>
+
+
+<h3>Value</h3>
+
+<p>nothing is returned to the client, the new object is stored
+on the server side.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+
+# load the file that contains the login details
+data(logindata)
+
+# login and assign specific variable(s)
+# (by default the assigned dataset is a dataframe named 'D')
+myvar &lt;- c('LAB_TSC', 'LAB_HDL')
+opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+
+# Get the variables 'LAB_TSC' by 'LAB_HDL' from the dataframe 'D' and combine them
+myvect &lt;- c('D$LAB_TSC', 'D$LAB_HDL')
+ds.assign(toAssign='D$LAB_TSC', newobj='labtsc')
+ds.assign(toAssign='D$LAB_HDL', newobj='labhdl')
+myvect &lt;- c('labtsc', 'labhdl')
+ds.c(x=myvect)
+
+# clear the Datashield R sessions and logout
+datashield.logout(opals)
+
+}
+</pre>
+
+<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.0 ]</div>
+</body></html>

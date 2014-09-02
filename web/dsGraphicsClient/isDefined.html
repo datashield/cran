@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Checks if the objecs are defined in studies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for isDefined {dsGraphicsClient}"><tr><td>isDefined {dsGraphicsClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Checks if the objecs are defined in studies</h2>
+
+<h3>Description</h3>
+
+<p>This is an internal function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+isDefined(datasources = NULL, obj = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained
+after login in to opal servers; these objects hold also
+the data assign to R, as <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+<tr valign="top"><td><code>obj</code></td>
+<td>
+<p>a character vector, the name of the objects to
+look for.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>In DataSHIELD an object included in analysis must be
+defined (i.e. exists) in all the studies. If not the
+process should halt.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a boolean vector.
+</p>
+
+<hr><div align="center">[Package <em>dsGraphicsClient</em> version 3.0.0 ]</div>
+</body></html>

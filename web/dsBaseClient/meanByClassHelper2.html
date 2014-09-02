@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Generates a table for pooled results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for meanByClassHelper2 {dsBaseClient}"><tr><td>meanByClassHelper2 {dsBaseClient}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Generates a table for pooled results</h2>
+
+<h3>Description</h3>
+
+<p>This is an internal function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+meanByClassHelper2(dtsources, tablenames, variables, invalidrecorder)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dtsources</code></td>
+<td>
+<p>a list of opal object(s) obtained after
+login in to opal servers; these objects hold also the
+data assign to R, as <code>dataframe</code>, from opal
+datasources.</p>
+</td></tr>
+<tr valign="top"><td><code>tablenames</code></td>
+<td>
+<p>a character vector, the name of the
+subset tables</p>
+</td></tr>
+<tr valign="top"><td><code>variables</code></td>
+<td>
+<p>a character vector, the names of the
+continuous variables to computes a mean for.</p>
+</td></tr>
+<tr valign="top"><td><code>invalidrecorder</code></td>
+<td>
+<p>a list, holds informations about
+invalid subsets in each study.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is called by the function 'ds.meanByClass' to
+produce the final table if the user sets the parmater
+'type' to combine (the default behaviour of
+'ds.meanByClass')
+</p>
+
+
+<h3>Value</h3>
+
+<p>a matrix, a table which contains the length, mean and
+standard deviation of each of the specified 'variables' in
+each subset table.
+</p>
+
+<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.0 ]</div>
+</body></html>
