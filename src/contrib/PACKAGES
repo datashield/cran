@@ -22,9 +22,9 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: dsBase
-Version: 3.0.0
+Version: 3.0.1
 License: GPL-3
-MD5sum: 7282f0507b45933186c37e2447e6b200
+MD5sum: 6e25ff759b1ea34155b6f1ae398c3f51
 NeedsCompilation: no
 Title: DataSHIELD server site base functions
 Description: DataSHIELD server site base functions
@@ -45,21 +45,21 @@ AssignMethods: log=base::log, c=base::c, cDS, unlist=base::unlist,
         recodeLevelsDS, dataframeDS, listDS
 
 Package: dsBaseClient
-Version: 3.0.0
+Version: 3.0.1
 Depends: opal, fields
 License: GPL-3
-MD5sum: a6562ca14ea740e238251c3215488746
+MD5sum: a192851f813e4342c7dc43b2e37dccc3
 NeedsCompilation: no
 Title: DataSHIELD base functions for the client site
 Description: DataSHIELD base functions for the client site
 Author: <datashield@obiba.org>
 
 Package: dsGraphics
-Version: 3.0.0
+Version: 3.0.1
 License: GPL-3
-MD5sum: d8df4a33a28420dcbb11dc32bf52cda6
+MD5sum: 22746994ccced4cfcf234b5b11d8bfd1
 NeedsCompilation: no
-Title: DataSHIELD graphic functions (client)
+Title: DataSHIELD graphic functions (server)
 Description: Package contains functions to plot graphs.
 Author: <datashield@obiba.org>
 AggregateMethods: histogramDS, densityGridDS, rangeDS
