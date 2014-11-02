@@ -122,7 +122,7 @@ Version: 2.1.5
 Depends: R (>= 2.15.0), RCurl (>= 1.6-6), rjson
 Suggests: e1071, knitr
 License: GPL-3
-MD5sum: 2cb780a44e12c03a9fdea462db767334
+MD5sum: f0cbb700178acee5726123918f6e146c
 NeedsCompilation: no
 Title: Opal R and Datashield utils
 Description: Data integration Web application for biobanks by OBiBa.
