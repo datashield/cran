@@ -44,5 +44,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/3.0.0/DESCRIPTION)
-* [dsBase 3.0.0](https://github.com/datashield/dsBase/tree/3.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/3.0.1/DESCRIPTION)
+* [dsBase 3.0.1](https://github.com/datashield/dsBase/tree/3.0.1)

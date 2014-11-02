@@ -82,8 +82,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/3.0.0/DESCRIPTION)
-* [dsBaseClient 3.0.0](https://github.com/datashield/dsBaseClient/tree/3.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/3.0.1/DESCRIPTION)
+* [dsBaseClient 3.0.1](https://github.com/datashield/dsBaseClient/tree/3.0.1)
 
 
 ### dsModellingClient
@@ -240,8 +240,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.1.4/DESCRIPTION)
-* [opal 2.1.4](https://github.com/datashield/opal/tree/2.1.4)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.1.5/DESCRIPTION)
+* [opal 2.1.5](https://github.com/datashield/opal/tree/2.1.5)
 
 
 ### opaladmin
@@ -324,8 +324,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/3.0.0/DESCRIPTION)
-* [dsBase 3.0.0](https://github.com/datashield/dsBase/tree/3.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/3.0.1/DESCRIPTION)
+* [dsBase 3.0.1](https://github.com/datashield/dsBase/tree/3.0.1)
 
 
 ### dsModelling
@@ -398,5 +398,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsGraphics/3.0.0/DESCRIPTION)
-* [dsGraphics 3.0.0](https://github.com/datashield/dsGraphics/tree/3.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsGraphics/3.0.1/DESCRIPTION)
+* [dsGraphics 3.0.1](https://github.com/datashield/dsGraphics/tree/3.0.1)
