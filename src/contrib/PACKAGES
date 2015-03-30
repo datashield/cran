@@ -22,42 +22,45 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: dsBase
-Version: 3.0.1
+Version: 4.0.0
 License: GPL-3
-MD5sum: 6e25ff759b1ea34155b6f1ae398c3f51
+MD5sum: b967457974d0ba837b1e9564cfc7d2d3
 NeedsCompilation: no
 Title: DataSHIELD server site base functions
 Description: DataSHIELD server site base functions
 Author: <datashield@obiba.org>
 AggregateMethods: length=base::length, colnames=base::colnames, dimDS,
-        dim=base::dim, quantileMeanDS, meanDS, isNaDS, rangeDS,
+        dim=base::dim, quantileMeanDS, meanDS, isNaDS, varDS,
         is.numeric=base::is.numeric, is.character=base::is.character,
         is.null=base::is.null, NROW=base::NROW, table1dDS, table2dDS,
         class=base::class, levels=base::levels,
         is.factor=base::is.factor, namesDS, is.list=base::is.list,
-        exists=base::exists, isValidDS
+        exists=base::exists, isValidDS, ls=base::ls, numNaDS,
+        NROW=base::NROW
 AssignMethods: log=base::log, c=base::c, cDS, unlist=base::unlist,
         exp=base::exp, asListDS, as.numeric=base::as.numeric,
         as.character=base::as.character, asMatrixDS,
         complete.cases=stats::complete.cases, sum=base::sum,
-        as.null=base::as.null, subclassDS, list=base::list, cbindDS,
-        rowColCalcDS, changeRefGroupDS, subsetDS, asFactorDS,
-        recodeLevelsDS, dataframeDS, listDS
+        as.null=base::as.null, subsetByClassDS, list=base::list,
+        cbind=base::cbind, rowColCalcDS, changeRefGroupDS, subsetDS,
+        asFactorDS, recodeLevelsDS, dataframeDS, listDS, replaceNaDS,
+        rep=base::rep
 
 Package: dsBaseClient
-Version: 3.0.1
+Version: 4.0.0
 Depends: opal, fields
 License: GPL-3
-MD5sum: a192851f813e4342c7dc43b2e37dccc3
+MD5sum: 667ddc6a5830368e81fdc01eed5d225a
 NeedsCompilation: no
 Title: DataSHIELD base functions for the client site
 Description: DataSHIELD base functions for the client site
 Author: <datashield@obiba.org>
 
 Package: dsGraphics
-Version: 3.0.1
+Version: 4.0.0
+Depends: dsBase
 License: GPL-3
-MD5sum: 22746994ccced4cfcf234b5b11d8bfd1
+MD5sum: 20df8e0192a07bceff9951e42e17a01b
 NeedsCompilation: no
 Title: DataSHIELD graphic functions (server)
 Description: Package contains functions to plot graphs.
@@ -66,40 +69,43 @@ AggregateMethods: histogramDS, densityGridDS, rangeDS
 AssignMethods: attach=base::attach
 
 Package: dsGraphicsClient
-Version: 3.0.0
+Version: 4.0.0
 Depends: opal, dsBaseClient
 License: GPL-3
-MD5sum: af7196b967e0f282589f281d54b26f6e
+MD5sum: 4d83314ec93146ce448bf573dcb3a1dd
 NeedsCompilation: no
 Title: DataSHIELD client site functions for graphics
 Description: DataSHIELD client site functions for graphics
 Author: <datashield@obiba.org>
 
 Package: dsModelling
-Version: 3.0.0
-Depends: nlme
+Version: 4.0.0
+Depends: nlme, dsBase
 License: GPL-3
-MD5sum: 042ea07c6c4ae31153b81eeb7c2f4130
+MD5sum: 9496a07efb8be9abb14d5d9deb82fb89
 NeedsCompilation: no
 Title: DataSHIELD server site functions for statistical modelling
 Description: DataSHIELD server site functions for statistical modelling
 Author: <datashield@obiba.org>
-AggregateMethods: glmDS, alphaPhiDS, scoreVectDS
+AggregateMethods: glmDS1, glmDS2, alphaPhiDS, scoreVectDS,
+        checkNegValueDS
+AssignMethods: lexisDS
 
 Package: dsModellingClient
-Version: 3.0.0
+Version: 4.0.0
 Depends: opal, dsBaseClient
 License: GPL-3
-MD5sum: b4a81353364d43bc482c3ab444a2ea4c
+MD5sum: 6eb49a6e44fe4d880742c9dd3f4d223c
 NeedsCompilation: no
 Title: DataSHIELD client site functions for statistical modelling
 Description: DataSHIELD client site functions for statistical modelling
 Author: <datashield@obiba.org>
 
 Package: dsStats
-Version: 3.0.0
+Version: 4.0.0
+Depends: dsBase
 License: GPL-3
-MD5sum: ffca69f93abff7f0d6d3209d6564e1ad
+MD5sum: 3bb0eaf429f6c956e0990b758cfcc802
 NeedsCompilation: no
 Title: DataSHIELD server site statistical functions
 Description: DataSHIELD server site statistical functions
@@ -108,10 +114,10 @@ AggregateMethods: t.test=stats::t.test, varDS,
         cor.test=stats::cor.test, corDS, covDS
 
 Package: dsStatsClient
-Version: 3.0.0
+Version: 4.0.0
 Depends: opal, dsBaseClient
 License: GPL-3
-MD5sum: 14bc889ad9e4b823a67a6aef661e089b
+MD5sum: 4b7f331df23a16882b45d188065c2cf1
 NeedsCompilation: no
 Title: DataSHIELD client site stattistical functions
 Description: DataSHIELD client site stattistical functions

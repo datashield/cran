@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: generates subset tables from a data frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for subsetByClassHelper2 {dsBase}"><tr><td>subsetByClassHelper2 {dsBase}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>generates subset tables from a data frame</h2>
+
+<h3>Description</h3>
+
+<p>This is an internal function called by the function
+'subsetByClassDS'
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+subsetByClassHelper2(df = NULL, iter = NULL, filter = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df</code></td>
+<td>
+<p>a data frame.</p>
+</td></tr>
+<tr valign="top"><td><code>iter</code></td>
+<td>
+<p>the indices of columns to loop trough.</p>
+</td></tr>
+<tr valign="top"><td><code>filter</code></td>
+<td>
+<p>the minimum number of observations (i.e.
+rows) that are allowed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function generates subsets if the input of
+'subsetByClassDS' is a data frame and if the number
+variables(columns) to subset by are greater than 1; i.e.
+this function is called if the user specified more than one
+variable or no variable to subset by (if no variables are
+specified the function 'subsetByClassDS' produces a subset
+for each category in each variable).
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list which contains the subsets, their names and an
+integer that indicates how many columns were not factors.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.
+</p>
+
+<hr><div align="center">[Package <em>dsBase</em> version 4.0.0 ]</div>
+</body></html>

@@ -20,30 +20,30 @@ data.
 <h3>Usage</h3>
 
 <pre>
-ds.gee(x = NULL, formula = NULL, family = NULL, corStructure = "ar1",
+ds.gee(formula = NULL, family = NULL, data = NULL, corStructure = "ar1",
   clusterID = NULL, startCoeff = NULL, userMatrix = NULL, maxit = 20,
-  display = FALSE, datasources = NULL)
+  checks = TRUE, display = FALSE, datasources = NULL)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>x</code></td>
-<td>
-<p>the name of the data frame that hold the
-variables in the regression formula.</p>
-</td></tr>
 <tr valign="top"><td><code>formula</code></td>
 <td>
-<p>an object of class <code>formula</code> which
-describes the linear predictor of the model to fit.</p>
+<p>a string character, the formula which
+describes the model to be fitted.</p>
 </td></tr>
 <tr valign="top"><td><code>family</code></td>
 <td>
 <p>a character, the description of the error
 distribution: 'binomial', 'gaussian', 'Gamma' or
 'poisson'.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>the name of the data frame that hold the
+variables in the regression formula.</p>
 </td></tr>
 <tr valign="top"><td><code>corStructure</code></td>
 <td>
@@ -71,6 +71,17 @@ correlation structure is set to 'fixed'.</p>
 <td>
 <p>an integer, the maximum number of iteration
 to use for convergence.</p>
+</td></tr>
+<tr valign="top"><td><code>checks</code></td>
+<td>
+<p>a boolean, if TRUE (default) checks that
+takes 1-3min are carried out to verify that the variables
+in the model are defined (exist) on the server site and
+that they have the correct characteristics required to
+fit a GEE. If FALSE (not recommended if you are not an
+experienced user) no checks are carried except some very
+basic ones and eventual error messages might not give
+clear indications about the cause(s) of the error.</p>
 </td></tr>
 <tr valign="top"><td><code>display</code></td>
 <td>
@@ -122,6 +133,15 @@ pooled. Stat 2013; 2: 72-85.
 </p>
 
 
+<h3>See Also</h3>
+
+<p><code>ds.glm</code> for genralized linear models
+</p>
+<p><code>ds.lexis</code> for survival analysis using piecewise
+exponential regression
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
@@ -130,24 +150,24 @@ pooled. Stat 2013; 2: 72-85.
   # load the login data file for the correlated data
   data(geeLoginData)
 
-  # login and assign all the stored variables
+  # login and assign all the stored variables to R
   opals &lt;- datashield.login(logins=geeLoginData,assign=TRUE)
 
   # set some parameters for the function 9the rest are set to default values)
-  myformula &lt;- response~1+sex+age.60
+  myformula &lt;- 'response~1+sex+age.60'
   myfamily &lt;- 'binomial'
   startbetas &lt;- c(-1,1,0)
   clusters &lt;- 'id'
   mycorr &lt;- 'ar1'
 
   # run a GEE analysis with the above specifed parameters
-  xx &lt;- ds.gee(x='D',formula=myformula,family=myfamily,corStructure=mycorr,clusterID=clusters,startCoeff=startbetas)
+  ds.gee(data='D',formula=myformula,family=myfamily,corStructure=mycorr,clusterID=clusters,startCoeff=startbetas)
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsModellingClient</em> version 3.0.0 ]</div>
+<hr><div align="center">[Package <em>dsModellingClient</em> version 4.0.0 ]</div>
 </body></html>

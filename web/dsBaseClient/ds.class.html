@@ -56,29 +56,36 @@ datasources.</p>
 </p>
 
 
+<h3>See Also</h3>
+
+<p>ds.exists to verify if an object is defined (exists)
+on the server side.
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
 {
 
-# load that contains the login details
-data(logindata)
+  # load that contains the login details
+  data(logindata)
 
-# login and assign all the stored variables
-# (by default the assigned dataset is a dataframe named 'D')
-opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+  # login and assign all the stored variables
+  # (by default the assigned dataset is a dataframe named 'D')
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
 
-# Example 1: Get the class of the whole dataset
-ds.class(x='D')
+  # Example 1: Get the class of the whole dataset
+  ds.class(x='D')
 
-# Example 2: Get the class of the variable PM_BMI_CONTINUOUS
-ds.class(x='D$LAB_TSC')
+  # Example 2: Get the class of the variable PM_BMI_CONTINUOUS
+  ds.class(x='D$LAB_TSC')
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

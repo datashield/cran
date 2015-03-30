@@ -74,21 +74,21 @@ otherwise.
 <pre>
 {
 
-# load that contains the login details
-data(logindata)
+  # load that contains the login details
+  data(logindata)
 
-# login and assign specific variable(s)
-myvar &lt;- list("LAB_TSC", "GENDER")
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign specific variable(s)
+  myvar &lt;- list("LAB_TSC", "GENDER")
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# Example 1: Check if the dataframe assigned above is valid
-ds.isValid(x='D')
+  # Example 1: Check if the dataframe assigned above is valid
+  ds.isValid(x='D')
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

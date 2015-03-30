@@ -19,7 +19,7 @@
 <pre>
 ds.dataframe(x = NULL, newobj = NULL, row.names = NULL,
   check.rows = FALSE, check.names = TRUE, stringsAsFactors = TRUE,
-  datasources = NULL)
+  completeCases = FALSE, datasources = NULL)
 </pre>
 
 
@@ -59,6 +59,11 @@ vectors should be converted to factors?</p>
 argument is set to <code>NULL</code>, the name of the new
 object is 'dframe'.</p>
 </td></tr>
+<tr valign="top"><td><code>completeCases</code></td>
+<td>
+<p>a boolean that tells if only
+complete cases should be included or not.</p>
+</td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
 <p>a list of opal object(s) obtained
@@ -93,28 +98,45 @@ on the server side.
 </p>
 
 
+<h3>See Also</h3>
+
+<p>ds.cbind Combines objects column-wise.
+</p>
+<p>ds.changeRefGroup to change the reference level of a
+factor.
+</p>
+<p>ds.colnames to obtain the column names of a matrix
+or a data frame
+</p>
+<p>ds.asMatrix to coerce an object into a matrix type.
+</p>
+<p>ds.dim to obtain the dimensions of matrix or a data
+frame.
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
 {
 
-# load the file that contains the login details
-data(logindata)
+  # load the file that contains the login details
+  data(logindata)
 
-# login and assign the required variables to R
-myvar &lt;- list('LAB_TSC','LAB_HDL')
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign the required variables to R
+  myvar &lt;- list('LAB_TSC','LAB_HDL')
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# create a dataframe that contains the variables the 'LAB_TSC' and 'LAB_HDL'
-# all the arguments are set to default in this example
-myvectors &lt;- c('D$LAB_TSC', 'D$LAB_HDL')
-ds.dataframe(x=myvectors)
+  # create a dataframe that contains the variables the 'LAB_TSC' and 'LAB_HDL'
+  # all the arguments are set to default in this example
+  myvectors &lt;- c('D$LAB_TSC', 'D$LAB_HDL')
+  ds.dataframe(x=myvectors)
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

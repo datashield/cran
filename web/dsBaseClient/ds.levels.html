@@ -62,23 +62,23 @@ function.
 <pre>
 {
 
-# load that contains the login details
-data(logindata)
+  # load that contains the login details
+  data(logindata)
 
-# login
-opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+  # login
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
 
-# Example 1: Get the levels of the PM_BMI_CATEGORICAL variable
-ds.levels(x='D$PM_BMI_CATEGORICAL')
+  # Example 1: Get the levels of the PM_BMI_CATEGORICAL variable
+  ds.levels(x='D$PM_BMI_CATEGORICAL')
 
-# Example 2: Get the levels of the LAB_TSC   SHOULD NOT WORK AS IT IS A CONTINUOUS VARIABLE
-## Not run:  ds.levels(x='D$LAB_TSC') 
+  # Example 2: Get the levels of the LAB_TSC   SHOULD NOT WORK AS IT IS A CONTINUOUS VARIABLE
+  ## Not run:  ds.levels(x='D$LAB_TSC') 
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

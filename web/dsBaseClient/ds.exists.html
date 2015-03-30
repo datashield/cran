@@ -65,29 +65,35 @@ FALSE otherwise
 </p>
 
 
+<h3>See Also</h3>
+
+<p>ds.class to check the type of an object.
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
 {
 
-# load the file that contains the login details
-data(logindata)
+  # load the file that contains the login details
+  data(logindata)
 
-# login and assign the required variables to R
-myvar &lt;- list("LAB_TSC")
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign the required variables to R
+  myvar &lt;- list("LAB_TSC")
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# assign 'LAB_TSC' in the dataframe D to a new variable 'labtsc'
-ds.assign(toAssign='D$LAB_TSC', newobj='labtsc')
+  # assign 'LAB_TSC' in the dataframe D to a new variable 'labtsc'
+  ds.assign(toAssign='D$LAB_TSC', newobj='labtsc')
 
-# now let us check if the variable 'labtsc' does now 'exist' on the server side
-ds.exists(x='labtsc')
+  # now let us check if the variable 'labtsc' does now 'exist' on the server side
+  ds.exists(x='labtsc')
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

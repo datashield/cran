@@ -27,10 +27,7 @@ Functions:
 * [datashield.logout](datashield.logout.html) Logout from Opal(s)
 * [datashield.method](datashield.method.html) Get Datashield method by its name
 * [datashield.methods](datashield.methods.html) List Datashield methods
-* [datashield.newSession](datashield.newSession.html) New Datashield session
 * [datashield.rm](datashield.rm.html) Remove a R symbol
-* [datashield.rmSessions](datashield.rmSessions.html) Remove Datashield sessions
-* [datashield.setSession](datashield.setSession.html) Set Datashield session
 * [datashield.symbols](datashield.symbols.html) List R symbols
 * [logindata](logindata.html) Information required to login to opal servers
 * [opal](opal.html) Opal Client for R
@@ -45,18 +42,13 @@ Functions:
 * [opal.datasources](opal.datasources.html) Get datasources from a opal.
 * [opal.execute](opal.execute.html) Execute a R script
 * [opal.file](opal.file.html) Get a file
-* [opal.getSessions](opal.getSessions.html) Get R sessions
 * [opal.login](opal.login.html) Opal login
 * [opal.logout](opal.logout.html) Logout from Opal(s)
-* [opal.newSession](opal.newSession.html) New R session
 * [opal.report](opal.report.html) Opal report
 * [opal.report_md](opal.report_md.html) Turn a R markdown file to html.
 * [opal.rm](opal.rm.html) Remove a R symbol (deprecated)
-* [opal.rmSession](opal.rmSession.html) Remove R session
-* [opal.rmSessions](opal.rmSessions.html) Remove all R sessions
 * [opal.rm_command](opal.rm_command.html) Remove an asynchronous command
 * [opal.rm_commands](opal.rm_commands.html) Remove all asynchronous commands
-* [opal.setSession](opal.setSession.html) Set R session
 * [opal.symbol_rm](opal.symbol_rm.html) Remove a R symbol
 * [opal.symbols](opal.symbols.html) List R symbols
 * [opal.table](opal.table.html) Get a table of a datasource from a opal.
@@ -67,5 +59,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.1.6/DESCRIPTION)
-* [opal 2.1.6](https://github.com/datashield/opal/tree/2.1.6)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.0/DESCRIPTION)
+* [opal 2.2.0](https://github.com/datashield/opal/tree/2.2.0)

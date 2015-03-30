@@ -26,5 +26,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsStats/3.0.0/DESCRIPTION)
-* [dsStats 3.0.0](https://github.com/datashield/dsStats/tree/3.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsStats/4.0.0/DESCRIPTION)
+* [dsStats 4.0.0](https://github.com/datashield/dsStats/tree/4.0.0)

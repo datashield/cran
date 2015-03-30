@@ -70,26 +70,39 @@ on the server side.
 </p>
 
 
+<h3>See Also</h3>
+
+<p>ds.asNumeric to turn a variable into a numeric type.
+</p>
+<p>ds.asFactor to turn a variable into a factor type.
+</p>
+<p>ds.asCharacter to turn a variable into a character
+type.
+</p>
+<p>ds.asList to construct an object of type list.
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
 {
 
-# load that contains the login details
-data(logindata)
+  # load that contains the login details
+  data(logindata)
 
-# login and assign all the stored variable(s)
-# (by default the assigned dataset is a dataframe named 'D')
-opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+  # login and assign all the stored variable(s)
+  # (by default the assigned dataset is a dataframe named 'D')
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
 
-# turn the data frame 'D' (default name of the dataframe assigned above) into a matrix
-ds.asMatrix(x='D')
+  # turn the data frame 'D' (default name of the dataframe assigned above) into a matrix
+  ds.asMatrix(x='D')
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

@@ -10,14 +10,16 @@
 
 <h3>Description</h3>
 
-<p>this is similar to the R base function 'cbind'
+<p>This is similar to the R base function <code>cbind</code> with
+the only differences that it allows to combine up to 5
+objects (vectors and/or table structures).
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-ds.cbind(x = NULL, newobj = NULL, datasources = NULL)
+ds.cbind(x = NULL, newobj = "newCbindObject", datasources = NULL)
 </pre>
 
 
@@ -26,14 +28,14 @@ ds.cbind(x = NULL, newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a vector which holds the names of the objects to
-combine</p>
+<p>a character vector, the name of the vector and
+or table to combine by column.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
 <p>the name of the output object. If this
 argument is set to <code>NULL</code>, the name of the new
-object is 'newDataframe'.</p>
+object is 'newCbindObject'.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -47,9 +49,7 @@ datasources.</p>
 
 <h3>Details</h3>
 
-<p>the function combines vectors or vectors and matrices or
-dataframes by columns. But unlike the R base function
-'cbind' the output is a dataframe.
+<p>see details of the R base function <code>cbind</code>.
 </p>
 
 
@@ -66,30 +66,47 @@ on the server side.
 </p>
 
 
+<h3>See Also</h3>
+
+<p>ds.dataframe to generate a table of type dataframe.
+</p>
+<p>ds.changeRefGroup to change the reference level of a
+factor.
+</p>
+<p>ds.colnames to obtain the column names of a matrix
+or a data frame
+</p>
+<p>ds.asMatrix to coerce an object into a matrix type.
+</p>
+<p>ds.dim to obtain the dimensions of matrix or a data
+frame.
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
 {
 
-# load the file that contains the login details
-data(logindata)
+  # load the file that contains the login details
+  data(logindata)
 
-# login and assign specific variables(s)
-# (by default the assigned dataset is a dataframe named 'D')
-myvar &lt;- list('LAB_TSC', 'LAB_HDL')
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign specific variables(s)
+  # (by default the assigned dataset is a dataframe named 'D')
+  myvar &lt;- list('LAB_TSC', 'LAB_HDL')
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# generate a new dataframe by combining the log values of 'LAB_TSC' and 'LAB_HDL', by columns
-ds.assign(toAssign='log(D$LAB_TSC)', newobj='labtsc')
-ds.assign(toAssign='log(D$LAB_HDL)', newobj='labhdl')
-myobjects &lt;- c('labtsc', 'labhdl')
-ds.cbind(x=myobjects)
+  # generate a new dataframe by combining the log values of
+  # 'LAB_TSC' and 'LAB_HDL', by columns
+  ds.assign(toAssign='log(D$LAB_TSC)', newobj='labtsc')
+  ds.assign(toAssign='log(D$LAB_HDL)', newobj='labhdl')
+  ds.cbind(x=c('labtsc','labhdl'), newobj="myDataframe")
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

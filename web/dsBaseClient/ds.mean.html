@@ -40,7 +40,7 @@ each study.</p>
 <td>
 <p>a list of opal object(s) obtained
 after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
+the data assign to R, as <code>data frame</code>, from opal
 datasources.</p>
 </td></tr>
 </table>
@@ -54,7 +54,7 @@ datasources.</p>
 
 <h3>Value</h3>
 
-<p>a mean value
+<p>a numeric
 </p>
 
 
@@ -64,29 +64,37 @@ datasources.</p>
 </p>
 
 
+<h3>See Also</h3>
+
+<p><code>ds.quantileMean</code> to compute quantiles.
+</p>
+<p><code>ds.summary</code> to generate the summary of a variable.
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
 {
 
-# load that contains the login details
-data(logindata)
+  # load that contains the login details
+  data(logindata)
 
-# login and assign specific variable(s)
-myvar &lt;- list('LAB_TSC')
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign specific variable(s)
+  myvar &lt;- list('LAB_TSC')
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# Example 1: compute the pooled statistical mean of the variable 'LAB_TSC' - default behaviour
-ds.mean(x='D$LAB_TSC')
+  # Example 1: compute the pooled statistical mean of the variable 'LAB_TSC' - default behaviour
+  ds.mean(x='D$LAB_TSC')
 
-# Example 2: compute the statistical mean of each study separately
-ds.mean(x='D$LAB_TSC', type='split')
+  # Example 2: compute the statistical mean of each study separately
+  ds.mean(x='D$LAB_TSC', type='split')
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

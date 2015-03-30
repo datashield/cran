@@ -10,8 +10,8 @@
 
 <h3>Description</h3>
 
-<p>The function ds.table2d is a client-side wrapper function.
-It calls the server-side subfunction table2dDS to generate
+<p>The function ds.table2D is a client-side wrapper function.
+It calls the server-side function 'table2dDS' to generate
 2-dimensional tables for all data sources.
 </p>
 
@@ -19,13 +19,42 @@ It calls the server-side subfunction table2dDS to generate
 <h3>Usage</h3>
 
 <pre>
-ds.table2D(x = NULL, y = NULL, type = "combine", datasources = NULL)
+ds.table2D(x = NULL, y = NULL, type = "combine", warningMessage = TRUE,
+  datasources = NULL)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character, the name of a numerical vector with
+discrete values - usually a factor.</p>
+</td></tr>
+<tr valign="top"><td><code>y</code></td>
+<td>
+<p>a character, the name of a numerical vector with
+discrete values - usually a factor.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>a character which represent the type of table
+to ouput: pooled table or one table for each data source.
+If <code>type</code> is set to 'combine', a pooled
+2-dimensional table is returned; if If <code>type</code> is set
+to 'split' a 2-dimensional table is returned for each
+data source.</p>
+</td></tr>
+<tr valign="top"><td><code>warningMessage</code></td>
+<td>
+<p>a boolean, if set to TRUE (deafult)
+a warning is displayed if any returned table is invalid.
+Warning messages are suppressed if this parameter is set
+to FALSE. However the analyst can still view 'validity'
+information which are stored in the output object
+'validity' - see the list of output objects.</p>
+</td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
 <p>a list of opal object(s) obtained
@@ -33,126 +62,72 @@ after login in to opal servers; these objects hold also
 the data assign to R, as <code>dataframe</code>, from opal
 datasources.</p>
 </td></tr>
-<tr valign="top"><td><code>x</code></td>
-<td>
-<p>a numerical vector with discrete values -
-usually a factor</p>
-</td></tr>
-<tr valign="top"><td><code>y</code></td>
-<td>
-<p>a numerical vector with discrete values -
-usually a factor</p>
-</td></tr>
-<tr valign="top"><td><code>type</code></td>
-<td>
-<p>a character which represent the type of graph
-to display If <code>type</code> is set to 'combine', a
-histogram that merges the single plot is displayed. Each
-histogram is plotted separately if If <code>type</code> is set
-to 'split'.</p>
-</td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Valid (non-disclosive) data are defined as data from
-sources where no table cells have counts between 1 and the
-minimal number agreed by the data owner. This threshold
-(e.g. 5) can in principle be changed but only by amended
-the underlying function installed on the data owner server-
-hence out of reach of the standard DataSHIELD user). If the
-count in any cell in the table produced by a given data
-source is invalid, that cell count is changed to &quot;-1&quot; and
-the name of the two that correspond to it are both changed
-to '-9'. To avoid infering that invalid count from the rest
-of the cells the total count same row and the same columns
-are also blanked out by setting them to -1. Each source is
-flagged as having only valid data, or at least some invalid
-data. The function ds.table2d prints out counts, column
-percents, row percents, global percents and a chi-squared
-test for homogeneity on (nc-1)*(nr-1) degrees of freedom
-where nc is the number of columns and nr is the number of
-rows. These calaculations are done separately for each
-source and, in addition, all valid sources are combined to
-produce a single overarching contingency for all valid data
-collectively. Missing data are treated as na.action=na.omit
-(default for table function), if missing data are to be
-treated as a separate and visible category, the variable
-should first be transformed to convert NAs to the a new
-value.
+<p>The table returned by the server side function might be
+valid (non disclosive - no table cell have counts between 1
+and the minimal number agreed by the data owner and set in
+opal) or invalid (potentially disclosive - one or more
+table cells have a count between 1 and the minimal number
+agreed by the data owner). If a 2-dimensional table is
+invalid all the cells are set to NA except the total count.
+This way it is possible the know the total count and
+combine total counts across data sources but it is not
+possible to identify the cell(s) that had the small counts
+which render the table invalid.
 </p>
 
 
 <h3>Value</h3>
 
-<p>A list object containing the following items (depending on
-the type of analysis specified - 'combined' or 'split- some
-of these items may not be returned):
+<p>A list object containing the following items:
 </p>
 <table summary="R valueblock">
-<tr valign="top"><td><code>OPALS.DATA.OVERVIEW</code></td>
+<tr valign="top"><td><code>counts</code></td>
 <td>
-<p>For each study contains
-$study.name (ie name of study), $is.table.valid (TRUE if
-all cells valid otherwise FALSE), $safe.table (the safe
-contingency table that contains all cells if all are valid,
-but otherwise obscures invalid cells by outputting a cell
-count of &quot;-1&quot; and making the two category indicators for
-that cell = &quot;-9&quot;. In other words OPALS.DATA.OVERVIEW
-provides the information generated by the server side
-subfunction table2dDS on its own.</p>
+<p> table(s) that hold counts for each
+level/category. If some cells counts are invalid (see
+'Details' section) only the total (outer) cell counts are
+displayed in the returned individual study tables or in the
+pooled table.</p>
+</td></tr> <tr valign="top"><td><code>rowPercent</code></td>
+<td>
+<p> table(s) that hold row
+percentages for each level/category. Inner cells are
+reported as missing if one or more cells are 'invalid'.</p>
 </td></tr>
-<tr valign="top"><td><code>ALL.VALID.TABLES.BY.STUDY</code></td>
+<tr valign="top"><td><code>colPercent</code></td>
 <td>
-<p>Counts, column percents,
-row percents and global percents for each study separately
-(if separate.and.combined.studies=TRUE) and for all valid
-studies combined</p>
+<p> table(s) that hold column percentages
+for each level/category. Inner cells are reported as
+missing if one or more cells are 'invalid'.</p>
 </td></tr>
-<tr valign="top"><td><code>CHI2.TESTS.FOR.HOMOGENEITY</code></td>
+<tr valign="top"><td><code>chi2Test</code></td>
 <td>
-<p>Chi-squared test for
-homogeneity, for each study separately (if
-separate.and.combined.studies=TRUE) and for all valid
-studies combined</p>
-</td></tr> <tr valign="top"><td><code>VALIDITY.WARNING - IF
-NEEDED</code></td>
-<td>
-<p>Either reports that all studies are valid, or else
-lists the studies that contain at least one cell that is
-invalid, or else reports &quot;NO STUDIES HAVE VALID DATA - SO
-NO ATTEMPT TO COMBINE&quot;</p>
-</td></tr> <tr valign="top"><td><code>TABLES.VALID.DATA.COUNTS</code></td>
-<td>
-<p>If
-all.output.configurations=TRUE, cell counts, for each study
-separately and for all valid studies combined</p>
+<p>Chi-squared test for homogeneity.</p>
 </td></tr>
-<tr valign="top"><td><code>TABLES.VALID.DATA.COLUMN.PERCENTS</code></td>
+<tr valign="top"><td><code>validity</code></td>
 <td>
-<p>If
-all.output.configurations=TRUE, column percents, for each
-study separately and for all valid studies combined</p>
-</td></tr>
-<tr valign="top"><td><code>TABLES.VALID.DATA.ROW.PERCENTS</code></td>
-<td>
-<p>If
-all.output.configurations=TRUE, row percents, for each
-study separately and for all valid studies combined</p>
-</td></tr>
-<tr valign="top"><td><code>TABLES.VALID.DATA.GLOBAL.PERCENTS</code></td>
-<td>
-<p>If
-all.output.configurations=TRUE, global percents, for each
-study separately and for all valid studies combined</p>
+<p> a text that informs the analyst about the
+validity of the output tables. If any tables are invalid
+the studies they are originated from are also mentioned in
+the text message.</p>
 </td></tr>
 </table>
 
 
 <h3>Author(s)</h3>
 
-<p>Burton P.; Gaye, A.
+<p>Gaye, A.; Burton, P.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>ds.table1D for the tabulating one vector.
 </p>
 
 
@@ -161,40 +136,53 @@ study separately and for all valid studies combined</p>
 <pre>
 {
 
-# load the file that contains the login details
-data(logindata)
+  # load the file that contains the login details
+  data(logindata)
 
-# login and assign the required variables to R
-myvar  &lt;-  list('DIS_DIAB', 'DIS_CVA', 'GENDER', 'LAB_HDL')
-opals  &lt;-  datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign all the variables to R
+  opals  &lt;-  datashield.login(logins=logindata,assign=TRUE)
 
-# Example 1: generate a two dimensional table, outputting combined contingency tables - default behaviour
-ds.table2D(x='D$DIS_DIAB', y='D$GENDER')
+  # Example 1: generate a two dimensional table, outputting combined contingency tables - default behaviour
+  output &lt;- ds.table2D(x='D$DIS_DIAB', y='D$GENDER')
+  # display the 5 results items, one at a time to avoid having too much information displayed at the same time
+  output$counts
+  output$rowPercent
+  output$colPercent
+  output$chi2Test
+  output$validity
 
-# Example 2: generate a two dimensional table, outputting study specific contingency tables
-ds.table2D(x='D$DIS_DIAB', y='D$GENDER', type='split')
+  # Example 2: generate a two dimensional table, outputting study specific contingency tables
+  ds.table2D(x='D$DIS_DIAB', y='D$GENDER', type='split')
+  # display the 5 results items, one at a time to avoid having too much information displayed at the same time
+  output$counts
+  output$rowPercent
+  output$colPercent
+  output$chi2Test
+  output$validity
 
-# Example 3: generate a two dimensional table, outputting combined contingency tables
-# (in this case some studies are invalid)
-ds.table2D(x='D$DIS_CVA', y='D$GENDER')
+  # Example 3: generate a two dimensional table, outputting combined contingency tables
+  # *** this example shows what happens when one or studies return an invalis table ***
+  output &lt;- ds.table2D(x='D$DIS_CVA', y='D$GENDER')
+  output$counts
+  output$rowPercent
+  output$colPercent
+  output$chi2Test
+  output$validity
 
-# Example 4: generate a two dimensional table, outputting study specific contingency tables
-# (in this case some studies are invalid)
-ds.table2D(x='D$DIS_CVA', y='D$GENDER', type='split')
-# Example 6: generate a two dimensional table, outputting study specific and combined contingency tables,
-# see what happens if you try to tabulate a quantitative variable with unique values for many individuals.
-# The standard table() function in R would print out all observed 'values' as category names in ascending
-# order with a count (generally 1) for each unique number, but ds.table2d prints out all values where
-# there are between 1 and 4 observations as -1 and gives the category name -9. It is only when the count is
-# equal greater than the set threshold (e.g. 5) that the actual value can be observed.
-ds.table2D(x ='D$GENDER', y='D$LAB_HDL')
-ds.table2D(x ='D$GENDER', y='D$LAB_HDL', type='split')
+  # Example 4: same example as above but output is given for each study, separately (i.e. type='split')
+  # *** this example shows what happens when one or studies return an invalis table ***
+  output &lt;- ds.table2D(x='D$DIS_CVA', y='D$GENDER', type='split')
+  output$counts
+  output$rowPercent
+  output$colPercent
+  output$chi2Test
+  output$validity
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

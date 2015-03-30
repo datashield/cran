@@ -19,7 +19,8 @@
 
 <pre>
 dataframeDS(vectors = NULL, r.names = NULL, ch.rows = FALSE,
-  ch.names = TRUE, clnames = NULL, strAsFactors = TRUE)
+  ch.names = TRUE, clnames = NULL, strAsFactors = TRUE,
+  completeCases = FALSE)
 </pre>
 
 
@@ -31,10 +32,10 @@ dataframeDS(vectors = NULL, r.names = NULL, ch.rows = FALSE,
 <p>a list which contains the vectors to
 combine.</p>
 </td></tr>
-<tr valign="top"><td><code>row.names</code></td>
+<tr valign="top"><td><code>r.names</code></td>
 <td>
-<p>NULL or a character vector specifying
-the names of the rows.</p>
+<p>NULL or a character vector specifying the
+names of the rows.</p>
 </td></tr>
 <tr valign="top"><td><code>ch.rows</code></td>
 <td>
@@ -58,6 +59,11 @@ the output data frame.</p>
 <p>logical, tells if character vectors
 should be converted to factors?</p>
 </td></tr>
+<tr valign="top"><td><code>completeCases</code></td>
+<td>
+<p>a boolean that tells if only
+complete cases should be included or not.</p>
+</td></tr>
 </table>
 
 
@@ -79,5 +85,5 @@ is not valid.
 <p>Gaye, A.
 </p>
 
-<hr><div align="center">[Package <em>dsBase</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBase</em> version 4.0.0 ]</div>
 </body></html>

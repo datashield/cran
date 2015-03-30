@@ -65,30 +65,43 @@ on the server side.
 </p>
 
 
+<h3>See Also</h3>
+
+<p>ds.asFactor to turn a variable into a factor type.
+</p>
+<p>ds.asList to contruct an object of type list.
+</p>
+<p>ds.asCharacter to turn a variable into a character
+type.
+</p>
+<p>ds.asMatrix to coerce an object into a matrix type.
+</p>
+
+
 <h3>Examples</h3>
 
 <pre>
 {
 
-# load that contains the login details
-data(logindata)
+  # load that contains the login details
+  data(logindata)
 
-# login and assign specific variable(s)
-# (by default the assigned dataset is a dataframe named 'D')
-myvar &lt;- list("GENDER")
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign specific variable(s)
+  # (by default the assigned dataset is a dataframe named 'D')
+  myvar &lt;- list("GENDER")
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# turn the factor variable 'GENDER' into a character vector
-ds.asCharacter(x='D$GENDER', newobj="gender_ch")
+  # turn the factor variable 'GENDER' into a character vector
+  ds.asCharacter(x='D$GENDER', newobj="gender_ch")
 
-# now turn the newly created vector 'gender_ch' into a numeric
-ds.asNumeric(x='gender_ch', newobj="gender_nm")
+  # now turn the newly created vector 'gender_ch' into a numeric
+  ds.asNumeric(x='gender_ch', newobj="gender_nm")
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

@@ -1,51 +1,74 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>R: Fits a Generalized Linear Model (GLM) model</title>
+<html><head><title>R: Runs a combined GLM analysis of non-pooled data</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../../assets/R.css">
 </head><body>
 
 <table width="100%" summary="page for ds.glm {dsModellingClient}"><tr><td>ds.glm {dsModellingClient}</td><td align="right">R Documentation</td></tr></table>
 
-<h2>Fits a Generalized Linear Model (GLM) model</h2>
+<h2>Runs a combined GLM analysis of non-pooled data</h2>
 
 <h3>Description</h3>
 
-<p>A function that fits generalized linear models
+<p>A function fit generalized linear models
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-ds.glm(x = NULL, formula = NULL, family = NULL, startCoeff = NULL,
-  maxit = 15, CI = 0.95, viewIter = FALSE, datasources = NULL)
+ds.glm(formula = NULL, data = NULL, family = NULL, startBetas = NULL,
+  offset = NULL, weights = NULL, checks = FALSE, maxit = 15,
+  CI = 0.95, viewIter = FALSE, datasources = NULL)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>x</code></td>
-<td>
-<p>the name if any of the data frame that hold the
-variables in the regression formula</p>
-</td></tr>
 <tr valign="top"><td><code>formula</code></td>
 <td>
-<p>an object of class <code>formula</code> which
-describes the model to be fitted</p>
+<p>a character, a formula which describes the
+model to be fitted</p>
 </td></tr>
 <tr valign="top"><td><code>family</code></td>
 <td>
-<p>a character, the description of the error
-distribution function to use in the model</p>
+<p>a description of the error distribution
+function to use in the model</p>
 </td></tr>
-<tr valign="top"><td><code>startCoeff</code></td>
+<tr valign="top"><td><code>startBetas</code></td>
 <td>
-<p>a numeric vector, the starting values
-for the beta coefficients. If starting values are not
-provided they are set to 0 for each beta at the start of
-the iterations.</p>
+<p>starting values for the parameters in
+the linear predictor</p>
+</td></tr>
+<tr valign="top"><td><code>offset</code></td>
+<td>
+<p>a character, null or a numeric vector that
+can be used to specify an a priori known component to be
+included in the linear predictor during fitting.</p>
+</td></tr>
+<tr valign="top"><td><code>weights</code></td>
+<td>
+<p>a character, the name of an optional
+vector of 'prior weights' to be used in the fitting
+process. Should be NULL or a numeric vector.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>a character, the name of an optional data
+frame containing the variables in in the <code>formula</code>.
+The process stops if a non existing data frame is
+indicated.</p>
+</td></tr>
+<tr valign="top"><td><code>checks</code></td>
+<td>
+<p>a boolean, if TRUE (default) checks that
+takes 1-3min are carried out to verify that the variables
+in the model are defined (exist) on the server site and
+that they have the correct characteristics required to
+fit a GLM. The default value is FALSE because checks
+lengthen the runtime and are mainly meant to be # used as
+help to look for causes of eventual errors.</p>
 </td></tr>
 <tr valign="top"><td><code>maxit</code></td>
 <td>
@@ -54,7 +77,7 @@ instructions to each computer requesting non-disclosing
 summary statistics. The summaries are then combined to
 estimate the parameters of the model; these parameters
 are the same as those obtained if the data were
-'physically' pooled</p>
+'physically' pooled.</p>
 </td></tr>
 <tr valign="top"><td><code>CI</code></td>
 <td>
@@ -65,14 +88,14 @@ are the same as those obtained if the data were
 <p>a boolean, tells whether the results of
 the intermediate iterations should be printed on screen
 or not. Default is FALSE (i.e. only final results are
-shown)</p>
+shown).</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
 <p>a list of opal object(s) obtained
 after login to opal servers; these objects also hold the
 data assigned to R, as a <code>dataframe</code>, from opal
-datasources</p>
+datasources.</p>
 </td></tr>
 </table>
 
@@ -80,11 +103,7 @@ datasources</p>
 <h3>Details</h3>
 
 <p>It enables a parallelized analysis of individual-level data
-sitting on distinct servers by sending commands to each
-data computer to fit a regression model. The estimates
-returned are then combined and updated coefficients
-estimate sent back for a new fit. This iterative process
-goes on until convergence is achieved.
+sitting on distinct servers by sending
 </p>
 
 
@@ -97,13 +116,13 @@ the final iteration of the IWLS fit.
 </p>
 <p>fitted.values the fitted mean values, obtained by
 transforming the linear predictors by the inverse of the
-link function
+link function.
 </p>
-<p>rank the numeric rank of the fitted linear model
+<p>rank the numeric rank of the fitted linear model.
 </p>
-<p>family the <code>family</code> object used
+<p>family the <code>family</code> object used.
 </p>
-<p>linear.predictors the linear fit on link scale
+<p>linear.predictors the linear fit on link scale.
 </p>
 <p>aic A version of Akaike's An Information Criterion, which
 tells how well the model fits
@@ -116,12 +135,12 @@ tells how well the model fits
 </p>
 
 
-<h3>References</h3>
+<h3>See Also</h3>
 
-<p>Jones EM, 'DataSHIELD-shared individual-level analysis
-without sharing the data: a biostatistical perspective',
-Norsk epidemiologi - Norwegian journal of epidemiology
-2012;21(2): 231-9.
+<p>ds.lexis for survival analysis using piecewise
+exponential regression
+</p>
+<p>ds.gee for generalized estimating equation models
 </p>
 
 
@@ -130,30 +149,36 @@ Norsk epidemiologi - Norwegian journal of epidemiology
 <pre>
 {
 
-# load the file that contains the login details
-data(logindata)
+ # load the file that contains the login details
+ data(glmLoginData)
 
-# login and assign some variables to R
-myvar &lt;- list('DIS_DIAB', 'PM_BMI_CONTINUOUS', 'LAB_HDL', 'PM_BMI_CATEGORICAL', 'GENDER')
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+ # login and assign all the variables to R
+ opals &lt;- datashield.login(logins=glmLoginData, assign=TRUE)
 
-# Example 1: run a GLM without interaction (e.g. diabetes prediction using BMI and HDL levels and GENDER)
-mod &lt;- ds.glm(x='D', formula=D$DIS_DIAB~D$PM_BMI_CONTINUOUS+D$LAB_HDL+D$GENDER,family='binomial')
+ # Example 1: run a GLM without interaction (e.g. diabetes prediction using BMI and HDL levels and GENDER)
+ mod &lt;- ds.glm(formula='D$DIS_DIAB~D$GENDER+D$PM_BMI_CONTINUOUS+D$LAB_HDL', family='binomial')
+ mod
+ # Example 2: run the above GLM model without an intercept
+ # (produces separate baseline estimates for Male and Female)
+ mod &lt;- ds.glm(formula='D$DIS_DIAB~0+D$GENDER+D$PM_BMI_CONTINUOUS+D$LAB_HDL', family='binomial')
+ mod
+ # Example 3: run the above GLM with interaction between GENDER and PM_BMI_CONTINUOUS
+ mod &lt;- ds.glm(formula='D$DIS_DIAB~D$GENDER*D$PM_BMI_CONTINUOUS+D$LAB_HDL', family='binomial')
+ mod
+ # Example 4: Fit a standard Gaussian linear model with an interaction
+ mod &lt;- ds.glm(formula='D$PM_BMI_CONTINUOUS~D$DIS_DIAB*D$GENDER+D$LAB_HDL', family='gaussian')
+ mod
+ # Example 5: now run a GLM where the error follows a poisson distribution
+ # P.S: A poisson model requires a numeric vector as outcome so in this example we first convert
+ # the categorical BMI, which is of type 'factor', into a numeric vector
+ ds.asNumeric('D$PM_BMI_CATEGORICAL','BMI.123')
+ mod &lt;- ds.glm(formula='BMI.123~D$PM_BMI_CONTINUOUS+D$LAB_HDL+D$GENDER', family='poisson')
+ mod
 
-# Example 2: run the above GLM model with an intercept (eg. intercept = 1)
-mod &lt;- ds.glm(x='D', formula=D$DIS_DIAB~1+D$PM_BMI_CONTINUOUS+D$LAB_HDL+D$GENDER,family='binomial')
-
-# Example 3: run the above GLM with interaction HDL and GENDER
-mod &lt;- ds.glm(x='D', formula=D$DIS_DIAB~D$PM_BMI_CONTINUOUS+D$LAB_HDL*D$GENDER,family='binomial')
-
-# Example 4: now run a GLM but with interaction where the error follows a poisson distribution
-mod &lt;- ds.glm(x='D', formula=D$PM_BMI_CATEGORICAL~D$PM_BMI_CONTINUOUS+D$LAB_HDL+D$GENDER,family='poisson')
-
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
-
+ # clear the Datashield R sessions and logout
+ datashield.logout(opals)
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsModellingClient</em> version 3.0.0 ]</div>
+<hr><div align="center">[Package <em>dsModellingClient</em> version 4.0.0 ]</div>
 </body></html>

@@ -75,21 +75,21 @@ on the server side.
 <pre>
 {
 
-# load that contains the login details
-data(logindata)
+  # load that contains the login details
+  data(logindata)
 
-# login and assign specific variable(s)
-myvar &lt;- list("LAB_TSC")
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  # login and assign specific variable(s)
+  myvar &lt;- list("LAB_TSC")
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# Compute natural logarithm of LAB_TSC
-ds.log(x='D$LAB_TSC')
+  # Compute natural logarithm of LAB_TSC
+  ds.log(x='D$LAB_TSC')
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>

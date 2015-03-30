@@ -71,22 +71,22 @@ on the server side.
 <pre>
 {
 
-# load the file that contains the login details
-data(logindata)
+ # load the file that contains the login details
+ data(logindata)
 
-# login and assign the required variables to R
-myvar &lt;- list("LAB_TSC","LAB_HDL")
-opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+ # login and assign the required variables to R
+ myvar &lt;- list("LAB_TSC","LAB_HDL")
+ opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-# combine the 'LAB_TSC' and 'LAB_HDL' variables into a list
-myobjects &lt;- c('D$LAB_TSC', 'D$LAB_HDL')
-ds.list(x=myobjects)
+ # combine the 'LAB_TSC' and 'LAB_HDL' variables into a list
+ myobjects &lt;- c('D$LAB_TSC', 'D$LAB_HDL')
+ ds.list(x=myobjects)
 
-# clear the Datashield R sessions and logout
-datashield.logout(opals)
+ # clear the Datashield R sessions and logout
+ datashield.logout(opals)
 
 }
 </pre>
 
-<hr><div align="center">[Package <em>dsBaseClient</em> version 3.0.1 ]</div>
+<hr><div align="center">[Package <em>dsBaseClient</em> version 4.0.0 ]</div>
 </body></html>
