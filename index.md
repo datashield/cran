@@ -19,7 +19,7 @@ Server side install:
 
 	# Login in Opal
 	library(opaladmin)
-	o<-opal.login('dsadmin', 'password', 'https://some-opal-host:8443',opts=list(ssl.verifyhost=0,ssl.verifypeer=0,sslversion=3))
+	o<-opal.login('dsadmin', 'password', 'https://some-opal-host:8443')
 
 	# Install all DataSHIELD packages and dependencies on R server
 	dsadmin.install_package(o, 'datashield')
