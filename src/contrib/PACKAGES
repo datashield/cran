@@ -47,10 +47,10 @@ AssignMethods: log=base::log, c=base::c, cDS, unlist=base::unlist,
         rep=base::rep
 
 Package: dsBaseClient
-Version: 4.0.0
+Version: 4.0.1
 Depends: opal, fields
 License: GPL-3
-MD5sum: 667ddc6a5830368e81fdc01eed5d225a
+MD5sum: 9dc8b7b7e30533ed950cb3af90f8899b
 NeedsCompilation: no
 Title: DataSHIELD base functions for the client site
 Description: DataSHIELD base functions for the client site
