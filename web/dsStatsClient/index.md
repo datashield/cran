@@ -36,5 +36,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsStatsClient/4.0.0/DESCRIPTION)
-* [dsStatsClient 4.0.0](https://github.com/datashield/dsStatsClient/tree/4.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsStatsClient/4.1.0/DESCRIPTION)
+* [dsStatsClient 4.1.0](https://github.com/datashield/dsStatsClient/tree/4.1.0)

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: Check Datashield configuration status</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../assets/R.css">
+</head><body>
+
+<table width="100%" summary="page for datashield.status {opal}"><tr><td>datashield.status {opal}</td><td align="right">R Documentation</td></tr></table>
+
+<h2>Check Datashield configuration status</h2>
+
+<h3>Description</h3>
+
+<p>TODO
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+  datashield.status(logins = NULL, study = NULL,
+    directory = "~/.ssh")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>logins</code></td>
+<td>
+<p>A dataframe table that holds login details.
+This table holds five elements required to login to the
+servers where the data to analyse is stored. The expected
+column names are 'server' (the server name), 'url' (the
+opal url), 'user' (the user name or the certificate file
+path), 'password' (the user password or the private key
+file path), 'table' (the fully qualified name of the
+table in opal). An additional column 'identifiers' can be
+specified for identifiers mapping (from Opal 2.0). See
+also the documentation of the examplar input table
+<code>logindata</code> for details of the login elements.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Get the status of the table(s), method(s), and
+packgage(s) in differents Opals servers.
+</p>
+
+
+<h3>Value</h3>
+
+<p>TODO
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Mbatchou, S.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+
+#### The below examples illustrate an analysises that use test/simulated data ####
+
+# build your data.frame
+server &lt;- c("study1", "study2")
+url &lt;- c("https://some.opal.host:8443","https://another.opal.host")
+user &lt;- c("user1", "datashield-certificate.pem")
+password &lt;- c("user1pwd", "datashield-private.pem")
+table &lt;- c("store.Dataset","foo.DS")
+logindata &lt;- data.frame(server,url,user,password,table)
+
+# or load the data.frame that contains the login details
+data(logindata)
+
+# Example 1: just login (default)
+opals &lt;- datashield.login(logins=logindata)
+
+# Example 2: login and assign the whole dataset
+opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+
+# Example 3: login and assign specific variable(s)
+myvar &lt;- list("LAB_TSC")
+opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+}
+</pre>
+
+<hr><div align="center">[Package <em>opal</em> version 2.2.1 ]</div>
+</body></html>
