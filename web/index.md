@@ -82,8 +82,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/4.0.0/DESCRIPTION)
-* [dsBaseClient 4.0.0](https://github.com/datashield/dsBaseClient/tree/4.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/4.0.1/DESCRIPTION)
+* [dsBaseClient 4.0.1](https://github.com/datashield/dsBaseClient/tree/4.0.1)
 
 
 ### dsModellingClient

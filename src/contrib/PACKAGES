@@ -47,10 +47,10 @@ AssignMethods: log=base::log, c=base::c, cDS, unlist=base::unlist,
         rep=base::rep
 
 Package: dsBaseClient
-Version: 4.0.1
+Version: 4.1.0
 Depends: opal, fields
 License: GPL-3
-MD5sum: 9dc8b7b7e30533ed950cb3af90f8899b
+MD5sum: 8b03ba2bad8ef8af1ab6e9d99ff9b7e7
 NeedsCompilation: no
 Title: DataSHIELD base functions for the client site
 Description: DataSHIELD base functions for the client site
@@ -114,10 +114,10 @@ AggregateMethods: t.test=stats::t.test, varDS,
         cor.test=stats::cor.test, corDS, covDS
 
 Package: dsStatsClient
-Version: 4.0.0
+Version: 4.1.0
 Depends: opal, dsBaseClient
 License: GPL-3
-MD5sum: 4b7f331df23a16882b45d188065c2cf1
+MD5sum: 96ce8e23a1237c10e2adb76fa40926fd
 NeedsCompilation: no
 Title: DataSHIELD client site stattistical functions
 Description: DataSHIELD client site stattistical functions
