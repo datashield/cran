@@ -10,7 +10,7 @@ tagline: dsModellingClient Package Documentation
 Installation command:
 
 	# Install dsModellingClient package (client side)
-	install.packages('dsModellingClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsModellingClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 

@@ -10,7 +10,7 @@ tagline: dsBaseClient Package Documentation
 Installation command:
 
 	# Install dsBaseClient package (client side)
-	install.packages('dsBaseClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsBaseClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 

@@ -10,7 +10,7 @@ tagline: dsStatsClient Package Documentation
 Installation command:
 
 	# Install dsStatsClient package (client side)
-	install.packages('dsStatsClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsStatsClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 

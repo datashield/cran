@@ -10,7 +10,7 @@ tagline: opaladmin Package Documentation
 Installation command:
 
 	# Install opaladmin package (client side)
-	install.packages('opaladmin', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('opaladmin', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 

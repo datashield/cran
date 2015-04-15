@@ -10,7 +10,7 @@ tagline: opal Package Documentation
 Installation command:
 
 	# Install opal package (client side)
-	install.packages('opal', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('opal', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 
@@ -66,5 +66,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.1/DESCRIPTION)
-* [opal 2.2.1](https://github.com/datashield/opal/tree/2.2.1)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.2/DESCRIPTION)
+* [opal 2.2.2](https://github.com/datashield/opal/tree/2.2.2)

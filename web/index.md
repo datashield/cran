@@ -18,7 +18,7 @@ tagline: DataSHIELD Packages Documentation
 Installation command:
 
 	# Install dsBaseClient package (client side)
-	install.packages('dsBaseClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsBaseClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 
@@ -91,7 +91,7 @@ Sources:
 Installation command:
 
 	# Install dsModellingClient package (client side)
-	install.packages('dsModellingClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsModellingClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 
@@ -128,7 +128,7 @@ Sources:
 Installation command:
 
 	# Install dsStatsClient package (client side)
-	install.packages('dsStatsClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsStatsClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 
@@ -163,7 +163,7 @@ Sources:
 Installation command:
 
 	# Install dsGraphicsClient package (client side)
-	install.packages('dsGraphicsClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsGraphicsClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 
@@ -192,7 +192,7 @@ Sources:
 Installation command:
 
 	# Install opal package (client side)
-	install.packages('opal', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('opal', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 
@@ -248,8 +248,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.1/DESCRIPTION)
-* [opal 2.2.1](https://github.com/datashield/opal/tree/2.2.1)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.2/DESCRIPTION)
+* [opal 2.2.2](https://github.com/datashield/opal/tree/2.2.2)
 
 
 ### opaladmin
@@ -257,7 +257,7 @@ Sources:
 Installation command:
 
 	# Install opaladmin package (client side)
-	install.packages('opaladmin', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('opaladmin', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 

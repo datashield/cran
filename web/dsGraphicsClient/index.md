@@ -10,7 +10,7 @@ tagline: dsGraphicsClient Package Documentation
 Installation command:
 
 	# Install dsGraphicsClient package (client side)
-	install.packages('dsGraphicsClient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
+	install.packages('dsGraphicsClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
 
 Functions:
 
