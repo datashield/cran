@@ -35,6 +35,7 @@ Functions:
 * [datashield.table_status](datashield.table_status.html) Status of table(s) in Opal(s)
 * [logindata](logindata.html) Information required to login to opal servers
 * [opal](opal.html) Opal Client for R
+* [opal.as_md_table](opal.as_md_table.html) Array to Markdown
 * [opal.assign](opal.assign.html) Data assignment
 * [opal.attribute_values](opal.attribute_values.html) Get a vector of values (for each locale) matching the given attribute namespace and name. Vector is null if no such attribute is found.
 * [opal.command](opal.command.html) Get an asynchronous command
@@ -66,5 +67,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.2/DESCRIPTION)
-* [opal 2.2.2](https://github.com/datashield/opal/tree/2.2.2)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.3/DESCRIPTION)
+* [opal 2.2.3](https://github.com/datashield/opal/tree/2.2.3)
