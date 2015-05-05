@@ -249,8 +249,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.3/DESCRIPTION)
-* [opal 2.2.3](https://github.com/datashield/opal/tree/2.2.3)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.4/DESCRIPTION)
+* [opal 2.2.4](https://github.com/datashield/opal/tree/2.2.4)
 
 
 ### opaladmin
