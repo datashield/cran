@@ -16,7 +16,7 @@
 <h3>Usage</h3>
 
 <pre>
-glmDS1(formula, family, beta.vect, data)
+glmDS1(formula, family, data)
 </pre>
 
 
@@ -29,35 +29,30 @@ glmDS1(formula, family, beta.vect, data)
 </td></tr>
 <tr valign="top"><td><code>family</code></td>
 <td>
-<p>a character, description of the error
-distribution and link function to used in the model.</p>
-</td></tr>
-<tr valign="top"><td><code>beta.vect</code></td>
-<td>
-<p>a string character: the starting values
-for the parameters in the linear predictor.</p>
+<p>a character, description of the error distribution and link function to used in the model.</p>
 </td></tr>
 <tr valign="top"><td><code>data</code></td>
 <td>
-<p>a character, the name of an optional data
-frame containing the variables in in the <code>formula</code>.</p>
+<p>a character, the name of an optional data frame containing the variables in
+in the <code>formula</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>beta.vect</code></td>
+<td>
+<p>a string character: the starting values for the parameters in the linear predictor.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>This function cannot be called through
-'datashield.aggregate' like other aggregate functions It is
-only called from within the client function <code>ds.glm</code>
-in the package <code>dsModellingClient</code>
+<p>This function cannot be called through 'datashield.aggregate' like other aggregate functions
+It is only called from within the client function <code>ds.glm</code> in the package <code>dsModellingClient</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>a list which contains: the fitted <code>family</code>, a score
-vector and an information matrix
+<p>a list which contains: the fitted <code>family</code>, a score vector and an information matrix
 </p>
 
 
@@ -66,5 +61,5 @@ vector and an information matrix
 <p>Gaye, A.; Burton, P.; Laflamme, P.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsModelling</em> version 4.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsModelling</em> version 4.1.0 ]</div>
 </body></html>

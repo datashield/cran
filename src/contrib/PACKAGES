@@ -79,10 +79,10 @@ Description: DataSHIELD client site functions for graphics
 Author: <datashield@obiba.org>
 
 Package: dsModelling
-Version: 4.0.0
+Version: 4.1.0
 Depends: nlme, dsBase
 License: GPL-3
-MD5sum: 9496a07efb8be9abb14d5d9deb82fb89
+MD5sum: 1035f03260e69dd53c58293f2df02137
 NeedsCompilation: no
 Title: DataSHIELD server site functions for statistical modelling
 Description: DataSHIELD server site functions for statistical modelling
@@ -92,10 +92,10 @@ AggregateMethods: glmDS1, glmDS2, alphaPhiDS, scoreVectDS,
 AssignMethods: lexisDS
 
 Package: dsModellingClient
-Version: 4.0.0
+Version: 4.1.0
 Depends: opal, dsBaseClient
 License: GPL-3
-MD5sum: 6eb49a6e44fe4d880742c9dd3f4d223c
+MD5sum: 86608f4df5524ee21518cfda8777f635
 NeedsCompilation: no
 Title: DataSHIELD client site functions for statistical modelling
 Description: DataSHIELD client site functions for statistical modelling

@@ -16,9 +16,9 @@
 <h3>Usage</h3>
 
 <pre>
-ds.glm(formula = NULL, data = NULL, family = NULL, startBetas = NULL,
-  offset = NULL, weights = NULL, checks = FALSE, maxit = 15,
-  CI = 0.95, viewIter = FALSE, datasources = NULL)
+ds.glm(formula = NULL, data = NULL, family = NULL, offset = NULL,
+  weights = NULL, checks = FALSE, maxit = 15, CI = 0.95,
+  viewIter = FALSE, datasources = NULL)
 </pre>
 
 
@@ -27,56 +27,40 @@ ds.glm(formula = NULL, data = NULL, family = NULL, startBetas = NULL,
 <table summary="R argblock">
 <tr valign="top"><td><code>formula</code></td>
 <td>
-<p>a character, a formula which describes the
-model to be fitted</p>
-</td></tr>
-<tr valign="top"><td><code>family</code></td>
-<td>
-<p>a description of the error distribution
-function to use in the model</p>
-</td></tr>
-<tr valign="top"><td><code>startBetas</code></td>
-<td>
-<p>starting values for the parameters in
-the linear predictor</p>
-</td></tr>
-<tr valign="top"><td><code>offset</code></td>
-<td>
-<p>a character, null or a numeric vector that
-can be used to specify an a priori known component to be
-included in the linear predictor during fitting.</p>
-</td></tr>
-<tr valign="top"><td><code>weights</code></td>
-<td>
-<p>a character, the name of an optional
-vector of 'prior weights' to be used in the fitting
-process. Should be NULL or a numeric vector.</p>
+<p>a character, a formula which describes the model to be fitted</p>
 </td></tr>
 <tr valign="top"><td><code>data</code></td>
 <td>
-<p>a character, the name of an optional data
-frame containing the variables in in the <code>formula</code>.
-The process stops if a non existing data frame is
-indicated.</p>
+<p>a character, the name of an optional data frame containing the variables in
+in the <code>formula</code>. The process stops if a non existing data frame is indicated.</p>
+</td></tr>
+<tr valign="top"><td><code>family</code></td>
+<td>
+<p>a description of the error distribution function to use in the model</p>
+</td></tr>
+<tr valign="top"><td><code>offset</code></td>
+<td>
+<p>a character, null or a numeric vector that can be used to specify an a priori known component
+to be included in the linear predictor during fitting.</p>
+</td></tr>
+<tr valign="top"><td><code>weights</code></td>
+<td>
+<p>a character, the name of an optional vector of 'prior weights' to be used in the fitting
+process. Should be NULL or a numeric vector.</p>
 </td></tr>
 <tr valign="top"><td><code>checks</code></td>
 <td>
-<p>a boolean, if TRUE (default) checks that
-takes 1-3min are carried out to verify that the variables
-in the model are defined (exist) on the server site and
-that they have the correct characteristics required to
-fit a GLM. The default value is FALSE because checks
-lengthen the runtime and are mainly meant to be # used as
-help to look for causes of eventual errors.</p>
+<p>a boolean, if TRUE (default) checks that takes 1-3min are carried out to verify that the
+variables in the model are defined (exist) on the server site and that they have the correct characteristics
+required to fit a GLM. The default value is FALSE because checks lengthen the runtime and are mainly meant to be
+# used as help to look for causes of eventual errors.</p>
 </td></tr>
 <tr valign="top"><td><code>maxit</code></td>
 <td>
 <p>the number of iterations of IWLS used
-instructions to each computer requesting non-disclosing
-summary statistics. The summaries are then combined to
-estimate the parameters of the model; these parameters
-are the same as those obtained if the data were
-'physically' pooled.</p>
+instructions to each computer requesting non-disclosing summary statistics.
+The summaries are then combined to estimate the parameters of the model; these
+parameters are the same as those obtained if the data were 'physically' pooled.</p>
 </td></tr>
 <tr valign="top"><td><code>CI</code></td>
 <td>
@@ -84,25 +68,25 @@ are the same as those obtained if the data were
 </td></tr>
 <tr valign="top"><td><code>viewIter</code></td>
 <td>
-<p>a boolean, tells whether the results of
-the intermediate iterations should be printed on screen
-or not. Default is FALSE (i.e. only final results are
-shown).</p>
+<p>a boolean, tells whether the results of the intermediate iterations
+should be printed on screen or not. Default is FALSE (i.e. only final results are shown).</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login to opal servers; these objects also hold the
-data assigned to R, as a <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login to opal servers;
+these objects also hold the data assigned to R, as a <code>dataframe</code>, from opal datasources.</p>
+</td></tr>
+<tr valign="top"><td><code>startBetas</code></td>
+<td>
+<p>starting values for the parameters in the linear predictor</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>It enables a parallelized analysis of individual-level data
-sitting on distinct servers by sending
+<p>It enables a parallelized analysis of individual-level data sitting
+on distinct servers by sending
 </p>
 
 
@@ -110,21 +94,17 @@ sitting on distinct servers by sending
 
 <p>coefficients a named vector of coefficients
 </p>
-<p>residuals the 'working' residuals, that is the residuals in
-the final iteration of the IWLS fit.
+<p>residuals the 'working' residuals, that is the residuals in the final
+iteration of the IWLS fit.
 </p>
-<p>fitted.values the fitted mean values, obtained by
-transforming the linear predictors by the inverse of the
-link function.
+<p>fitted.values the fitted mean values, obtained by transforming the
+linear predictors by the inverse of the link function.
 </p>
 <p>rank the numeric rank of the fitted linear model.
 </p>
 <p>family the <code>family</code> object used.
 </p>
 <p>linear.predictors the linear fit on link scale.
-</p>
-<p>aic A version of Akaike's An Information Criterion, which
-tells how well the model fits
 </p>
 
 
@@ -136,8 +116,7 @@ tells how well the model fits
 
 <h3>See Also</h3>
 
-<p>ds.lexis for survival analysis using piecewise
-exponential regression
+<p>ds.lexis for survival analysis using piecewise exponential regression
 </p>
 <p>ds.gee for generalized estimating equation models
 </p>
@@ -179,5 +158,5 @@ exponential regression
 }
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsModellingClient</em> version 4.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsModellingClient</em> version 4.1.0 ]</div>
 </body></html>

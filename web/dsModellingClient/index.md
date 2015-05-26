@@ -38,5 +38,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsModellingClient/4.0.0/DESCRIPTION)
-* [dsModellingClient 4.0.0](https://github.com/datashield/dsModellingClient/tree/4.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsModellingClient/4.1.0/DESCRIPTION)
+* [dsModellingClient 4.1.0](https://github.com/datashield/dsModellingClient/tree/4.1.0)
