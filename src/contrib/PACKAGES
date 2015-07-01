@@ -56,6 +56,30 @@ Title: DataSHIELD base functions for the client site
 Description: DataSHIELD base functions for the client site
 Author: <datashield@obiba.org>
 
+Package: dsBetaTest
+Version: 0.0.1
+Depends: dsBase, dsStats, dsGraphics, dsModelling
+MD5sum: 38937cefbc5100f850a7de8236ffa206
+NeedsCompilation: no
+Title: New DataSHIELD Server Functions
+Description: Beta versions of new DataSHIELD server functions.
+        Collected in this temporary package, prior to inclusion in the
+        main DataSHIELD packages.
+Author: DataSHIELD Developers [aut, cre]
+AggregateMethods: meanSdGpDS, tTestFDS2
+
+Package: dsBetaTestClient
+Version: 0.0.1
+Depends: dsBaseClient, dsStatsClient, dsGraphicsClient,
+        dsModellingClient
+MD5sum: f4570f09eb9e1c446818704ec5edc69b
+NeedsCompilation: no
+Title: New DataSHIELD Client Functions
+Description: Beta versions of new DataSHIELD client functions.
+        Collected in this temporary package, prior to inclusion in the
+        main DataSHIELD packages.
+Author: DataSHIELD Developers [aut, cre]
+
 Package: dsGraphics
 Version: 4.0.0
 Depends: dsBase
