@@ -20,7 +20,10 @@ are named 'D' (by default).
 
 <pre>
 datashield.login(logins = NULL, assign = FALSE, variables = NULL,
-  symbol = "D", directory = "~/.ssh")
+  symbol = "D", directory = "~/.ssh",
+  username = getOption("datashield.username"),
+  password = getOption("datashield.password"),
+  opts = getOption("datashield.opts", list()))
 </pre>
 
 
@@ -57,6 +60,18 @@ into the server(s).</p>
 <td>
 <p>A character that indicates the location of the key pairs files (certificate and private key). If
 the default location is the users '.ssh' directory.</p>
+</td></tr>
+<tr valign="top"><td><code>username</code></td>
+<td>
+<p>Default user name to be used in case it is not specified in the logins structure.</p>
+</td></tr>
+<tr valign="top"><td><code>password</code></td>
+<td>
+<p>Default user password to be used in case it is not specified in the logins structure.</p>
+</td></tr>
+<tr valign="top"><td><code>opts</code></td>
+<td>
+<p>Default SSL options to be used in case it is not specified in the logins structure.</p>
 </td></tr>
 </table>
 
@@ -103,5 +118,5 @@ opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 }
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.2.9 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.2.10 ]</div>
 </body></html>
