@@ -57,23 +57,24 @@ Description: DataSHIELD base functions for the client site
 Author: <datashield@obiba.org>
 
 Package: dsBetaTest
-Version: 0.0.3
+Version: 0.0.4
 Depends: dsBase, dsStats, dsGraphics, dsModelling
-MD5sum: c6923fcea36698ee6cd3ea65998b5c93
+MD5sum: b59bcc3decb2f7462aad0cbbea429ac9
 NeedsCompilation: no
 Title: New DataSHIELD Server Functions
 Description: Beta versions of new DataSHIELD server functions.
         Collected in this temporary package, prior to inclusion in the
         main DataSHIELD packages.
 Author: DataSHIELD Developers [aut, cre]
-AggregateMethods: meanSdGpDS, tTestFDS2, lexisDS1.5
-AssignMethods: lexisDS2.5
+AggregateMethods: meanSdGpDS, tTestFDS2, lexisDS1.b, glmDS1.b,
+        glmDS2.b, asFactorDS1.b
+AssignMethods: lexisDS2.b, lexisDS3.b, asFactorDS2.b
 
 Package: dsBetaTestClient
-Version: 0.0.3
+Version: 0.0.4
 Depends: dsBaseClient, dsStatsClient, dsGraphicsClient,
         dsModellingClient
-MD5sum: 0d4669a16a875364e03f01eeeed6cc37
+MD5sum: a6c71bdc37ca3549373ca3dc1297bd03
 NeedsCompilation: no
 Title: New DataSHIELD Client Functions
 Description: Beta versions of new DataSHIELD client functions.
