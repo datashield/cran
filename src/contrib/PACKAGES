@@ -150,11 +150,11 @@ Description: DataSHIELD client site stattistical functions
 Author: <datashield@obiba.org>
 
 Package: opal
-Version: 2.2.10
-Depends: R (>= 2.15.0), RCurl (>= 1.6-6), rjson
+Version: 2.2.11
+Depends: R (>= 2.15.0), RCurl (>= 1.6-6), rjson, mime
 Suggests: e1071, knitr
 License: GPL-3
-MD5sum: 94223887bb570a41d01220fd8724e574
+MD5sum: 2a6f1e3a7303b7a8f8dd951212e6a72f
 NeedsCompilation: no
 Title: Opal R and Datashield utils
 Description: Data integration Web application for biobanks by OBiBa.
