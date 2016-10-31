@@ -9,9 +9,9 @@
 
 <h3>Description</h3>
 
-<p>This function allows for clients to login to opal servers
-and (optionaly) assign all the data or specific variables from Opal
-tables to R dataframes. The assigned dataframes (one for each opal server)
+<p>This function allows for clients to login to opal servers 
+and (optionaly) assign all the data or specific variables from Opal 
+tables to R dataframes. The assigned dataframes (one for each opal server) 
 are named 'D' (by default).
 </p>
 
@@ -23,7 +23,7 @@ datashield.login(logins = NULL, assign = FALSE, variables = NULL,
   symbol = "D", directory = "~/.ssh",
   username = getOption("datashield.username"),
   password = getOption("datashield.password"),
-  opts = getOption("datashield.opts", list()))
+  opts = getOption("datashield.opts", list()), restore = NULL)
 </pre>
 
 
@@ -32,17 +32,17 @@ datashield.login(logins = NULL, assign = FALSE, variables = NULL,
 <table summary="R argblock">
 <tr valign="top"><td><code>logins</code></td>
 <td>
-<p>A dataframe table that holds login details. This table holds five elements
+<p>A dataframe table that holds login details. This table holds five elements 
 required to login to the servers where the data to analyse is stored. The expected column names are 'server' (the server name),
 'url' (the opal url), 'user' (the user name or the certificate file path), 'password' (the user password or the private key file path),
-'table' (the fully qualified name of the table in opal). An additional column 'identifiers' can be specified for identifiers
+'table' (the fully qualified name of the table in opal), 'options' (the SSL options). An additional column 'identifiers' can be specified for identifiers
 mapping (from Opal 2.0).
-See also the documentation of the examplar input table <code>logindata</code> for details of the login
+See also the documentation of the examplar input table <code>logindata</code> for details of the login 
 elements.</p>
 </td></tr>
 <tr valign="top"><td><code>assign</code></td>
 <td>
-<p>A boolean which tells whether or not data should be assigned from the opal
+<p>A boolean which tells whether or not data should be assigned from the opal 
 table to R after login into the server(s).</p>
 </td></tr>
 <tr valign="top"><td><code>variables</code></td>
@@ -53,12 +53,12 @@ If no variables are specified (default) the whole opal's table is assigned.</p>
 </td></tr>
 <tr valign="top"><td><code>symbol</code></td>
 <td>
-<p>A character, the name of the dataframe to which the opal's table will be assigned after login
+<p>A character, the name of the dataframe to which the opal's table will be assigned after login 
 into the server(s).</p>
 </td></tr>
 <tr valign="top"><td><code>directory</code></td>
 <td>
-<p>A character that indicates the location of the key pairs files (certificate and private key). If
+<p>A character that indicates the location of the key pairs files (certificate and private key). If 
 the default location is the users '.ssh' directory.</p>
 </td></tr>
 <tr valign="top"><td><code>username</code></td>
@@ -72,6 +72,10 @@ the default location is the users '.ssh' directory.</p>
 <tr valign="top"><td><code>opts</code></td>
 <td>
 <p>Default SSL options to be used in case it is not specified in the logins structure.</p>
+</td></tr>
+<tr valign="top"><td><code>restore</code></td>
+<td>
+<p>The workspace name to restore (optional).</p>
 </td></tr>
 </table>
 
@@ -101,6 +105,7 @@ url &lt;- c("https://some.opal.host:8443","https://another.opal.host")
 user &lt;- c("user1", "datashield-certificate.pem")
 password &lt;- c("user1pwd", "datashield-private.pem")
 table &lt;- c("store.Dataset","foo.DS")
+options &lt;- c("","c(ssl.verifyhost=2,ssl.verifypeer=1)")
 logindata &lt;- data.frame(server,url,user,password,table)
 
 # or load the data.frame that contains the login details
@@ -116,7 +121,8 @@ opals &lt;- datashield.login(logins=logindata,assign=TRUE)
 myvar &lt;- list("LAB_TSC")
 opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 }
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.2.11 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.3.0 ]</div>
 </body></html>

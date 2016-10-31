@@ -1,15 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Data assignment</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Data or expression assignment</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for opal.assign {opal}"><tr><td>opal.assign {opal}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Data assignment</h2>
+<h2>Data or expression assignment</h2>
 
 <h3>Description</h3>
 
-<p>Assign a Opal value to a R symbol in the current R session.
+<p>Assign a Opal table, or a R expression or a R object to a R symbol in the current R session.
 </p>
 
 
@@ -17,7 +17,8 @@
 
 <pre>
 opal.assign(opal, symbol, value, variables = NULL, missings = FALSE,
-  identifiers = NULL, async = FALSE)
+  identifiers = NULL, id.name = NULL, updated.name = NULL,
+  async = FALSE)
 </pre>
 
 
@@ -26,7 +27,7 @@ opal.assign(opal, symbol, value, variables = NULL, missings = FALSE,
 <table summary="R argblock">
 <tr valign="top"><td><code>opal</code></td>
 <td>
-<p>Opal object.</p>
+<p>Opal object or list of opal objects.</p>
 </td></tr>
 <tr valign="top"><td><code>symbol</code></td>
 <td>
@@ -34,7 +35,7 @@ opal.assign(opal, symbol, value, variables = NULL, missings = FALSE,
 </td></tr>
 <tr valign="top"><td><code>value</code></td>
 <td>
-<p>Fully qualified name of a variable or a table in Opal or a R expression.</p>
+<p>The value to assign evaluated in the following order: a R expression, a function, a fully qualified name of a variable or a table in Opal or any other R object (data.frame, vector).</p>
 </td></tr>
 <tr valign="top"><td><code>variables</code></td>
 <td>
@@ -46,12 +47,19 @@ opal.assign(opal, symbol, value, variables = NULL, missings = FALSE,
 </td></tr>
 <tr valign="top"><td><code>identifiers</code></td>
 <td>
-<p>Name of the identifiers mapping to use when assigning entities to R (from Opal 2.0)</p>
+<p>Name of the identifiers mapping to use when assigning entities to R (from Opal 2.0).</p>
+</td></tr>
+<tr valign="top"><td><code>id.name</code></td>
+<td>
+<p>Add a vector with the given name representing the entity identifiers (from Opal 2.6). Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>updated.name</code></td>
+<td>
+<p>Add a vector with the given name representing the creation and last update timestamps (from Opal 2.6). Default is NULL.</p>
 </td></tr>
 <tr valign="top"><td><code>async</code></td>
 <td>
-<p>R script is executed asynchronously within the session (default is FALSE). If TRUE, the value returned is the ID of the command to look for (from Opal 2.1).
-#'</p>
+<p>R script is executed asynchronously within the session (default is FALSE). If TRUE, the value returned is the ID of the command to look for (from Opal 2.1).</p>
 </td></tr>
 </table>
 
@@ -61,12 +69,22 @@ opal.assign(opal, symbol, value, variables = NULL, missings = FALSE,
 <pre>
 {
 # assign a list of variables from table HOP of opal object o
-opal.assign(o, symbol="D", value"demo.HOP", variables=list("GENDER","LAB_GLUC"))
+opal.assign(o, symbol="D", value="demo.HOP", variables=list("GENDER","LAB_GLUC"))
 
 # assign all the variables matching 'LAB' from table HOP of opal object o
-opal.assign(o, symbol="D", value"demo.HOP", variables="name().matches('LAB_')")
+opal.assign(o, symbol="D", value="demo.HOP", variables="name().matches('LAB_')")
+
+# assign a function and call it
+opal.assign.script(o, 'hello', quote(function(x) { print(paste0('Hello ', x , '!'))}))
+opal.execute(o, "hello('Mr Bean')")
+
+# push an arbitrary data frame to the R server
+opal.assign(o, "D", mtcars)
+
+# push an arbitrary vector to the R server
+opal.assign(o, "C", mtcars$cyl)
 }
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.2.11 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.3.0 ]</div>
 </body></html>

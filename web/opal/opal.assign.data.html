@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Data assignment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for opal.assign.data {opal}"><tr><td>opal.assign.data {opal}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Data assignment</h2>
+
+<h3>Description</h3>
+
+<p>Assign a R object to a R symbol in the current R session.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+opal.assign.data(opal, symbol, value, async = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>opal</code></td>
+<td>
+<p>Opal object or list of opal objects.</p>
+</td></tr>
+<tr valign="top"><td><code>symbol</code></td>
+<td>
+<p>Name of the R symbol.</p>
+</td></tr>
+<tr valign="top"><td><code>value</code></td>
+<td>
+<p>The R object to assign (data.frame, vector).</p>
+</td></tr>
+<tr valign="top"><td><code>async</code></td>
+<td>
+<p>R script is executed asynchronously within the session (default is FALSE). If TRUE, the value returned is the ID of the command to look for (from Opal 2.1).</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+# push an arbitrary data frame to the R server
+opal.assign.data(o, "D", mtcars)
+
+# push an arbitrary vector to the R server
+opal.assign.data(o, "C", mtcars$cyl)
+
+# push a string
+opal.assign.data(o, "S", "Hello!")
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.3.0 ]</div>
+</body></html>

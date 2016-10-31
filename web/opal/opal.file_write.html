@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Write a file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for opal.file_write {opal}"><tr><td>opal.file_write {opal}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Write a file</h2>
+
+<h3>Description</h3>
+
+<p>Write a file from the Opal file system into the R session workspace
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+opal.file_write(opal, source, destination = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>source</code></td>
+<td>
+<p>Path to the file in the Opal file system (must exists and be accessible for the user).</p>
+</td></tr>
+<tr valign="top"><td><code>destination</code></td>
+<td>
+<p>Path to the destination file, relative to the R session workspace. Any required sub-folders will be created. If ommitted, file with same name will be written.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+# user home expansion
+opal.file_write(o, "~/spss/DatabaseTest.sav")
+# rename file
+opal.file_write(o, "/home/administrator/spss/DatabaseTest.sav", "x.sav")
+# create sub-folder
+opal.file_write(o, "/home/administrator/spss/DatabaseTest.sav", "test/x.sav")
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.3.0 ]</div>
+</body></html>

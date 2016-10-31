@@ -3,36 +3,29 @@
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
-<table width="100%" summary="page for datashield.assign {opal}"><tr><td>datashield.assign {opal}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%" summary="page for opal.assign.table {opal}"><tr><td>opal.assign.table {opal}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Data assignment</h2>
 
 <h3>Description</h3>
 
-<p>Assign a Opal value to a R symbol in the current Datashield session.
+<p>Assign a Opal table to a R symbol in the current R session.
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-datashield.assign(opals, symbol, value, variables = NULL, missings = FALSE,
-  identifiers = NULL, async = TRUE, wait = TRUE)
-
-## S3 method for class 'opal'
-datashield.assign(opal, symbol, value, variables = NULL,
-  missings = FALSE, identifiers = NULL, async = TRUE, wait = TRUE)
-
-## S3 method for class 'list'
-datashield.assign(opals, symbol, value, variables = NULL,
-  missings = FALSE, identifiers = NULL, async = TRUE, wait = TRUE)
+opal.assign.table(opal, symbol, value, variables = NULL, missings = FALSE,
+  identifiers = NULL, id.name = NULL, updated.name = NULL,
+  async = FALSE)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>opals</code></td>
+<tr valign="top"><td><code>opal</code></td>
 <td>
 <p>Opal object or list of opal objects.</p>
 </td></tr>
@@ -42,7 +35,7 @@ datashield.assign(opals, symbol, value, variables = NULL,
 </td></tr>
 <tr valign="top"><td><code>value</code></td>
 <td>
-<p>Fully qualified name of a variable or a table in Opal (must be the same in each Opal) or a R expression with allowed assign functions calls.</p>
+<p>The value to assign evaluated in the following order: a R expression, a function, a fully qualified name of a variable or a table in Opal or any other R object (data.frame, vector).</p>
 </td></tr>
 <tr valign="top"><td><code>variables</code></td>
 <td>
@@ -56,21 +49,19 @@ datashield.assign(opals, symbol, value, variables = NULL,
 <td>
 <p>Name of the identifiers mapping to use when assigning entities to R (from Opal 2.0).</p>
 </td></tr>
+<tr valign="top"><td><code>id.name</code></td>
+<td>
+<p>Add a vector with the given name representing the entity identifiers (from Opal 2.6). Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>updated.name</code></td>
+<td>
+<p>Add a vector with the given name representing the creation and last update timestamps (from Opal 2.6). Default is NULL.</p>
+</td></tr>
 <tr valign="top"><td><code>async</code></td>
 <td>
-<p>R script is executed asynchronously within the session (default is TRUE).</p>
-</td></tr>
-<tr valign="top"><td><code>wait</code></td>
-<td>
-<p>Wait for the R script asynchronously executed to complete (makes sense only with async=TRUE).</p>
+<p>R script is executed asynchronously within the session (default is FALSE). If TRUE, the value returned is the ID of the command to look for (from Opal 2.1).</p>
 </td></tr>
 </table>
-
-
-<h3>Value</h3>
-
-<p>The R command ID if the async flag is TRUE and if the wait flag is FALSE and if Opal version is at least 2.1, NULL otherwise.
-</p>
 
 
 <h3>Examples</h3>
@@ -78,10 +69,13 @@ datashield.assign(opals, symbol, value, variables = NULL,
 <pre>
 {
 # assign a list of variables from table HOP of opal object o
-datashield.assign(o, symbol="D", value="demo.HOP", variables=list("GENDER","LAB_GLUC"))
+opal.assign.table(o, symbol="D", value="demo.HOP", variables=list("GENDER","LAB_GLUC"))
+
+# assign a table HOP with a identifiers column
+opal.assign.table(o, symbol="H", value="demo.HOP", id.name="id")
 
 # assign all the variables matching 'LAB' from table HOP of opal object o
-datashield.assign(o, symbol="D", value="demo.HOP", variables="name().matches('LAB_')")
+opal.assign.table(o, symbol="D", value="demo.HOP", variables="name().matches('LAB_')")
 }
 </pre>
 

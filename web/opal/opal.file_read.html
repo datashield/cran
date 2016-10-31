@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Read a file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for opal.file_read {opal}"><tr><td>opal.file_read {opal}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Read a file</h2>
+
+<h3>Description</h3>
+
+<p>Read a file from the R session workspace into the Opal file system
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+opal.file_read(opal, source, destination)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>source</code></td>
+<td>
+<p>Path to the file in the R session workspace (must exists).</p>
+</td></tr>
+<tr valign="top"><td><code>destination</code></td>
+<td>
+<p>Path to the destination file or folder. Any required sub-folders will be created.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+{
+# read into folder
+opal.file_read(o,"DatabaseTest.sav", "/tmp")
+# read and rename
+opal.file_read(o,"test/DatabaseTest.sav", "/tmp/Test.sav")
+# user home expansion
+opal.file_read(o,"DatabaseTest.sav", "~/coucou/pwel.sav")
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.3.0 ]</div>
+</body></html>

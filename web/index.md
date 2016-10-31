@@ -215,10 +215,16 @@ Functions:
 * [datashield.status](opal/datashield.status.html) Check Datashield configuration status
 * [datashield.symbols](opal/datashield.symbols.html) List R symbols
 * [datashield.table_status](opal/datashield.table_status.html) Status of table(s) in Opal(s)
+* [datashield.workspace_rm](opal/datashield.workspace_rm.html) Remove a DataSHIELD workspace from a opal.
+* [datashield.workspace_save](opal/datashield.workspace_save.html) Save current session in a DataSHIELD workspace.
+* [datashield.workspaces](opal/datashield.workspaces.html) Get the DataSHIELD workspaces.
 * [logindata](opal/logindata.html) Information required to login to opal servers
 * [opal](opal/opal.html) Opal Client for R
 * [opal.as_md_table](opal/opal.as_md_table.html) Array to Markdown
-* [opal.assign](opal/opal.assign.html) Data assignment
+* [opal.assign](opal/opal.assign.html) Data or expression assignment
+* [opal.assign.data](opal/opal.assign.data.html) Data assignment
+* [opal.assign.script](opal/opal.assign.script.html) R script assignment
+* [opal.assign.table](opal/opal.assign.table.html) Data assignment
 * [opal.attribute_values](opal/opal.attribute_values.html) Get a vector of values (for each locale) matching the given attribute namespace and name. Vector is null if no such attribute is found.
 * [opal.command](opal/opal.command.html) Get an asynchronous command
 * [opal.command_result](opal/opal.command_result.html) Get result of an asynchronous command
@@ -228,7 +234,10 @@ Functions:
 * [opal.datasource](opal/opal.datasource.html) Get a datasource from a opal.
 * [opal.datasources](opal/opal.datasources.html) Get datasources from a opal.
 * [opal.execute](opal/opal.execute.html) Execute a R script
-* [opal.file](opal/opal.file.html) Get a file
+* [opal.file](opal/opal.file.html) Get file content
+* [opal.file_download](opal/opal.file_download.html) Download a file
+* [opal.file_read](opal/opal.file_read.html) Read a file
+* [opal.file_write](opal/opal.file_write.html) Write a file
 * [opal.function_status](opal/opal.function_status.html) Status of datashield function(s) in Opal(s)
 * [opal.login](opal/opal.login.html) Opal login
 * [opal.logout](opal/opal.logout.html) Logout from Opal(s)
@@ -246,11 +255,14 @@ Functions:
 * [opal.variable](opal/opal.variable.html) Get a variable of a table from a opal.
 * [opal.variables](opal/opal.variables.html) Get variables of a table from a opal.
 * [opal.version_compare](opal/opal.version_compare.html) Compare
+* [opal.workspace_rm](opal/opal.workspace_rm.html) Remove a R workspace from a opal.
+* [opal.workspace_save](opal/opal.workspace_save.html) Save the current session in a opal R workspace.
+* [opal.workspaces](opal/opal.workspaces.html) Get the R workspaces from a opal.
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.2.11/DESCRIPTION)
-* [opal 2.2.11](https://github.com/datashield/opal/tree/2.2.11)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.3.0/DESCRIPTION)
+* [opal 2.3.0](https://github.com/datashield/opal/tree/2.3.0)
 
 
 ### opaladmin
