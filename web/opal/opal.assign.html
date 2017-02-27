@@ -67,7 +67,7 @@ opal.assign(opal, symbol, value, variables = NULL, missings = FALSE,
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 # assign a list of variables from table HOP of opal object o
 opal.assign(o, symbol="D", value="demo.HOP", variables=list("GENDER","LAB_GLUC"))
 
@@ -83,8 +83,9 @@ opal.assign(o, "D", mtcars)
 
 # push an arbitrary vector to the R server
 opal.assign(o, "C", mtcars$cyl)
-}
+
+## End(Not run)
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.4.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.5.0 ]</div>
 </body></html>

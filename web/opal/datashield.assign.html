@@ -16,7 +16,7 @@
 <h3>Usage</h3>
 
 <pre>
-datashield.assign(opals, symbol, value, variables = NULL, missings = FALSE,
+datashield.assign(opal, symbol, value, variables = NULL, missings = FALSE,
   identifiers = NULL, async = TRUE, wait = TRUE)
 
 ## S3 method for class 'opal'
@@ -24,7 +24,7 @@ datashield.assign(opal, symbol, value, variables = NULL,
   missings = FALSE, identifiers = NULL, async = TRUE, wait = TRUE)
 
 ## S3 method for class 'list'
-datashield.assign(opals, symbol, value, variables = NULL,
+datashield.assign(opal, symbol, value, variables = NULL,
   missings = FALSE, identifiers = NULL, async = TRUE, wait = TRUE)
 </pre>
 
@@ -32,7 +32,7 @@ datashield.assign(opals, symbol, value, variables = NULL,
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>opals</code></td>
+<tr valign="top"><td><code>opal</code></td>
 <td>
 <p>Opal object or list of opal objects.</p>
 </td></tr>
@@ -76,14 +76,15 @@ datashield.assign(opals, symbol, value, variables = NULL,
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 # assign a list of variables from table HOP of opal object o
 datashield.assign(o, symbol="D", value="demo.HOP", variables=list("GENDER","LAB_GLUC"))
 
 # assign all the variables matching 'LAB' from table HOP of opal object o
 datashield.assign(o, symbol="D", value="demo.HOP", variables="name().matches('LAB_')")
-}
+
+## End(Not run)
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.4.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.5.0 ]</div>
 </body></html>

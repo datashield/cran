@@ -16,13 +16,17 @@
 <h3>Usage</h3>
 
 <pre>
-opal.file_download(opal, source, destination = NULL)
+opal.file_download(opal, source, destination = NULL, key = NULL)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
+<tr valign="top"><td><code>opal</code></td>
+<td>
+<p>Opal object.</p>
+</td></tr>
 <tr valign="top"><td><code>source</code></td>
 <td>
 <p>Path to the file in the Opal file system.</p>
@@ -31,25 +35,34 @@ opal.file_download(opal, source, destination = NULL)
 <td>
 <p>Path to the file to be written. If ommitted, file with same name in the working directory will be written.</p>
 </td></tr>
+<tr valign="top"><td><code>key</code></td>
+<td>
+<p>File encryption key: downloaded file will be a zip file with content encrypted (use 7zip to decrypt).</p>
+</td></tr>
 </table>
 
 
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 # download a file
 opal.file_download(o, '/home/administrator/joins/join-src-3.csv')
 opal.file_download(o, '/home/administrator/datashield/hop.R')
 opal.file_download(o, '/home/administrator/datashield/CNSIM1.zip')
+
+# download a file encrypted by a key: resulting file is a zip with an encrypted content
+opal.file_download(o, '/home/administrator/export/some-data.csv', 
+                      destination='some-data.zip', key='AZF57893FBDE')
 
 # download, create destination folder and rename file
 opal.file_download(o, '/home/administrator/spss/DatabaseTest.sav', 'spss/test.sav')
 
 # download a folder
 opal.file_download(o, '/home/administrator/joins', 'joins.zip')
-}
+
+## End(Not run)
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.4.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.5.0 ]</div>
 </body></html>

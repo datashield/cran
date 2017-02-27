@@ -23,6 +23,10 @@ opal.file_read(opal, source, destination)
 <h3>Arguments</h3>
 
 <table summary="R argblock">
+<tr valign="top"><td><code>opal</code></td>
+<td>
+<p>Opal object.</p>
+</td></tr>
 <tr valign="top"><td><code>source</code></td>
 <td>
 <p>Path to the file in the R session workspace (must exists).</p>
@@ -37,15 +41,16 @@ opal.file_read(opal, source, destination)
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 # read into folder
 opal.file_read(o,"DatabaseTest.sav", "/tmp")
 # read and rename
 opal.file_read(o,"test/DatabaseTest.sav", "/tmp/Test.sav")
 # user home expansion
 opal.file_read(o,"DatabaseTest.sav", "~/coucou/pwel.sav")
-}
+
+## End(Not run)
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.4.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.5.0 ]</div>
 </body></html>

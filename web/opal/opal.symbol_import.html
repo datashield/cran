@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Import a tibble as a table in Opal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for opal.symbol_import {opal}"><tr><td>opal.symbol_import {opal}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Import a tibble as a table in Opal</h2>
+
+<h3>Description</h3>
+
+<p>Import the tibble identified by the symbol as a table in Opal.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+opal.symbol_import(opal, symbol, project, identifiers = NULL,
+  policy = "required", id.name = "id", type = "Participant")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>opal</code></td>
+<td>
+<p>Opal object.</p>
+</td></tr>
+<tr valign="top"><td><code>symbol</code></td>
+<td>
+<p>Name of the R symbol representing a tibble.</p>
+</td></tr>
+<tr valign="top"><td><code>project</code></td>
+<td>
+<p>Name of the project into which the data are to be imported.</p>
+</td></tr>
+<tr valign="top"><td><code>identifiers</code></td>
+<td>
+<p>Name of the identifiers mapping to use when assigning entities to Opal.</p>
+</td></tr>
+<tr valign="top"><td><code>policy</code></td>
+<td>
+<p>Identifiers policy: 'required' (each identifiers must be mapped prior importation (default)), 'ignore' (ignore unknown identifiers) and 'generate' (generate a system identifier for each unknown identifier).</p>
+</td></tr>
+<tr valign="top"><td><code>id.name</code></td>
+<td>
+<p>The name of the column representing the entity identifiers. Default is 'id'.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>Entity type (what the data are about). Default is 'Participant'.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.5.0 ]</div>
+</body></html>

@@ -27,7 +27,6 @@ datashield.status(logins = NULL, study = NULL, directory = "~/.ssh",
 <tr valign="top"><td><code>logins</code></td>
 <td>
 <p>A dataframe table that holds login details. This table holds five elements 
-required to login to the servers where the data to analyse is stored. The expected column names are 'server' (the server name),
 'url' (the opal url), 'user' (the user name or the certificate file path), 'password' (the user password or the private key file path),
 'table' (the fully qualified name of the table in opal). An additional column 'identifiers' can be specified for identifiers
 mapping (from Opal 2.0).
@@ -51,7 +50,7 @@ elements.</p>
 
 <h3>Details</h3>
 
-<p>Get the status of the table(s), method(s), and packgage(s) in differents Opals servers.
+<p>Get the status of the table(s), method(s), and packgage(s) in differents Opal servers.
 </p>
 
 
@@ -70,7 +69,7 @@ elements.</p>
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
 #### The below examples illustrate an analysises that use test/simulated data ####
 
@@ -91,9 +90,10 @@ datashield.status(logins=logindata)
 # Example 2: check a list of named servers
 datashield.status(logins=logindata,study=c("study1"))
 
-}
+
+## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.4.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.5.0 ]</div>
 </body></html>

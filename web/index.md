@@ -218,13 +218,12 @@ Functions:
 * [datashield.workspace_rm](opal/datashield.workspace_rm.html) Remove a DataSHIELD workspace from a opal.
 * [datashield.workspace_save](opal/datashield.workspace_save.html) Save current session in a DataSHIELD workspace.
 * [datashield.workspaces](opal/datashield.workspaces.html) Get the DataSHIELD workspaces.
-* [logindata](opal/logindata.html) Information required to login to opal servers
-* [opal](opal/opal.html) Opal Client for R
 * [opal.as_md_table](opal/opal.as_md_table.html) Array to Markdown
 * [opal.assign](opal/opal.assign.html) Data or expression assignment
 * [opal.assign.data](opal/opal.assign.data.html) Data assignment
 * [opal.assign.script](opal/opal.assign.script.html) R script assignment
-* [opal.assign.table](opal/opal.assign.table.html) Data assignment
+* [opal.assign.table](opal/opal.assign.table.html) Data assignment to a data.frame
+* [opal.assign.table.tibble](opal/opal.assign.table.tibble.html) Data assignment to a tibble
 * [opal.attribute_values](opal/opal.attribute_values.html) Get a vector of values (for each locale) matching the given attribute namespace and name. Vector is null if no such attribute is found.
 * [opal.command](opal/opal.command.html) Get an asynchronous command
 * [opal.command_result](opal/opal.command_result.html) Get result of an asynchronous command
@@ -235,23 +234,27 @@ Functions:
 * [opal.datasources](opal/opal.datasources.html) Get datasources from a opal.
 * [opal.execute](opal/opal.execute.html) Execute a R script
 * [opal.file](opal/opal.file.html) Get file content
+* [opal.file_cp](opal/opal.file_cp.html) Copy a file
 * [opal.file_download](opal/opal.file_download.html) Download a file
+* [opal.file_ls](opal/opal.file_ls.html) List content of a folder
+* [opal.file_mkdir](opal/opal.file_mkdir.html) Make a folder
+* [opal.file_mv](opal/opal.file_mv.html) Move and/or rename a file
 * [opal.file_read](opal/opal.file_read.html) Read a file
+* [opal.file_rm](opal/opal.file_rm.html) Remove a file
+* [opal.file_upload](opal/opal.file_upload.html) Upload a file
 * [opal.file_write](opal/opal.file_write.html) Write a file
-* [opal.function_status](opal/opal.function_status.html) Status of datashield function(s) in Opal(s)
 * [opal.login](opal/opal.login.html) Opal login
 * [opal.logout](opal/opal.logout.html) Logout from Opal(s)
-* [opal.pkg_status](opal/opal.pkg_status.html) Status of datashield package(s) in Opal(s)
 * [opal.report](opal/opal.report.html) Opal report
 * [opal.report_md](opal/opal.report_md.html) Turn a R markdown file to html.
 * [opal.rm](opal/opal.rm.html) Remove a R symbol (deprecated)
-* [opal.rm_command](opal/opal.rm_command.html) Remove an asynchronous command
-* [opal.rm_commands](opal/opal.rm_commands.html) Remove all asynchronous commands
+* [opal.symbol_import](opal/opal.symbol_import.html) Import a tibble as a table in Opal
 * [opal.symbol_rm](opal/opal.symbol_rm.html) Remove a R symbol
+* [opal.symbol_save](opal/opal.symbol_save.html) Save a tibble identified by symbol as a file of format SAS, SPSS, Stata, CSV or TSV.
 * [opal.symbols](opal/opal.symbols.html) List R symbols
 * [opal.table](opal/opal.table.html) Get a table of a datasource from a opal.
-* [opal.table_status](opal/opal.table_status.html) Status of table(s) in Opal(s)
 * [opal.tables](opal/opal.tables.html) Get tables of a datasource from a opal.
+* [opal.valueset](opal/opal.valueset.html) Get the values of an entity in a table.
 * [opal.variable](opal/opal.variable.html) Get a variable of a table from a opal.
 * [opal.variables](opal/opal.variables.html) Get variables of a table from a opal.
 * [opal.version_compare](opal/opal.version_compare.html) Compare
@@ -261,8 +264,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.4.0/DESCRIPTION)
-* [opal 2.4.0](https://github.com/datashield/opal/tree/2.4.0)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.5.0/DESCRIPTION)
+* [opal 2.5.0](https://github.com/datashield/opal/tree/2.5.0)
 
 
 ### opaladmin
