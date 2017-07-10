@@ -82,5 +82,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.5.0/DESCRIPTION)
-* [opal 2.5.0](https://github.com/datashield/opal/tree/2.5.0)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.5.1/DESCRIPTION)
+* [opal 2.5.1](https://github.com/datashield/opal/tree/2.5.1)
