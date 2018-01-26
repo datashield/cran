@@ -254,6 +254,10 @@ Functions:
 * [opal.symbols](opal/opal.symbols.html) List R symbols
 * [opal.table](opal/opal.table.html) Get a table of a datasource from a opal.
 * [opal.tables](opal/opal.tables.html) Get tables of a datasource from a opal.
+* [opal.task](opal/opal.task.html) Get a task from a opal.
+* [opal.task_cancel](opal/opal.task_cancel.html) Tries to cancel a task from a opal.
+* [opal.task_wait](opal/opal.task_wait.html) Wait for a task from a opal to complete.
+* [opal.tasks](opal/opal.tasks.html) Get the tasks from a opal.
 * [opal.valueset](opal/opal.valueset.html) Get the values of an entity in a table.
 * [opal.variable](opal/opal.variable.html) Get a variable of a table from a opal.
 * [opal.variables](opal/opal.variables.html) Get variables of a table from a opal.
@@ -264,8 +268,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.5.1/DESCRIPTION)
-* [opal 2.5.1](https://github.com/datashield/opal/tree/2.5.1)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.6.0/DESCRIPTION)
+* [opal 2.6.0](https://github.com/datashield/opal/tree/2.6.0)
 
 
 ### opaladmin

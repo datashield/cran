@@ -17,7 +17,8 @@
 
 <pre>
 opal.symbol_import(opal, symbol, project, identifiers = NULL,
-  policy = "required", id.name = "id", type = "Participant")
+  policy = "required", id.name = "id", type = "Participant",
+  wait = TRUE)
 </pre>
 
 
@@ -52,7 +53,11 @@ opal.symbol_import(opal, symbol, project, identifiers = NULL,
 <td>
 <p>Entity type (what the data are about). Default is 'Participant'.</p>
 </td></tr>
+<tr valign="top"><td><code>wait</code></td>
+<td>
+<p>Wait for import task completion. Default is TRUE.</p>
+</td></tr>
 </table>
 
-<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.5.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opal</em> version 2.6.0 ]</div>
 </body></html>
