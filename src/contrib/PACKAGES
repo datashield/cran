@@ -1,8 +1,8 @@
 Package: datashield
-Version: 3.0.0
-Depends: nlme, dsBase, dsModelling, dsGraphics, dsStats
+Version: 5.0.0
+Depends: dsBase
 License: GPL-3
-MD5sum: 1c9afa3a2bb8d55478503b7ce87c0c76
+MD5sum: 426cc9299cdd9438e78bf18d60030656
 NeedsCompilation: no
 Title: Datashield meta-package (server side)
 Description: This package installs as dependencies all other DataSHIELD
@@ -10,11 +10,10 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: datashieldclient
-Version: 3.0.0
-Depends: opal, fields, spam, dsBaseClient, dsModellingClient,
-        dsGraphicsClient, dsStatsClient
+Version: 5.0.0
+Depends: dsBaseClient
 License: GPL-3
-MD5sum: d2e3ab527042ac6a7788c15da05b1690
+MD5sum: ab041cc3032779e6f3fa06b9f7f3a127
 NeedsCompilation: no
 Title: Datashield meta-package (client side)
 Description: This package installs as dependencies all other DataSHIELD
@@ -22,139 +21,60 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: dsBase
-Version: 4.0.0
+Version: 5.0.0
+Imports: RANN, nlme
 License: GPL-3
-MD5sum: b967457974d0ba837b1e9564cfc7d2d3
+MD5sum: 30f1e0a2b3cde9b300229098e7c202d3
 NeedsCompilation: no
 Title: DataSHIELD server site base functions
-Description: DataSHIELD server site base functions
-Author: <datashield@obiba.org>
-AggregateMethods: length=base::length, colnames=base::colnames, dimDS,
-        dim=base::dim, quantileMeanDS, meanDS, isNaDS, varDS,
-        is.numeric=base::is.numeric, is.character=base::is.character,
-        is.null=base::is.null, NROW=base::NROW, table1dDS, table2dDS,
-        class=base::class, levels=base::levels,
-        is.factor=base::is.factor, namesDS, is.list=base::is.list,
-        exists=base::exists, isValidDS, ls=base::ls, numNaDS,
-        NROW=base::NROW
-AssignMethods: log=base::log, c=base::c, cDS, unlist=base::unlist,
-        exp=base::exp, asListDS, as.numeric=base::as.numeric,
-        as.character=base::as.character, asMatrixDS,
-        complete.cases=stats::complete.cases, sum=base::sum,
-        as.null=base::as.null, subsetByClassDS, list=base::list,
-        cbind=base::cbind, rowColCalcDS, changeRefGroupDS, subsetDS,
-        asFactorDS, recodeLevelsDS, dataframeDS, listDS, replaceNaDS,
-        rep=base::rep
+Description: DataSHIELD server site base functions.
+Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
+AggregateMethods: alphaPhiDS, asFactorDS1, asListDS, checkNegValueDS,
+        covDS, dataFrameSubsetDS1, densityGridDS, dimDS, dimDS, glmDS1,
+        glmDS2, glmSLMADS1, glmSLMADS2, heatmapPlotDS, histogramDS1,
+        histogramDS2, isNaDS, isValidDS, lengthDS, lexisDS1,
+        listDisclosureSettingsDS, matrixDetDS1, meanDS, meanDS,
+        meanSdGpDS, meanSdGpDS, messageDS, namesDS, numNaDS,
+        quantileMeanDS, rangeDS, recodeValuesDS1, rmDS, scatterPlotDS,
+        scoreVectDS, setSeedDS, table1DDS, table2DDS, tapplyDS,
+        testObjExistsDS, tTestFDS2, unListDS, varDS, class=base::class,
+        colnames=base::colnames, dim=base::dim, exists=base::exists,
+        is.character=base::is.character, is.factor=base::is.factor,
+        is.list=base::is.list, is.null=base::is.null,
+        is.numeric=base::is.numeric, length=base::length,
+        levels=base::levels, ls=base::ls, NROW=base::NROW
+AssignMethods: asCharacterDS, asDataMatrixDS, asFactorDS, asFactorDS2,
+        asIntegerDS, asListDS, asLogicalDS, asMatrixDS, asMatrixDS,
+        asNumericDS, BooleDS, cbindDS, cDS, changeRefGroupDS,
+        dataFrameDS, dataFrameSortDS, dataFrameSubsetDS2, listDS,
+        lexisDS2, lexisDS3, matrixDetDS2, matrixDiagDS,
+        matrixDimnamesDS, matrixDS, matrixInvertDS, matrixMultDS,
+        matrixTransposeDS, mergeDS, rbindDS, rBinomDS, recodeLevelsDS,
+        recodeValuesDS2, replaceNaDS, reShapeDS, rNormDS, rowColCalcDS,
+        rPoisDS, rUnifDS, seedDS, seqDS, subsetByClassDS, subsetDS,
+        tapplyDS.assign, as.character=base::as.character,
+        as.null=base::as.null, as.numeric=base::as.numeric, c=base::c,
+        cbind=base::cbind, complete.cases=stats::complete.cases,
+        exp=base::exp, list=base::list, log=base::log, rep=base::rep,
+        sum=base::sum, unlist=base::unlist
 
 Package: dsBaseClient
-Version: 4.1.0
-Depends: opal, fields
+Version: 5.0.0
+Depends: R (>= 3.5.0)
+Imports: fields, metafor, opaladmin, opal
 License: GPL-3
-MD5sum: 8b03ba2bad8ef8af1ab6e9d99ff9b7e7
+MD5sum: 0ea362973bf1668b8cd1949d2dbce7f1
 NeedsCompilation: no
-Title: DataSHIELD base functions for the client site
-Description: DataSHIELD base functions for the client site
-Author: <datashield@obiba.org>
-
-Package: dsBetaTest
-Version: 0.0.5
-Depends: dsBase, dsStats, dsGraphics, dsModelling
-MD5sum: 6fa74a1ef68e6db154d8e7ef45bf72f0
-NeedsCompilation: no
-Title: New DataSHIELD Server Functions
-Description: Beta versions of new DataSHIELD server functions.
-        Collected in this temporary package, prior to inclusion in the
-        main DataSHIELD packages.
-Author: DataSHIELD Developers [aut, cre]
-AggregateMethods: meanSdGpDS, tTestFDS2, lexisDS1.b, glmDS1.b,
-        glmDS2.b, covDS.o, asFactorDS1.b
-AssignMethods: lexisDS2.b, lexisDS3.b, asFactorDS2.b
-
-Package: dsBetaTestClient
-Version: 0.0.5
-Depends: dsBaseClient, dsStatsClient, dsGraphicsClient,
-        dsModellingClient
-MD5sum: 1c089e12fd256234970d38a6b0d7df77
-NeedsCompilation: no
-Title: New DataSHIELD Client Functions
-Description: Beta versions of new DataSHIELD client functions.
-        Collected in this temporary package, prior to inclusion in the
-        main DataSHIELD packages.
-Author: DataSHIELD Developers [aut, cre]
-
-Package: dsGraphics
-Version: 4.0.0
-Depends: dsBase
-License: GPL-3
-MD5sum: 20df8e0192a07bceff9951e42e17a01b
-NeedsCompilation: no
-Title: DataSHIELD graphic functions (server)
-Description: Package contains functions to plot graphs.
-Author: <datashield@obiba.org>
-AggregateMethods: histogramDS, densityGridDS, rangeDS
-AssignMethods: attach=base::attach
-
-Package: dsGraphicsClient
-Version: 4.0.0
-Depends: opal, dsBaseClient
-License: GPL-3
-MD5sum: 4d83314ec93146ce448bf573dcb3a1dd
-NeedsCompilation: no
-Title: DataSHIELD client site functions for graphics
-Description: DataSHIELD client site functions for graphics
-Author: <datashield@obiba.org>
-
-Package: dsModelling
-Version: 4.1.0
-Depends: nlme, dsBase
-License: GPL-3
-MD5sum: 1035f03260e69dd53c58293f2df02137
-NeedsCompilation: no
-Title: DataSHIELD server site functions for statistical modelling
-Description: DataSHIELD server site functions for statistical modelling
-Author: <datashield@obiba.org>
-AggregateMethods: glmDS1, glmDS2, alphaPhiDS, scoreVectDS,
-        checkNegValueDS
-AssignMethods: lexisDS
-
-Package: dsModellingClient
-Version: 4.1.0
-Depends: opal, dsBaseClient
-License: GPL-3
-MD5sum: 86608f4df5524ee21518cfda8777f635
-NeedsCompilation: no
-Title: DataSHIELD client site functions for statistical modelling
-Description: DataSHIELD client site functions for statistical modelling
-Author: <datashield@obiba.org>
-
-Package: dsStats
-Version: 4.0.0
-Depends: dsBase
-License: GPL-3
-MD5sum: 3bb0eaf429f6c956e0990b758cfcc802
-NeedsCompilation: no
-Title: DataSHIELD server site statistical functions
-Description: DataSHIELD server site statistical functions
-Author: <datashield@obiba.org>
-AggregateMethods: t.test=stats::t.test, varDS,
-        cor.test=stats::cor.test, corDS, covDS
-
-Package: dsStatsClient
-Version: 4.1.0
-Depends: opal, dsBaseClient
-License: GPL-3
-MD5sum: 96ce8e23a1237c10e2adb76fa40926fd
-NeedsCompilation: no
-Title: DataSHIELD client site stattistical functions
-Description: DataSHIELD client site stattistical functions
-Author: <datashield@obiba.org>
+Title: DataSHIELD Client Functions
+Description: DataSHIELD client functions for the client site.
+Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
 
 Package: opal
-Version: 2.6.0
+Version: 2.6.1
 Depends: R (>= 2.15.0), RCurl (>= 1.6-6), rjson, mime
 Suggests: e1071, knitr, knitrBootstrap, rmarkdown
 License: GPL-3
-MD5sum: c5c80496bd00ee378f9acd72e0ec9e50
+MD5sum: 9b833cc578b00e5e2d3de27faa5e6548
 NeedsCompilation: no
 Title: Opal R and Datashield utils
 Description: Data integration Web application for biobanks by OBiBa.
@@ -182,11 +102,11 @@ Author: OBiBa <info@obiba.org>
 URL: http://www.obiba.org
 
 Package: opaladmin
-Version: 1.18
+Version: 1.20.0
 Depends: opal
-Suggests: devtools, roxygen2
+Suggests: devtools
 License: GPL-3
-MD5sum: fcec0bf5059a5d41ad33b4ea85087866
+MD5sum: 3f61cb4553f0195d90c02c4377fdfd39
 NeedsCompilation: no
 Title: Opal R and Datashield administration utils
 Description: R toolbox to configure the R server behind Opal.

@@ -187,6 +187,53 @@ Sources:
 * [dsGraphicsClient 4.0.0](https://github.com/datashield/dsGraphicsClient/tree/4.0.0)
 
 
+### dsBetaTestClient
+
+Installation command:
+
+	# Install dsBetaTestClient package (client side)
+	install.packages('dsBetaTestClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
+
+Functions:
+
+
+* [checkClass](dsBetaTestClient/checkClass.html) Checks that an object has the same class in all studies
+* [colPercent](dsBetaTestClient/colPercent.html) Produces column percentages
+* [ds.Boole.o](dsBetaTestClient/ds.Boole.o.html) ds.Boole.o
+* [ds.asFactor.o](dsBetaTestClient/ds.asFactor.o.html) Converts a numeric vector into a factor type
+* [ds.cor.o](dsBetaTestClient/ds.cor.o.html) Calculates the correlation between two variables
+* [ds.cov.o](dsBetaTestClient/ds.cov.o.html) Calculates the covariance between two variables
+* [ds.glm.o](dsBetaTestClient/ds.glm.o.html) @title ds.glm calling glmDS1, glmDS2
+* [ds.glmSLMA.o](dsBetaTestClient/ds.glmSLMA.o.html) ds.glmSLMA.o calling glmDS1.o, glmDSSLMA2.o
+* [ds.lexis.o](dsBetaTestClient/ds.lexis.o.html) ds.lexis calling lexisDS1, lexisDS2, lexisDS3
+* [ds.listDisclosureSettings.o](dsBetaTestClient/ds.listDisclosureSettings.o.html) ds.listDisclosureSettings.o
+* [ds.make.o](dsBetaTestClient/ds.make.o.html) ds.make
+* [ds.mean.o](dsBetaTestClient/ds.mean.o.html) Computes the statistical mean of a given vector
+* [ds.meanSdGp](dsBetaTestClient/ds.meanSdGp.html) Computes the mean and standard deviation across groups defined by one factor
+* [ds.recodeValues.o](dsBetaTestClient/ds.recodeValues.o.html) ds.recodeValues.o
+* [ds.rilm.b](dsBetaTestClient/ds.rilm.b.html) Random Intercept Linear Model (RILM)
+* [ds.tTestF](dsBetaTestClient/ds.tTestF.html) Runs a combined GLM analysis of non-pooled data
+* [ds.testObjExists.o](dsBetaTestClient/ds.testObjExists.o.html) Checking that a correct version of a data object exists on a data source server
+* [extract](dsBetaTestClient/extract.html) Splits character by '$' and returns the single characters
+* [findLoginObjects](dsBetaTestClient/findLoginObjects.html) searches for opal login object in the environment
+* [getOpals](dsBetaTestClient/getOpals.html) Gets the opal objects
+* [getPooledMean](dsBetaTestClient/getPooledMean.html) Gets a pooled statistical mean
+* [getPooledVar](dsBetaTestClient/getPooledVar.html) Gets a pooled variance
+* [glmChecks](dsBetaTestClient/glmChecks.html) Checks if the elements in the glm model have the right characteristics
+* [isAssigned](dsBetaTestClient/isAssigned.html) Checks an object has been generated on the server side
+* [isDefined](dsBetaTestClient/isDefined.html) Checks if the objecs are defined in studies
+* [logical2int](dsBetaTestClient/logical2int.html) turns a logical operator into an integer
+* [rowPercent](dsBetaTestClient/rowPercent.html) Produces row percentages
+* [subsetHelper](dsBetaTestClient/subsetHelper.html) Compares subset and original object sizes and eventually carries out subsetting
+* [tTestHelper1](dsBetaTestClient/tTestHelper1.html) runs a t-test for two continuous variables
+* [tTestHelper2](dsBetaTestClient/tTestHelper2.html) Uses glm to compute means of numeric vector across factor vector
+
+Sources:
+
+* [DESCRIPTION](https://raw.github.com/datashield/dsBetaTestClient/0.2.0/DESCRIPTION)
+* [dsBetaTestClient 0.2.0](https://github.com/datashield/dsBetaTestClient/tree/0.2.0)
+
+
 ### opal
 
 Installation command:
@@ -284,6 +331,7 @@ Functions:
 
 * [dsadmin.get_method](opaladmin/dsadmin.get_method.html) Get Datashield Method
 * [dsadmin.get_methods](opaladmin/dsadmin.get_methods.html) Get Datashield Methods
+* [dsadmin.get_options](opaladmin/dsadmin.get_options.html) Get Datashield Options
 * [dsadmin.install_package](opaladmin/dsadmin.install_package.html) Install Datashield Package
 * [dsadmin.installed_package](opaladmin/dsadmin.installed_package.html) Check if a Datashield package is installed in Opal(s).
 * [dsadmin.package_description](opaladmin/dsadmin.package_description.html) Get Datashield Package Description
@@ -291,8 +339,10 @@ Functions:
 * [dsadmin.remove_package](opaladmin/dsadmin.remove_package.html) Remove Datashield Package
 * [dsadmin.rm_method](opaladmin/dsadmin.rm_method.html) Remove Datashield Method
 * [dsadmin.rm_methods](opaladmin/dsadmin.rm_methods.html) Remove Datashield Methods
+* [dsadmin.rm_option](opaladmin/dsadmin.rm_option.html) Remove Datashield Option
 * [dsadmin.rm_package_methods](opaladmin/dsadmin.rm_package_methods.html) Remove Package Datashield Methods
 * [dsadmin.set_method](opaladmin/dsadmin.set_method.html) Set Datashield Method
+* [dsadmin.set_option](opaladmin/dsadmin.set_option.html) Set Datashield Option
 * [dsadmin.set_package_methods](opaladmin/dsadmin.set_package_methods.html) Set Package Datashield Methods
 * [oadmin.install_devtools](opaladmin/oadmin.install_devtools.html) Install devtools package if not already available.
 * [oadmin.install_github](opaladmin/oadmin.install_github.html) Install a package from a source repository on GitHub. Makes sure devtools package is available.
@@ -303,12 +353,11 @@ Functions:
 * [oadmin.remove_package](opaladmin/oadmin.remove_package.html) Remove Package
 * [opal.load_package](opaladmin/opal.load_package.html) Load package in the current session.
 * [opal.unload_package](opaladmin/opal.unload_package.html) Unload package from the current session.
-* [opaladmin](opaladmin/opaladmin.html) Opal R and Datashield Administration tools
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opaladmin/1.18/DESCRIPTION)
-* [opaladmin 1.18](https://github.com/datashield/opaladmin/tree/1.18)
+* [DESCRIPTION](https://raw.github.com/datashield/opaladmin/1.20.0/DESCRIPTION)
+* [opaladmin 1.20.0](https://github.com/datashield/opaladmin/tree/1.20.0)
 
 
 ## Server Packages
@@ -432,3 +481,39 @@ Sources:
 
 * [DESCRIPTION](https://raw.github.com/datashield/dsGraphics/4.0.0/DESCRIPTION)
 * [dsGraphics 4.0.0](https://github.com/datashield/dsGraphics/tree/4.0.0)
+
+
+### dsBetaTest
+
+Installation command:
+
+	# Install dsBetaTest package (server side)
+	library(opaladmin)
+	o<-opal.login(...)
+	dsadmin.install_package(o, 'dsBetaTest')
+
+Functions:
+
+
+* [BooleDS.o](dsBetaTest/BooleDS.o.html) BooleDS.o
+* [asFactorDS1.o](dsBetaTest/asFactorDS1.o.html) Determines the levels of the input variable in each single study
+* [asFactorDS2.o](dsBetaTest/asFactorDS2.o.html) Converts a numeric vector into a factor
+* [covDS.o](dsBetaTest/covDS.o.html) Computes the sum of each variable and the sum of products for each pair of variables
+* [glmDS1.o](dsBetaTest/glmDS1.o.html) glmDS1.o
+* [glmDS2.o](dsBetaTest/glmDS2.o.html) glmDS2.o
+* [lexisDS1.o](dsBetaTest/lexisDS1.o.html) lexisDS1
+* [lexisDS2.o](dsBetaTest/lexisDS2.o.html) lexisDS2
+* [lexisDS3.o](dsBetaTest/lexisDS3.o.html) @title lexisDS3
+* [listDisclosureSettingsDS.o](dsBetaTest/listDisclosureSettingsDS.o.html) listDisclosureSettingsDS
+* [meanDS.o](dsBetaTest/meanDS.o.html) Computes statistical mean of a vectores
+* [meanSdGpDS](dsBetaTest/meanSdGpDS.html) MeanSdGpDS
+* [recodeValuesDS1.o](dsBetaTest/recodeValuesDS1.o.html) recodeValuesDS1
+* [recodeValuesDS2.o](dsBetaTest/recodeValuesDS2.o.html) recodeValuesDS2
+* [rilmDS.b](dsBetaTest/rilmDS.b.html) Generates matrices for the sum of squares
+* [tTestFDS2](dsBetaTest/tTestFDS2.html) tTestFDS2
+* [testObjExistsDS.o](dsBetaTest/testObjExistsDS.o.html) testObjExistsDS.o
+
+Sources:
+
+* [DESCRIPTION](https://raw.github.com/datashield/dsBetaTest/0.2.0/DESCRIPTION)
+* [dsBetaTest 0.2.0](https://github.com/datashield/dsBetaTest/tree/0.2.0)

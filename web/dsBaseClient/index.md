@@ -1,8 +1,3 @@
----
-layout: page
-title: dsBaseClient
-tagline: dsBaseClient Package Documentation
----
 
 
 ### dsBaseClient

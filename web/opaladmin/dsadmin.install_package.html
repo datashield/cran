@@ -9,16 +9,14 @@
 
 <h3>Description</h3>
 
-<p>Install a package from Datashield public package
-repository or (if Git reference is provided) from
-Datashield source repository on GitHub.
+<p>Install a package from Datashield public package repository or (if Git reference and GitHub username is provided) from Datashield source repository on GitHub.
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-  dsadmin.install_package(opal, pkg, ref = NULL)
+dsadmin.install_package(opal, pkg, githubusername = NULL, ref = NULL)
 </pre>
 
 
@@ -33,11 +31,13 @@ Datashield source repository on GitHub.
 <td>
 <p>Package name.</p>
 </td></tr>
+<tr valign="top"><td><code>githubusername</code></td>
+<td>
+<p>GitHub username of git repository. If NULL (default), try to install from Datashield package repository.</p>
+</td></tr>
 <tr valign="top"><td><code>ref</code></td>
 <td>
-<p>Desired git reference (could be a commit, tag,
-or branch name). If NULL (default), try to install from
-Datashield package repository.</p>
+<p>Desired git reference (could be a commit, tag, or branch name). If NULL (default), try to install from Datashield package repository.</p>
 </td></tr>
 </table>
 
@@ -47,5 +47,5 @@ Datashield package repository.</p>
 <p>TRUE if installed
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>opaladmin</em> version 1.18 ]</div>
+<hr /><div style="text-align: center;">[Package <em>opaladmin</em> version 1.20.0 ]</div>
 </body></html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checking that a correct version of a data object exists on a...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.testObjExists.o {dsBetaTestClient}"><tr><td>ds.testObjExists.o {dsBetaTestClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Checking that a correct version of a data object exists on a data source server</h2>
+
+<h3>Description</h3>
+
+<p>This function checks that a specified data object exists or has been correctly created on a
+specified set of data servers (may be only one data server).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.testObjExists.o(test.obj.name = NULL, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>test.obj.name</code></td>
+<td>
+<p>a character string specifying the name of the object to search for e.g. &quot;TID.f&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>specifies the particular opal object(s) to use, if it is not specified
+the default set of opals will be used. The default opals are always called default.opals.
+This parameter is set without inverted commas: e.g. datasources=opals.em or datasources=default.opals
+If you wish to specify the second opal server in a set of three, the parameter is specified:
+e.g. datasources=opals.em[2]. If you wish to specify the first and third opal servers in a set specify:
+e.g. datasources=opals.em[2,3]</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data object to search for is defined as a character string to the argument test.obj.name. The set of
+data servers to search on is provided as the argument datasources. Close copies of the code in this function
+are embedded into other functions that create an object and you then wish to test whether it has successfully
+been created e.g. ds.make.o, ds.asFactor.o
+</p>
+
+
+<h3>Value</h3>
+
+<p>If the specified data object exists and is of a valid class (i.e. is not null) in every one of the
+datasources specified by the datasources argument,  the function returns a list with a single element
+$return.message which is of the form: &quot;A valid copy of data object &lt;TID.f&gt; exists in all specified data sources&quot;.
+If the specified object is non-existant in at least one of the specified data sources or it exists but is of
+class &quot;null&quot;, the $return message is of the form: &quot;Error: A valid data object TID.h does NOT exist in ALL specified data sources&quot;
+&quot;It is either ABSENT and/or has no valid content/class, for details see return.info above&quot;. The list return.info then includes
+a list of each data source with an indication of whether the data object being tested exists at all e.g. for study 3 return of
+the list object $return.info$study3$test.obj.exists = FALSE implies that the tested object does not exist
+even as a name in study 3 while return of the list object $return.info$study3$test.obj.class = &quot;ABSENT&quot; implies 
+that even if the tested object exists as a name in study 3 it does not have a valid class (so contains no data etc)
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Burton PR
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBetaTestClient</em> version 0.2.0 ]</div>
+</body></html>

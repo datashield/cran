@@ -1,8 +1,3 @@
----
-layout: page
-title: opaladmin
-tagline: opaladmin Package Documentation
----
 
 
 ### opaladmin
@@ -17,6 +12,7 @@ Functions:
 
 * [dsadmin.get_method](dsadmin.get_method.html) Get Datashield Method
 * [dsadmin.get_methods](dsadmin.get_methods.html) Get Datashield Methods
+* [dsadmin.get_options](dsadmin.get_options.html) Get Datashield Options
 * [dsadmin.install_package](dsadmin.install_package.html) Install Datashield Package
 * [dsadmin.installed_package](dsadmin.installed_package.html) Check if a Datashield package is installed in Opal(s).
 * [dsadmin.package_description](dsadmin.package_description.html) Get Datashield Package Description
@@ -24,8 +20,10 @@ Functions:
 * [dsadmin.remove_package](dsadmin.remove_package.html) Remove Datashield Package
 * [dsadmin.rm_method](dsadmin.rm_method.html) Remove Datashield Method
 * [dsadmin.rm_methods](dsadmin.rm_methods.html) Remove Datashield Methods
+* [dsadmin.rm_option](dsadmin.rm_option.html) Remove Datashield Option
 * [dsadmin.rm_package_methods](dsadmin.rm_package_methods.html) Remove Package Datashield Methods
 * [dsadmin.set_method](dsadmin.set_method.html) Set Datashield Method
+* [dsadmin.set_option](dsadmin.set_option.html) Set Datashield Option
 * [dsadmin.set_package_methods](dsadmin.set_package_methods.html) Set Package Datashield Methods
 * [oadmin.install_devtools](oadmin.install_devtools.html) Install devtools package if not already available.
 * [oadmin.install_github](oadmin.install_github.html) Install a package from a source repository on GitHub. Makes sure devtools package is available.
@@ -36,9 +34,8 @@ Functions:
 * [oadmin.remove_package](oadmin.remove_package.html) Remove Package
 * [opal.load_package](opal.load_package.html) Load package in the current session.
 * [opal.unload_package](opal.unload_package.html) Unload package from the current session.
-* [opaladmin](opaladmin.html) Opal R and Datashield Administration tools
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opaladmin/1.18/DESCRIPTION)
-* [opaladmin 1.18](https://github.com/datashield/opaladmin/tree/1.18)
+* [DESCRIPTION](https://raw.github.com/datashield/opaladmin/1.20.0/DESCRIPTION)
+* [opaladmin 1.20.0](https://github.com/datashield/opaladmin/tree/1.20.0)

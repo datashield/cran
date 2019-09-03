@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks that an object has the same class in all studies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for checkClass {dsBetaTestClient}"><tr><td>checkClass {dsBetaTestClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Checks that an object has the same class in all studies</h2>
+
+<h3>Description</h3>
+
+<p>This is an internal function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+checkClass(datasources = NULL, obj = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+</td></tr>
+<tr valign="top"><td><code>obj</code></td>
+<td>
+<p>a string character, the name of the object to check for.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>In DataSHIELD an object included in analysis must be of the same type in all 
+the collaborating studies. If that is not the case the process is stopped
+</p>
+
+
+<h3>Value</h3>
+
+<p>a message or the class of the object if the object has the same class in all studies.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBetaTestClient</em> version 0.2.0 ]</div>
+</body></html>
