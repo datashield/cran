@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Creates 1-dimensional contingency tables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for table1DDS {dsBase}"><tr><td>table1DDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Creates 1-dimensional contingency tables</h2>
+
+<h3>Description</h3>
+
+<p>This function generates a 1-dimensional table where potentially disclosive cells.
+(based on the set threshold) are replaced by a missing value ('NA').
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+table1DDS(xvect)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>xvect</code></td>
+<td>
+<p>a numerical vector with discrete values - usually a factor.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>It generates a 1-dimensional tables where valid (non-disclosive) 1-dimensional tables are defined 
+as data from sources where no table cells have counts between 1 and the set threshold. When the ouput table
+is invalid all cells but the total count are replaced by missing values. Only the total count is visible 
+on the table returned to the client site. A message is also returned with the 1-dimensional; the message 
+says &quot;invalid table - invalid counts present&quot; if the table is invalid and 'valid table' otherwise.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list which contains two elements: 'table', the 1-dimensional table and 'message' a message which
+informs about the validity of the table.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye A.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

@@ -9,9 +9,8 @@
 
 <h3>Description</h3>
 
-<p>The function takes a categorical variable or a data frame
-as input and generates subset(s) variables or data frames
-for each category.
+<p>The function takes a categorical variable or a data frame as input and generates 
+subset(s)  variables or data frames for each category.
 </p>
 
 
@@ -28,48 +27,38 @@ ds.subsetByClass(x = NULL, subsets = "subClasses", variables = NULL,
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of the dataframe or the
-vector to generate subsets from.</p>
-</td></tr>
-<tr valign="top"><td><code>variables</code></td>
-<td>
-<p>a vector of string characters, the
-name(s) of the variables to subset by.</p>
+<p>a character, the name of the dataframe or the vector to generate subsets from.</p>
 </td></tr>
 <tr valign="top"><td><code>subsets</code></td>
 <td>
-<p>the name of the output object, a list that
-holds the subset objects. If set to NULL the default name
-of this list is 'subClasses'.</p>
+<p>the name of the output object, a list that holds the subset objects. If set to NULL
+the default name of this list is 'subClasses'.</p>
+</td></tr>
+<tr valign="top"><td><code>variables</code></td>
+<td>
+<p>a vector of string characters, the name(s) of the variables to subset by.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>If the input data object is a data frame it is possible to
-specify the variables to subset on. If a subset is not
-'valid' all its the values are reported as missing (i.e.
-NA), the name of the subsets is labelled with the suffix
-'_INVALID'. Subsets are considered invalid if the number of
-observations it holds are between 1 and the threshold
-allowed by the data owner. if a subset is empty (i.e. no
-entries) the name of the subset is labelled with the suffix
-'_EMPTY'.
+<p>If the input data object is a data frame it is possible to specify  the variables  
+to subset on. If a subset is not 'valid' all its the values are reported as missing (i.e. NA),
+the name of the subsets is labelled with the suffix '_INVALID'. Subsets are considered invalid if 
+the number of observations it holds are between 1 and the threshold allowed by the data owner. if 
+a subset is empty (i.e. no entries) the name of the subset is labelled with the suffix '_EMPTY'.
 </p>
 
 
 <h3>Value</h3>
 
-<p>a no data are return to the user but messages are printed
-out.
+<p>a no data are return to the user but messages are printed out.
 </p>
 
 
@@ -81,18 +70,16 @@ out.
 
 <h3>See Also</h3>
 
-<p>ds.meanByClass to compute mean and standard
-deviation across categories of a factor vectors.
+<p>ds.meanByClass to compute mean and standard deviation across categories of a factor vectors.
 </p>
-<p>ds.subset to subset by complete cases (i.e. removing
-missing values), threshold, columns and rows.
+<p>ds.subset to subset by complete cases (i.e. removing missing values), threshold, columns and rows.
 </p>
 
 
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the login data
   data(logindata)
@@ -101,17 +88,19 @@ missing values), threshold, columns and rows.
   myvar &lt;- list('DIS_DIAB','PM_BMI_CONTINUOUS','LAB_HDL', 'GENDER')
   opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-  # Example 1: generate all possible subsets from the table assigned above (one subset table for each class in each factor)
+  # Example 1: generate all possible subsets from the table assigned above (one subset table
+  # for each class in each factor)
   ds.subsetByClass(x='D', subsets='subclasses')
   # display the names of the subset tables that were generated in each study
   ds.names('subclasses')
-
+  
   # Example 2: subset the table initially assigned by the variable 'GENDER'
   ds.subsetByClass(x='D', subsets='subtables', variables='GENDER')
   # display the names of the subset tables that were generated in each study
   ds.names('subtables')
 
-  # Example 3: generate a new variable 'gender' and split it into two vectors: males and females
+  # Example 3: generate a new variable 'gender' and split it into two vectors: males
+  # and females
   ds.assign(toAssign='D$GENDER', newobj='gender')
   ds.subsetByClass(x='gender', subsets='subvectors')
   # display the names of the subset vectors that were generated in each study
@@ -120,8 +109,10 @@ missing values), threshold, columns and rows.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

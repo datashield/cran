@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes the variance of vector with more than 4 entries</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes the variance of vector</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for varDS {dsBase}"><tr><td>varDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Computes the variance of vector with more than 4 entries</h2>
+<h2>Computes the variance of vector</h2>
 
 <h3>Description</h3>
 
@@ -32,21 +32,24 @@ varDS(xvect)
 
 <h3>Details</h3>
 
-<p>if the length of input vector is less than the set filter a
-missing value is returned.
+<p>if the length of input vector is less than the set filter
+a missing value is returned.
 </p>
 
 
 <h3>Value</h3>
 
-<p>a numeric, the variance
+<p>a list, with the sum of the input variable, the sum of squares of the input variable,
+the number of missing values, the number of valid values, the number of total lenght of the
+variable, and a study message indicating whether the number of valid is less than the
+disclosure threshold
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>Amadou Gaye, Demetris Avraam, for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 4.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
 </body></html>

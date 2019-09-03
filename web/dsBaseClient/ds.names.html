@@ -9,7 +9,7 @@
 
 <h3>Description</h3>
 
-<p>This function is similar to the R function <code>mean</code>.
+<p>This function is similar to the R function <code>names</code>.
 </p>
 
 
@@ -25,23 +25,19 @@ ds.names(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of an object of type
-list.</p>
+<p>a character, the name of an object of type list.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In DataSHIELD the use of this function is restricted to
-objects of type list.
+<p>In DataSHIELD the use of this function is restricted to objects of type list.
 </p>
 
 
@@ -60,7 +56,7 @@ objects of type list.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the login data
   data(logindata)
@@ -78,8 +74,10 @@ objects of type list.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

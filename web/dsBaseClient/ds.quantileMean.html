@@ -9,8 +9,7 @@
 
 <h3>Description</h3>
 
-<p>This function calculate the mean and quantile values of a
-quantitative variable
+<p>This function calculate the mean and quantile values of a quantitative variable
 </p>
 
 
@@ -30,26 +29,22 @@ ds.quantileMean(x = NULL, type = "combine", datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represent the type of graph
-to display. If <code>type</code> is set to 'combine' pooled
-values are displayed and sumamries a returned for each
-study if <code>type</code> is set to 'split'</p>
+<p>a character which represent the type of graph to display. 
+If <code>type</code> is set to 'combine' pooled values are displayed and sumamries a
+returned for each study if <code>type</code> is set to 'split'</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Unlike standard r summary function the minimum and maximum
-values afe not returned because they are potentially
-disclosive.
+<p>Unlike standard r summary function the minimum and maximum values afe not returned
+because they are potentially disclosive.
 </p>
 
 
@@ -76,7 +71,7 @@ disclosive.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -94,8 +89,10 @@ disclosive.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

@@ -1,52 +1,56 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Attempts to convert the input into a matrix</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Coerces an R object into a matrix</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for asMatrixDS {dsBase}"><tr><td>asMatrixDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Attempts to convert the input into a matrix</h2>
+<h2>Coerces an R object into a matrix</h2>
 
 <h3>Description</h3>
 
-<p>this function is similar to R function 'as.matrix'
+<p>this function is based on the native R function as.matrix
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-asMatrixDS(input)
+asMatrixDS(x.name)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>input</code></td>
+<tr valign="top"><td><code>x.name</code></td>
 <td>
-<p>the object to turn into list.</p>
+<p>the name of the input object to be coerced to class
+matrix. Must be specified in inverted commas. But this argument is
+usually specified directly by &lt;x.name&gt; argument of the clientside function
+ds.asMatrix</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Unlike the r function 'as.matrix' some restriction are
-applied.
+<p>See help for function as.matrix in native R
 </p>
 
 
 <h3>Value</h3>
 
-<p>a valid list or an empty list
+<p>the object specified by the &lt;newobj&gt; argument (or its default name
+&lt;x.name&gt;.mat) which is written to the serverside. For further
+details see help on the clientside function ds.asMatrix
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>Amadou Gaye, Paul Burton for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 4.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
 </body></html>

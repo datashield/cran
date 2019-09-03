@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculates the coordinates of the data to be plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for scatterPlotDS {dsBase}"><tr><td>scatterPlotDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculates the coordinates of the data to be plot</h2>
+
+<h3>Description</h3>
+
+<p>This function uses two disclosure control methods to generate non-disclosive
+coordinates that are returned to the client that generates the non-disclosive scatter plots.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+scatterPlotDS(x, y, method.indicator, k, noise)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the name of a numeric vector, the x-variable.</p>
+</td></tr>
+<tr valign="top"><td><code>y</code></td>
+<td>
+<p>the name of a numeric vector, the y-variable.</p>
+</td></tr>
+<tr valign="top"><td><code>method.indicator</code></td>
+<td>
+<p>an intiger either 1 or 2. If the user selects the deterministic
+method in the client side function the method.inticator is set to 1 while if the user selects
+the probabilistic method this argument is set to 2.</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>the number of the nearest neghbours for which their centroid is calculated if the
+deterministic method is selected.</p>
+</td></tr>
+<tr valign="top"><td><code>noise</code></td>
+<td>
+<p>the percentage of the initial variance that is used as the variance of the embedded
+noise if the probabilistic method is selected.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If the user chooses the deteministic approach, the function finds the k-1 nearest
+neighbours of each data point in a 2-dimensional space. The nearest neighbours are the data
+points with the minimum Euclidean distances from the point of interest. Each point of interest
+and its k-1 nearest neighbours are then used for the calculation of the coordinates of the
+centroid of those k points. Centroid here is referred to the centre of mass, i.e. the
+x-coordinate of the centroid is the average value of the x-coordinates of the k nearest
+neighbours and the y-coordinate of the centroid is the average of the y-coordinates of the k
+nearest neighbours. If the user chooses the probabilistic approach, the function adds random
+noise to $x$ and $y$ separately. Each random noise follows a normal distribution with zero mean
+and variance equal to 10
+disclosure we fix the random number generator in a value that is specified by the input
+variables. Thus the function returns always the same noisy data for a given pair of variables.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list with the x and y coordinates of the data to be plot
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

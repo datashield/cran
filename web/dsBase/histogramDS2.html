@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes a histogram of the input variable without plotting.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for histogramDS2 {dsBase}"><tr><td>histogramDS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Computes a histogram of the input variable without plotting.</h2>
+
+<h3>Description</h3>
+
+<p>This function produces the information required to plot
+a histogram. This is done without allowing for bins (cells) with number
+of counts less than the pre-specified disclosure control set for the minimum cell
+size of a table. If a bin has less counts than this threshold then their counts 
+and its density are replaced by a 0 value.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+histogramDS2(xvect, num.breaks, min, max, method.indicator, k, noise)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>xvect</code></td>
+<td>
+<p>the numeric vector for which the histogram is desired.</p>
+</td></tr>
+<tr valign="top"><td><code>num.breaks</code></td>
+<td>
+<p>the number of breaks that the range of the variable is divided.</p>
+</td></tr>
+<tr valign="top"><td><code>min</code></td>
+<td>
+<p>a numeric, the lower limit of the distribution.</p>
+</td></tr>
+<tr valign="top"><td><code>max</code></td>
+<td>
+<p>a numeric, the upper limit of the distribution.</p>
+</td></tr>
+<tr valign="top"><td><code>method.indicator</code></td>
+<td>
+<p>a number equal to either 1, 2 or 3 indicating the method of disclosure
+control that is used for the generation of the histogram. If the value is equal to 1 then the
+'smallCellsRule' is used. If the value is equal to 2 then the 'deterministic' method is used.
+If the value is set to 3 then the 'probabilistic' method is used.</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>the number of the nearest neghbours for which their centroid is calculated if the 
+<code>method.indicator</code> is equal to 2 (i.e. deterministic method).</p>
+</td></tr>
+<tr valign="top"><td><code>noise</code></td>
+<td>
+<p>the percentage of the initial variance that is used as the variance of the embedded
+noise if the <code>method.indicator</code> is equal to 3 (i.e. probabilistic method).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Please find more details in the documentation of the clientside ds.histogram function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list with an object of class <code>histogram</code> and the number of invalid cells
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Amadou Gaye, Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

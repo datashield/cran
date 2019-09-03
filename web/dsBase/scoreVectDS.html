@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates the score vector and information matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for scoreVectDS {dsBase}"><tr><td>scoreVectDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Generates the score vector and information matrix</h2>
+
+<h3>Description</h3>
+
+<p>This function is called by the client function 'ds.gee'
+to produced the score vector and information matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+scoreVectDS(data, formula, family, clusterID, corstr, alpha, phi,
+  startBetas, zcor = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>the input dataframe which contains the variable specified in the formula.</p>
+</td></tr>
+<tr valign="top"><td><code>formula</code></td>
+<td>
+<p>a regression formula.</p>
+</td></tr>
+<tr valign="top"><td><code>family</code></td>
+<td>
+<p>the link function for the regression.</p>
+</td></tr>
+<tr valign="top"><td><code>clusterID</code></td>
+<td>
+<p>the name of the column that holds the cluster IDs.</p>
+</td></tr>
+<tr valign="top"><td><code>corstr</code></td>
+<td>
+<p>the correlation structure.</p>
+</td></tr>
+<tr valign="top"><td><code>alpha</code></td>
+<td>
+<p>the parameter alpha</p>
+</td></tr>
+<tr valign="top"><td><code>phi</code></td>
+<td>
+<p>the parameter alpha</p>
+</td></tr>
+<tr valign="top"><td><code>startBetas</code></td>
+<td>
+<p>a character, the starting values concatenated by comma</p>
+</td></tr>
+<tr valign="top"><td><code>zcor</code></td>
+<td>
+<p>the user defined matrix user if the correlation structure is 'fixed'.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>the score vector and information matrix are calculated according to 
+the correlation structure.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.; Jones EM.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

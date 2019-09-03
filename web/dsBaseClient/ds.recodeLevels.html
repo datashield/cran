@@ -9,8 +9,7 @@
 
 <h3>Description</h3>
 
-<p>The function replaces the levels of a factor by the
-specified ones.
+<p>The function replaces the levels of a factor by the specified ones.
 </p>
 
 
@@ -25,47 +24,40 @@ ds.recodeLevels(x = NULL, newCategories = NULL, newobj = NULL,
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>x,</code></td>
+<tr valign="top"><td><code>x, </code></td>
 <td>
 <p>a character, the name of a factor variable.</p>
 </td></tr>
-<tr valign="top"><td><code>newCategories,</code></td>
+<tr valign="top"><td><code>newCategories, </code></td>
 <td>
-<p>a character vector, the new levels.
-Its length MUST be equal or greater to the current number
-of levels.</p>
+<p>a character vector, the new levels. Its length MUST be equal or greater 
+to the current number of levels.</p>
 </td></tr>
-<tr valign="top"><td><code>newobj,</code></td>
+<tr valign="top"><td><code>newobj, </code></td>
 <td>
-<p>a character, the name of the new factor
-vector. If no name is specified for the new variable it
-is named after the input variable with a suffixe '_new'.</p>
+<p>a character, the name of the new factor vector. If no name is specified
+for the new variable it is named after the input variable with a suffixe '_new'.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources. By default an internal function looks for
-'opal' objects in the environment and sets this
-parameter.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.
+By default an internal function looks for 'opal' objects in the environment and sets this parameter.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>It uses the R function 'levels()' on the client side to
-alter the current levels. It can for example be used to
-merge two classes into one, to add a level(s) to a vector
+<p>It uses the R function 'levels()' on the client side to alter the current levels.
+It can for example be used to merge two classes into one, to add a level(s) to a vector 
 or to rename (i.e. re-label) the levels of a vector.
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored
-on the server side.
+<p>nothing is returned to the client, the new object is stored on the server side.
 </p>
 
 
@@ -78,7 +70,7 @@ on the server side.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -90,7 +82,8 @@ on the server side.
   ds.levels(x='D$PM_BMI_CATEGORICAL')
 
   # Example1: merge the levels '2' and '3' to obtain only two levels (i.e. '1' and '2')
-  # this is the same as recoding level '3' as '2' whilst keeping the same labels for the other two levels.
+  # this is the same as recoding level '3' as '2' whilst keeping the same labels for the other
+  # two levels.
   ds.recodeLevels(x='D$PM_BMI_CATEGORICAL', newCategories=c('1','2','2'), newobj='BMI_CAT_NEW1')
   ds.levels(x='BMI_CAT_NEW1')
 
@@ -100,14 +93,17 @@ on the server side.
   ds.levels(x='BMI_CAT_NEW2')
 
   # Example3: re-label the levels of the categorical bmi "low", "mid" and "high"
-  ds.recodeLevels(x='D$PM_BMI_CATEGORICAL', newCategories=c('low','mid','high'), newobj='BMI_CAT_NEW3')
+  ds.recodeLevels(x='D$PM_BMI_CATEGORICAL', newCategories=c('low','mid','high'),
+                  newobj='BMI_CAT_NEW3')
   ds.levels(x='BMI_CAT_NEW3')
 
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

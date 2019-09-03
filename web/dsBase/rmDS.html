@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: rmDS an aggregate function called by ds.rm</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for rmDS {dsBase}"><tr><td>rmDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>rmDS an aggregate function called by ds.rm</h2>
+
+<h3>Description</h3>
+
+<p>deletes an R object on the serverside
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rmDS(x.name.transmit)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x.name.transmit, </code></td>
+<td>
+<p>the name of the object to be deleted converted
+into transmissable form. The argument is specified via the &lt;x.name&gt;
+argument of ds.rm</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>this is a serverside function
+based on the rm() function in native R. It is an aggregate function
+which may be surprising because it modifies an object
+on the serverside, and would therefore be expected to be an assign function.
+However, as an assign function the last step in running it
+would be to write the modified object as newobj. But this would
+fail because the effect of the function is to delete the object and so
+it would be impossible to write it anywhere.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the specified object is deleted from the serverside. If this
+is successful the message &quot;Object &lt;x.name&gt; successfully deleted&quot; is returned
+to the clientside (where x.name is the name of the object to be deleted).
+If the object to be deleted is already absent on a given
+source, that source will return the message: &quot;Object to be deleted, i.e. &lt;x.name&gt; ,
+does not exist so does not need deleting&quot;. Finally, if the specified name
+of the object to be deleted is too long (&gt;nfilter.stringShort) there is
+a potential disclosure risk (active code hidden in the name) and the
+rmDS returns a message such as: &quot;Disclosure risk, number of characters
+in x.name must not exceed nfilter.stringShort which is currently set at: 25&quot; where
+'25' is the current setting of the R_Option value of nfilter.stringShort.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

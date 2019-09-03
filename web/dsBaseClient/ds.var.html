@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.var calling aggregate function varDS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.var {dsBaseClient}"><tr><td>ds.var {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ds.var calling aggregate function varDS</h2>
+
+<h3>Description</h3>
+
+<p>Computes the variance of a given vector
+This function is similar to the R function <code>var</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.var(x = NULL, type = "split", checks = FALSE,
+  datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character, the name of a numerical vector.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>a character which represents the type of analysis to carry out. 
+If <code>type</code> is set to 'combine', 'combined', 'combines' or 'c', a global variance is calculated 
+if <code>type</code> is set to 'split', 'splits' or 's', the variance is calculated separately for each study.
+if <code>type</code> is set to 'both' or 'b', both sets of outputs are produced</p>
+</td></tr>
+<tr valign="top"><td><code>checks</code></td>
+<td>
+<p>a Boolean indicator of whether to undertake optional checks of model
+components. Defaults to checks=FALSE to save time. It is suggested that checks
+should only be undertaken once the function call has failed</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>It is a wrapper for the server side function. 
+The server side function returns a list with the sum of the input variable, the sum of squares
+of the input variable, the number of missing values, the number of valid values, the number of
+total lenght of the variable, and a study message indicating whether the number of valid is less
+than the disclosure threshold. The variance is calculated at the client side by the formula 
+$</p>
+<p style="text-align: center;"><i>\frac{&sum;{x_i^2}}{N-1}-\frac{(&sum;{x_i})^2}{N(N-1)}</i></p>
+<p>$
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list including: Variance.by.Study = estimated variance in each study separately (if type = split or both), with Nmissing
+(number of missing observations), Nvalid (number of valid observations), Ntotal (sum of missing and valid observations)
+also reported separately for each study; Global.Variance = Variance, Nmissing, Nvalid, Ntotal across all studies combined
+(if type = combine or both); Nstudies = number of studies being analysed; ValidityMessage indicates whether 
+a full analysis was possible or whether one or more studies had fewer valid observations than the nfilter
+threshold for the minimum cell size in a contingency table.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Amadou Gaye, Demetris Avraam, for DataSHIELD Development Team
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+
+  # load that contains the login details
+  data(logindata)
+
+  # login and assign specific variable(s)
+  myvar &lt;- list('LAB_TSC')
+  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+
+  # Example 1: compute the pooled variance of the variable 'LAB_TSC' - default behaviour
+  ds.var(x='D$LAB_TSC')
+
+  # Example 2: compute the variance of each study separately
+  ds.var(x='D$LAB_TSC', type='split')
+
+  # clear the Datashield R sessions and logout
+  datashield.logout(opals)
+
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+</body></html>

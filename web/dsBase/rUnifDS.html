@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: rUnifDS serverside assign function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for rUnifDS {dsBase}"><tr><td>rUnifDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>rUnifDS serverside assign function</h2>
+
+<h3>Description</h3>
+
+<p>primary serverside assign function called by ds.rUnif
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rUnifDS(n, min = 0, max = 1, force.output.to.k.decimal.places = 9)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>length of the pseudorandom number vector to be generated
+as specified by the argument &lt;samp.size&gt; in the function ds.rUnif</p>
+</td></tr>
+<tr valign="top"><td><code>min</code></td>
+<td>
+<p>a numeric scalar specifying the minimum of the range across which
+the random numbers will be generated in each source. Specified directly
+by the min argument in ds.rUnif. May be a scalar or a vector allowing the min
+to vary from observation to observation.</p>
+</td></tr>
+<tr valign="top"><td><code>max</code></td>
+<td>
+<p>a numeric scalar specifying the maximum of the range across which
+the random numbers will be generated in each source. Specified directly
+by the max argument in ds.rUnif. May be a scalar or a vector allowing the min
+to vary from observation to observation.</p>
+</td></tr>
+<tr valign="top"><td><code>force.output.to.k.decimal.places</code></td>
+<td>
+<p>scalar integer. Forces the output random
+number vector to have k decimal places. If 0 rounds it coerces
+decimal random number output to integer, a k in range 1-8 forces output to
+have k decimal places. If k = 9, no rounding occurs of native output.
+Default=9. Value specified by &lt;force.output.to.k.decimal.places&gt; argument
+in ds.rUnif</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Generates the vector of pseudorandom numbers from a uniform
+distribution in each data source as specified by the arguments of
+ds.rUnif. This serverside function is effectively the same as
+the function runif() in native R and its arguments are the same.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Writes the pseudorandom number vector with the characteristics specified
+in the function call as a new serverside vector on the data source on which
+it has been called. Also returns key information to the clientside:
+the random seed as specified by you in each
+source + (if requested) the full 626 length random seed vector this generated in
+each source (see info for the argument &lt;return.full.seed.as.set&gt;). It
+also returns a vector reporting the length of the pseudorandom vector
+created in each source.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

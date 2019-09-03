@@ -1,24 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Combines objects by columns</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.cbind calling cbindDS</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.cbind {dsBaseClient}"><tr><td>ds.cbind {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Combines objects by columns</h2>
+<h2>ds.cbind calling cbindDS</h2>
 
 <h3>Description</h3>
 
-<p>This is similar to the R base function <code>cbind</code> with
-the only differences that it allows to combine up to 5
-objects (vectors and/or table structures).
+<p>Take a sequence of vector, matrix or data-frame arguments
+and combine them by column to produce a matrix.
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-ds.cbind(x = NULL, newobj = "newCbindObject", datasources = NULL)
+ds.cbind(x = NULL, DataSHIELD.checks = FALSE, force.colnames = NULL,
+  newobj = "cbind.out", datasources = NULL,
+  notify.of.progress = FALSE)
 </pre>
 
 
@@ -27,85 +28,113 @@ ds.cbind(x = NULL, newobj = "newCbindObject", datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character vector, the name of the vector and
-or table to combine by column.</p>
+<p>This is a vector of character strings representing the names of the elemental
+components to be combined  For example, the call:
+ds.cbind(x=c('DF_input','matrix.m','var_age'),newobj='cbind_output') will
+combine a pre-existing data.frame called DF_input with a matrix and a variable
+called var_age. The output will be the object cbind_output in which
+the first columns will be the columns of DF_input, to their right
+the next block of columns are from matrix.m and the final column will
+be the variable var_age. As many
+elemental components as needed may be combined in any order e.g. 3 data.frames,
+7 variables and 2 matrices. For convenience the x argument can alternatively
+be specified in a two step procedure, the first being a call to
+the native R environment on the client server:
+x.components&lt;-c('DF_input1','matrix.m','DF_input2', 'var_age'); 
+ds.cbind(x=x.components,newobj='DF_output'). In order to
+disambiguate column names, if the same column name appears several times
+the suffix '.1' will be appended to the second instance, '.2' to the
+third and, generally, .(n-1) to the nth instance. Disambiguation
+does not occur if column names are user specified using &lt;force.colnames&gt;</p>
+</td></tr>
+<tr valign="top"><td><code>DataSHIELD.checks</code></td>
+<td>
+<p>logical, if TRUE checks are made that all
+input objects exist and are of an appropriate class. These checks
+are relatively slow and so the &lt;DataSHIELD.checks&gt; argument is
+defaulted to FALSE</p>
+</td></tr>
+<tr valign="top"><td><code>force.colnames</code></td>
+<td>
+<p>NULL or a vector of character strings representing
+the required column names of the output object. For example:
+force.colnames=c(&quot;colname1&quot;,&quot;name.of.second.column&quot;, &quot;lastcol&quot;) for an
+output object with three columns. If &lt;force.colnames&gt; is NULL
+column names are inferred from the names or column names of
+the input objects - please see 'details' for disambiguation.
+If &lt;force.colnames&gt; is not NULL, there is no disambiguation
+so you can force columns to have the same names should you
+so wish.The vector of column names must have
+the same number of elements as there are columns in the output
+object. If the length of the column name vector is incorrect a
+studysideMessage is returned: &quot;Number of column names
+does not match number of columns in output object. Here 'N' names
+are required.Please see help for ds.cbind function&quot; where 'N'
+is the actual number of columns in the output object</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the output object. If this
-argument is set to <code>NULL</code>, the name of the new
-object is 'newCbindObject'.</p>
+<p>This a character string providing a name for the output
+data.frame which defaults to 'cbind.out' if no name is specified.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
+argument is not specified the default set of opals will be used. The default opals
+are called default.opals and the default can be set using the function
+ds.setDefaultOpals. If the &lt;datasources&gt; is to be specified, it should be set without
+inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
+apply the function solely to e.g. the second opal server in a set of three,
+the argument can be specified as: e.g. datasources=opals.em[2].
+If you wish to specify the first and third opal servers in a set you specify:
+e.g. datasources=opals.em[c(1,3)]</p>
+</td></tr>
+<tr valign="top"><td><code>notify.of.progress</code></td>
+<td>
+<p>specifies if console output should be produce to indicate
+progress. The default value for notify.of.progress is FALSE.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>see details of the R base function <code>cbind</code>.
+<p>A sequence of vector, matrix or data-frame arguments
+is combined column by column to produce a matrix written to the
+which is written to the serverside. For more details see 
+the native R function cbind. The handling of argument &lt;x&gt;
+is the same as for ds.dataFrame
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored
-on the server side.
+<p>the object specified by the &lt;newobj&gt; argument (or default name &lt;cbind.out&gt;).
+which is written to the serverside. Just like the cbind function in
+native R, the output object is of class matrix unless one or more
+of the input objects is a data.frame in which case the class of the
+output object is data.frame. In the latter case, if an object of
+class matrix is required one may use the ds.asMatrix function.
+As well as writing the output object as &lt;newobj&gt;
+on the serverside, two validity messages are returned
+indicating whether &lt;newobj&gt; has been created in each data source and if so whether
+it is in a valid form. If its form is not valid in at least one study - e.g. because
+a disclosure trap was tripped and creation of the full output object was blocked -
+ds.cbind() also returns any studysideMessages that can explain the error in creating
+the full output object. As well as appearing on the screen at run time,if you wish to
+see the relevant studysideMessages at a later date you can use the ds.message
+function. If you type ds.message(&quot;&lt;newobj&gt;&quot;) it will print out the relevant
+studysideMessage from any datasource in which there was an error in creating &lt;newobj&gt;
+and a studysideMessage was saved. If there was no error and &lt;newobj&gt; was created
+without problems no studysideMessage will have been saved and ds.message(&quot;&lt;newobj&gt;&quot;)
+will return the message: &quot;ALL OK: there are no studysideMessage(s) on this datasource&quot;.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>Paul Burton for DataSHIELD Development Team
 </p>
 
-
-<h3>See Also</h3>
-
-<p>ds.dataframe to generate a table of type dataframe.
-</p>
-<p>ds.changeRefGroup to change the reference level of a
-factor.
-</p>
-<p>ds.colnames to obtain the column names of a matrix
-or a data frame
-</p>
-<p>ds.asMatrix to coerce an object into a matrix type.
-</p>
-<p>ds.dim to obtain the dimensions of matrix or a data
-frame.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre>
-{
-
-  # load the file that contains the login details
-  data(logindata)
-
-  # login and assign specific variables(s)
-  # (by default the assigned dataset is a dataframe named 'D')
-  myvar &lt;- list('LAB_TSC', 'LAB_HDL')
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
-
-  # generate a new dataframe by combining the log values of
-  # 'LAB_TSC' and 'LAB_HDL', by columns
-  ds.assign(toAssign='log(D$LAB_TSC)', newobj='labtsc')
-  ds.assign(toAssign='log(D$LAB_HDL)', newobj='labhdl')
-  ds.cbind(x=c('labtsc','labhdl'), newobj="myDataframe")
-
-  # clear the Datashield R sessions and logout
-  datashield.logout(opals)
-
-}
-</pre>
-
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

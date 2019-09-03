@@ -25,37 +25,31 @@ ds.list(x = NULL, newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the names of the objects to coerce
-into a list.</p>
+<p>a character, the names of the objects to coerce into a list.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the output object. If this
-argument is set to <code>NULL</code>, the name of the new
-object is 'newlist'.</p>
+<p>the name of the output object. If this argument is set to <code>NULL</code>, 
+the name of the new object is 'newlist'.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>If the objects to coerce into a list are for example
-vectors held in a matrix or a dataframe the names of the
-elements in the list are the names of columns.
+<p>If the objects to coerce into a list are for example vectors held in a matrix 
+or a dataframe the names of the elements in the list are the names of columns.
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored
-on the server side.
+<p>nothing is returned to the client, the new object is stored on the server side.
 </p>
 
 
@@ -68,7 +62,7 @@ on the server side.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
  # load the file that contains the login details
  data(logindata)
@@ -84,8 +78,10 @@ on the server side.
  # clear the Datashield R sessions and logout
  datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

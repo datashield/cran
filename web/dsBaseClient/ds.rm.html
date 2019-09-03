@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.rm calling aggregate function rmDS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.rm {dsBaseClient}"><tr><td>ds.rm {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ds.rm calling aggregate function rmDS</h2>
+
+<h3>Description</h3>
+
+<p>deletes an R object on the serverside
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.rm(x.name = NULL, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x.name, </code></td>
+<td>
+<p>the name of the object to be deleted specified in
+inverted commas. For example: x.name='object.name'.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
+argument is not specified the default set of opals will be used. The default opals
+are called default.opals and the default can be set using the function
+ds.setDefaultOpals. If the &lt;datasources&gt; is to be specified, it should be set without
+inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
+apply the function solely to e.g. the second opal server in a set of three,
+the argument can be specified as: e.g. datasources=opals.em[2].
+If you wish to specify the first and third opal servers in a set you specify:
+e.g. datasources=opals.em[c(1,3)]</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>this clientside function calls a serverside function
+based on the rm() function in native R. This is the
+aggregate function rmDS. The fact that it is an aggregate
+function maybe surprising because it modifies an object
+on the serverside, and would therefore be expected to be an assign function.
+However, as an assign function the last step in running it
+would be to write the modified object as newobj. But this would
+fail because the effect of the function is to delete the object and so
+it would be impossible to write it anywhere. Please note that although
+this calls an aggregate function there is no &lt;type&gt; argument.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the specified object is deleted from the serverside. If this
+is successful the message &quot;Object &lt;x.name&gt; successfully deleted&quot; is returned
+to the clientside (where x.name is the name of the object to be deleted).
+If the object to be deleted is already absent on a given
+source, that source will return the message: &quot;Object to be deleted, i.e. &lt;x.name&gt; ,
+does not exist so does not need deleting&quot;. Finally, if the specified name
+of the object to be deleted is too long (&gt;nfilter.stringShort) there is
+a potential disclosure risk (active code hidden in the name) and the
+serverside function returns a message such as: &quot;Disclosure risk, number of characters
+in x.name must not exceed nfilter.stringShort which is currently set at: 25&quot; where
+'25' is the current setting of the R_Option value of nfilter.stringShort.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+</body></html>

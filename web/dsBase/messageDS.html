@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: messageDS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for messageDS {dsBase}"><tr><td>messageDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>messageDS</h2>
+
+<h3>Description</h3>
+
+<p>This function allows for error messages arising from the
+running of a server-side assign function to be returned to the client-side
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+messageDS(message.object.name)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>message.object.name</code></td>
+<td>
+<p>is a character string, containing the name of the list containing the
+message. See the header of the client-side function ds.message for more details.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Errors arising from aggregate server-side functions can be returned
+directly to the client-side. But this is not possible for server-side assign
+functions because they are designed specifically to write objects to the
+server-side and to return no meaningful information to the client-side.
+Otherwise, users may be able to use assign functions to return disclosive
+output to the client-side. ds.message calls messageDS which looks
+specifically for an object called $serversideMessage in a designated list on
+the server-side. Server-side functions from which error messages are to be made
+available, are designed to be able to write the designated error message to
+the $serversideMessage object into the list that is saved on the server-side
+as the primary output of that function. So only valid server-side functions of
+DataSHIELD can write a $studysideMessage, and as additional protection against
+unexpected ways that someone may try to get round this limitation, a
+$studysideMessage is a string that cannot exceed a length of nfilter.string
+a default of 80 characters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list object from each study, containing whatever message has been written by
+DataSHIELD into $studysideMessage.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Burton PR
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

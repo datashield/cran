@@ -25,38 +25,32 @@ ds.c(x = NULL, newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, a vector that holds the names of
-the objects to combine.</p>
+<p>a character, a vector that holds the names of the objects to combine.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the output object. If this
-argument is set to NULL, the name of the new object is
-'newObject'.</p>
+<p>the name of the output object. If this argument is set to NULL, 
+the name of the new object is 'newObject'.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>To avoid combining the character names and not the vectors
-on the client side, the names are coerce into a list and
-the server side function loops through that list to
-concatenate the list's elements into a vector.
+<p>To avoid combining the character names and not the vectors 
+on the client side, the names are coerce into a list and the server side
+function loops through that list to concatenate the list's elements into a vector.
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored
-on the server side.
+<p>nothing is returned to the client, the new object is stored on the server side.
 </p>
 
 
@@ -69,7 +63,7 @@ on the server side.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the file that contains the login details
   data(logindata)
@@ -89,8 +83,10 @@ on the server side.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

@@ -31,6 +31,30 @@ Functions:
 * [datashield.workspace_rm](datashield.workspace_rm.html) Remove a DataSHIELD workspace from a opal.
 * [datashield.workspace_save](datashield.workspace_save.html) Save current session in a DataSHIELD workspace.
 * [datashield.workspaces](datashield.workspaces.html) Get the DataSHIELD workspaces.
+* [dot-authToken](dot-authToken.html) Constructs the value for the Authorization header
+* [dot-delete](dot-delete.html) Delete a resource
+* [dot-deparse](dot-deparse.html) Turn expression into character strings.
+* [dot-extractJsonField](dot-extractJsonField.html) Extract JSON
+* [dot-extractOpalSessionId](dot-extractOpalSessionId.html) Extract opalsid from cookie list.
+* [dot-get](dot-get.html) Issues a request to opal for the specified resource
+* [dot-getDatashieldSessionId](dot-getDatashieldSessionId.html) Extract R session Id from opal object, create a new Datashield R session if not found.
+* [dot-getPEMFilePath](dot-getPEMFilePath.html) Extract absolute path to the pem file
+* [dot-getRSessionId](dot-getRSessionId.html) Extract R session Id from opal object, create a new R session if not found.
+* [dot-getSessions](dot-getSessions.html) Get all R session in Opal.
+* [dot-handleResponse](dot-handleResponse.html) Default request response handler.
+* [dot-handleResponseLocation](dot-handleResponseLocation.html) Default request response Location handler.
+* [dot-isContentEmpty](dot-isContentEmpty.html) Check if response content is empty.
+* [dot-listToJson](dot-listToJson.html) Simple transformation function of a list into a JSON object/array.
+* [dot-newDatashieldSession](dot-newDatashieldSession.html) Create a new Datashield R session in Opal.
+* [dot-newSession](dot-newSession.html) Create a new R session in Opal.
+* [dot-opal.login](dot-opal.login.html) Create the opal object
+* [dot-perform](dot-perform.html) Perform the request
+* [dot-post](dot-post.html) Post a request w/o body content
+* [dot-put](dot-put.html) Put a request w/o body content
+* [dot-rmDatashieldSession](dot-rmDatashieldSession.html) Remove a Datashield R session in Opal.
+* [dot-rmSession](dot-rmSession.html) Remove a R session from Opal.
+* [dot-select](dot-select.html) Returns a list r such that r[[i]] == l[[i]][field] for all i:length(l)
+* [dot-url](dot-url.html) Utility method to build urls. Concatenates all arguments and adds a '/' separator between each element
 * [opal.as_md_table](opal.as_md_table.html) Array to Markdown
 * [opal.assign](opal.assign.html) Data or expression assignment
 * [opal.assign.data](opal.assign.data.html) Data assignment
@@ -81,5 +105,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.6.0/DESCRIPTION)
-* [opal 2.6.0](https://github.com/datashield/opal/tree/2.6.0)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.6.1/DESCRIPTION)
+* [opal 2.6.1](https://github.com/datashield/opal/tree/2.6.1)

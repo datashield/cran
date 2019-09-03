@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.listServersideFunctions calling no server-side functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.listServersideFunctions {dsBaseClient}"><tr><td>ds.listServersideFunctions {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ds.listServersideFunctions calling no server-side functions</h2>
+
+<h3>Description</h3>
+
+<p>Lists all current server-side functions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.listServersideFunctions(datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
+argument is not specified the default set of opals will be used. The default opals
+are called default.opals and the default can be set using the function
+ds.setDefaultOpals. If the &lt;datasources&gt; is to be specified, it should be set without
+inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
+apply the function solely to e.g. the second opal server in a set of three,
+the argument can be specified as: e.g. datasources=opals.em[2].
+If you wish to specify the first and third opal servers in a set you specify:
+e.g. datasources=opals.em[c(1,3)]</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Uses dsadmin.get_methods function from opaladmin package to list all
+assign and aggregate functions on the available opal servers. The only choice of
+arguments is in datasources; i.e. which studies to interrogate. Once the studies have 
+been selected ds.listServersideFunctions lists all assign functions for all 
+of these studies and then all aggregate functions for all of them.
+</p>
+
+
+<h3>Value</h3>
+
+<p>list containing all serverside functions by study. Firstly lists assign
+and then aggregate functions.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Burton, PR.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+</body></html>

@@ -9,9 +9,8 @@
 
 <h3>Description</h3>
 
-<p>Provides some insight about an object. Unlike the similar R
-function only a limited class of objects can be used as
-input to reduce the risk of disclosure.
+<p>Provides some insight about an object. Unlike the similar R function
+only a limited class of objects can be used as input to reduce the risk of disclosure.
 </p>
 
 
@@ -31,28 +30,24 @@ ds.summary(x = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The class and size of the object are returned and various
-other information are also returned depending of the class
-of the object. Potentially disclosive information such as
-the minimum and maximum values of numeric vectors are not
-returned. The summary is given for each study separately.
+<p>The class and size of the object are returned and various other information are 
+also returned depending of the class of the object. Potentially disclosive information
+such as the minimum and maximum values of numeric vectors are not returned. The summary 
+is given for each study separately.
 </p>
 
 
 <h3>Value</h3>
 
-<p>the returned information depends on the class of the
-objects.
+<p>the returned information depends on the class of the objects.
 </p>
 
 
@@ -65,7 +60,7 @@ objects.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the login data
   data(logindata)
@@ -82,8 +77,10 @@ objects.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

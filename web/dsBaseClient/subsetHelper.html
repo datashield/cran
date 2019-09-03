@@ -23,44 +23,37 @@ subsetHelper(dts, data, rs = NULL, cs = NULL)
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>datasources</code></td>
-<td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
-</td></tr>
 <tr valign="top"><td><code>data</code></td>
 <td>
-<p>a string character, the name of the dataframe
-or the factor vector and the range of the subset.</p>
+<p>a string character, the name of the dataframe or the factor vector and the range of the subset.</p>
 </td></tr>
 <tr valign="top"><td><code>rs</code></td>
 <td>
-<p>a vector of two integers, the indices of the
-rows de extract.</p>
+<p>a vector of two integers, the indices of the rows de extract.</p>
 </td></tr>
 <tr valign="top"><td><code>cs</code></td>
 <td>
-<p>a vector of two integers or one or more
-characters.</p>
+<p>a vector of two integers or one or more characters.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>This function is called by the function 'ds.subset' to
-ensure that the requested subset is not larger than the
-original object.
+<p>This function is called by the function 'ds.subset' to ensure that the requested subset
+is not larger than the original object.
 </p>
 
 
 <h3>Value</h3>
 
-<p>a message or the class of the object if the object has the
-same class in all studies.
+<p>a message or the class of the object if the object has the same class in all studies.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

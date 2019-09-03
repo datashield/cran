@@ -9,9 +9,8 @@
 
 <h3>Description</h3>
 
-<p>this function is similar to R function <code>is.na</code> but
-instead of a vector of booleans it returns just one boolean
-to tell if all the elements are missing values.
+<p>this function is similar to R function <code>is.na</code> but instead of a vector 
+of booleans it returns just one boolean to tell if all the elements are missing values.
 </p>
 
 
@@ -31,30 +30,24 @@ ds.isNA(x = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources. By default an internal function looks for
-'opal' objects in the environment and sets this
-parameter.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.
+By default an internal function looks for 'opal' objects in the environment and sets this parameter.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In certain analyses such as GLM none of the variable should
-be missing at complete (i.e. missing value for each
-observation). Since in DataSHIELD it is not possible to see
-the data it is important to know whether or not a vector is
-empty to proceed accordingly.
+<p>In certain analyses such as GLM none of the variable should be missing at complete
+(i.e. missing value for each observation). Since in DataSHIELD it is not possible to see the data
+it is important to know whether or not a vector is empty to proceed accordingly.
 </p>
 
 
 <h3>Value</h3>
 
-<p>a boolean 'TRUE' if the vector is empty (all values are
-'NA') and 'FALSE' otherwise.
+<p>a boolean 'TRUE' if the vector is empty (all values are 'NA') and 'FALSE'  otherwise.
 </p>
 
 
@@ -67,7 +60,7 @@ empty to proceed accordingly.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the login data
   data(logindata)
@@ -82,8 +75,10 @@ empty to proceed accordingly.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

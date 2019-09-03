@@ -25,36 +25,29 @@ ds.exists(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of the object to look
-for.</p>
+<p>a character, the name of the object to look for.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In DataSHIELD it is not possible to see the data sitting on
-the servers of the collaborating studies. It is only
-possible to get summaries of objects stored on the server
-side. It is however important to know if an object is
-defined (i.e. exists) son the server side. This function
-checks if an object do really exists on the server side.
-Further information about the object can be obtained using
-functions such as <code>ds.class</code>, <code>length</code> etc...
+<p>In DataSHIELD it is not possible to see the data sitting on the servers
+of the collaborating studies. It is only possible to get summaries of objects stored on the 
+server side. It is however important to know if an object is defined (i.e. exists) son the server
+side. This function checks if an object do really exists on the server side. Further information
+about the object can be obtained using functions such as <code>ds.class</code>, <code>length</code> etc...
 </p>
 
 
 <h3>Value</h3>
 
-<p>a boolean, TRUE if the object is on the server side and
-FALSE otherwise
+<p>a boolean, TRUE if the object is on the server side and FALSE otherwise
 </p>
 
 
@@ -73,7 +66,7 @@ FALSE otherwise
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the file that contains the login details
   data(logindata)
@@ -91,8 +84,10 @@ FALSE otherwise
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

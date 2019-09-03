@@ -9,11 +9,9 @@
 
 <h3>Description</h3>
 
-<p>This function assigns a datashield object to a name, hence
-creating a new object. It also calls 'assign' server side
-functions to generate objects stored on the server side.
-The function is a wrapper for the 'opal' package function
-'datashield.assign'.
+<p>This function assigns a datashield object to a name, hence creating a new object. 
+It also calls 'assign' server side functions to generate objects stored on the server side.
+The function is a wrapper for the 'opal' package function 'datashield.assign'.
 </p>
 
 
@@ -29,9 +27,8 @@ ds.assign(toAssign = NULL, newobj = "newObject", datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>toAssign</code></td>
 <td>
-<p>a string character, the object to assign
-or the call to an assign function that generates the
-object to assign.</p>
+<p>a string character, the object to assign or the call to an assign function 
+that generates the object to assign.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
@@ -39,26 +36,22 @@ object to assign.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The new object is stored on the remote R instance (i.e. on
-the server side). If no name is provided, the new object is
-named 'newObject', by default.
+<p>The new object is stored on the remote R instance (i.e. on the server side).
+If no name is provided, the new object is named 'newObject', by default.
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored
-on the server side.
+<p>nothing is returned to the client, the new object is stored on the server side.
 </p>
 
 
@@ -71,7 +64,7 @@ on the server side.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -90,8 +83,10 @@ on the server side.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: matrixDimnamesDS assign function called by ds.matrixDimnames</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for matrixDimnamesDS {dsBase}"><tr><td>matrixDimnamesDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>matrixDimnamesDS assign function called by ds.matrixDimnames</h2>
+
+<h3>Description</h3>
+
+<p>Adds dimnames (row names, column names or both) to
+a matrix on the serverside.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+matrixDimnamesDS(M1.name = NULL, dimnames)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>M1.name</code></td>
+<td>
+<p>Specifies the name of the serverside matrix to which
+dimnames are to be added. Fully specified by &lt;M1&gt; argument of
+function ds.matrixDimnames. For more details
+see help for ds.matrixDimnames.</p>
+</td></tr>
+<tr valign="top"><td><code>dimnames</code></td>
+<td>
+<p>A dimnames attribute for the matrix: NULL or a list of
+length 2 giving the row and column names respectively.
+Fully specified by &lt;dimnames&gt; argument of
+function ds.matrixDimnames. For more details
+see help for ds.matrixDimnames.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Adds dimnames (row names, column names or both) to
+a matrix on the serverside. Similar to the dimnames function
+in native R. For more details see help for
+function ds.matrixDimnames
+</p>
+
+
+<h3>Value</h3>
+
+<p>Output is the serverside matrix specified by the &lt;newobj&gt; argument
+(or default name diag_&lt;x1&gt;) with specified dimnames (row and column
+names) which is written to the serverside.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

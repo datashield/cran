@@ -29,10 +29,8 @@ ds.class(x = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
@@ -57,15 +55,14 @@ datasources.</p>
 
 <h3>See Also</h3>
 
-<p>ds.exists to verify if an object is defined (exists)
-on the server side.
+<p>ds.exists to verify if an object is defined (exists) on the server side.
 </p>
 
 
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -83,8 +80,10 @@ on the server side.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

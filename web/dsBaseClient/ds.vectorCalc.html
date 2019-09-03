@@ -9,9 +9,8 @@
 
 <h3>Description</h3>
 
-<p>Carries out a row-wise operation on two or more vector. The
-function calls no server side function; it uses the R
-operation symbols built in DataSHIELD.
+<p>Carries out a row-wise operation on two or more vector. The function calls no 
+server side function; it uses the R operation symbols built in DataSHIELD.
 </p>
 
 
@@ -28,52 +27,40 @@ ds.vectorCalc(x = NULL, calc = NULL, newobj = "math_output",
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a vector of characters, the names of the vectors
-to include in the operation.</p>
+<p>a vector of characters, the names of the vectors to include in the operation.</p>
 </td></tr>
 <tr valign="top"><td><code>calc</code></td>
 <td>
-<p>a character, a symbol that indicates the
-mathematical operation to carry out: '+' for addition,
-'/' for division, *' for multiplication and '-' for
-subtraction.</p>
+<p>a character, a symbol that indicates the mathematical operation to carry out: 
+'+' for addition, '/' for division, *' for multiplication and '-' for subtraction.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the output object. By default
-the name is 'vectorCalc_output'.</p>
+<p>the name of the output object. By default the name is 'vectorCalc_output'.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In DataSHIELD it is possible to perform an operation on
-vectors by just using the relevant R symbols (e.g. '+' for
-addtion, '*' for multiplication, '-' for substraction and
-'/' for division). This might however be inconvenient if
-the number of vectors to include in the operation is large.
-This function takes the names of two or more vectors and
-performs the desired operation which could be an addition,
-a multiplication, a substraction or a division. If one or
-more vectors have a missing value at any one entry (i.e.
-observation), the operation returns a missing value ('NA')
-for that entry; the output vectors has, hence the same
-length as the input vectors.
+<p>In DataSHIELD it is possible to perform an operation on vectors by just using the relevant 
+R symbols (e.g. '+' for addtion, '*' for multiplication, '-' for substraction and '/' for division).
+This might however be inconvenient if the number of vectors to include in the operation is large. 
+This function takes the names of two or more vectors and performs the desired operation which could be 
+an addition, a multiplication, a substraction or a division. If one or more vectors have a missing value
+at any one entry (i.e. observation), the operation returns a missing value ('NA') for that entry; the output 
+vectors has, hence the same length as the input vectors.
 </p>
 
 
 <h3>Value</h3>
 
-<p>no data are returned to user, the output vector is stored
-on the server side.
+<p>no data are returned to user, the output vector is stored on the server side.
 </p>
 
 
@@ -86,7 +73,7 @@ on the server side.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the file that contains the login details
   data(logindata)
@@ -102,8 +89,10 @@ on the server side.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

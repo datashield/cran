@@ -25,52 +25,105 @@ Functions:
 
 * [checkClass](dsBaseClient/checkClass.html) Checks that an object has the same class in all studies
 * [colPercent](dsBaseClient/colPercent.html) Produces column percentages
-* [ds.asCharacter](dsBaseClient/ds.asCharacter.html) Turns a vector into character type vector
-* [ds.asFactor](dsBaseClient/ds.asFactor.html) Turns a numeric vector into factor type
-* [ds.asList](dsBaseClient/ds.asList.html) Constructs an object of type list
-* [ds.asMatrix](dsBaseClient/ds.asMatrix.html) Attempts to turn its argument into a matrix
-* [ds.asNumeric](dsBaseClient/ds.asNumeric.html) Turns a vector into numerical type
+* [ds.Boole](dsBaseClient/ds.Boole.html) ds.Boole
+* [ds.asCharacter](dsBaseClient/ds.asCharacter.html) ds.asCharacter calling assign function asCharacterDS
+* [ds.asDataMatrix](dsBaseClient/ds.asDataMatrix.html) ds.asDataMatrix calling assign function asDataMatrixDS
+* [ds.asFactor](dsBaseClient/ds.asFactor.html) Converts a numeric vector into a factor type
+* [ds.asInteger](dsBaseClient/ds.asInteger.html) ds.asInteger calling assign function asIntegerDS
+* [ds.asList](dsBaseClient/ds.asList.html) ds.asList calling aggregate function asListDS
+* [ds.asLogical](dsBaseClient/ds.asLogical.html) ds.asLogical calling assign function asLogicalDS
+* [ds.asMatrix](dsBaseClient/ds.asMatrix.html) ds.asMatrix calling assign function asMatrixDS
+* [ds.asNumeric](dsBaseClient/ds.asNumeric.html) ds.asNumeric calling assign function asNumericDS
 * [ds.assign](dsBaseClient/ds.assign.html) Assigns an object to a name in the server side
 * [ds.c](dsBaseClient/ds.c.html) Combines values into a vector or list
-* [ds.cbind](dsBaseClient/ds.cbind.html) Combines objects by columns
+* [ds.cbind](dsBaseClient/ds.cbind.html) ds.cbind calling cbindDS
 * [ds.changeRefGroup](dsBaseClient/ds.changeRefGroup.html) Changes the reference level of a factor
 * [ds.class](dsBaseClient/ds.class.html) Retrieves the class of an object
 * [ds.colnames](dsBaseClient/ds.colnames.html) Retrieves column names of a matrix-like object
-* [ds.dataframe](dsBaseClient/ds.dataframe.html) Creates data frames
+* [ds.contourPlot](dsBaseClient/ds.contourPlot.html) Generates a contour plot
+* [ds.cor](dsBaseClient/ds.cor.html) Calculates the correlation between two variables
+* [ds.corTest](dsBaseClient/ds.corTest.html) Tests for correlation between paired samples
+* [ds.cov](dsBaseClient/ds.cov.html) Calculates the covariance between two variables
+* [ds.dataFrame](dsBaseClient/ds.dataFrame.html) ds.dataFrame calling dataFrameDS
+* [ds.dataFrameSort](dsBaseClient/ds.dataFrameSort.html) ds.dataFrameSort calling dataFrameSortDS
+* [ds.dataFrameSubset](dsBaseClient/ds.dataFrameSubset.html) ds.dataFrameSubset calling dataFrameSubsetDS1 and dataFrameSubsetDS2
+* [ds.densityGrid](dsBaseClient/ds.densityGrid.html) Generates a density grid with or without a priori defined limits
 * [ds.dim](dsBaseClient/ds.dim.html) Retrieves the dimension of an object
 * [ds.exists](dsBaseClient/ds.exists.html) Checks if an object is defined on the server side
 * [ds.exp](dsBaseClient/ds.exp.html) Computes the exponential function
+* [ds.gee](dsBaseClient/ds.gee.html) Fits a Generalized Estimating Equation (GEE) model
+* [ds.glm](dsBaseClient/ds.glm.html) ds.glm calling glmDS1, glmDS2
+* [ds.glmSLMA](dsBaseClient/ds.glmSLMA.html) ds.glmSLMA calling glmSLMADS1, glmSLMADS2
+* [ds.heatmapPlot](dsBaseClient/ds.heatmapPlot.html) Generates a heatmap plot
+* [ds.histogram](dsBaseClient/ds.histogram.html) Generates a histogram plot
 * [ds.isNA](dsBaseClient/ds.isNA.html) Checks if a vector is empty
 * [ds.isValid](dsBaseClient/ds.isValid.html) Checks if an object is valid
 * [ds.length](dsBaseClient/ds.length.html) Gets the length of a vector or list
 * [ds.levels](dsBaseClient/ds.levels.html) Returns the levels attribute of a factor
+* [ds.lexis](dsBaseClient/ds.lexis.html) ds.lexis calling lexisDS1, lexisDS2, lexisDS3
 * [ds.list](dsBaseClient/ds.list.html) Function to construct a list object
+* [ds.listClientsideFunctions](dsBaseClient/ds.listClientsideFunctions.html) ds.listClientsideFunctions calling no server-side functions
+* [ds.listDisclosureSettings](dsBaseClient/ds.listDisclosureSettings.html) ds.listDisclosureSettings
+* [ds.listOpals](dsBaseClient/ds.listOpals.html) ds.listOpals list all Opal objects in the analytic environment
+* [ds.listServersideFunctions](dsBaseClient/ds.listServersideFunctions.html) ds.listServersideFunctions calling no server-side functions
 * [ds.log](dsBaseClient/ds.log.html) Computes logarithms, by default natural logarithms
+* [ds.look](dsBaseClient/ds.look.html) ds.look
 * [ds.ls](dsBaseClient/ds.ls.html) Returns a vector of character strings giving the names of the objects on remote server
+* [ds.make](dsBaseClient/ds.make.html) ds.make
+* [ds.matrix](dsBaseClient/ds.matrix.html) ds.matrix calling assign function matrixDS
+* [ds.matrixDet](dsBaseClient/ds.matrixDet.html) ds.matrixDet calling assign function matrixDetDS2
+* [ds.matrixDet.report](dsBaseClient/ds.matrixDet.report.html) ds.matrixDet.report calling aggregate function matrixDetDS1
+* [ds.matrixDiag](dsBaseClient/ds.matrixDiag.html) ds.matrixDiag calling assign function matrixDiagDS
+* [ds.matrixDimnames](dsBaseClient/ds.matrixDimnames.html) ds.matrixDimnames calling assign function matrixDimnamesDS
+* [ds.matrixInvert](dsBaseClient/ds.matrixInvert.html) ds.matrixInvert calling assign function matrixInvertDS
+* [ds.matrixMult](dsBaseClient/ds.matrixMult.html) ds.matrixMult calling assign function matrixMultDS
+* [ds.matrixTranspose](dsBaseClient/ds.matrixTranspose.html) ds.matrixTranspose calling assign function matrixTransposeDS
 * [ds.mean](dsBaseClient/ds.mean.html) Computes the statistical mean of a given vector
 * [ds.meanByClass](dsBaseClient/ds.meanByClass.html) Computes the mean and standard deviation across categories
+* [ds.meanSdGp](dsBaseClient/ds.meanSdGp.html) Computes the mean and standard deviation across groups defined by one factor
+* [ds.merge](dsBaseClient/ds.merge.html) ds.merge calling assign function mergeDS
+* [ds.message](dsBaseClient/ds.message.html) Return a 'studysideMessage' written by an assign function to serverside
 * [ds.names](dsBaseClient/ds.names.html) Gets the names of items in a list
 * [ds.numNA](dsBaseClient/ds.numNA.html) Gets the number of missing values in a vector
 * [ds.quantileMean](dsBaseClient/ds.quantileMean.html) Compute the quantiles
+* [ds.rBinom](dsBaseClient/ds.rBinom.html) ds.rBinom calling rBinomDS and setSeedDS
+* [ds.rNorm](dsBaseClient/ds.rNorm.html) ds.rNorm calling rNormDS and setSeedDS
+* [ds.rPois](dsBaseClient/ds.rPois.html) ds.rPois calling rPoisDS and setSeedDS
+* [ds.rUnif](dsBaseClient/ds.rUnif.html) ds.rUnif calling rUnifDS and setSeedDS
+* [ds.rbind](dsBaseClient/ds.rbind.html) ds.rbind calling rbindDS
+* [ds.reShape](dsBaseClient/ds.reShape.html) ds.reShape calling assign function reShapeDS
 * [ds.recodeLevels](dsBaseClient/ds.recodeLevels.html) Recodes the levels of a factor vector
+* [ds.recodeValues](dsBaseClient/ds.recodeValues.html) ds.recodeValues calling recodeValuesDS1 and recodeValuesDS2
 * [ds.replaceNA](dsBaseClient/ds.replaceNA.html) Replaces the missing values in a vector
+* [ds.rm](dsBaseClient/ds.rm.html) ds.rm calling aggregate function rmDS
 * [ds.rowColCalc](dsBaseClient/ds.rowColCalc.html) Computes sums and means of rows or columns of numeric matrix or data frame
+* [ds.scatterPlot](dsBaseClient/ds.scatterPlot.html) Generates non-disclosive scatter plots
+* [ds.seq](dsBaseClient/ds.seq.html) ds.seq calling seqDS
+* [ds.setDefaultOpals](dsBaseClient/ds.setDefaultOpals.html) ds.setDefaultOpals creates a default set of Opal objects called 'default.opals'
+* [ds.setSeed](dsBaseClient/ds.setSeed.html) ds.setSeed calling setSeedDS
 * [ds.subset](dsBaseClient/ds.subset.html) Generates a valid subset of a table or a vector
 * [ds.subsetByClass](dsBaseClient/ds.subsetByClass.html) Generates valid subset(s) of a data frame or a factor
 * [ds.summary](dsBaseClient/ds.summary.html) Generates the summary of an object
 * [ds.table1D](dsBaseClient/ds.table1D.html) Generates 1-dimensional contingency tables
 * [ds.table2D](dsBaseClient/ds.table2D.html) Generates 2-dimensional contingency tables
+* [ds.tapply](dsBaseClient/ds.tapply.html) ds.tapply calling tapplyDS
+* [ds.tapply.assign](dsBaseClient/ds.tapply.assign.html) ds.tapply.assign calling tapplyDS.assign
+* [ds.testObjExists](dsBaseClient/ds.testObjExists.html) Checking that a correct version of a data object exists on a data source server
+* [ds.unList](dsBaseClient/ds.unList.html) ds.unList calling aggregate function unListDS
+* [ds.var](dsBaseClient/ds.var.html) ds.var calling aggregate function varDS
 * [ds.vectorCalc](dsBaseClient/ds.vectorCalc.html) Performs a mathematical operation on two or more vectors
 * [extract](dsBaseClient/extract.html) Splits character by '$' and returns the single characters
 * [findLoginObjects](dsBaseClient/findLoginObjects.html) searches for opal login object in the environment
+* [geeChecks](dsBaseClient/geeChecks.html) Checks if the elements in a regression formula are defined and not empty
+* [geehelper1](dsBaseClient/geehelper1.html) Computes the pooled parameters alpha and phi
+* [geehelper2](dsBaseClient/geehelper2.html) Produces the pooled beta values and standard errors
 * [getOpals](dsBaseClient/getOpals.html) Gets the opal objects
 * [getPooledMean](dsBaseClient/getPooledMean.html) Gets a pooled statistical mean
 * [getPooledVar](dsBaseClient/getPooledVar.html) Gets a pooled variance
+* [glmChecks](dsBaseClient/glmChecks.html) Checks if the elements in the glm model have the right characteristics
 * [isAssigned](dsBaseClient/isAssigned.html) Checks an object has been generated on the server side
 * [isDefined](dsBaseClient/isDefined.html) Checks if the objecs are defined in studies
 * [logical2int](dsBaseClient/logical2int.html) turns a logical operator into an integer
-* [login_remoteServer](dsBaseClient/login_remoteServer.html) Information required to login to opal servers
-* [logindata](dsBaseClient/logindata.html) Information required to login to opal servers
 * [meanByClassHelper0a](dsBaseClient/meanByClassHelper0a.html) Computes the mean values of a numeric vector across a factor vector
 * [meanByClassHelper0b](dsBaseClient/meanByClassHelper0b.html) Runs the computation if variables are within a table structure
 * [meanByClassHelper1](dsBaseClient/meanByClassHelper1.html) Generates subset tables
@@ -82,156 +135,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/4.1.0/DESCRIPTION)
-* [dsBaseClient 4.1.0](https://github.com/datashield/dsBaseClient/tree/4.1.0)
-
-
-### dsModellingClient
-
-Installation command:
-
-	# Install dsModellingClient package (client side)
-	install.packages('dsModellingClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
-
-Functions:
-
-
-* [checkClass](dsModellingClient/checkClass.html) Checks that an object has the same class in all studies
-* [ds.gee](dsModellingClient/ds.gee.html) Fits a Generalized Estimating Equation (GEE) model
-* [ds.glm](dsModellingClient/ds.glm.html) Runs a combined GLM analysis of non-pooled data
-* [ds.lexis](dsModellingClient/ds.lexis.html) Generates an expanded version of a dataset that contains survival data
-* [extract](dsModellingClient/extract.html) Splits character by '$' and returns the single characters
-* [findLoginObjects](dsModellingClient/findLoginObjects.html) searches for opal login object in the environment
-* [geeChecks](dsModellingClient/geeChecks.html) Checks if the elements in a regression formula are defined and not empty
-* [geeLoginData](dsModellingClient/geeLoginData.html) Information required to login to opal servers for the GEE test data
-* [geeLogin_remoteServer](dsModellingClient/geeLogin_remoteServer.html) Information required to login to opal servers for the GEE test data
-* [geehelper1](dsModellingClient/geehelper1.html) Computes the pooled parameters alpha and phi
-* [geehelper2](dsModellingClient/geehelper2.html) Produces the pooled beta values and standard errors
-* [getOpals](dsModellingClient/getOpals.html) Gets the opal objects
-* [glmChecks](dsModellingClient/glmChecks.html) Checks if the elements in the glm model have the right characteristics
-* [glmLoginData](dsModellingClient/glmLoginData.html) Information required to login to opal servers for the GLM test data
-* [glmLogin_remoteServer](dsModellingClient/glmLogin_remoteServer.html) Information required to login to opal servers for the GLM test data
-* [isAssigned](dsModellingClient/isAssigned.html) Checks an object has been generated on the server side
-* [isDefined](dsModellingClient/isDefined.html) Checks if objects are defined in studies
-* [lexisHelper1](dsModellingClient/lexisHelper1.html) Generates a default value to use as interval width
-* [logical2int](dsModellingClient/logical2int.html) turns a logical operator into an integer
-* [survivalLoginData](dsModellingClient/survivalLoginData.html) Information required to login to opal servers for the GLM test data
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsModellingClient/4.1.0/DESCRIPTION)
-* [dsModellingClient 4.1.0](https://github.com/datashield/dsModellingClient/tree/4.1.0)
-
-
-### dsStatsClient
-
-Installation command:
-
-	# Install dsStatsClient package (client side)
-	install.packages('dsStatsClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
-
-Functions:
-
-
-* [checkClass](dsStatsClient/checkClass.html) Checks that an object has the same class in all studies
-* [ds.cor](dsStatsClient/ds.cor.html) Computes correlation between two or more vectors
-* [ds.corTest](dsStatsClient/ds.corTest.html) Tests for correlation between paired samples
-* [ds.cov](dsStatsClient/ds.cov.html) Computes covariance between two or more vectors
-* [ds.tTest](dsStatsClient/ds.tTest.html) Runs a student's t-test
-* [ds.var](dsStatsClient/ds.var.html) Computes the variance of a given vector
-* [extract](dsStatsClient/extract.html) Splits character by '$' and returns the single characters
-* [findLoginObjects](dsStatsClient/findLoginObjects.html) searches for opal login object in the environment
-* [getOpals](dsStatsClient/getOpals.html) Gets the opal objects
-* [getPooledMean](dsStatsClient/getPooledMean.html) Gets a pooled statistical mean
-* [getPooledVar](dsStatsClient/getPooledVar.html) Gets a pooled variance
-* [isAssigned](dsStatsClient/isAssigned.html) Checks an object has been generated on the server side
-* [isDefined](dsStatsClient/isDefined.html) Checks if the objecs are defined in studies
-* [logical2int](dsStatsClient/logical2int.html) turns a logical operator into an integer
-* [login_remoteServer](dsStatsClient/login_remoteServer.html) Information required to login to opal servers
-* [logindata](dsStatsClient/logindata.html) Information required to login to opal servers
-* [tTestHelper1](dsStatsClient/tTestHelper1.html) runs a t-test for two continuous variables
-* [tTestHelper2](dsStatsClient/tTestHelper2.html) Uses glm to compute means of numeric vector across factor vector
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsStatsClient/4.1.0/DESCRIPTION)
-* [dsStatsClient 4.1.0](https://github.com/datashield/dsStatsClient/tree/4.1.0)
-
-
-### dsGraphicsClient
-
-Installation command:
-
-	# Install dsGraphicsClient package (client side)
-	install.packages('dsGraphicsClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
-
-Functions:
-
-
-* [checkClass](dsGraphicsClient/checkClass.html) Checks that an object has the same class in all studies
-* [ds.contourPlot](dsGraphicsClient/ds.contourPlot.html) Generates a contour plot
-* [ds.densityGrid](dsGraphicsClient/ds.densityGrid.html) Generates a density grid with or without a priori defined limits
-* [ds.heatmapPlot](dsGraphicsClient/ds.heatmapPlot.html) Generates a heatmap plot
-* [ds.histogram](dsGraphicsClient/ds.histogram.html) Generates a histogram plot
-* [extract](dsGraphicsClient/extract.html) Splits character by '$' and returns the single characters
-* [findLoginObjects](dsGraphicsClient/findLoginObjects.html) searches for opal login object in the environment
-* [getOpals](dsGraphicsClient/getOpals.html) Gets the opal objects
-* [isAssigned](dsGraphicsClient/isAssigned.html) Checks an object has been generated on the server side
-* [isDefined](dsGraphicsClient/isDefined.html) Checks if the objecs are defined in studies
-* [login_remoteServer](dsGraphicsClient/login_remoteServer.html) Information required to login to opal servers
-* [logindata](dsGraphicsClient/logindata.html) Information required to login to opal servers
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsGraphicsClient/4.0.0/DESCRIPTION)
-* [dsGraphicsClient 4.0.0](https://github.com/datashield/dsGraphicsClient/tree/4.0.0)
-
-
-### dsBetaTestClient
-
-Installation command:
-
-	# Install dsBetaTestClient package (client side)
-	install.packages('dsBetaTestClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
-
-Functions:
-
-
-* [checkClass](dsBetaTestClient/checkClass.html) Checks that an object has the same class in all studies
-* [colPercent](dsBetaTestClient/colPercent.html) Produces column percentages
-* [ds.Boole.o](dsBetaTestClient/ds.Boole.o.html) ds.Boole.o
-* [ds.asFactor.o](dsBetaTestClient/ds.asFactor.o.html) Converts a numeric vector into a factor type
-* [ds.cor.o](dsBetaTestClient/ds.cor.o.html) Calculates the correlation between two variables
-* [ds.cov.o](dsBetaTestClient/ds.cov.o.html) Calculates the covariance between two variables
-* [ds.glm.o](dsBetaTestClient/ds.glm.o.html) @title ds.glm calling glmDS1, glmDS2
-* [ds.glmSLMA.o](dsBetaTestClient/ds.glmSLMA.o.html) ds.glmSLMA.o calling glmDS1.o, glmDSSLMA2.o
-* [ds.lexis.o](dsBetaTestClient/ds.lexis.o.html) ds.lexis calling lexisDS1, lexisDS2, lexisDS3
-* [ds.listDisclosureSettings.o](dsBetaTestClient/ds.listDisclosureSettings.o.html) ds.listDisclosureSettings.o
-* [ds.make.o](dsBetaTestClient/ds.make.o.html) ds.make
-* [ds.mean.o](dsBetaTestClient/ds.mean.o.html) Computes the statistical mean of a given vector
-* [ds.meanSdGp](dsBetaTestClient/ds.meanSdGp.html) Computes the mean and standard deviation across groups defined by one factor
-* [ds.recodeValues.o](dsBetaTestClient/ds.recodeValues.o.html) ds.recodeValues.o
-* [ds.rilm.b](dsBetaTestClient/ds.rilm.b.html) Random Intercept Linear Model (RILM)
-* [ds.tTestF](dsBetaTestClient/ds.tTestF.html) Runs a combined GLM analysis of non-pooled data
-* [ds.testObjExists.o](dsBetaTestClient/ds.testObjExists.o.html) Checking that a correct version of a data object exists on a data source server
-* [extract](dsBetaTestClient/extract.html) Splits character by '$' and returns the single characters
-* [findLoginObjects](dsBetaTestClient/findLoginObjects.html) searches for opal login object in the environment
-* [getOpals](dsBetaTestClient/getOpals.html) Gets the opal objects
-* [getPooledMean](dsBetaTestClient/getPooledMean.html) Gets a pooled statistical mean
-* [getPooledVar](dsBetaTestClient/getPooledVar.html) Gets a pooled variance
-* [glmChecks](dsBetaTestClient/glmChecks.html) Checks if the elements in the glm model have the right characteristics
-* [isAssigned](dsBetaTestClient/isAssigned.html) Checks an object has been generated on the server side
-* [isDefined](dsBetaTestClient/isDefined.html) Checks if the objecs are defined in studies
-* [logical2int](dsBetaTestClient/logical2int.html) turns a logical operator into an integer
-* [rowPercent](dsBetaTestClient/rowPercent.html) Produces row percentages
-* [subsetHelper](dsBetaTestClient/subsetHelper.html) Compares subset and original object sizes and eventually carries out subsetting
-* [tTestHelper1](dsBetaTestClient/tTestHelper1.html) runs a t-test for two continuous variables
-* [tTestHelper2](dsBetaTestClient/tTestHelper2.html) Uses glm to compute means of numeric vector across factor vector
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsBetaTestClient/0.2.0/DESCRIPTION)
-* [dsBetaTestClient 0.2.0](https://github.com/datashield/dsBetaTestClient/tree/0.2.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/5.0.0/DESCRIPTION)
+* [dsBaseClient 5.0.0](https://github.com/datashield/dsBaseClient/tree/5.0.0)
 
 
 ### opal
@@ -265,6 +170,30 @@ Functions:
 * [datashield.workspace_rm](opal/datashield.workspace_rm.html) Remove a DataSHIELD workspace from a opal.
 * [datashield.workspace_save](opal/datashield.workspace_save.html) Save current session in a DataSHIELD workspace.
 * [datashield.workspaces](opal/datashield.workspaces.html) Get the DataSHIELD workspaces.
+* [dot-authToken](opal/dot-authToken.html) Constructs the value for the Authorization header
+* [dot-delete](opal/dot-delete.html) Delete a resource
+* [dot-deparse](opal/dot-deparse.html) Turn expression into character strings.
+* [dot-extractJsonField](opal/dot-extractJsonField.html) Extract JSON
+* [dot-extractOpalSessionId](opal/dot-extractOpalSessionId.html) Extract opalsid from cookie list.
+* [dot-get](opal/dot-get.html) Issues a request to opal for the specified resource
+* [dot-getDatashieldSessionId](opal/dot-getDatashieldSessionId.html) Extract R session Id from opal object, create a new Datashield R session if not found.
+* [dot-getPEMFilePath](opal/dot-getPEMFilePath.html) Extract absolute path to the pem file
+* [dot-getRSessionId](opal/dot-getRSessionId.html) Extract R session Id from opal object, create a new R session if not found.
+* [dot-getSessions](opal/dot-getSessions.html) Get all R session in Opal.
+* [dot-handleResponse](opal/dot-handleResponse.html) Default request response handler.
+* [dot-handleResponseLocation](opal/dot-handleResponseLocation.html) Default request response Location handler.
+* [dot-isContentEmpty](opal/dot-isContentEmpty.html) Check if response content is empty.
+* [dot-listToJson](opal/dot-listToJson.html) Simple transformation function of a list into a JSON object/array.
+* [dot-newDatashieldSession](opal/dot-newDatashieldSession.html) Create a new Datashield R session in Opal.
+* [dot-newSession](opal/dot-newSession.html) Create a new R session in Opal.
+* [dot-opal.login](opal/dot-opal.login.html) Create the opal object
+* [dot-perform](opal/dot-perform.html) Perform the request
+* [dot-post](opal/dot-post.html) Post a request w/o body content
+* [dot-put](opal/dot-put.html) Put a request w/o body content
+* [dot-rmDatashieldSession](opal/dot-rmDatashieldSession.html) Remove a Datashield R session in Opal.
+* [dot-rmSession](opal/dot-rmSession.html) Remove a R session from Opal.
+* [dot-select](opal/dot-select.html) Returns a list r such that r[[i]] == l[[i]][field] for all i:length(l)
+* [dot-url](opal/dot-url.html) Utility method to build urls. Concatenates all arguments and adds a '/' separator between each element
 * [opal.as_md_table](opal/opal.as_md_table.html) Array to Markdown
 * [opal.assign](opal/opal.assign.html) Data or expression assignment
 * [opal.assign.data](opal/opal.assign.data.html) Data assignment
@@ -315,8 +244,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/opal/2.6.0/DESCRIPTION)
-* [opal 2.6.0](https://github.com/datashield/opal/tree/2.6.0)
+* [DESCRIPTION](https://raw.github.com/datashield/opal/2.6.1/DESCRIPTION)
+* [opal 2.6.1](https://github.com/datashield/opal/tree/2.6.1)
 
 
 ### opaladmin
@@ -374,146 +303,92 @@ Installation command:
 Functions:
 
 
-* [asFactorDS](dsBase/asFactorDS.html) Turns a numeric vector into a factor vector
-* [asListDS](dsBase/asListDS.html) Converts a data.frame or matrix into a list
-* [asMatrixDS](dsBase/asMatrixDS.html) Attempts to convert the input into a matrix
+* [BooleDS](dsBase/BooleDS.html) BooleDS
+* [alphaPhiDS](dsBase/alphaPhiDS.html) Computes the parameters alpha and phi
+* [asCharacterDS](dsBase/asCharacterDS.html) Coerces an R object into class character
+* [asDataMatrixDS](dsBase/asDataMatrixDS.html) asDataMatrixDS a serverside assign function called by ds.asDataMatrix
+* [asFactorDS1](dsBase/asFactorDS1.html) Determines the levels of the input variable in each single study
+* [asFactorDS2](dsBase/asFactorDS2.html) Converts a numeric vector into a factor
+* [asIntegerDS](dsBase/asIntegerDS.html) Coerces an R object into class integer
+* [asListDS](dsBase/asListDS.html) asListDS a serverside aggregate function called by ds.asList
+* [asLogicalDS](dsBase/asLogicalDS.html) Coerces an R object into class numeric
+* [asMatrixDS](dsBase/asMatrixDS.html) Coerces an R object into a matrix
+* [asNumericDS](dsBase/asNumericDS.html) Coerces an R object into class numeric
 * [cDS](dsBase/cDS.html) Concatenates objects into a vector or list
+* [cbindDS](dsBase/cbindDS.html) cbindDS called by ds.cbind c
 * [changeRefGroupDS](dsBase/changeRefGroupDS.html) Changes a reference level of a factor
-* [dataframeDS](dsBase/dataframeDS.html) Creates a data frame
+* [checkNegValueDS](dsBase/checkNegValueDS.html) Checks if a numeric variable has negative values
+* [corDS](dsBase/corDS.html) Computes correlation between two or more vectors
+* [covDS](dsBase/covDS.html) Computes the sum of each variable and the sum of products for each pair of variables
+* [dataFrameDS](dsBase/dataFrameDS.html) dataFrameDS called by ds.dataFrame
+* [dataFrameSortDS](dsBase/dataFrameSortDS.html) dataFrameSortDS called by ds.dataFrameSort
+* [dataFrameSubsetDS1](dsBase/dataFrameSubsetDS1.html) dataFrameSubsetDS1 an aggregate function called by ds.dataFrameSubset
+* [dataFrameSubsetDS2](dsBase/dataFrameSubsetDS2.html) dataFrameSubsetDS2 an assign function called by ds.dataFrameSubset
+* [densityGridDS](dsBase/densityGridDS.html) Generates a density grid with or without a priori defined limits
+* [dimDS](dsBase/dimDS.html) Returns the dimension of a data frame or matrix
 * [extract](dsBase/extract.html) Splits character by '$' and returns the single characters
+* [glmDS1](dsBase/glmDS1.html) glmDS1 called by ds.glm
+* [glmDS2](dsBase/glmDS2.html) glmDS2 called by ds.glm
+* [glmSLMADS1](dsBase/glmSLMADS1.html) glmSLMADS1 called by ds.glmSLMA
+* [glmSLMADS2](dsBase/glmSLMADS2.html) glmSLMADS2 called by ds.glmSLMA
+* [heatmapPlotDS](dsBase/heatmapPlotDS.html) Calculates the coordinates of the centroid of each n nearest neighbours
+* [histogramDS1](dsBase/histogramDS1.html) returns the minimum and the maximum of the input numeric vector
+* [histogramDS2](dsBase/histogramDS2.html) Computes a histogram of the input variable without plotting.
 * [isNaDS](dsBase/isNaDS.html) Checks if a vector is empty
 * [isValidDS](dsBase/isValidDS.html) Checks if an input is valid
+* [lengthDS](dsBase/lengthDS.html) Returns the length of a vector or list
+* [lexisDS1](dsBase/lexisDS1.html) lexisDS1
+* [lexisDS2](dsBase/lexisDS2.html) lexisDS2
+* [lexisDS3](dsBase/lexisDS3.html) @title lexisDS3
 * [listDS](dsBase/listDS.html) Coerce objects into a list
+* [listDisclosureSettingsDS](dsBase/listDisclosureSettingsDS.html) listDisclosureSettingsDS
+* [matrixDS](dsBase/matrixDS.html) matrixDS assign function called by ds.matrix
+* [matrixDetDS1](dsBase/matrixDetDS1.html) matrixDetDS aggregate function called by ds.matrixDet.report
+* [matrixDetDS2](dsBase/matrixDetDS2.html) matrixDetDS assign function called by ds.matrixDet
+* [matrixDiagDS](dsBase/matrixDiagDS.html) matrixDiagDS assign function called by ds.matrixDiag
+* [matrixDimnamesDS](dsBase/matrixDimnamesDS.html) matrixDimnamesDS assign function called by ds.matrixDimnames
+* [matrixInvertDS](dsBase/matrixInvertDS.html) matrixInvertDS serverside assign function called by ds.matrixInvert
+* [matrixMultDS](dsBase/matrixMultDS.html) matrixMultDS serverside assign function called by ds.matrixMult
+* [matrixTransposeDS](dsBase/matrixTransposeDS.html) matrixTransposeDS serverside assign function called by ds.matrixTranspose
 * [meanDS](dsBase/meanDS.html) Computes statistical mean of a vectores
+* [meanSdGpDS](dsBase/meanSdGpDS.html) MeanSdGpDS
+* [mergeDS](dsBase/mergeDS.html) mergeDS (assign function) called by ds.merge
+* [messageDS](dsBase/messageDS.html) messageDS
 * [namesDS](dsBase/namesDS.html) Returns the names of a list
 * [numNaDS](dsBase/numNaDS.html) Counts the number of missing values
 * [quantileMeanDS](dsBase/quantileMeanDS.html) Generates quantiles and mean information without maximum and minimum
+* [rBinomDS](dsBase/rBinomDS.html) rBinomDS serverside assign function
+* [rNormDS](dsBase/rNormDS.html) rNormDS serverside assign function
+* [rPoisDS](dsBase/rPoisDS.html) rPoisDS serverside assign function
+* [rUnifDS](dsBase/rUnifDS.html) rUnifDS serverside assign function
+* [rangeDS](dsBase/rangeDS.html) returns the minimum and maximum of a numeric vector
+* [rbindDS](dsBase/rbindDS.html) rbindDS called by ds.rbind
+* [reShapeDS](dsBase/reShapeDS.html) reShapeDS (assign function) called by ds.reShape
 * [recodeLevelsDS](dsBase/recodeLevelsDS.html) Recodes the levels of a categorical variables
+* [recodeValuesDS1](dsBase/recodeValuesDS1.html) recodeValuesDS1 an aggregate function called by ds.recodeValues
+* [recodeValuesDS2](dsBase/recodeValuesDS2.html) recodeValuesDS2 an assign function called by ds.recodeValues
 * [replaceNaDS](dsBase/replaceNaDS.html) Replaces the missing values in a vector
+* [rmDS](dsBase/rmDS.html) rmDS an aggregate function called by ds.rm
 * [rowColCalcDS](dsBase/rowColCalcDS.html) Computes sums and means of rows or columns of numeric arrays
+* [scatterPlotDS](dsBase/scatterPlotDS.html) Calculates the coordinates of the data to be plot
+* [scoreVectDS](dsBase/scoreVectDS.html) Generates the score vector and information matrix
+* [seqDS](dsBase/seqDS.html) seqDS called by ds.seq
 * [setFilterDS](dsBase/setFilterDS.html) Sets the privacy level
+* [setSeedDS](dsBase/setSeedDS.html) setSeedDs called by ds.setSeed, ds.rNorm, ds.rUnif, ds.rPois and ds.rBinom
 * [subsetByClassDS](dsBase/subsetByClassDS.html) Breaks down a dataframe or a factor into its sub-classes
 * [subsetByClassHelper1](dsBase/subsetByClassHelper1.html) generates subsets vectors from a factor vector
 * [subsetByClassHelper2](dsBase/subsetByClassHelper2.html) generates subset tables from a data frame
 * [subsetByClassHelper3](dsBase/subsetByClassHelper3.html) generates subset tables from a data frame
 * [subsetDS](dsBase/subsetDS.html) Generates a valid subset of a table or a vector
-* [table1dDS](dsBase/table1dDS.html) Creates 1-dimensional contingency tables
-* [table2dDS](dsBase/table2dDS.html) Creates 2-dimensional contingency tables
-* [varDS](dsBase/varDS.html) Computes the variance of vector with more than 4 entries
+* [table1DDS](dsBase/table1DDS.html) Creates 1-dimensional contingency tables
+* [table2DDS](dsBase/table2DDS.html) table2DDS (aggregate function) called by ds.table2D
+* [tapplyDS](dsBase/tapplyDS.html) tapplyDS called by ds.tapply
+* [tapplyDS.assign](dsBase/tapplyDS.assign.html) tapplyDS.assign called by ds.tapply.assign
+* [testObjExistsDS](dsBase/testObjExistsDS.html) testObjExistsDS
+* [unListDS](dsBase/unListDS.html) unListDS a serverside aggregate function called by ds.unList
+* [varDS](dsBase/varDS.html) Computes the variance of vector
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/4.0.0/DESCRIPTION)
-* [dsBase 4.0.0](https://github.com/datashield/dsBase/tree/4.0.0)
-
-
-### dsModelling
-
-Installation command:
-
-	# Install dsModelling package (server side)
-	library(opaladmin)
-	o<-opal.login(...)
-	dsadmin.install_package(o, 'dsModelling')
-
-Functions:
-
-
-* [alphaPhiDS](dsModelling/alphaPhiDS.html) Computes the parameters alpha and phi
-* [checkNegValueDS](dsModelling/checkNegValueDS.html) Checks if a numeric variable has negative values
-* [glmDS1](dsModelling/glmDS1.html) get matrix dimensions
-* [glmDS2](dsModelling/glmDS2.html) Fits a generalized linear model
-* [lexisDS](dsModelling/lexisDS.html) Generates an expanded version of a dataset that contains survival data
-* [lexishelper1](dsModelling/lexishelper1.html) Computes time breaks given the exit time
-* [lexishelper2](dsModelling/lexishelper2.html) Computes time periods of each subject
-* [scoreVectDS](dsModelling/scoreVectDS.html) Generates the score vector and information matrix
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsModelling/4.1.0/DESCRIPTION)
-* [dsModelling 4.1.0](https://github.com/datashield/dsModelling/tree/4.1.0)
-
-
-### dsStats
-
-Installation command:
-
-	# Install dsStats package (server side)
-	library(opaladmin)
-	o<-opal.login(...)
-	dsadmin.install_package(o, 'dsStats')
-
-Functions:
-
-
-* [corDS](dsStats/corDS.html) Computes correlation between two or more vectors
-* [covDS](dsStats/covDS.html) Computes covariance between two or more vectors
-* [extract](dsStats/extract.html) Splits character by '$' and returns the single characters
-* [isValidDS](dsStats/isValidDS.html) Checks if an input is valid
-* [setFilterDS](dsStats/setFilterDS.html) Sets the privacy level
-* [varDS](dsStats/varDS.html) Computes the variance of vector with more than 4 entries
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsStats/4.0.0/DESCRIPTION)
-* [dsStats 4.0.0](https://github.com/datashield/dsStats/tree/4.0.0)
-
-
-### dsGraphics
-
-Installation command:
-
-	# Install dsGraphics package (server side)
-	library(opaladmin)
-	o<-opal.login(...)
-	dsadmin.install_package(o, 'dsGraphics')
-
-Functions:
-
-
-* [densityGridDS](dsGraphics/densityGridDS.html) Generates a density grid with or without a priori defined limits
-* [extract](dsGraphics/extract.html) Splits character by '$' and returns the single characters
-* [histogramDS](dsGraphics/histogramDS.html) Computes a histogram of the given data values without plotting.
-* [rangeDS](dsGraphics/rangeDS.html) returns the minimum and maximum of a numeric vector
-* [setFilterDS](dsGraphics/setFilterDS.html) Sets the privacy level
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsGraphics/4.0.0/DESCRIPTION)
-* [dsGraphics 4.0.0](https://github.com/datashield/dsGraphics/tree/4.0.0)
-
-
-### dsBetaTest
-
-Installation command:
-
-	# Install dsBetaTest package (server side)
-	library(opaladmin)
-	o<-opal.login(...)
-	dsadmin.install_package(o, 'dsBetaTest')
-
-Functions:
-
-
-* [BooleDS.o](dsBetaTest/BooleDS.o.html) BooleDS.o
-* [asFactorDS1.o](dsBetaTest/asFactorDS1.o.html) Determines the levels of the input variable in each single study
-* [asFactorDS2.o](dsBetaTest/asFactorDS2.o.html) Converts a numeric vector into a factor
-* [covDS.o](dsBetaTest/covDS.o.html) Computes the sum of each variable and the sum of products for each pair of variables
-* [glmDS1.o](dsBetaTest/glmDS1.o.html) glmDS1.o
-* [glmDS2.o](dsBetaTest/glmDS2.o.html) glmDS2.o
-* [lexisDS1.o](dsBetaTest/lexisDS1.o.html) lexisDS1
-* [lexisDS2.o](dsBetaTest/lexisDS2.o.html) lexisDS2
-* [lexisDS3.o](dsBetaTest/lexisDS3.o.html) @title lexisDS3
-* [listDisclosureSettingsDS.o](dsBetaTest/listDisclosureSettingsDS.o.html) listDisclosureSettingsDS
-* [meanDS.o](dsBetaTest/meanDS.o.html) Computes statistical mean of a vectores
-* [meanSdGpDS](dsBetaTest/meanSdGpDS.html) MeanSdGpDS
-* [recodeValuesDS1.o](dsBetaTest/recodeValuesDS1.o.html) recodeValuesDS1
-* [recodeValuesDS2.o](dsBetaTest/recodeValuesDS2.o.html) recodeValuesDS2
-* [rilmDS.b](dsBetaTest/rilmDS.b.html) Generates matrices for the sum of squares
-* [tTestFDS2](dsBetaTest/tTestFDS2.html) tTestFDS2
-* [testObjExistsDS.o](dsBetaTest/testObjExistsDS.o.html) testObjExistsDS.o
-
-Sources:
-
-* [DESCRIPTION](https://raw.github.com/datashield/dsBetaTest/0.2.0/DESCRIPTION)
-* [dsBetaTest 0.2.0](https://github.com/datashield/dsBetaTest/tree/0.2.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/5.0.0/DESCRIPTION)
+* [dsBase 5.0.0](https://github.com/datashield/dsBase/tree/5.0.0)

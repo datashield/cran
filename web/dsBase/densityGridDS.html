@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates a density grid with or without a priori defined...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for densityGridDS {dsBase}"><tr><td>densityGridDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Generates a density grid with or without a priori defined limits</h2>
+
+<h3>Description</h3>
+
+<p>Generates a density grid that can then be used for heatmap or countour plots.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+densityGridDS(xvect, yvect, limits = FALSE, x.min = NULL,
+  x.max = NULL, y.min = NULL, y.max = NULL, numints = 20)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>xvect</code></td>
+<td>
+<p>a numerical vector</p>
+</td></tr>
+<tr valign="top"><td><code>yvect</code></td>
+<td>
+<p>a numerical vector</p>
+</td></tr>
+<tr valign="top"><td><code>limits</code></td>
+<td>
+<p>a logical expression for whether or not limits of the density grid are defined by
+a user. If <code>limits</code> is set to &quot;FALSE&quot;, min and max of xvect and yvect are used as a range.
+If <code>limits</code> is set to &quot;TRUE&quot;, limits defined by x.min, x.max, y.min and y.max are used.</p>
+</td></tr>
+<tr valign="top"><td><code>x.min</code></td>
+<td>
+<p>a minimum value for the x axis of the grid density object, if needed</p>
+</td></tr>
+<tr valign="top"><td><code>x.max</code></td>
+<td>
+<p>a maximum value for the x axis of the grid density object, if needed</p>
+</td></tr>
+<tr valign="top"><td><code>y.min</code></td>
+<td>
+<p>a minimum value for the y axis of the grid density object, if needed</p>
+</td></tr>
+<tr valign="top"><td><code>y.max</code></td>
+<td>
+<p>a maximum value for the y axis of the grid density object, if needed</p>
+</td></tr>
+<tr valign="top"><td><code>numints</code></td>
+<td>
+<p>a number of intervals for the grid density object, by default is 20</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Invalid cells (cells with count &lt; to the set filter value for the minimum allowed
+counts in table cells) are turn to 0.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a grid density matrix
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Julia Isaeva, Amadou Gaye, Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: matrixDS assign function called by ds.matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for matrixDS {dsBase}"><tr><td>matrixDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>matrixDS assign function called by ds.matrix</h2>
+
+<h3>Description</h3>
+
+<p>Creates a matrix A on the serverside
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+matrixDS(mdata.transmit, from, nrows.transmit, ncols.transmit, byrow,
+  dimnames)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mdata.transmit</code></td>
+<td>
+<p>specifies the elements of the matrix to be created. Fully
+specified by &lt;mdata&gt; argument of ds.matrix</p>
+</td></tr>
+<tr valign="top"><td><code>from</code></td>
+<td>
+<p>a character string specifying the source and nature of &lt;mdata&gt;.
+Fully specified by &lt;from&gt; argument of ds.matrix</p>
+</td></tr>
+<tr valign="top"><td><code>nrows.transmit</code></td>
+<td>
+<p>specifies the number of rows in the matrix to be created.
+Fully specified by &lt;nrows.scalar&gt; argument of ds.matrix</p>
+</td></tr>
+<tr valign="top"><td><code>ncols.transmit</code></td>
+<td>
+<p>specifies the number of columns in the matrix to be created.
+Fully specified by &lt;ncols.scalar&gt; argument of ds.matrix</p>
+</td></tr>
+<tr valign="top"><td><code>byrow</code></td>
+<td>
+<p>a logical value specifying whether, when &lt;mdata&gt; is a vector,
+the matrix created should be filled row by row or
+column by column.
+Fully specified by &lt;byrow&gt; argument of ds.matrix</p>
+</td></tr>
+<tr valign="top"><td><code>dimnames</code></td>
+<td>
+<p>A dimnames attribute for the matrix: NULL or a list of length 2 giving
+the row and column names respectively. An empty list is treated as NULL,
+and a list of length one as row names only.
+Fully specified by &lt;dimnames&gt; argument of ds.matrix</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Similar to the matrix() function in native R. Creates a matrix
+with dimensions specified by &lt;nrows.scalar&gt; and &lt;ncols.scalar&gt; arguments
+and assigns the values of all its elements based on the &lt;mdata&gt; argument
+</p>
+
+
+<h3>Value</h3>
+
+<p>Output is the matrix A written
+to the serverside. For more details see help for ds.matrix
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

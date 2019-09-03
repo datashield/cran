@@ -29,18 +29,15 @@ ds.levels(x = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>This is just a wrapper function for the server side
-function.
+<p>This is just a wrapper function for the server side function.
 </p>
 
 
@@ -59,7 +56,7 @@ function.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -71,13 +68,15 @@ function.
   ds.levels(x='D$PM_BMI_CATEGORICAL')
 
   # Example 2: Get the levels of the LAB_TSC   SHOULD NOT WORK AS IT IS A CONTINUOUS VARIABLE
-  ## Not run:  ds.levels(x='D$LAB_TSC') 
+  ds.levels(x='D$LAB_TSC')
 
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

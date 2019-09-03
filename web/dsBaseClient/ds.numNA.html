@@ -9,11 +9,9 @@
 
 <h3>Description</h3>
 
-<p>In DataSHIELD it is not possible to visualize the data.
-This function helps to know the number of missing values in
-a vector to eventually use a vector of equal length (i.e.
-the count of missing entries) to replace the missing
-values.
+<p>In DataSHIELD it is not possible to visualize the data. This
+function helps to know the number of missing values in a vector to eventually use a 
+vector of equal length (i.e. the count of missing entries) to replace the missing values.
 </p>
 
 
@@ -29,31 +27,26 @@ ds.numNA(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a vector to check for
-missing entries.</p>
+<p>a character, the name of a vector to check for missing entries.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The vector to check for missing values might be a in a
-table structure or not. The number of missing entries are
-counted and the total for each study is returned.
+<p>The vector to check for missing values might be a in a table structure or not. 
+The number of missing entries are counted and the total for each study is returned.
 </p>
 
 
 <h3>Value</h3>
 
-<p>for an array, <code>NULL</code> or a vector of mode
-<code>integer</code>
+<p>for an array, <code>NULL</code> or a vector of mode <code>integer</code>
 </p>
 
 
@@ -66,7 +59,7 @@ counted and the total for each study is returned.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -74,21 +67,23 @@ counted and the total for each study is returned.
   # login and assign all the stored variables.
   opals &lt;- datashield.login(logins=logindata,assign=TRUE)
 
-  # Example 1: Get the number of missing values in the variable 'LAB_HDL' held in the table 'D'.
+  # Example 1: Get the number of missing values in the variable 'LAB_HDL' held in the table 'D'. 
   ds.numNA(x='D$LAB_HDL')
 
-  # Example 2: Assign the above variable and check the number of missing values on the now loose
+  # Example 2: Assign the above variable and check the number of missing values on the now loose 
   # variable 'LAB_HDL'.
   ds.assign(toAssign='D$LAB_HDL', newobj='labhdl')
-
+  
   # Example 3: Get the pooled dimension of the assigned datasets
   ds.numNA(x='labhdl')
 
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

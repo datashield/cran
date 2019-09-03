@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: BooleDS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for BooleDS {dsBase}"><tr><td>BooleDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>BooleDS</h2>
+
+<h3>Description</h3>
+
+<p>Converts the individual elements of a vector or other object into
+Boolean indicators.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+BooleDS(V1.name = NULL, V2.name = NULL, Boolean.operator.n = NULL,
+  na.assign.text, numeric.output = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>V1.name</code></td>
+<td>
+<p>A character string specifying the name of the vector to which the
+Boolean operator is to be applied</p>
+</td></tr>
+<tr valign="top"><td><code>V2.name</code></td>
+<td>
+<p>A character string specifying the name of the vector or scalar to
+which &lt;V1&gt; is to be compared.</p>
+</td></tr>
+<tr valign="top"><td><code>Boolean.operator.n</code></td>
+<td>
+<p>An integer value (1 to 6) providing a numeric coding for
+the character string
+specifying one of six possible Boolean operators: '==', '!=', '&gt;', '&gt;=','&lt;', '&lt;='
+that could legally be passed
+from client to server via DataSHIELD parser</p>
+</td></tr>
+<tr valign="top"><td><code>na.assign.text</code></td>
+<td>
+<p>A character string taking values 'NA', '1' or '0'. If 'NA'
+then any NA values in the
+input vector remain as NAs in the output vector. If '1' or '0' NA values in the
+input vector are
+all converted to 1 or 0 respectively.#' @return the levels of the input variable.</p>
+</td></tr>
+<tr valign="top"><td><code>numeric.output</code></td>
+<td>
+<p>a TRUE/FALSE indicator defaulting to TRUE determining whether
+the final output variable
+should be of class numeric (1/0) or class logical (TRUE/FALSE).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function converts the input vector into Boolean indicators.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

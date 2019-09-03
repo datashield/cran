@@ -16,7 +16,8 @@
 <h3>Usage</h3>
 
 <pre>
-ds.mean(x = NULL, type = "combine", datasources = NULL)
+ds.mean(x = NULL, type = "split", checks = FALSE,
+  save.mean.Nvalid = FALSE, datasources = NULL)
 </pre>
 
 
@@ -25,22 +26,39 @@ ds.mean(x = NULL, type = "combine", datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a numerical vector</p>
+<p>a character, typically the name of a numerical vector</p>
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represents the type of
-analysis to carry out. If <code>type</code> is set to
-'combine', a global mean is calculated if <code>type</code> is
-set to 'split', the mean is calculated separately for
-each study.</p>
+<p>a character which represents the type of analysis to carry out. 
+If <code>type</code> is set to 'combine', 'combined', 'combines' or 'c', a global mean is calculated 
+if <code>type</code> is set to 'split', 'splits' or 's', the mean is calculated separately for each study.
+if <code>type</code> is set to 'both' or 'b', both sets of outputs are produced</p>
+</td></tr>
+<tr valign="top"><td><code>checks</code></td>
+<td>
+<p>a Boolean indicator of whether to undertake optional checks of model
+components. Defaults to checks=FALSE to save time. It is suggested that checks
+should only be undertaken once the function call has failed</p>
+</td></tr>
+<tr valign="top"><td><code>save.mean.Nvalid</code></td>
+<td>
+<p>a Boolean indicator of whether the user wishes to save the
+generated values of the mean and of the number of valid (non-missing) observations into
+the R environments at each of the data servers. Will save study-specific means and Nvalids
+as well as the global equivalents across all studies combined. Once the estimated means and Nvalids
+are written into the server-side R environments, they can be used directly to centralize 
+the variable of interest around its global mean or its study-specific means. Finally,
+the isDefined internal function checks whether the key variables have been created.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>data frame</code>, from opal
-datasources.</p>
+<p>specifies the particular opal object(s) to use, if it is not specified
+the default set of opals will be used. The default opals are always called default.opals.
+This parameter is set without inverted commas: e.g. datasources=opals.em or datasources=default.opals
+If you wish to specify the second opal server in a set of three, the parameter is specified:
+e.g. datasources=opals.em[2]. If you wish to specify the first and third opal servers in a set specify:
+e.g. datasources=opals.em[2,3]</p>
 </td></tr>
 </table>
 
@@ -53,13 +71,20 @@ datasources.</p>
 
 <h3>Value</h3>
 
-<p>a numeric
+<p>a list including: Mean.by.Study = estimated mean in each study separately (if type = split or both), with Nmissing
+(number of missing observations), Nvalid (number of valid observations), Ntotal (sum of missing and valid observations)
+also reported separately for each study; Global.Mean = Mean, Nmissing, Nvalid, Ntotal across all studies combined
+(if type = combine or both); Nstudies = number of studies being analysed; ValidityMessage indicates whether 
+a full analysis was possible or whether one or more studies had fewer valid observations than the nfilter
+threshold for the minimum cell size in a contingency table. If save.mean.Nvalid=TRUE, ds.mean writes
+the objects &quot;Nvalid.all.studies&quot;, &quot;Nvalid.study.specific&quot;, &quot;mean.all.studies&quot;, and &quot;mean.study.specific&quot;
+to the serverside on each server
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye A., Isaeva I.
+<p>Burton PR; Gaye A; Isaeva I;
 </p>
 
 
@@ -74,26 +99,29 @@ datasources.</p>
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+#  # load that contains the login details
+#  data(logindata)
+#  library(opal)
+#
+#  # login and assign specific variable(s)
+#  myvar &lt;- list('LAB_TSC')
+#  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+#
+#  # Example 1: compute the pooled statistical mean of the variable 'LAB_TSC' - default behaviour
+#  ds.mean(x='D$LAB_TSC')
+#
+#  # Example 2: compute the statistical mean of each study separately
+#  ds.mean(x='D$LAB_TSC', type='split')
+#
+#  # clear the Datashield R sessions and logout
+#  datashield.logout(opals)
 
-  # login and assign specific variable(s)
-  myvar &lt;- list('LAB_TSC')
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-  # Example 1: compute the pooled statistical mean of the variable 'LAB_TSC' - default behaviour
-  ds.mean(x='D$LAB_TSC')
+## End(Not run)
 
-  # Example 2: compute the statistical mean of each study separately
-  ds.mean(x='D$LAB_TSC', type='split')
-
-  # clear the Datashield R sessions and logout
-  datashield.logout(opals)
-
-}
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

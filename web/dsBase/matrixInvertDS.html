@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: matrixInvertDS serverside assign function called by...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for matrixInvertDS {dsBase}"><tr><td>matrixInvertDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>matrixInvertDS serverside assign function called by ds.matrixInvert</h2>
+
+<h3>Description</h3>
+
+<p>Inverts a square matrix A and writes the output to the serverside
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+matrixInvertDS(M1.name = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>M1.name</code></td>
+<td>
+<p>A character string specifying the name of the matrix to be inverted</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Undertakes standard matrix inversion. This operation is only
+possible if the number of columns and rows of A are the same and the matrix
+is non-singular - positive definite (eg there is no row or column that is all zeros)
+</p>
+
+
+<h3>Value</h3>
+
+<p>Output is the matrix representing the inverse of A which is written
+to the serverside. For more details see help for ds.matrixInvert
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

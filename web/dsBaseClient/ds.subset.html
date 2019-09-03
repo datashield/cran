@@ -9,11 +9,9 @@
 
 <h3>Description</h3>
 
-<p>The function uses the R classical subsetting with squared
-brackets '[]' and allows also to subset using a logical
-oprator and a threshold. The object to subset from must be
-a vector (factor, numeric or charcater) or a table
-(data.frame or matrix).
+<p>The function uses the R classical subsetting with squared brackets '[]' and allows also to 
+subset using a logical oprator and a threshold. The object to subset from must be a vector (factor, numeric 
+or charcater) or a table (data.frame or matrix).
 </p>
 
 
@@ -21,86 +19,67 @@ a vector (factor, numeric or charcater) or a table
 
 <pre>
 ds.subset(x = NULL, subset = "subsetObject", completeCases = FALSE,
-  rows = NULL, cols = NULL, logicalOperator = NULL, threshold = NULL,
-  datasources = NULL)
+  rows = NULL, cols = NULL, logicalOperator = NULL,
+  threshold = NULL, datasources = NULL)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>subset</code></td>
-<td>
-<p>the name of the output object, a list that
-holds the subset object. If set to NULL the default name
-of this list is 'subsetObject'</p>
-</td></tr>
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of the dataframe or the
-factor vector and the range of the subset.</p>
+<p>a character, the name of the dataframe or the factor vector and the range of the subset.</p>
+</td></tr>
+<tr valign="top"><td><code>subset</code></td>
+<td>
+<p>the name of the output object, a list that holds the subset object. If set to NULL
+the default name of this list is 'subsetObject'</p>
 </td></tr>
 <tr valign="top"><td><code>completeCases</code></td>
 <td>
-<p>a character that tells if only
-complete cases should be included or not.</p>
+<p>a character that tells if only complete cases should be included or not.</p>
 </td></tr>
 <tr valign="top"><td><code>rows</code></td>
 <td>
-<p>a vector of integers, the indices of the rows
-to extract.</p>
+<p>a vector of integers, the indices of the rows to extract.</p>
 </td></tr>
 <tr valign="top"><td><code>cols</code></td>
 <td>
-<p>a vector of integers or a vector of
-characters; the indices of the columns to extract or
-their names.</p>
+<p>a vector of integers or a vector of characters; the indices of the columns to extract or their names.</p>
 </td></tr>
 <tr valign="top"><td><code>logicalOperator</code></td>
 <td>
-<p>a boolean, the logical parameter
-to use if the user wishes to subset a vector using a
-logical operator. This parameter is ignored if the input
-data is not a vector.</p>
+<p>a boolean, the logical parameter to use if the user wishes to subset a vector using a logical 
+operator. This parameter is ignored if the input data is not a vector.</p>
 </td></tr>
 <tr valign="top"><td><code>threshold</code></td>
 <td>
-<p>a numeric, the threshold to use in
-conjunction with the logical parameter. This parameter is
-ignored if the input data is not a vector.</p>
+<p>a numeric, the threshold to use in conjunction with the logical parameter. This parameter is ignored 
+if the input data is not a vector.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>(1) If the input data is a table the user specifies the
-rows and/or columns to include in the subset; the columns
-can be refered to by their names. Table subsetting can also
-be done using the name of a variable and a threshold (see
-example 3). (2) If the input data is a vector and the
-parameters 'rows', 'logical' and 'threshold' are all
-provided the last two are ignored (i.e. 'rows' has
-precedence over the other two parameters then). IMPORTANT
-NOTE: If the requested subset is not valid (i.e. contains
-less than the allowed number of observations) all the
-values are turned into missing values (NA). Hence an
-invalid subset is indicated by the fact that all values
-within it are set to NA.
+<p>(1) If the input data is a table the user specifies the rows and/or columns to include in the subset; the columns can be 
+refered to by their names. Table subsetting can also be done using the name of a variable and a threshold (see example 3). 
+(2) If the input data is a vector and the parameters 'rows', 'logical' and 'threshold' are all provided the last two are ignored 
+(i.e. 'rows' has precedence over the other two parameters then).
+IMPORTANT NOTE: If the requested subset is not valid (i.e. contains less than the allowed number of observations) all the values are 
+turned into missing values (NA). Hence an invalid subset is indicated by the fact that all values within it are set to NA.
 </p>
 
 
 <h3>Value</h3>
 
-<p>no data are return to the user, the generated subset
-dataframe is stored on the server side.
+<p>no data are return to the user, the generated subset dataframe is stored on the server side.
 </p>
 
 
@@ -112,18 +91,16 @@ dataframe is stored on the server side.
 
 <h3>See Also</h3>
 
-<p>ds.subsetByClass to subset by the classes of factor
-vector(s).
+<p>ds.subsetByClass to subset by the classes of factor vector(s).
 </p>
-<p>ds.meanByClass to compute mean and standard
-deviation across categories of a factor vectors.
+<p>ds.meanByClass to compute mean and standard deviation across categories of a factor vectors.
 </p>
 
 
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load the login data
   data(logindata)
@@ -132,27 +109,31 @@ deviation across categories of a factor vectors.
   myvar &lt;- list("DIS_DIAB","PM_BMI_CONTINUOUS","LAB_HDL", "GENDER")
   opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
-  # Example 1: generate a subset of the assigned dataframe (by default the table is named 'D') with complete cases only
+  # Example 1: generate a subset of the assigned dataframe (by default the table is named 'D')
+  # with complete cases only
   ds.subset(x='D', subset='subD1', completeCases=TRUE)
   # display the dimensions of the initial table ('D') and those of the subset table ('subD1')
   ds.dim('D')
   ds.dim('subD1')
-
-  # Example 2: generate a subset of the assigned table (by default the table is named 'D') with only the variables
+  
+  # Example 2: generate a subset of the assigned table (by default the table is named 'D')
+  # with only the variables 
   # DIS_DIAB' and'PM_BMI_CONTINUOUS' specified by their name.
   ds.subset(x='D', subset='subD2', cols=c('DIS_DIAB','PM_BMI_CONTINUOUS'))
 
   # Example 3: generate a subset of the table D with bmi values greater than or equal to 25.
   ds.subset(x='D', subset='subD3', logicalOperator='PM_BMI_CONTINUOUS&gt;=', threshold=25)
 
-  # Example 4: get the variable 'PM_BMI_CONTINUOUS' from the dataframe 'D' and generate a subset bmi
+  # Example 4: get the variable 'PM_BMI_CONTINUOUS' from the dataframe 'D' and generate a
+  # subset bmi
   # vector with bmi values greater than or equal to 25
   ds.assign(toAssign='D$PM_BMI_CONTINUOUS', newobj='BMI')
   ds.subset(x='BMI', subset='BMI25plus', logicalOperator='&gt;=', threshold=25)
 
   # Example 5: subsetting by rows:
-  # get the logarithmic values of the variable 'lab_hdl' and generate a subset with
-  # the first 50 observations of that new vector. If the specified number of row is greater than the total
+  # get the logarithmic values of the variable 'lab_hdl' and generate a subset with 
+  # the first 50 observations of that new vector. If the specified number of row is
+  # greater than the total 
   # number of rows in any of the studies the process will stop.
   ds.assign(toAssign='log(D$LAB_HDL)', newobj='logHDL')
   ds.subset(x='logHDL', subset='subLAB_HDL', rows=c(1:50))
@@ -162,8 +143,10 @@ deviation across categories of a factor vectors.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

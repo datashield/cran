@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks if a numeric variable has negative values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for checkNegValueDS {dsBase}"><tr><td>checkNegValueDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Checks if a numeric variable has negative values</h2>
+
+<h3>Description</h3>
+
+<p>this function is only called by the client function <code>ds.glm</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+checkNegValueDS(weights)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>weights</code></td>
+<td>
+<p>a numeric vector</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>if a user sets the parameter 'weights' on the client site function <code>ds.glm</code> this 
+server side function is called to verify that the 'weights' vector does not have negative values
+because no negative are allowed in weights.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a boolean; TRUE if the vector has one or more negative values and FALSE otherwise
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gaye, A.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

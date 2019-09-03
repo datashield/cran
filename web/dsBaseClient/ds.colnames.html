@@ -29,18 +29,15 @@ ds.colnames(x = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The input is restricted to object of type 'data.frame' and
-'matrix'
+<p>The input is restricted to object of type 'data.frame' or 'matrix'
 </p>
 
 
@@ -58,15 +55,14 @@ datasources.</p>
 
 <h3>See Also</h3>
 
-<p>ds.dim to obtain the dimensions of matrix or a data
-frame.
+<p>ds.dim to obtain the dimensions of matrix or a data frame.
 </p>
 
 
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -81,8 +77,10 @@ frame.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

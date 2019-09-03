@@ -9,9 +9,8 @@
 
 <h3>Description</h3>
 
-<p>Checks if a vector or table structure has a number of
-observations equal to or greater than the threshold set by
-DataSHIELD.
+<p>Checks if a vector or table structure has a number of observations equal to or greater
+than the threshold set by DataSHIELD.
 </p>
 
 
@@ -27,38 +26,30 @@ ds.isValid(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a vector, dataframe or
-matrix.</p>
+<p>a character, the name of a vector, dataframe or matrix.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources. By default an internal function looks for
-'opal' objects in the environment and sets this
-parameter.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.
+By default an internal function looks for 'opal' objects in the environment and sets this parameter.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In DataSHIELD, analyses are possible only on valid objects
-to ensure the ouput is not disclosive. This function checks
-if an input object is valid. A vector is valid if the
-number of observations are equal to or greater than a set
-threshold. A factor vector is valid if all its levels
-(categories) have a count equal or greater than the set
-threshold. A dataframe or a matrix is valid if the number
-of rows is equal or greater than the set threshold.
+<p>In DataSHIELD, analyses are possible only on valid objects to ensure the ouput is not disclosive.
+This function checks if an input object is valid. A vector is valid if the 
+number of observations are equal to or greater than a set threshold. A factor vector is valid if all
+its levels (categories) have a count equal or greater than the set threshold. A dataframe or a matrix 
+is valid if the number of rows is equal or greater than the set threshold.
 </p>
 
 
 <h3>Value</h3>
 
-<p>a boolean, TRUE if input object is valid and FALSE
-otherwise.
+<p>a boolean, TRUE if input object is valid and FALSE otherwise.
 </p>
 
 
@@ -71,7 +62,7 @@ otherwise.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -86,8 +77,10 @@ otherwise.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

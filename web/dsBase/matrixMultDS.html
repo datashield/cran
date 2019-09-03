@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: matrixMultDS serverside assign function called by...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for matrixMultDS {dsBase}"><tr><td>matrixMultDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>matrixMultDS serverside assign function called by ds.matrixMult</h2>
+
+<h3>Description</h3>
+
+<p>Calculates the matrix product of two matrices and writes output to serverside
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+matrixMultDS(M1.name = NULL, M2.name = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>M1.name</code></td>
+<td>
+<p>A character string specifying the name of the first matrix (M1) argument
+specified by the M1 argument in the original call to ds.matrixMult</p>
+</td></tr>
+<tr valign="top"><td><code>M2.name</code></td>
+<td>
+<p>A character string specifying the name of the second matrix (M2) argument
+specified by the M1 argument in the original call to ds.matrixMult</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Undertakes standard matrix multiplication where with input matrices A and B with
+dimensions A: mxn and B: nxp the output C has dimensions mxp and each elemnt C[i,j] has
+value equal to the dot product of row i of A and column j of B where the dot product
+is obtained as sum(A[i,1]*B[1,j] + A[i,2]*B[2,j] + .... + A[i,n]*B[n,j]). This calculation
+is only valid if the number of columns of A is the same as the number of rows of B
+</p>
+
+
+<h3>Value</h3>
+
+<p>Output is the matrix representing the product of M1 and M2 which is written
+to the serverside. For more details see help for ds.matrixMult
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

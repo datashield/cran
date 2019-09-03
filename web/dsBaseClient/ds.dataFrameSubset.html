@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.dataFrameSubset calling dataFrameSubsetDS1 and...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.dataFrameSubset {dsBaseClient}"><tr><td>ds.dataFrameSubset {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ds.dataFrameSubset calling dataFrameSubsetDS1 and dataFrameSubsetDS2</h2>
+
+<h3>Description</h3>
+
+<p>Subsets a data frame by row or by column.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.dataFrameSubset(df.name = NULL, V1.name = NULL, V2.name = NULL,
+  Boolean.operator = NULL, keep.cols = NULL, rm.cols = NULL,
+  keep.NAs = NULL, newobj = NULL, datasources = NULL,
+  notify.of.progress = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df.name</code></td>
+<td>
+<p>a character string providing the name for the data.frame
+to be sorted.</p>
+</td></tr>
+<tr valign="top"><td><code>V1.name</code></td>
+<td>
+<p>A character string specifying the name of a subsetting vector
+to which a Boolean operator will be applied to define the subset to be created. Note
+if the plan is to subset by column using ALL rows, then &lt;V1.name&gt;
+might, for example, specify a vector consisting all of ones (see 'details' for how
+to create such a vector.</p>
+</td></tr>
+<tr valign="top"><td><code>V2.name</code></td>
+<td>
+<p>A character string specifying the name of the vector
+or scalar to which the values in the vector specified by the argument &lt;V1.name&gt;
+is to be compared. So, for example, if &lt;V2.name&gt;
+is a scalar (e.g. '4')
+and the &lt;Boolean.operator&gt; argument is '&lt;=', the subset data.frame that is created
+will include all rows that correspond to a value of 4 or less in the subsetting
+vector specified by the &lt;V1.name&gt; argument. If &lt;V2.name&gt; specifies a vector
+(which must be of strictly the same length as the vector specified by &lt;V1.name&gt;)
+and the &lt;Boolean.operator&gt; argument is '==', the subset data.frame that is
+created will include
+all rows in which the values in the vectors specified by &lt;V1.name&gt; and &lt;V2.name&gt;
+are equal. If you are subsetting by column and want to keep all rows in the final subset,
+&lt;V1.name&gt; can be specified as indicating a &quot;ONES&quot; vector created as described (above)
+under 'details', &lt;V2.name&gt; can be specified as the scalar &quot;1&quot; and the &lt;Boolean operator&gt;
+argument can be specified as &quot;==&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>Boolean.operator</code></td>
+<td>
+<p>A character string specifying one of six possible Boolean operators:
+'==', '!=', '&gt;', '&gt;=', '&lt;', '&lt;='</p>
+</td></tr>
+<tr valign="top"><td><code>keep.cols</code></td>
+<td>
+<p>a numeric vector specifying the numbers of the columns to be kept in the
+final subset when subsetting by column. For example: keep.cols=c(2:5,7,12) will keep
+columns 2,3,4,5,7 and 12.</p>
+</td></tr>
+<tr valign="top"><td><code>rm.cols</code></td>
+<td>
+<p>a numeric vector specifying the numbers of the columns to be removed before
+creating the final subset when subsetting by column. For example: rm.cols=c(2:5,7,12)
+will remove columns 2,3,4,5,7 and 12.</p>
+</td></tr>
+<tr valign="top"><td><code>keep.NAs</code></td>
+<td>
+<p>logical, if TRUE any NAs in the vector holding the final Boolean vector
+indicating whether a given row should be included in the subset will be converted into
+1s and so they will be included in the subset. Such NAs could be caused by NAs in
+either &lt;V1.name&gt; or &lt;V2.name&gt;. If FALSE or NULL NAs in the final Boolean vector will
+be converted to 0s and the corresponding row will therefore be excluded from the subset.</p>
+</td></tr>
+<tr valign="top"><td><code>newobj</code></td>
+<td>
+<p>This a character string providing a name for the subset
+data.frame representing the primary output of the ds.dataFrameSubset() function.
+This defaults to '&lt;df.name&gt;_subset' if no name is specified
+where &lt;df.name&gt; is the first argument of ds.dataFrameSubset()</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
+argument is not specified the default set of opals will be used. The default opals
+are called default.opals and the default can be set using the function
+ds.setDefaultOpals. If the &lt;datasources&gt; is to be specified, it should be set without
+inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
+apply the function solely to e.g. the second opal server in a set of three,
+the argument can be specified as: e.g. datasources=opals.em[2].
+If you wish to specify the first and third opal servers in a set you specify:
+e.g. datasources=opals.em[c(1,3)]</p>
+</td></tr>
+<tr valign="top"><td><code>notify.of.progress</code></td>
+<td>
+<p>specifies if console output should be produce to indicate
+progress. The default value for notify.of.progress is FALSE.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A data frame is a list of variables all with the same number of rows,
+which is of class 'data.frame'. ds.dataFrameSubset will subset a 
+pre-existing data.frame by specifying the values of a subsetting variable
+(subsetting by row) or by selecting columns to keep or remove (subsetting
+by column). When subsetting by row, the resultant subset must strictly be
+as large or larger than the disclosure trap value nfilter.subset. If you
+wish to keep all rows in the subset (e.g. if the primary plan is to subset by column
+not by row) then V1.name can be used to specify a vector of the same length
+as the data.frame to be subsetted in each study in which every
+element is 1 and there are no NAs. Such a vector can be created as follows:
+First identify a convenient numeric variable with no missing values (typically a numeric
+individual ID) let us call it indID, which is equal in length to the data.frame
+to be subsetted. Then use the ds.make() function with the call
+ds.make('indID-indID+1','ONES'). This creates a vector of ones (called 'ONES')
+in each source equal in length to the indID vector in that source.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the object specified by the &lt;newobj&gt; argument (or default name '&lt;df.name&gt;_subset').
+which is written to the serverside. In addition, two validity messages are returned
+indicating whether &lt;newobj&gt; has been created in each data source and if so whether
+it is in a valid form. If its form is not valid in at least one study - e.g. because
+a disclosure trap was tripped and creation of the full output object was blocked -
+ds.dataFrame() also returns any studysideMessages that can explain the error in creating
+the full output object. As well as appearing on the screen at run time,if you wish to
+see the relevant studysideMessages at a later date you can use the ds.message
+function. If you type ds.message(&quot;newobj&quot;) it will print out the relevant
+studysideMessage from any datasource in which there was an error in creating &lt;newobj&gt;
+and a studysideMessage was saved. If there was no error and &lt;newobj&gt; was created
+without problems no studysideMessage will have been saved and ds.message(&quot;newobj&quot;)
+will return the message: &quot;ALL OK: there are no studysideMessage(s) on this datasource&quot;.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+</body></html>

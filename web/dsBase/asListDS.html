@@ -1,52 +1,70 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Converts a data.frame or matrix into a list</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: asListDS a serverside aggregate function called by ds.asList</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for asListDS {dsBase}"><tr><td>asListDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Converts a data.frame or matrix into a list</h2>
+<h2>asListDS a serverside aggregate function called by ds.asList</h2>
 
 <h3>Description</h3>
 
-<p>this function is similar to R function 'as.list'
+<p>Coerces an R object into a list
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-asListDS(input)
+asListDS(x.name, newobj)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>input</code></td>
+<tr valign="top"><td><code>x.name</code></td>
 <td>
-<p>the object to turn into list.</p>
+<p>the name of the input object to be coerced to class
+data.matrix. Must be specified in inverted commas. But this argument is
+usually specified directly by &lt;x.name&gt; argument of the clientside function
+ds.asList</p>
+</td></tr>
+<tr valign="top"><td><code>newobj</code></td>
+<td>
+<p>is the object hard assigned '&lt;&lt;-' to be the output of the
+function written to the serverside</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Unlike the R function 'as.list' some restriction are
-applied.
+<p>Unlike most other class coercing functions this is
+an aggregate function rather than an assign function. This
+is because the datashield.assign function in opal deals specially with
+a created object (newobj) if it is of class list. Reconfiguring the
+function as an aggregate function works around this problem.
+This aggregate function is based on the native R function as.list
+and so additional information can be found in the help for as.list
 </p>
 
 
 <h3>Value</h3>
 
-<p>a valid list or an empty list
+<p>the object specified by the &lt;newobj&gt; argument (or its default name
+&lt;x.name&gt;.mat) which is written to the serverside.
+In addition, two validity messages are returned. The first confirms an output
+object has been created, the second states its class. The way that as.list
+coerces objects to list depends on the class of the object, but in general
+the class of the output object should usually be 'list'
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>Amadou Gaye, Paul Burton for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 4.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
 </body></html>

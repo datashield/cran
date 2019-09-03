@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: table2DDS (aggregate function) called by ds.table2D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for table2DDS {dsBase}"><tr><td>table2DDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>table2DDS (aggregate function) called by ds.table2D</h2>
+
+<h3>Description</h3>
+
+<p>This function generates a 2-dimensional contingency table where potentially disclosive cells
+(based on a set threshold) are replaced by a missing value ('NA').
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+table2DDS(xvect, yvect)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>xvect</code></td>
+<td>
+<p>a numerical vector with discrete values - usually a factor.</p>
+</td></tr>
+<tr valign="top"><td><code>yvect</code></td>
+<td>
+<p>a numerical vector with discrete values - usually a factor.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>It generates 2-dimensional contingency tables where valid (non-disclosive) tables are defined
+as those where none of their cells have counts between 1 and the set threshold &quot;nfilter.tab&quot;. When the ouput table
+is invalid all cells except the total counts are replaced by missing values. Only the total counts are visible
+on the table returned to the client side. A message is also returned with the 2-dimensional table; the message
+says &quot;invalid table - invalid counts present&quot; if the table is invalid and 'valid table' otherwise.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list which contains two elements: 'table', the 2-dimensional table and 'message' a message which
+informs about the validity of the table.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Amadou Gaye, Paul Burton, Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

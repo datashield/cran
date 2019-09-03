@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: recodeValuesDS1 an aggregate function called by...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for recodeValuesDS1 {dsBase}"><tr><td>recodeValuesDS1 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>recodeValuesDS1 an aggregate function called by ds.recodeValues</h2>
+
+<h3>Description</h3>
+
+<p>First serverside function called by ds.recodeValues
+to convert specified values of elements in a vector into a matched set
+of alternative specified values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+recodeValuesDS1(var.name.text = NULL, values2replace.text = NULL,
+  new.values.text = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>var.name.text</code></td>
+<td>
+<p>a character string providing the name for the vector representing the
+variable to be recoded. The &lt;var.name.text&gt; argument is generated and passed directly to
+recodeValuesDS2 by ds.recodeValues</p>
+</td></tr>
+<tr valign="top"><td><code>values2replace.text</code></td>
+<td>
+<p>a character string specifying the values in the
+vector specified by the argument &lt;var.name.text&gt; that are to be replaced by new
+values as specified in the new.values.vector. The &lt;values2replace.text&gt; argument
+is generated and passed directly to recodeValuesDS2 by ds.recodeValues. In effect, the
+&lt;values2replace.vector&gt; argument of the ds.recodeValues function is converted
+to a character string format that is acceptable to the DataSHIELD parser in Opal
+and so can be accepted by recodeValuesDS1</p>
+</td></tr>
+<tr valign="top"><td><code>new.values.text</code></td>
+<td>
+<p>a character string specifying the new values to which
+the specified values in the vector identified by the &lt;var.name&gt; argument
+are to be converted.
+The &lt;new.values.text&gt; argument is generated and passed directly to recodeValuesDS2
+by ds.recodeValues. In effect, the &lt;new.values.vector&gt; argument of the
+ds.recodeValues function is converted to a character string format that is
+acceptable to the DataSHIELD parser in Opal
+and so can be used in the call to recodeValuesDS1</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For all details see the help header for ds.recodeValues
+</p>
+
+
+<h3>Value</h3>
+
+<p>This first serverside function called by ds.recodeValues provides
+first level traps for a comprehensive series of disclosure risks which can be
+returned directly to the clientside because recodeValuesDS1 is an aggregate
+function. The second serverside function called by ds.dataFrameSubset
+(recodeValuesDS2) carries out some of the same disclosure tests, but it is
+an assign function because it writes the recoded vector to the serverside.
+In consequence, it records error messages as studysideMessages which can only be
+retrieved using ds.message
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>

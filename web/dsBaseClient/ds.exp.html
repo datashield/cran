@@ -29,33 +29,27 @@ ds.exp(x = NULL, newobj = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the new vector.If this argument
-is set to <code>NULL</code>, the name of the new variable is
-the name of the input variable with the suffixe '_exp'
-(e.g. 'PM_BMI_CONTINUOUS_exp', if input variable's name
-is 'PM_BMI_CONTINUOUS')</p>
+<p>the name of the new vector.If this argument is set to <code>NULL</code>, the name of the new 
+variable is the name of the input variable with the suffixe '_exp' (e.g. 'PM_BMI_CONTINUOUS_exp', if input 
+variable's name is 'PM_BMI_CONTINUOUS')</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained
-after login in to opal servers; these objects hold also
-the data assign to R, as <code>dataframe</code>, from opal
-datasources.</p>
+<p>a list of opal object(s) obtained after login in to opal servers;
+these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>this is a wrapper that calls the exponential function on
-the server site.
+<p>this is a wrapper that calls the exponential function on the server site.
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored
-on the server side.
+<p>nothing is returned to the client, the new object is stored on the server side.
 </p>
 
 
@@ -68,7 +62,7 @@ on the server side.
 <h3>Examples</h3>
 
 <pre>
-{
+## Not run: 
 
   # load that contains the login details
   data(logindata)
@@ -83,8 +77,10 @@ on the server side.
   # clear the Datashield R sessions and logout
   datashield.logout(opals)
 
-}
+
+## End(Not run)
+
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 4.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
 </body></html>

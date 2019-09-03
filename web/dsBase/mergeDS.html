@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: mergeDS (assign function) called by ds.merge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for mergeDS {dsBase}"><tr><td>mergeDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>mergeDS (assign function) called by ds.merge</h2>
+
+<h3>Description</h3>
+
+<p>merges (links) two data.frames together based on common
+values in defined vectors in each data.frame
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mergeDS(x.name, y.name, by.x.names.transmit, by.y.names.transmit, all.x,
+  all.y, sort, suffixes.transmit, no.dups, incomparables)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x.name, </code></td>
+<td>
+<p>the name of the first data.frame to be merged specified in
+inverted commas. Specified via argument &lt;x.name&gt; of ds.merge function</p>
+</td></tr>
+<tr valign="top"><td><code>y.name, </code></td>
+<td>
+<p>the name of the second data.frame to be merged specified in
+inverted commas. Specified via argument &lt;y.name&gt; of ds.merge function</p>
+</td></tr>
+<tr valign="top"><td><code>by.x.names.transmit</code></td>
+<td>
+<p>the name of a single variable or a vector of names of
+multiple variables (in transmittable form) containing the IDs or other data
+on which data.frame x is to be merged/linked
+to data.frame y. Specified via argument &lt;by.x.names&gt; of ds.merge function</p>
+</td></tr>
+<tr valign="top"><td><code>by.y.names.transmit</code></td>
+<td>
+<p>the name of a single variable or a vector of names of
+multiple variables (in transmittable form) containing the IDs or other data
+on which data.frame y is to be merged/linked
+to data.frame x. Specified via argument &lt;by.y.names&gt; of ds.merge function</p>
+</td></tr>
+<tr valign="top"><td><code>all.x</code></td>
+<td>
+<p>logical, if TRUE, then extra rows will be added to the output,
+one for each row in x that has no matching row in y. Specified via argument
+&lt;all.x&gt; of ds.merge function. Default = FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>all.y</code></td>
+<td>
+<p>logical, if TRUE, then extra rows will be added to the output,
+one for each row in y that has no matching row in x. Specified via argument
+&lt;all.y&gt; of ds.merge function. Default = FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>sort</code></td>
+<td>
+<p>logical, if TRUE the merged result should be sorted on elements
+in the by.x.names and by.y.names columns. Specified via
+argument &lt;sort&gt; of ds.merge function. Default = TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>suffixes.transmit</code></td>
+<td>
+<p>a character vector of length 2 (in transmittable form)
+specifying the suffixes to be used for making unique common column names
+in the two input data.frames when they both appear in the merged data.frame.
+Specified via argument &lt;suffixes&gt; of ds.merge function. Default '.x' and '.y'.</p>
+</td></tr>
+<tr valign="top"><td><code>no.dups</code></td>
+<td>
+<p>logical, when TRUE suffixes are appended in more cases to
+rigorously avoid duplicated column names in the merged data.frame.
+Specified via argument &lt;no.dups&gt; of ds.merge function. Default TRUE
+but was apparently implicitly FALSE before R version 3.5.0.</p>
+</td></tr>
+<tr valign="top"><td><code>incomparables, </code></td>
+<td>
+<p>values intended for merging on one column
+which cannot be matched. See 'match' in help
+for Native R merge function. Specified via argument &lt;incomparables&gt; of
+ds.merge</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For further information see details of the native R function merge
+and the DataSHIELD clientside function ds.merge.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the merged data.frame specified by the &lt;newobj&gt; argument
+of ds.merge (or by default 'x.name_y.name' if the &lt;newobj&gt; argument
+is NULL) which is written to the serverside. In addition,
+two validity messages are returned to the clientside
+indicating whether &lt;newobj&gt; has been created in each data source and if so whether
+it is in a valid form. If its form is not valid in at least one study there may
+be a studysideMessage that can explain the error in creating
+the full output object. As well as appearing on the screen at run time,if you wish to
+see the relevant studysideMessages at a later date you can use the ds.message
+function. If you type ds.message(&lt;newobj&gt;) it will print out the relevant
+studysideMessage from any datasource in which there was an error in creating &lt;newobj&gt;
+and a studysideMessage was saved. If there was no error and &lt;newobj&gt; was created
+without problems no studysideMessage will have been saved and ds.message(&lt;newobj&gt;)
+will return the message: &quot;ALL OK: there are no studysideMessage(s) on this datasource&quot;.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Amadou Gaye, Paul Burton, for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+</body></html>
