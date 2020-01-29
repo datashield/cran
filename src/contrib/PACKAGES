@@ -21,52 +21,54 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: dsBase
-Version: 5.0.0
+Version: 5.1.0
 Imports: RANN, nlme
 License: GPL-3
-MD5sum: 30f1e0a2b3cde9b300229098e7c202d3
+MD5sum: ed55f6d776298824d91261282b8ff2e3
 NeedsCompilation: no
 Title: DataSHIELD server site base functions
 Description: DataSHIELD server site base functions.
 Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
 AggregateMethods: alphaPhiDS, asFactorDS1, asListDS, checkNegValueDS,
-        covDS, dataFrameSubsetDS1, densityGridDS, dimDS, dimDS, glmDS1,
+        covDS, dataFrameSubsetDS1, densityGridDS, dimDS, glmDS1,
         glmDS2, glmSLMADS1, glmSLMADS2, heatmapPlotDS, histogramDS1,
         histogramDS2, isNaDS, isValidDS, lengthDS, lexisDS1,
-        listDisclosureSettingsDS, matrixDetDS1, meanDS, meanDS,
-        meanSdGpDS, meanSdGpDS, messageDS, namesDS, numNaDS,
-        quantileMeanDS, rangeDS, recodeValuesDS1, rmDS, scatterPlotDS,
-        scoreVectDS, setSeedDS, table1DDS, table2DDS, tapplyDS,
-        testObjExistsDS, tTestFDS2, unListDS, varDS, class=base::class,
-        colnames=base::colnames, dim=base::dim, exists=base::exists,
+        listDisclosureSettingsDS, matrixDetDS1, meanDS, meanSdGpDS,
+        messageDS, namesDS, numNaDS, quantileMeanDS, rangeDS,
+        recodeValuesDS1, rmDS, scatterPlotDS, scoreVectDS, setSeedDS,
+        table1DDS, table2DDS, tapplyDS, testObjExistsDS, tTestFDS2,
+        varDS, class=base::class, colnames=base::colnames,
+        cor.test=stats::cor.test, dim=base::dim, exists=base::exists,
         is.character=base::is.character, is.factor=base::is.factor,
         is.list=base::is.list, is.null=base::is.null,
         is.numeric=base::is.numeric, length=base::length,
-        levels=base::levels, ls=base::ls, NROW=base::NROW
+        levels=base::levels, ls=base::ls, NROW=base::NROW,
+        t.test=stats::t.test
 AssignMethods: asCharacterDS, asDataMatrixDS, asFactorDS, asFactorDS2,
-        asIntegerDS, asListDS, asLogicalDS, asMatrixDS, asMatrixDS,
-        asNumericDS, BooleDS, cbindDS, cDS, changeRefGroupDS,
-        dataFrameDS, dataFrameSortDS, dataFrameSubsetDS2, listDS,
+        asIntegerDS, asListDS, asLogicalDS, asMatrixDS, asNumericDS,
+        BooleDS, cbindDS, cDS, changeRefGroupDS, dataFrameDS,
+        dataFrameFillDS, dataFrameSortDS, dataFrameSubsetDS2, listDS,
         lexisDS2, lexisDS3, matrixDetDS2, matrixDiagDS,
         matrixDimnamesDS, matrixDS, matrixInvertDS, matrixMultDS,
         matrixTransposeDS, mergeDS, rbindDS, rBinomDS, recodeLevelsDS,
         recodeValuesDS2, replaceNaDS, reShapeDS, rNormDS, rowColCalcDS,
         rPoisDS, rUnifDS, seedDS, seqDS, subsetByClassDS, subsetDS,
-        tapplyDS.assign, as.character=base::as.character,
-        as.null=base::as.null, as.numeric=base::as.numeric, c=base::c,
-        cbind=base::cbind, complete.cases=stats::complete.cases,
-        exp=base::exp, list=base::list, log=base::log, rep=base::rep,
-        sum=base::sum, unlist=base::unlist
+        tapplyDS.assign, unListDS, as.character=base::as.character,
+        as.null=base::as.null, as.numeric=base::as.numeric,
+        attach=base::attach, c=base::c, cbind=base::cbind,
+        complete.cases=stats::complete.cases, exp=base::exp,
+        list=base::list, log=base::log, rep=base::rep, sum=base::sum,
+        unlist=base::unlist
 
 Package: dsBaseClient
-Version: 5.0.0
+Version: 5.1.0
 Depends: R (>= 3.5.0)
 Imports: fields, metafor, opaladmin, opal
 License: GPL-3
-MD5sum: 0ea362973bf1668b8cd1949d2dbce7f1
+MD5sum: 2a4a182eba87f5e9f0abb845cd7fad0d
 NeedsCompilation: no
 Title: DataSHIELD Client Functions
-Description: DataSHIELD client functions for the client site.
+Description: DataSHIELD client functions for the client side.
 Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
 
 Package: opal

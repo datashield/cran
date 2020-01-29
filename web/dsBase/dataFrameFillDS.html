@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: dataFrameFillDS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for dataFrameFillDS {dsBase}"><tr><td>dataFrameFillDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>dataFrameFillDS</h2>
+
+<h3>Description</h3>
+
+<p>An assign function called by the clientside ds.dataFrameFill function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dataFrameFillDS(df.name, allNames.transmit)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df.name</code></td>
+<td>
+<p>a character string representing the name of the input data frame that will be
+filled with extra columns with missing values if a number of variables is missing from it
+compared to the data frames of the other studies used in the analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>allNames.transmit</code></td>
+<td>
+<p>unique names of all the variables that are included in the input 
+data frames from all the used datasources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function checks if each study has all the variables compared to the other studies
+in the analysis. If a study does not have some of the variables, the function generates those
+variables as vectors of missing values and combines them as columns to the input data frame. 
+Then, the &quot;complete&quot; in terms of the columns dataframe is saved in each server with a name
+specified by the argument <code>newobj</code> on the clientside.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Nothing is returned to the client. The generated object is written to the serverside.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.1.0 ]</div>
+</body></html>

@@ -26,7 +26,7 @@ glmDS2(formula, family, beta.vect, offset, weights, dataName)
 <tr valign="top"><td><code>formula</code></td>
 <td>
 <p>a glm() formula consistent with R syntax eg U~x+y+Z to regress
-variables U on x,y and Z</p>
+variables U on x, y and Z</p>
 </td></tr>
 <tr valign="top"><td><code>family</code></td>
 <td>
@@ -56,11 +56,9 @@ the data to be analysed under the specified model same</p>
 
 <h3>Details</h3>
 
-<p>It is an
-aggregation function that uses the model structure
-and starting beta.vector constructed by glmDS1 to iteratively fit the generalized
-linear model that has been
-been specified. The function glmDS2 also carries out a series of disclosure
+<p>It is an aggregate function that uses the model structure and starting
+beta.vector constructed by glmDS1 to iteratively fit the generalized linear model
+that has been specified. The function glmDS2 also carries out a series of disclosure
 checks and if the arguments or data fail any of those tests,
 model construction is blocked and an appropriate serverside error message is
 created and returned to ds.glm on the clientside.
@@ -70,8 +68,8 @@ For more details please see the extensive header for ds.glm.
 
 <h3>Author(s)</h3>
 
-<p>Burton PR for DataSHIELD Development Team
+<p>Paul Burton, for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 5.1.0 ]</div>
 </body></html>

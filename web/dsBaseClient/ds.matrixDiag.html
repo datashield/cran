@@ -18,8 +18,13 @@ writes the output to the serverside
 <h3>Usage</h3>
 
 <pre>
-ds.matrixDiag(x1 = NULL, aim = NULL, nrows.scalar = NULL,
-  newobj = NULL, datasources = NULL)
+ds.matrixDiag(
+  x1 = NULL,
+  aim = NULL,
+  nrows.scalar = NULL,
+  newobj = NULL,
+  datasources = NULL
+)
 </pre>
 
 
@@ -66,7 +71,7 @@ name of a serverside scalar.</p>
 <p>A character string specifying the name of the output object
 to be written to the serverside which may be a matrix or a vector
 depending on the value of the &lt;aim&gt; argument.If no &lt;newobj&gt; argument is
-specified, the output object name defaults to &quot;diag&quot;.</p>
+specified, the output object name defaults to &quot;matrixdiag.newobj&quot;.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -137,5 +142,5 @@ will return the message: &quot;ALL OK: there are no studysideMessage(s) on this 
 <p>Paul Burton for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

@@ -13,7 +13,6 @@ Functions:
 
 
 * [BooleDS](BooleDS.html) BooleDS
-* [alphaPhiDS](alphaPhiDS.html) Computes the parameters alpha and phi
 * [asCharacterDS](asCharacterDS.html) Coerces an R object into class character
 * [asDataMatrixDS](asDataMatrixDS.html) asDataMatrixDS a serverside assign function called by ds.asDataMatrix
 * [asFactorDS1](asFactorDS1.html) Determines the levels of the input variable in each single study
@@ -30,6 +29,7 @@ Functions:
 * [corDS](corDS.html) Computes correlation between two or more vectors
 * [covDS](covDS.html) Computes the sum of each variable and the sum of products for each pair of variables
 * [dataFrameDS](dataFrameDS.html) dataFrameDS called by ds.dataFrame
+* [dataFrameFillDS](dataFrameFillDS.html) dataFrameFillDS
 * [dataFrameSortDS](dataFrameSortDS.html) dataFrameSortDS called by ds.dataFrameSort
 * [dataFrameSubsetDS1](dataFrameSubsetDS1.html) dataFrameSubsetDS1 an aggregate function called by ds.dataFrameSubset
 * [dataFrameSubsetDS2](dataFrameSubsetDS2.html) dataFrameSubsetDS2 an assign function called by ds.dataFrameSubset
@@ -80,8 +80,7 @@ Functions:
 * [rmDS](rmDS.html) rmDS an aggregate function called by ds.rm
 * [rowColCalcDS](rowColCalcDS.html) Computes sums and means of rows or columns of numeric arrays
 * [scatterPlotDS](scatterPlotDS.html) Calculates the coordinates of the data to be plot
-* [scoreVectDS](scoreVectDS.html) Generates the score vector and information matrix
-* [seqDS](seqDS.html) seqDS called by ds.seq
+* [seqDS](seqDS.html) seqDS a serverside assign function called by ds.seq
 * [setFilterDS](setFilterDS.html) Sets the privacy level
 * [setSeedDS](setSeedDS.html) setSeedDs called by ds.setSeed, ds.rNorm, ds.rUnif, ds.rPois and ds.rBinom
 * [subsetByClassDS](subsetByClassDS.html) Breaks down a dataframe or a factor into its sub-classes
@@ -94,10 +93,10 @@ Functions:
 * [tapplyDS](tapplyDS.html) tapplyDS called by ds.tapply
 * [tapplyDS.assign](tapplyDS.assign.html) tapplyDS.assign called by ds.tapply.assign
 * [testObjExistsDS](testObjExistsDS.html) testObjExistsDS
-* [unListDS](unListDS.html) unListDS a serverside aggregate function called by ds.unList
+* [unListDS](unListDS.html) unListDS a serverside assign function called by ds.unList
 * [varDS](varDS.html) Computes the variance of vector
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/5.0.0/DESCRIPTION)
-* [dsBase 5.0.0](https://github.com/datashield/dsBase/tree/5.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/5.1.0/DESCRIPTION)
+* [dsBase 5.1.0](https://github.com/datashield/dsBase/tree/5.1.0)

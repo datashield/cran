@@ -16,9 +16,14 @@
 <h3>Usage</h3>
 
 <pre>
-ds.asFactor(input.var.name = NULL, newobj.name = NULL,
-  forced.factor.levels = NULL, fixed.dummy.vars = FALSE,
-  baseline.level = 1, datasources = NULL)
+ds.asFactor(
+  input.var.name = NULL,
+  newobj.name = NULL,
+  forced.factor.levels = NULL,
+  fixed.dummy.vars = FALSE,
+  baseline.level = 1,
+  datasources = NULL
+)
 </pre>
 
 
@@ -32,7 +37,7 @@ ds.asFactor(input.var.name = NULL, newobj.name = NULL,
 <tr valign="top"><td><code>newobj.name</code></td>
 <td>
 <p>the name of the new object. If this argument is set to NULL or not specified 
-then the default name of the new variable is the name of the input variable with the suffixe '.f'.</p>
+then the default name of the new variable is asfactor.newobj</p>
 </td></tr>
 <tr valign="top"><td><code>forced.factor.levels</code></td>
 <td>
@@ -183,5 +188,5 @@ or as a matrix of dummy variables dependending on the argument <code>fixed.dummy
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

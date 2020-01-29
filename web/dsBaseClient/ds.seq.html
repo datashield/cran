@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.seq calling seqDS</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.seq calling assign function seqDS</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.seq {dsBaseClient}"><tr><td>ds.seq {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>ds.seq calling seqDS</h2>
+<h2>ds.seq calling assign function seqDS</h2>
 
 <h3>Description</h3>
 
@@ -16,9 +16,15 @@
 <h3>Usage</h3>
 
 <pre>
-ds.seq(FROM.value.char = "1", BY.value.char = "1",
-  LENGTH.OUT.value.char = NULL, ALONG.WITH.name = NULL,
-  newobj = "newObj", datasources = NULL)
+ds.seq(
+  FROM.value.char = "1",
+  BY.value.char = "1",
+  TO.value.char = NULL,
+  LENGTH.OUT.value.char = NULL,
+  ALONG.WITH.name = NULL,
+  newobj = "newObj",
+  datasources = NULL
+)
 </pre>
 
 
@@ -28,22 +34,39 @@ ds.seq(FROM.value.char = "1", BY.value.char = "1",
 <tr valign="top"><td><code>FROM.value.char</code></td>
 <td>
 <p>the starting value for the sequence expressed as an integer
-in character form. e.g. FROM.value.char=&quot;1&quot; will start at 1, FROM.value.char=&quot;-10&quot;
-will start at -10. Default = &quot;1&quot;</p>
+or real number with a decimal point but 
+in character form. e.g. FROM.value.char=&quot;1&quot; will start at 1, FROM.value.char=&quot;-10.7&quot;
+will start at -10.7. Default = &quot;1&quot;</p>
 </td></tr>
 <tr valign="top"><td><code>BY.value.char</code></td>
 <td>
 <p>the value to increment each step in the sequence
-expressed as a numeric e.g. BY.value.char=&quot;10&quot; will increment by 10,
-while BY.value.char=&quot;-3.37&quot; will reduce the value of each sequence
-element by -3.37. Default = &quot;1&quot; but does not have to be integer</p>
+expressed as an integer
+or real number with a decimal point but 
+in character form. e.g. if BY.value.char=&quot;2.93&quot; the sequence will increment
+by 2.93 at each step, if BY.value.char=&quot;-1&quot; the sequence will decrement
+by 1 at each step. Default = &quot;+1&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>TO.value.char</code></td>
+<td>
+<p>the terminal value for the sequence expressed as an integer
+or real number with a decimal point but 
+in character form. e.g. if TO.value.char=&quot;17.33&quot; the sequence will terminate
+at the last value in the sequence that is &lt;= 17.33. Default = &quot;1&quot;</p>
 </td></tr>
 <tr valign="top"><td><code>LENGTH.OUT.value.char</code></td>
 <td>
-<p>The length of the sequence at which point
-its extension should be stopped. e.g.  LENGTH.OUT.value.char=&quot;1000&quot; will
-generate a sequence of length 1000. Default = NULL (must be specified) but
-must be a positive integer</p>
+<p>length of the sequence at which point
+its extension should be stopped, expressed as an integer
+or real number with a decimal point but 
+in character form. e.g.  LENGTH.OUT.value.char=&quot;1000&quot; will
+generate a sequence of length 1000. If however, LENGTH.OUT.value.char
+is not an integer any value larger than a given integer will result
+in a sequence of length integer+1. e.g.  LENGTH.OUT.value.char=&quot;1000.0001&quot; will
+generate a sequence of length 1001. If 0.0&gt;=LENGTH.OUT.value.char&gt;(-1.0), the function
+will run but will generate a sequence with no elements.
+If LENGTH.OUT.value.char&lt;=(-1.0) the function will terminate with an error.
+Default = NULL.</p>
 </td></tr>
 <tr valign="top"><td><code>ALONG.WITH.name</code></td>
 <td>
@@ -58,7 +81,7 @@ in general vary.</p>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
 <p>This a character string providing a name for the output
-sequence vector which defaults to 'newObj' if no name is specified.</p>
+sequence vector which defaults to 'seq.newobj' if no name is specified.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -80,16 +103,25 @@ e.g. datasources=opals.em[c(1,3)].</p>
 <p>Calls an assign function that uses the native R function seq() to create
 any one of a flexible range of sequence vectors that can then be used to help
 manage and analyse data. As it is an assign function the resultant vector is
-written as a new object onto all of the specified data source servers. For
-the purposes of creating the DataSHIELD equivalent to seq() in native R we
-have used all of the original arguments (see below) except the &lt;to&gt; argument.
-This simplifies the function and prevents some combinations of arguments that
-lead to an error in native R. The effect of the &lt;to&gt; argument - see help(seq) in
-native R - is to specify the terminal value of the sequence. However,
-when using seq() one can usually specify other arguments (see below) to mimic
-the desire effect of &lt;to&gt;. These include: &lt;from&gt;, the starting value of the
-sequence; &lt;by&gt;, its increment (+ or -), and &lt;length.out&gt; the length of the final vector
-in each data source.
+written as a new object into all of the specified data source servers. Please
+note that some combinations  of arguments are not allowed for the function seq
+in native R and hence are also prohibited in ds.seq. To be specific,
+FROM.value.char defines the start of the sequence and BY.value.char defines how
+the sequence is incremented (or decremented) at each step. But where the
+sequence stops can be defined in three different ways: TO.value.char indicates
+the terminal value of the sequence e.g. ds.seq(FROM.value.char=&quot;3&quot;, BY.value.char=&quot;2&quot;,
+TO.value.char=&quot;7&quot;) creates the sequence 3,5,7 on the serverside;
+LENGTH.OUT.value.char indicates the length of the sequence
+e.g. ds.seq(FROM.value.char=&quot;3&quot;, BY.value.char=&quot;2&quot;, LENGTH.OUT.value.char=&quot;7&quot;)
+creates the sequence 3,5,7,9,11,13,15 on the serverside; ALONG.WITH.name
+specifies the name of a variable (on the serverside) such that the sequence
+in each study will be equal in length to that variable.
+i.e. ds.seq(FROM.value.char=&quot;3&quot;, BY.value.char=&quot;2&quot;, ALONG.WITH.name=&quot;var.x&quot;)
+will create a sequence such that if var.x is of length 100 in study 1 the
+sequence written to study 1 will be 3,5,7,...,197,199,201 and if var.x is
+of length 4 in study 2, the sequence written to study 2 will be 3,5,7,9.
+BUT CRUCIALLY - only one of the three arguments TO.value.char,
+LENGTH.OUT.value.char and ALONG.WITH.name can be non-null in any one call.
 </p>
 
 
@@ -115,8 +147,8 @@ will return the message: &quot;ALL OK: there are no studysideMessage(s) on this 
 
 <h3>Author(s)</h3>
 
-<p>Paul Burton for DataSHIELD Development Team
+<p>Paul Burton for DataSHIELD Development Team, 17/9/2019
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

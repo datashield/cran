@@ -16,9 +16,16 @@
 <h3>Usage</h3>
 
 <pre>
-ds.matrix(mdata = NA, from = "clientside.scalar",
-  nrows.scalar = NULL, ncols.scalar = NULL, byrow = FALSE,
-  dimnames = NULL, newobj = NULL, datasources = NULL)
+ds.matrix(
+  mdata = NA,
+  from = "clientside.scalar",
+  nrows.scalar = NULL,
+  ncols.scalar = NULL,
+  byrow = FALSE,
+  dimnames = NULL,
+  newobj = NULL,
+  datasources = NULL
+)
 </pre>
 
 
@@ -90,7 +97,7 @@ and a list of length one as row names only.</p>
 <td>
 <p>A character string specifying the name of the matrix to which the output
 is to be written. If no &lt;newobj&gt; argument is specified or it is NULL
-the output matrix names defaults to &quot;new_matrix&quot;</p>
+the output matrix names defaults to &quot;matrix.newobj&quot;</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -218,5 +225,5 @@ dimnames=list(c("a","b","c","d","e"),c(10*(9:1))))
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

@@ -45,13 +45,13 @@ Functions:
 * [ds.corTest](dsBaseClient/ds.corTest.html) Tests for correlation between paired samples
 * [ds.cov](dsBaseClient/ds.cov.html) Calculates the covariance between two variables
 * [ds.dataFrame](dsBaseClient/ds.dataFrame.html) ds.dataFrame calling dataFrameDS
+* [ds.dataFrameFill](dsBaseClient/ds.dataFrameFill.html) ds.dataFrameFill calling dataFrameFillDS
 * [ds.dataFrameSort](dsBaseClient/ds.dataFrameSort.html) ds.dataFrameSort calling dataFrameSortDS
 * [ds.dataFrameSubset](dsBaseClient/ds.dataFrameSubset.html) ds.dataFrameSubset calling dataFrameSubsetDS1 and dataFrameSubsetDS2
 * [ds.densityGrid](dsBaseClient/ds.densityGrid.html) Generates a density grid with or without a priori defined limits
 * [ds.dim](dsBaseClient/ds.dim.html) Retrieves the dimension of an object
 * [ds.exists](dsBaseClient/ds.exists.html) Checks if an object is defined on the server side
 * [ds.exp](dsBaseClient/ds.exp.html) Computes the exponential function
-* [ds.gee](dsBaseClient/ds.gee.html) Fits a Generalized Estimating Equation (GEE) model
 * [ds.glm](dsBaseClient/ds.glm.html) ds.glm calling glmDS1, glmDS2
 * [ds.glmSLMA](dsBaseClient/ds.glmSLMA.html) ds.glmSLMA calling glmSLMADS1, glmSLMADS2
 * [ds.heatmapPlot](dsBaseClient/ds.heatmapPlot.html) Generates a heatmap plot
@@ -98,7 +98,7 @@ Functions:
 * [ds.rm](dsBaseClient/ds.rm.html) ds.rm calling aggregate function rmDS
 * [ds.rowColCalc](dsBaseClient/ds.rowColCalc.html) Computes sums and means of rows or columns of numeric matrix or data frame
 * [ds.scatterPlot](dsBaseClient/ds.scatterPlot.html) Generates non-disclosive scatter plots
-* [ds.seq](dsBaseClient/ds.seq.html) ds.seq calling seqDS
+* [ds.seq](dsBaseClient/ds.seq.html) ds.seq calling assign function seqDS
 * [ds.setDefaultOpals](dsBaseClient/ds.setDefaultOpals.html) ds.setDefaultOpals creates a default set of Opal objects called 'default.opals'
 * [ds.setSeed](dsBaseClient/ds.setSeed.html) ds.setSeed calling setSeedDS
 * [ds.subset](dsBaseClient/ds.subset.html) Generates a valid subset of a table or a vector
@@ -109,14 +109,11 @@ Functions:
 * [ds.tapply](dsBaseClient/ds.tapply.html) ds.tapply calling tapplyDS
 * [ds.tapply.assign](dsBaseClient/ds.tapply.assign.html) ds.tapply.assign calling tapplyDS.assign
 * [ds.testObjExists](dsBaseClient/ds.testObjExists.html) Checking that a correct version of a data object exists on a data source server
-* [ds.unList](dsBaseClient/ds.unList.html) ds.unList calling aggregate function unListDS
+* [ds.unList](dsBaseClient/ds.unList.html) ds.unList calling assign function unListDS
 * [ds.var](dsBaseClient/ds.var.html) ds.var calling aggregate function varDS
 * [ds.vectorCalc](dsBaseClient/ds.vectorCalc.html) Performs a mathematical operation on two or more vectors
 * [extract](dsBaseClient/extract.html) Splits character by '$' and returns the single characters
 * [findLoginObjects](dsBaseClient/findLoginObjects.html) searches for opal login object in the environment
-* [geeChecks](dsBaseClient/geeChecks.html) Checks if the elements in a regression formula are defined and not empty
-* [geehelper1](dsBaseClient/geehelper1.html) Computes the pooled parameters alpha and phi
-* [geehelper2](dsBaseClient/geehelper2.html) Produces the pooled beta values and standard errors
 * [getOpals](dsBaseClient/getOpals.html) Gets the opal objects
 * [getPooledMean](dsBaseClient/getPooledMean.html) Gets a pooled statistical mean
 * [getPooledVar](dsBaseClient/getPooledVar.html) Gets a pooled variance
@@ -135,8 +132,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/5.0.0/DESCRIPTION)
-* [dsBaseClient 5.0.0](https://github.com/datashield/dsBaseClient/tree/5.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/5.1.0/DESCRIPTION)
+* [dsBaseClient 5.1.0](https://github.com/datashield/dsBaseClient/tree/5.1.0)
 
 
 ### opal
@@ -304,7 +301,6 @@ Functions:
 
 
 * [BooleDS](dsBase/BooleDS.html) BooleDS
-* [alphaPhiDS](dsBase/alphaPhiDS.html) Computes the parameters alpha and phi
 * [asCharacterDS](dsBase/asCharacterDS.html) Coerces an R object into class character
 * [asDataMatrixDS](dsBase/asDataMatrixDS.html) asDataMatrixDS a serverside assign function called by ds.asDataMatrix
 * [asFactorDS1](dsBase/asFactorDS1.html) Determines the levels of the input variable in each single study
@@ -321,6 +317,7 @@ Functions:
 * [corDS](dsBase/corDS.html) Computes correlation between two or more vectors
 * [covDS](dsBase/covDS.html) Computes the sum of each variable and the sum of products for each pair of variables
 * [dataFrameDS](dsBase/dataFrameDS.html) dataFrameDS called by ds.dataFrame
+* [dataFrameFillDS](dsBase/dataFrameFillDS.html) dataFrameFillDS
 * [dataFrameSortDS](dsBase/dataFrameSortDS.html) dataFrameSortDS called by ds.dataFrameSort
 * [dataFrameSubsetDS1](dsBase/dataFrameSubsetDS1.html) dataFrameSubsetDS1 an aggregate function called by ds.dataFrameSubset
 * [dataFrameSubsetDS2](dsBase/dataFrameSubsetDS2.html) dataFrameSubsetDS2 an assign function called by ds.dataFrameSubset
@@ -371,8 +368,7 @@ Functions:
 * [rmDS](dsBase/rmDS.html) rmDS an aggregate function called by ds.rm
 * [rowColCalcDS](dsBase/rowColCalcDS.html) Computes sums and means of rows or columns of numeric arrays
 * [scatterPlotDS](dsBase/scatterPlotDS.html) Calculates the coordinates of the data to be plot
-* [scoreVectDS](dsBase/scoreVectDS.html) Generates the score vector and information matrix
-* [seqDS](dsBase/seqDS.html) seqDS called by ds.seq
+* [seqDS](dsBase/seqDS.html) seqDS a serverside assign function called by ds.seq
 * [setFilterDS](dsBase/setFilterDS.html) Sets the privacy level
 * [setSeedDS](dsBase/setSeedDS.html) setSeedDs called by ds.setSeed, ds.rNorm, ds.rUnif, ds.rPois and ds.rBinom
 * [subsetByClassDS](dsBase/subsetByClassDS.html) Breaks down a dataframe or a factor into its sub-classes
@@ -385,10 +381,10 @@ Functions:
 * [tapplyDS](dsBase/tapplyDS.html) tapplyDS called by ds.tapply
 * [tapplyDS.assign](dsBase/tapplyDS.assign.html) tapplyDS.assign called by ds.tapply.assign
 * [testObjExistsDS](dsBase/testObjExistsDS.html) testObjExistsDS
-* [unListDS](dsBase/unListDS.html) unListDS a serverside aggregate function called by ds.unList
+* [unListDS](dsBase/unListDS.html) unListDS a serverside assign function called by ds.unList
 * [varDS](dsBase/varDS.html) Computes the variance of vector
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/5.0.0/DESCRIPTION)
-* [dsBase 5.0.0](https://github.com/datashield/dsBase/tree/5.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/5.1.0/DESCRIPTION)
+* [dsBase 5.1.0](https://github.com/datashield/dsBase/tree/5.1.0)

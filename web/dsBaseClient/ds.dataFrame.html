@@ -17,10 +17,18 @@ single variables; matrices
 <h3>Usage</h3>
 
 <pre>
-ds.dataFrame(x = NULL, row.names = NULL, check.rows = FALSE,
-  check.names = TRUE, stringsAsFactors = TRUE, completeCases = FALSE,
-  DataSHIELD.checks = FALSE, newobj = "df_new", datasources = NULL,
-  notify.of.progress = FALSE)
+ds.dataFrame(
+  x = NULL,
+  row.names = NULL,
+  check.rows = FALSE,
+  check.names = TRUE,
+  stringsAsFactors = TRUE,
+  completeCases = FALSE,
+  DataSHIELD.checks = FALSE,
+  newobj = NULL,
+  datasources = NULL,
+  notify.of.progress = FALSE
+)
 </pre>
 
 
@@ -84,7 +92,7 @@ consuming). Default FALSE.</p>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
 <p>This a character string providing a name for the output
-data.frame which defaults to 'df_new' if no name is specified.</p>
+data.frame which defaults to 'dataframe.newobj' if no name is specified.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -142,5 +150,5 @@ will return the message: &quot;ALL OK: there are no studysideMessage(s) on this 
 <p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

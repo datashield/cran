@@ -17,10 +17,18 @@ otherwise grouped data from 'wide' to 'long' format or vice-versa
 <h3>Usage</h3>
 
 <pre>
-ds.reShape(data.name = NULL, varying = NULL, v.names = NULL,
-  timevar.name = "time", idvar.name = "id", drop = NULL,
-  direction = NULL, sep = ".", newobj = "newObject",
-  datasources = NULL)
+ds.reShape(
+  data.name = NULL,
+  varying = NULL,
+  v.names = NULL,
+  timevar.name = "time",
+  idvar.name = "id",
+  drop = NULL,
+  direction = NULL,
+  sep = ".",
+  newobj = "newObject",
+  datasources = NULL
+)
 </pre>
 
 
@@ -91,7 +99,7 @@ set things up the column for sbp at age 7 in the wide format may be called
 <td>
 <p>A character string specifying the name of the vector to which the output
 vector is to be written. If no &lt;newobj&gt; argument is specified, the output vector defaults
-to 'newObject'.</p>
+to 'reshape.newobj'.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -143,5 +151,5 @@ will return the message: 'ALL OK: there are no studysideMessage(s) on this datas
 <p>Demetris Avraam, Paul Burton for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

@@ -16,9 +16,15 @@
 <h3>Usage</h3>
 
 <pre>
-ds.rBinom(samp.size = 1, size = 0, prob = 1, newobj = "newObject",
-  seed.as.integer = NULL, return.full.seed.as.set = FALSE,
-  datasources = NULL)
+ds.rBinom(
+  samp.size = 1,
+  size = 0,
+  prob = 1,
+  newobj = NULL,
+  seed.as.integer = NULL,
+  return.full.seed.as.set = FALSE,
+  datasources = NULL
+)
 </pre>
 
 
@@ -75,7 +81,7 @@ Default value for &lt;prob&gt; = 0.5 (equivalent to tossing an unbiased coin).</
 <tr valign="top"><td><code>newobj</code></td>
 <td>
 <p>This a character string providing a name for the output
-random number vector which defaults to 'newObject' if no name is specified.</p>
+random number vector which defaults to 'rbinom.newobj' if no name is specified.</p>
 </td></tr>
 <tr valign="top"><td><code>seed.as.integer</code></td>
 <td>
@@ -159,5 +165,5 @@ created in each source.
 <p>Paul Burton for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

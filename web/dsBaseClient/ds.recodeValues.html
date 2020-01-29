@@ -17,9 +17,15 @@ them to a matched set of alternative specified values
 <h3>Usage</h3>
 
 <pre>
-ds.recodeValues(var.name = NULL, values2replace.vector = NULL,
-  new.values.vector = NULL, force.output.format = "no",
-  newobj = NULL, datasources = NULL, notify.of.progress = FALSE)
+ds.recodeValues(
+  var.name = NULL,
+  values2replace.vector = NULL,
+  new.values.vector = NULL,
+  force.output.format = "no",
+  newobj = NULL,
+  datasources = NULL,
+  notify.of.progress = FALSE
+)
 </pre>
 
 
@@ -74,8 +80,7 @@ to character format.</p>
 <td>
 <p>This a character string providing a name for the recoded vector
 representing the primary output of the ds.recodeValues() function.
-This defaults to '&lt;var.name&gt;_recoded' if no name is specified
-where &lt;var.name&gt; is the first argument of ds.recodeValues()</p>
+This defaults to 'recodevalues.newobj'</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -141,5 +146,5 @@ will return the message: &quot;ALL OK: there are no studysideMessage(s) on this 
 <p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

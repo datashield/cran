@@ -18,8 +18,13 @@ summary as an object on the serverside
 <h3>Usage</h3>
 
 <pre>
-ds.tapply.assign(X.name = NULL, INDEX.names = NULL, FUN.name = NULL,
-  newobj = "tapply.out", datasources = NULL)
+ds.tapply.assign(
+  X.name = NULL,
+  INDEX.names = NULL,
+  FUN.name = NULL,
+  newobj = NULL,
+  datasources = NULL
+)
 </pre>
 
 
@@ -53,7 +58,7 @@ function allows the user to choose one of five summarizing functions. These are
 <td>
 <p>A character string specifying the name of the vector to which the output
 vector is to be written. If no &lt;newobj&gt; argument is specified, the output vector defaults
-to &quot;tapply.out&quot;.</p>
+to &quot;tapply.assign.newobj&quot;.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -117,5 +122,5 @@ dimensions as INDEX.
 <p>Paul Burton, Demetris Avraam for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

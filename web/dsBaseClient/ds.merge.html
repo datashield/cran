@@ -17,10 +17,20 @@ values in defined vectors in each data.frame
 <h3>Usage</h3>
 
 <pre>
-ds.merge(x.name = NULL, y.name = NULL, by.x.names = NULL,
-  by.y.names = NULL, all.x = FALSE, all.y = FALSE, sort = TRUE,
-  suffixes = c(".x", ".y"), no.dups = TRUE, incomparables = NULL,
-  newobj = NULL, datasources = NULL)
+ds.merge(
+  x.name = NULL,
+  y.name = NULL,
+  by.x.names = NULL,
+  by.y.names = NULL,
+  all.x = FALSE,
+  all.y = FALSE,
+  sort = TRUE,
+  suffixes = c(".x", ".y"),
+  no.dups = TRUE,
+  incomparables = NULL,
+  newobj = NULL,
+  datasources = NULL
+)
 </pre>
 
 
@@ -97,10 +107,7 @@ one column, so these are incomparable values of that column.</p>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
 <p>the name of the merged data.frame. If this argument is set
-to NULL, the name of the merged data.frame is defaulted to 'x.name_y.name'
-where x.name is the name of the first input data.frame
-specified as the &lt;x.name&gt; argument and y.name
-is the name of the second input data.frame specified as the &lt;y.name&gt; argument.</p>
+to NULL, the name of the merged data.frame is defaulted to 'merge.newobj'</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -153,5 +160,5 @@ will return the message: &quot;ALL OK: there are no studysideMessage(s) on this 
 <p>Amadou Gaye, Paul Burton, for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>

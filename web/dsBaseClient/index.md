@@ -32,13 +32,13 @@ Functions:
 * [ds.corTest](ds.corTest.html) Tests for correlation between paired samples
 * [ds.cov](ds.cov.html) Calculates the covariance between two variables
 * [ds.dataFrame](ds.dataFrame.html) ds.dataFrame calling dataFrameDS
+* [ds.dataFrameFill](ds.dataFrameFill.html) ds.dataFrameFill calling dataFrameFillDS
 * [ds.dataFrameSort](ds.dataFrameSort.html) ds.dataFrameSort calling dataFrameSortDS
 * [ds.dataFrameSubset](ds.dataFrameSubset.html) ds.dataFrameSubset calling dataFrameSubsetDS1 and dataFrameSubsetDS2
 * [ds.densityGrid](ds.densityGrid.html) Generates a density grid with or without a priori defined limits
 * [ds.dim](ds.dim.html) Retrieves the dimension of an object
 * [ds.exists](ds.exists.html) Checks if an object is defined on the server side
 * [ds.exp](ds.exp.html) Computes the exponential function
-* [ds.gee](ds.gee.html) Fits a Generalized Estimating Equation (GEE) model
 * [ds.glm](ds.glm.html) ds.glm calling glmDS1, glmDS2
 * [ds.glmSLMA](ds.glmSLMA.html) ds.glmSLMA calling glmSLMADS1, glmSLMADS2
 * [ds.heatmapPlot](ds.heatmapPlot.html) Generates a heatmap plot
@@ -85,7 +85,7 @@ Functions:
 * [ds.rm](ds.rm.html) ds.rm calling aggregate function rmDS
 * [ds.rowColCalc](ds.rowColCalc.html) Computes sums and means of rows or columns of numeric matrix or data frame
 * [ds.scatterPlot](ds.scatterPlot.html) Generates non-disclosive scatter plots
-* [ds.seq](ds.seq.html) ds.seq calling seqDS
+* [ds.seq](ds.seq.html) ds.seq calling assign function seqDS
 * [ds.setDefaultOpals](ds.setDefaultOpals.html) ds.setDefaultOpals creates a default set of Opal objects called 'default.opals'
 * [ds.setSeed](ds.setSeed.html) ds.setSeed calling setSeedDS
 * [ds.subset](ds.subset.html) Generates a valid subset of a table or a vector
@@ -96,14 +96,11 @@ Functions:
 * [ds.tapply](ds.tapply.html) ds.tapply calling tapplyDS
 * [ds.tapply.assign](ds.tapply.assign.html) ds.tapply.assign calling tapplyDS.assign
 * [ds.testObjExists](ds.testObjExists.html) Checking that a correct version of a data object exists on a data source server
-* [ds.unList](ds.unList.html) ds.unList calling aggregate function unListDS
+* [ds.unList](ds.unList.html) ds.unList calling assign function unListDS
 * [ds.var](ds.var.html) ds.var calling aggregate function varDS
 * [ds.vectorCalc](ds.vectorCalc.html) Performs a mathematical operation on two or more vectors
 * [extract](extract.html) Splits character by '$' and returns the single characters
 * [findLoginObjects](findLoginObjects.html) searches for opal login object in the environment
-* [geeChecks](geeChecks.html) Checks if the elements in a regression formula are defined and not empty
-* [geehelper1](geehelper1.html) Computes the pooled parameters alpha and phi
-* [geehelper2](geehelper2.html) Produces the pooled beta values and standard errors
 * [getOpals](getOpals.html) Gets the opal objects
 * [getPooledMean](getPooledMean.html) Gets a pooled statistical mean
 * [getPooledVar](getPooledVar.html) Gets a pooled variance
@@ -122,5 +119,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/5.0.0/DESCRIPTION)
-* [dsBaseClient 5.0.0](https://github.com/datashield/dsBaseClient/tree/5.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/5.1.0/DESCRIPTION)
+* [dsBaseClient 5.1.0](https://github.com/datashield/dsBaseClient/tree/5.1.0)

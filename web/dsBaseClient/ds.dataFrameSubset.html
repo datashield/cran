@@ -16,10 +16,18 @@
 <h3>Usage</h3>
 
 <pre>
-ds.dataFrameSubset(df.name = NULL, V1.name = NULL, V2.name = NULL,
-  Boolean.operator = NULL, keep.cols = NULL, rm.cols = NULL,
-  keep.NAs = NULL, newobj = NULL, datasources = NULL,
-  notify.of.progress = FALSE)
+ds.dataFrameSubset(
+  df.name = NULL,
+  V1.name = NULL,
+  V2.name = NULL,
+  Boolean.operator = NULL,
+  keep.cols = NULL,
+  rm.cols = NULL,
+  keep.NAs = NULL,
+  newobj = NULL,
+  datasources = NULL,
+  notify.of.progress = FALSE
+)
 </pre>
 
 
@@ -29,7 +37,7 @@ ds.dataFrameSubset(df.name = NULL, V1.name = NULL, V2.name = NULL,
 <tr valign="top"><td><code>df.name</code></td>
 <td>
 <p>a character string providing the name for the data.frame
-to be sorted.</p>
+from where the subset is created.</p>
 </td></tr>
 <tr valign="top"><td><code>V1.name</code></td>
 <td>
@@ -86,8 +94,7 @@ be converted to 0s and the corresponding row will therefore be excluded from the
 <td>
 <p>This a character string providing a name for the subset
 data.frame representing the primary output of the ds.dataFrameSubset() function.
-This defaults to '&lt;df.name&gt;_subset' if no name is specified
-where &lt;df.name&gt; is the first argument of ds.dataFrameSubset()</p>
+This defaults to 'dataframesubset.newobj' if no name is specified</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -152,5 +159,5 @@ will return the message: &quot;ALL OK: there are no studysideMessage(s) on this 
 <p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
 </body></html>
