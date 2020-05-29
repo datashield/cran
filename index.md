@@ -31,11 +31,13 @@ Server side install:
 
 See detailed usage documentation for users, administrators and developers:
 
-<a href="http://datashield.github.io/documentation" class="btn btn-primary">DataSHIELD Usage Documentation</a>
+<a href="https://data2knowledge.atlassian.net/wiki/spaces/DSDEV/overview" class="btn btn-primary">DataSHIELD Usage Documentation</a>
 
 See also packages detailed documentation:
 
-<a href="web" class="btn btn-primary">DataSHIELD Packages Documentation</a>
+<a href="web" class="btn btn-primary">DataSHIELD Base Packages Documentation</a>
+
+<a href="https://cran.r-project.org/package=DSI" class="btn btn-primary">DataSHIELD Interface Package Documentation</a>
 
 ## Packages
 
