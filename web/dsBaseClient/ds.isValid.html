@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks if an object is valid</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks if a server-side object is valid</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.isValid {dsBaseClient}"><tr><td>ds.isValid {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Checks if an object is valid</h2>
+<h2>Checks if a server-side object is valid</h2>
 
 <h3>Description</h3>
 
@@ -26,36 +26,38 @@ ds.isValid(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a vector, dataframe or matrix.</p>
+<p>a character string specifying the name of a vector, dataframe or matrix.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.
-By default an internal function looks for 'opal' objects in the environment and sets this parameter.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In DataSHIELD, analyses are possible only on valid objects to ensure the ouput is not disclosive.
-This function checks if an input object is valid. A vector is valid if the 
-number of observations are equal to or greater than a set threshold. A factor vector is valid if all
-its levels (categories) have a count equal or greater than the set threshold. A dataframe or a matrix 
+<p>In DataSHIELD, analyses are possible only on valid objects to ensure the output is not disclosive.
+This function checks if an input object is valid. A vector is valid if the
+number of observations is equal to or greater than a set threshold. A factor vector is valid if all
+its levels (categories) have a count equal or greater than the set threshold. A data frame or a matrix
 is valid if the number of rows is equal or greater than the set threshold.
+</p>
+<p>Server function called: <code>isValidDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>a boolean, TRUE if input object is valid and FALSE otherwise.
+<p><code>ds.isValid</code> returns a boolean. If it is TRUE input object is valid, FALSE otherwise.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>DataSHIELD Development Team
 </p>
 
 
@@ -64,23 +66,46 @@ is valid if the number of rows is equal or greater than the set threshold.
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
 
-  # login and assign specific variable(s)
-  myvar &lt;- list("LAB_TSC", "GENDER")
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Example 1: Check if the dataframe assigned above is valid
-  ds.isValid(x='D')
-
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  # Check if the dataframe assigned above is valid
+  ds.isValid(x = 'D',
+             datasources = connections) #all servers are used
+  ds.isValid(x = 'D',
+             datasources = connections[2]) #only the second server is used (study2)
+ 
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(connections)
+
+
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

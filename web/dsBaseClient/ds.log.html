@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes logarithms, by default natural logarithms</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes logarithms in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.log {dsBaseClient}"><tr><td>ds.log {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Computes logarithms, by default natural logarithms</h2>
+<h2>Computes logarithms in the server-side</h2>
 
 <h3>Description</h3>
 
-<p>This function is similar to R function <code>log</code>.
+<p>Computes the logarithms for a specified numeric vector. 
+This function is similar to the R <code>log</code> function. by default natural logarithms.
 </p>
 
 
@@ -25,40 +26,43 @@ ds.log(x = NULL, base = exp(1), newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a vector.</p>
+<p>a character string providing the name of a numerical vector.</p>
 </td></tr>
 <tr valign="top"><td><code>base</code></td>
 <td>
-<p>a numrical, the base with respect to which logarithms are computed.</p>
+<p>a positive number, the base for which logarithms are computed.
+Default <code>exp(1)</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the new variable. If this argument is set to NULL, the name of the new 
-variable is the name 'log.newobj'</p>
+<p>a character string that provides the name for the output variable
+that is stored on the server-side. Default <code>log.newobj</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>this is simply a wrapper for the server side function.
+<p>Server function called: <code>log</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored on the server side.
+<p><code>ds.log</code> returns a vector for each study of the transformed values for the numeric vector 
+specified in the argument <code>x</code>. The created vectors are stored in the server-side.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.; Isaeva, J.
+<p>DataSHIELD Development Team
 </p>
 
 
@@ -67,23 +71,45 @@ these objects hold also the data assign to R, as <code>dataframe</code>, from op
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki 
+  # Connecting to the Opal servers
 
-  # login and assign specific variable(s)
-  myvar &lt;- list("LAB_TSC")
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Compute natural logarithm of LAB_TSC
-  ds.log(x='D$LAB_TSC')
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+                 
+  logindata &lt;- builder$build()
+  
+  # Log onto the remote Opal training servers
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  # Calculating the log value of the 'PM_BMI_CONTINUOUS' variable
+  
+  ds.log(x = "D$PM_BMI_CONTINUOUS",
+         base = exp(2),
+         newobj = "log.PM_BMI_CONTINUOUS",
+         datasources = connections[1]) #only the first Opal server is used (study1)
 
   # clear the Datashield R sessions and logout
-  datashield.logout(opals) 
-
+  datashield.logout(connections) 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

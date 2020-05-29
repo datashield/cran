@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Retrieves the dimension of an object</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Retrieves the dimension of a server-side R object</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.dim {dsBaseClient}"><tr><td>ds.dim {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Retrieves the dimension of an object</h2>
+<h2>Retrieves the dimension of a server-side R object</h2>
 
 <h3>Description</h3>
 
-<p>This function is similar to R function <code>dim</code>
+<p>Gives the dimensions of an R object on the server-side. 
+This function is similar to R function <code>dim</code>.
 </p>
 
 
@@ -25,61 +26,71 @@ ds.dim(x = NULL, type = "both", checks = FALSE, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of R table object, for example a matrix, array or data frame</p>
+<p>a character string providing the name of the input object.</p>
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represents the type of analysis to carry out. 
-If <code>type</code> is set to 'combine', 'combined', 'combines' or 'c', the global dimension is returned. 
-If <code>type</code> is set to 'split', 'splits' or 's', the dimension is returned separately for each study.
-If <code>type</code> is set to 'both' or 'b', both sets of outputs are produced.</p>
+<p>a character string that represents the type of analysis to carry out. 
+If <code>type</code> is set to <code>'combine'</code>, <code>'combined'</code>, <code>'combines'</code> or <code>'c'</code>,
+the global dimension is returned. 
+If <code>type</code> is set to <code>'split'</code>, <code>'splits'</code> or <code>'s'</code>, 
+the dimension is returned separately for each study.
+If <code>type</code> is set to <code>'both'</code> or <code>'b'</code>, both sets of outputs are produced.
+Default <code>'both'</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>checks</code></td>
 <td>
-<p>a Boolean indicator of whether to undertake optional checks of model
-components. Defaults to checks=FALSE to save time. It is suggested that checks
-should only be undertaken once the function call has failed.</p>
+<p>logical. If TRUE undertakes all DataSHIELD checks (time-consuming).
+Default FALSE.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The function returns the dimension of the input object (e.g. array, matrix or data frame)
-from each single study and the pooled dimension of the object by summing up the individual 
+<p>The function returns the dimension of the server-side 
+input object (e.g. array, matrix or data frame)
+from every single study and the pooled dimension of the object by summing up the individual 
 dimensions returned from each study.
+</p>
+<p>In <code>checks</code> parameter is suggested that checks should only be undertaken once the 
+function call has failed.
+</p>
+<p>Server function called: <code>dimDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>The function retrieves the dimension of the object in the form of a vector where the first
+<p><code>ds.dim</code> retrieves to the client-side the dimension of the object 
+in the form of a vector where the first
 element indicates the number of rows and the second element indicates the number of columns.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Amadou Gaye, Julia Isaeva, Demetris Avraam, for DataSHIELD Development Team
+<p>DataSHIELD Development Team
 </p>
 
 
 <h3>See Also</h3>
 
-<p>ds.dataFrame to generate a table of type dataframe.
+<p><code>ds.dataFrame</code> to generate a table of the type data frame.
 </p>
-<p>ds.changeRefGroup to change the reference level of a factor.
+<p><code>ds.changeRefGroup</code> to change the reference level of a factor.
 </p>
-<p>ds.colnames to obtain the column names of a matrix or a data frame
+<p><code>ds.colnames</code> to obtain the column names of a matrix or a data frame
 </p>
-<p>ds.asMatrix to coerce an object into a matrix type.
+<p><code>ds.asMatrix</code> to coerce an object into a matrix type.
 </p>
-<p>ds.length to obtain the size of a vector.
+<p><code>ds.length</code> to obtain the size of a vector.
 </p>
 
 
@@ -88,33 +99,54 @@ element indicates the number of rows and the second element indicates the number
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
 
-  # login and assign all the stored variables.
-  opals &lt;- datashield.login(logins=logindata, assign=TRUE)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Example 1: Get the dimension of the assigned datasets in each study
-  ds.dim(x='D', type='split')
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
 
-  # Example 2: Get the pooled dimension of the assigned datasets
-  ds.dim(x='D', type='combine')
-
-  # Example 3: Get the dimension of the datasets in each single study
-  # and the pooled dimension - default
-  ds.dim(x='D', type='both') 
-
-  # Example 4: Input has to be either matrix, data frame or an array
-  # In the below example, the input is a vector so it will not work.
-  ds.dim(x='D$LAB_TSC')
+  # Calculate the dimension
+  ds.dim(x="D", 
+         type="combine", #global dimension
+         checks = FALSE,
+         datasources = connections)#all opal servers are used
+  ds.dim(x="D",
+         type = "both",#separate dimension for each study
+                       #and the pooled dimension (default) 
+         checks = FALSE,
+         datasources = connections)#all opal servers are used
+  ds.dim(x="D", 
+         type="split", #separate dimension for each study
+         checks = FALSE,
+         datasources = connections[1])#only the first opal server is used ("study1")
 
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(connections)
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

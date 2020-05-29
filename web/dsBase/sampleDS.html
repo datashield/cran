@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: random sampling and permuting of vectors, dataframes and...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for sampleDS {dsBase}"><tr><td>sampleDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>random sampling and permuting of vectors, dataframes and matrices</h2>
+
+<h3>Description</h3>
+
+<p>draws a pseudorandom sample from a vector, dataframe or matrix
+on the serverside
+or - as a special case - randomly permutes a vector, dataframe or matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sampleDS(
+  x.transmit,
+  size.transmit,
+  replace.transmit = NULL,
+  prob.transmit = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x.transmit</code></td>
+<td>
+<p>Either a character string providing the name for the serverside
+vector, matrix or data.frame to be sampled or permuted, or an integer/numeric
+scalar (e.g. 923) indicating that one should create a new vector on the serverside
+that is a randomly permuted sample of the vector 1:923. x.transmit is
+fully specified by the [x] argument of ds.sample. For further details see 
+help for ds.sample and native R help for sample().</p>
+</td></tr>
+<tr valign="top"><td><code>size.transmit</code></td>
+<td>
+<p>a numeric/integer scalar indicating the size of the sample to
+be drawn. size.transmit is fully specified by the [size] argument of ds.sample.
+For further details see help for ds.sample and native R help for sample().</p>
+</td></tr>
+<tr valign="top"><td><code>replace.transmit</code></td>
+<td>
+<p>a Boolean indicator (TRUE or FALSE) specifying whether the
+sample should be drawn with or without replacement. Default is FALSE so
+the sample is drawn without replacement. replace.transmit is
+fully specified by the [replace] argument of ds.sample. For further details see 
+help for ds.sample and native R help for sample().</p>
+</td></tr>
+<tr valign="top"><td><code>prob.transmit</code></td>
+<td>
+<p>a character string containing the name of a numeric vector
+of probability weights on the serverside that is associated with each of the
+elements of the vector to be sampled enabling the drawing of a sample
+with some elements given higher probability of being drawn than others.
+prob.transmit is fully specified by the [prob] argument of ds.sample. For further details see 
+help for ds.sample and native R help for sample().</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Serverside assign function sampleDS called by clientside
+function ds.sample. Based on the native R function sample() but deals
+slightly differently with data.frames and matrices. For further details see 
+help for ds.sample and native R help for sample().
+</p>
+
+
+<h3>Value</h3>
+
+<p>the object specified by the &lt;newobj&gt; argument (or default name
+'newobj.sample') which is written to the serverside. For further details see 
+help for ds.sample and native R help for sample().
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton, for DataSHIELD Development Team, 15/4/2020
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.0.0 ]</div>
+</body></html>

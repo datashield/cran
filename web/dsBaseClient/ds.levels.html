@@ -1,15 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Returns the levels attribute of a factor</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Levels attributes of a server-side factor</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.levels {dsBaseClient}"><tr><td>ds.levels {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Returns the levels attribute of a factor</h2>
+<h2>Levels attributes of a server-side factor</h2>
 
 <h3>Description</h3>
 
-<p>This function is similar to R function <code>levels</code>
+<p>This function provides access to the level attribute of
+a factor variable stored on the server-side. 
+This function is similar to R function <code>levels</code>.
 </p>
 
 
@@ -25,31 +27,33 @@ ds.levels(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a factor variable</p>
+<p>a character string specifying  the name of a factor variable.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>This is just a wrapper function for the server side function.
+<p>Server function called: <code>levelsDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>levels of x
+<p><code>ds.levels</code> returns to the client-side the levels of a factor 
+class variable stored in the server-side.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.; Isaeva, J.
+<p>DataSHIELD Development Team
 </p>
 
 
@@ -57,26 +61,49 @@ these objects hold also the data assign to R, as <code>dataframe</code>, from op
 
 <pre>
 ## Not run: 
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
 
-  # load that contains the login details
-  data(logindata)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # login
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
-
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
   # Example 1: Get the levels of the PM_BMI_CATEGORICAL variable
-  ds.levels(x='D$PM_BMI_CATEGORICAL')
+  ds.levels(x = 'D$PM_BMI_CATEGORICAL',
+            datasources = connections)#all servers are used
+  ds.levels(x = 'D$PM_BMI_CATEGORICAL',
+            datasources = connections[2])#only the second server is used (study2)
 
-  # Example 2: Get the levels of the LAB_TSC   SHOULD NOT WORK AS IT IS A CONTINUOUS VARIABLE
-  ds.levels(x='D$LAB_TSC')
-
+  # Example 2: Get the levels of the LAB_TSC variable
+  # This example should not work because LAB_TSC is a continuous variable
+  ds.levels(x = 'D$LAB_TSC',
+            datasources = connections)
+  
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(connections)
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

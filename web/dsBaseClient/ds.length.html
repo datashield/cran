@@ -1,15 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Gets the length of a vector or list</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Gets the length of an object in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.length {dsBaseClient}"><tr><td>ds.length {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Gets the length of a vector or list</h2>
+<h2>Gets the length of an object in the server-side</h2>
 
 <h3>Description</h3>
 
-<p>This function is similar to R function <code>length</code>.
+<p>This function gets the length of a vector
+or list that is stored on the server-side. 
+This function is similar to the R function <code>length</code>.
 </p>
 
 
@@ -25,46 +27,50 @@ ds.length(x = NULL, type = "both", checks = "FALSE", datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a string character, the name of a vector or list</p>
+<p>a character string specifying the name of a vector or list.</p>
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represents the type of analysis to carry out. 
-If <code>type</code> is set to 'combine', 'combined', 'combines' or 'c', a global length is returned 
-if <code>type</code> is set to 'split', 'splits' or 's', the length is returned separately for each study.
-if <code>type</code> is set to 'both' or 'b', both sets of outputs are produced</p>
+<p>a character that represents the type of analysis to carry out.
+If <code>type</code> is set to <code>'combine'</code>, <code>'combined'</code>, <code>'combines'</code> or <code>'c'</code>,
+a global length is returned
+if <code>type</code> is set to <code>'split'</code>, <code>'splits'</code> or <code>'s'</code>, 
+the length is returned separately for each study.
+if <code>type</code> is set to <code>'both'</code> or <code>'b'</code>, 
+both sets of outputs are produced. 
+Default <code>'both'</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>checks</code></td>
 <td>
-<p>a Boolean indicator of whether to undertake optional checks of model
-components. Defaults to checks=FALSE to save time. It is suggested that checks
-should only be undertaken once the function call has failed</p>
+<p>logical. If TRUE the model components are checked. 
+Default FALSE to save time. It is suggested that checks
+should only be undertaken once the function call has failed.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal
-servers; these objects hold also the data assign to R, as <code>dataframe</code>,
-from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The function returns the pooled length of the a vector or a list, 
-or the length of the a vector or a list for each study separately.
+<p>Server function called: <code>lengthDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>a numeric, the length of the input vector or list.
+<p><code>ds.length</code> returns to the client-side the pooled length of a vector or a list, 
+or the length of a vector or a list for each study separately.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Amadou Gaye, Demetris Avraam, for DataSHIELD Development Team
+<p>DataSHIELD Development Team
 </p>
 
 
@@ -73,31 +79,55 @@ or the length of the a vector or a list for each study separately.
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
 
-  # login and assign all the variables stored on the server side
-  opals &lt;- datashield.login(logins=logindata, assign=TRUE)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
   # Example 1: Get the total number of observations of the vector of
-  # variable 'LAB_TSC' across all the studies 
-  ds.length(x='D$LAB_TSC', type='combine')
+  # variable 'LAB_TSC' across all the studies
+  ds.length(x = 'D$LAB_TSC', 
+            type = 'combine',
+            datasources = connections)
 
   # Example 2: Get the number of observations of the vector of variable
   # 'LAB_TSC' for each study separately
-  ds.length(x='D$LAB_TSC', type='split')
+  ds.length(x = 'D$LAB_TSC',
+            type = 'split',
+            datasources = connections)
 
   # Example 3: Get the number of observations on each study and the total
   # number of observations across all the studies for the variable 'LAB_TSC'
-  ds.length(x='D$LAB_TSC', type='both')
-
+  ds.length(x = 'D$LAB_TSC',
+            type = 'both',
+            datasources = connections)
+  
   # clear the Datashield R sessions and logout
-  datashield.logout(opals) 
-
+  datashield.logout(connections)
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

@@ -1,14 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Changes the reference level of a factor</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Changes the reference level of a factor in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.changeRefGroup {dsBaseClient}"><tr><td>ds.changeRefGroup {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Changes the reference level of a factor</h2>
+<h2>Changes the reference level of a factor in the server-side</h2>
 
 <h3>Description</h3>
 
+<p>Change the reference level of a factor, by putting 
+the reference group first.  
+</p>
 <p>This function is similar to R function <code>relevel</code>.
 </p>
 
@@ -31,65 +34,71 @@ ds.changeRefGroup(
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a vector of type factor.</p>
+<p>a character string providing the name of the input vector of type factor.</p>
 </td></tr>
 <tr valign="top"><td><code>ref</code></td>
 <td>
-<p>the reference level</p>
+<p>the reference level.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the new variable. If this argument is set to NULL, 
-the name of the new variable is 'changerefgroup.newobj'.</p>
+<p>a character string that provides the name for the output object
+that is stored on the server-side. Default <code>changerefgroup.newobj</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>reorderByRef</code></td>
 <td>
-<p>a boolean that tells whether or not the new vector 
+<p>logical, if TRUE the new vector
 should be ordered by the reference group (i.e. putting the reference group first).
-The default is to not re-order for the reasons explained in the 'details' section.</p>
+The default is to not re-order (see the reasons in the details).</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In addition to what the R function does, this function
-allows for the user to re-order the vector, putting the reference
-group first. If the user chooses the re-order a warning is issued 
+<p>This function
+allows the user to re-order the vector, putting the reference
+group first. It should be mentioned that by default the reference is 
+the first level in the vector of levels.  
+If the user chooses the re-order a warning is issued
 as this can introduce a mismatch of values if the vector is put back
 into a table that is not reordered in the same way. Such mismatch
 can render the results of operations on that table invalid.
+</p>
+<p>Server function called: <code>changeRefGroupDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored on the server side.
+<p><code>ds.changeRefGroup</code> returns a new vector  with the specified level as a reference
+which is written to the server-side.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Isaeva, J.; Gaye, A.
+<p>DataSHIELD Development Team
 </p>
 
 
 <h3>See Also</h3>
 
-<p>ds.cbind Combines objects column-wise.
+<p><code>ds.cbind</code> Combines objects column-wise.
 </p>
-<p>ds.levels to obtain the levels (categories) of a vector of type factor.
+<p><code>ds.levels</code> to obtain the levels (categories) of a vector of type factor.
 </p>
-<p>ds.colnames to obtain the column names of a matrix or a data frame
+<p><code>ds.colnames</code> to obtain the column names of a matrix or a data frame
 </p>
-<p>ds.asMatrix to coerce an object into a matrix type.
+<p><code>ds.asMatrix</code> to coerce an object into a matrix type.
 </p>
-<p>ds.dim to obtain the dimensions of matrix or a data frame.
+<p><code>ds.dim</code> to obtain the dimensions of a matrix or a data frame.
 </p>
 
 
@@ -98,43 +107,77 @@ can render the results of operations on that table invalid.
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki
+  # Connecting to the Opal servers
 
-  # login and assign all the stored variables
-  # (by default the assigned dataset is a dataframe named 'D')
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Example 1: rename the categories and change the reference with re-ordering
-  # print out the levels of the initial vector
-  ds.levels(x='D$PM_BMI_CATEGORICAL')
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  # Log onto the remote Opal training servers
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
 
-  # define a vector with the new levels and recode the initial levels
-  newNames &lt;- c('normal', 'overweight', 'obesity')
-  ds.recodeLevels(x='D$PM_BMI_CATEGORICAL', newCategories=newNames, newobj='bmi_new')
+  # Changing the reference group in the server-side
+ 
+    # Example 1: rename the categories and change the reference with re-ordering
+      # print out the levels of the initial vector
+      ds.levels(x= "D$PM_BMI_CATEGORICAL",
+                datasources = connections)
 
-  # print out the levels of the new vector
-  ds.levels(x='bmi_new')
+      # define a vector with the new levels and recode the initial levels
+      newNames &lt;- c("normal", "overweight", "obesity")
+      ds.recodeLevels(x = "D$PM_BMI_CATEGORICAL",
+                      newCategories = newNames,
+                      newobj = "bmi_new",
+                      datasources = connections)
 
-  # by default the reference is the first level in the vector of levels (here 'normal')
-  # now change and set the reference to 'obesity' without changing the order (default)
-  ds.changeRefGroup(x='bmi_new', ref='obesity', newobj='bmi_ob')
+      # print out the levels of the new vector
+      ds.levels(x = "bmi_new",
+                datasources = connections)
 
-  # print out the levels; the first listed level (i.e. the reference) is now 'obesity'
-  ds.levels(x='bmi_ob')
+      # Set the reference to "obesity" without changing the order (default)
+      ds.changeRefGroup(x = "bmi_new",
+                        ref = "obesity",
+                        newobj = "bmi_ob",
+                        datasources = connections)
 
-  # Example 2: change the reference and re-order by the refence level
-  # If re-ordering is sought, the action is completed but a warning is issued.
-  ds.recodeLevels(x='D$PM_BMI_CATEGORICAL', newCategories=newNames, newobj='bmi_new')
-  ds.changeRefGroup(x='bmi_new', ref='obesity', newobj='bmi_ob', reorderByRef=TRUE)
+      # print out the levels; the first listed level (i.e. the reference) is now 'obesity'
+      ds.levels(x = "bmi_ob",
+                datasources = connections)
 
-  # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+    # Example 2: change the reference and re-order by the reference level
+      # If re-ordering is sought, the action is completed but a warning is issued
+      ds.recodeLevels(x = "D$PM_BMI_CATEGORICAL",
+                      newCategories = newNames,
+                      newobj = "bmi_new",
+                     datasources = connections)
+      ds.changeRefGroup(x = "bmi_new",
+                        ref = "obesity",
+                        newobj = "bmi_ob",
+                        reorderByRef = TRUE,
+                        datasources = connections)
 
+           
+  # Clear the Datashield R sessions and logout
+  datashield.logout(connections) 
 
 ## End(Not run)
-
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

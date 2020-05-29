@@ -25,8 +25,8 @@ getPooledVar(dtsources, x)
 <table summary="R argblock">
 <tr valign="top"><td><code>dtsources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. If the &lt;datasources&gt;
+the default set of connections will be used: see datashield.connections_default.</p>
 </td></tr>
 <tr valign="top"><td><code>x</code></td>
 <td>
@@ -37,8 +37,8 @@ these objects hold also the data assign to R, as <code>dataframe</code>, from op
 
 <h3>Details</h3>
 
-<p>This function is called to avoid calling the client function 'ds.var' 
-which may stop the process due to some checks not required when computing a mean inside 
+<p>This function is called to avoid calling the client function 'ds.var'
+which may stop the process due to some checks not required when computing a mean inside
 a function.
 </p>
 
@@ -48,5 +48,5 @@ a function.
 <p>a pooled variance
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

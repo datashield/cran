@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.seq calling assign function seqDS</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates a sequence in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.seq {dsBaseClient}"><tr><td>ds.seq {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>ds.seq calling assign function seqDS</h2>
+<h2>Generates a sequence in the server-side</h2>
 
 <h3>Description</h3>
 
-<p>ds.seq calling assign function seqDS
+<p>This function generates a sequence for given parameters 
+on the server-side.
 </p>
 
 
@@ -33,122 +34,161 @@ ds.seq(
 <table summary="R argblock">
 <tr valign="top"><td><code>FROM.value.char</code></td>
 <td>
-<p>the starting value for the sequence expressed as an integer
-or real number with a decimal point but 
-in character form. e.g. FROM.value.char=&quot;1&quot; will start at 1, FROM.value.char=&quot;-10.7&quot;
-will start at -10.7. Default = &quot;1&quot;</p>
+<p>an integer or a number in character from specifying 
+the starting value for the sequence. 
+Default <code>"1"</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>BY.value.char</code></td>
 <td>
-<p>the value to increment each step in the sequence
-expressed as an integer
-or real number with a decimal point but 
-in character form. e.g. if BY.value.char=&quot;2.93&quot; the sequence will increment
-by 2.93 at each step, if BY.value.char=&quot;-1&quot; the sequence will decrement
-by 1 at each step. Default = &quot;+1&quot;</p>
+<p>an integer or a number in character from specifying 
+the value to increment each step in the sequence.
+Default <code>"1"</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>TO.value.char</code></td>
 <td>
-<p>the terminal value for the sequence expressed as an integer
-or real number with a decimal point but 
-in character form. e.g. if TO.value.char=&quot;17.33&quot; the sequence will terminate
-at the last value in the sequence that is &lt;= 17.33. Default = &quot;1&quot;</p>
+<p>an integer or a number in character from specifying 
+the terminal value for the sequence.
+Default NULL. 
+For more information see <strong>Details</strong>.</p>
 </td></tr>
 <tr valign="top"><td><code>LENGTH.OUT.value.char</code></td>
 <td>
-<p>length of the sequence at which point
-its extension should be stopped, expressed as an integer
-or real number with a decimal point but 
-in character form. e.g.  LENGTH.OUT.value.char=&quot;1000&quot; will
-generate a sequence of length 1000. If however, LENGTH.OUT.value.char
-is not an integer any value larger than a given integer will result
-in a sequence of length integer+1. e.g.  LENGTH.OUT.value.char=&quot;1000.0001&quot; will
-generate a sequence of length 1001. If 0.0&gt;=LENGTH.OUT.value.char&gt;(-1.0), the function
-will run but will generate a sequence with no elements.
-If LENGTH.OUT.value.char&lt;=(-1.0) the function will terminate with an error.
-Default = NULL.</p>
+<p>an integer or a number in character from specifying 
+the length of the sequence at which point
+its extension should be stopped.
+Default NULL. 
+For more information see <strong>Details</strong>.</p>
 </td></tr>
 <tr valign="top"><td><code>ALONG.WITH.name</code></td>
 <td>
-<p>For convenience, rather than specifying a value
-for LENGTH.OUT it can often be better to specify a variable name as
-the &lt;ALONG.WITH.name&gt; argument. e.g. ALONG.WITH.name = &quot;vector.name&quot;.
-This can be particularly useful in DataSHIELD
-where the length of the sequence you need to generate in each data set
-depends on the standard length of vectors in that data set and this will
-in general vary.</p>
+<p>a character string specifying the name of a standard vector 
+to generate a vector of the same length. 
+For more information see <strong>Details</strong>.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>This a character string providing a name for the output
-sequence vector which defaults to 'seq.newobj' if no name is specified.</p>
+<p>a character string that provides the name for the output variable 
+that is stored on the data servers. Default <code>seq.newobj</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
-argument is not specified the default set of opals will be used. The default opals
-are called default.opals and the default can be set using the function
-ds.setDefaultOpals. If the &lt;datasources&gt; is to be specified, it should be set without
-inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
-apply the function solely to e.g. the second opal server in a set of three,
-the argument can be specified as: e.g. datasources=opals.em[2].
-If you wish to specify the first and third opal servers in a set you specify:
-e.g. datasources=opals.em[c(1,3)].</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Calls an assign function that uses the native R function seq() to create
-any one of a flexible range of sequence vectors that can then be used to help
-manage and analyse data. As it is an assign function the resultant vector is
-written as a new object into all of the specified data source servers. Please
-note that some combinations  of arguments are not allowed for the function seq
-in native R and hence are also prohibited in ds.seq. To be specific,
-FROM.value.char defines the start of the sequence and BY.value.char defines how
+<p>This function is similar to a native R function <code>seq()</code>. 
+It creates a flexible range of sequence vectors that can then be used to help
+manage and analyse data. 
+</p>
+<p><strong>Note</strong>: the combinations of arguments that are not allowed
+for the function <code>seq</code> in native R are also prohibited in <code>ds.seq</code>. 
+</p>
+<p>To be specific, <code>FROM.value.char</code> argument 
+defines the start of the sequence and <code>BY.value.char</code> defines how
 the sequence is incremented (or decremented) at each step. But where the
-sequence stops can be defined in three different ways: TO.value.char indicates
-the terminal value of the sequence e.g. ds.seq(FROM.value.char=&quot;3&quot;, BY.value.char=&quot;2&quot;,
-TO.value.char=&quot;7&quot;) creates the sequence 3,5,7 on the serverside;
-LENGTH.OUT.value.char indicates the length of the sequence
-e.g. ds.seq(FROM.value.char=&quot;3&quot;, BY.value.char=&quot;2&quot;, LENGTH.OUT.value.char=&quot;7&quot;)
-creates the sequence 3,5,7,9,11,13,15 on the serverside; ALONG.WITH.name
-specifies the name of a variable (on the serverside) such that the sequence
-in each study will be equal in length to that variable.
-i.e. ds.seq(FROM.value.char=&quot;3&quot;, BY.value.char=&quot;2&quot;, ALONG.WITH.name=&quot;var.x&quot;)
-will create a sequence such that if var.x is of length 100 in study 1 the
-sequence written to study 1 will be 3,5,7,...,197,199,201 and if var.x is
-of length 4 in study 2, the sequence written to study 2 will be 3,5,7,9.
-BUT CRUCIALLY - only one of the three arguments TO.value.char,
-LENGTH.OUT.value.char and ALONG.WITH.name can be non-null in any one call.
+sequence stops can be defined in three different ways:<br />
+(1) <code>TO.value.char</code> indicates the terminal value of the sequence. 
+For example, <code>ds.seq(FROM.value.char = "3", BY.value.char = "2",
+TO.value.char = "7")</code>  creates the sequence <code>3,5,7</code> on the server-side.<br />
+(2) <code>LENGTH.OUT.value.char</code> indicates the length of the sequence. 
+For example, <code>ds.seq(FROM.value.char = "3", BY.value.char = "2", 
+LENGTH.OUT.value.char = "7")</code> 
+creates the sequence <code>3,5,7,9,11,13,15</code> on the server-side.<br />
+(3) <code>ALONG.WITH.name</code> specifies the name of a variable on the server-side,
+such that the sequence in each study will be equal in length to that variable.
+For example, <code>ds.seq(FROM.value.char = "3", BY.value.char = "2", 
+ALONG.WITH.name = "var.x")</code>
+creates a sequence such that if <code>var.x</code> is of length 100 in study 1 the
+sequence written to study 1 will be <code>3,5,7,...,197,199,201</code> and if <code>var.x</code> is
+of length 4 in study 2, the sequence written to study 2 will be <code>3,5,7,9</code>.<br />
+Only one of the three arguments: <code>TO.value.char</code>,
+<code>LENGTH.OUT.value.char</code> and <code>ALONG.WITH.name</code> can be non-null in any one call.
+</p>
+<p>In <code>LENGTH.OUT.value.char</code> argument if you specify a number with a decimal point but 
+in character form this result in a sequence <code>length(integer) + 1</code>.
+For example, <code>LENGTH.OUT.value.char = "1000.0001"</code> 
+generates a sequence of length 1001.
+</p>
+<p>Server function called: <code>seqDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>the object specified by the &lt;newobj&gt; argument (or default name newObj)
-which is written to the serverside. 
-As well as writing the output object as &lt;newobj&gt;
-on the serverside, two validity messages are returned
-indicating whether &lt;newobj&gt; has been created in each data source and if so whether
-it is in a valid form. If its form is not valid in at least one study - e.g. because
-a disclosure trap was tripped and creation of the full output object was blocked -
-ds.seq() also returns any studysideMessages that can explain the error in creating
-the full output object. As well as appearing on the screen at run time,if you wish to
-see the relevant studysideMessages at a later date you can use the ds.message
-function. If you type ds.message(&quot;&lt;newobj&gt;&quot;) it will print out the relevant
-studysideMessage from any datasource in which there was an error in creating &lt;newobj&gt;
-and a studysideMessage was saved. If there was no error and &lt;newobj&gt; was created
-without problems no studysideMessage will have been saved and ds.message(&quot;&lt;newobj&gt;&quot;)
-will return the message: &quot;ALL OK: there are no studysideMessage(s) on this datasource&quot;.
+<p><code>ds.seq</code> returns to the server-side the generated sequence. 
+Also, two validity messages are returned to the client-side 
+indicating whether the new object has been created in each data source and if so whether
+it is in a valid form.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Paul Burton for DataSHIELD Development Team, 17/9/2019
+<p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+
+  ## Version 6, for version 5 see the Wiki
+  # Connecting to the Opal servers
+
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
+
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  # Log onto the remote Opal training servers
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+
+  #Create 3 different sequences
+  
+  ds.seq(FROM.value.char = "1",
+         BY.value.char = "2",
+         TO.value.char = "7",
+         newobj = "new.seq1",
+         datasources = connections)
+         
+         
+  ds.seq(FROM.value.char = "4",
+         BY.value.char = "3",
+         LENGTH.OUT.value.char = "10",
+         newobj = "new.seq2",
+         datasources = connections)  
+         
+  ds.seq(FROM.value.char = "2",
+         BY.value.char = "5",
+         ALONG.WITH.name = "D$GENDER",
+         newobj = "new.seq3",
+         datasources = connections)                            
+         
+  # Clear the Datashield R sessions and logout
+  datashield.logout(connections) 
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

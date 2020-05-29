@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Retrieves the class of an object</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Class of the R object in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.class {dsBaseClient}"><tr><td>ds.class {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Retrieves the class of an object</h2>
+<h2>Class of the R object in the server-side</h2>
 
 <h3>Description</h3>
 
-<p>This function is similar to R function <code>class</code>.
+<p>Retrieves the class of an R object.
+This function is similar to the R function <code>class</code>.
 </p>
 
 
@@ -25,37 +26,40 @@ ds.class(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>an R object</p>
+<p>a character string providing the name of the input R object.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Same as for the R function <code>class</code>.
+<p>Same as the native R function <code>class</code>.
+</p>
+<p>Server function called: <code>class</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>a character the type of x
+<p><code>ds.class</code> returns the type of the R object.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.; Isaeva, J.
+<p>DataSHIELD Development Team
 </p>
 
 
 <h3>See Also</h3>
 
-<p>ds.exists to verify if an object is defined (exists) on the server side.
+<p><code>ds.exists</code> to verify if an object is defined (exists) on the server-side.
 </p>
 
 
@@ -64,26 +68,43 @@ these objects hold also the data assign to R, as <code>dataframe</code>, from op
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki
+  # Connecting to the Opal servers
 
-  # login and assign all the stored variables
-  # (by default the assigned dataset is a dataframe named 'D')
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Example 1: Get the class of the whole dataset
-  ds.class(x='D')
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  # Log onto the remote Opal training servers
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
 
-  # Example 2: Get the class of the variable PM_BMI_CONTINUOUS
-  ds.class(x='D$LAB_TSC')
+  # Getting the class of the R objects stored in the server-side
+  ds.class(x = "D", #whole dataset
+           datasources = connections[1]) #only the first server ("study1") is used
 
-  # clear the Datashield R sessions and logout
-  datashield.logout(opals)
-
+  ds.class(x = "D$LAB_TSC", #select a variable
+           datasources = connections[1]) #only the first server ("study1") is used
+           
+  # Clear the Datashield R sessions and logout
+  datashield.logout(connections) 
 
 ## End(Not run)
-
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

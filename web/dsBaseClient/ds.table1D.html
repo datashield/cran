@@ -9,8 +9,8 @@
 
 <h3>Description</h3>
 
-<p>The function ds.table1D is a client-side wrapper function. 
-It calls the server-side function table1DDS to generate 1-dimensional 
+<p>The function ds.table1D is a client-side wrapper function.
+It calls the server-side function table1DDS to generate 1-dimensional
 tables for all data sources.
 </p>
 
@@ -36,31 +36,31 @@ ds.table1D(
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represent the type of table to ouput: pooled table or one table for each 
-data source. If <code>type</code> is set to 'combine', a pooled 1-dimensional table is returned; if If <code>type</code> 
+<p>a character which represent the type of table to ouput: pooled table or one table for each
+data source. If <code>type</code> is set to 'combine', a pooled 1-dimensional table is returned; if If <code>type</code>
 is set to 'split' a 1-dimensional table is returned for each data source.</p>
 </td></tr>
 <tr valign="top"><td><code>warningMessage</code></td>
 <td>
 <p>a boolean, if set to TRUE (deafult) a warning is displayed if any returned table is invalid. Warning
-messages are suppressed if this parameter is set to FALSE. However the analyst can still view 'validity' information 
+messages are suppressed if this parameter is set to FALSE. However the analyst can still view 'validity' information
 which are stored in the output object 'validity' - see the list of output objects.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers; these objects hold also the data assign 
-to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. If the &lt;datasources&gt;
+the default set of connections will be used: see datashield.connections_default.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The table returned by the server side function might be valid (non disclosive -  
-no table cell have counts between 1 and the minimal number agreed by the data owner and set in opal)
+<p>The table returned by the server side function might be valid (non disclosive -
+no table cell have counts between 1 and the minimal number agreed by the data owner and set in the data repository)
 or invalid (potentially disclosive - one or more table cells have a count between 1 and the minimal number
 agreed by the data owner). If a 1-dimensional table is invalid all the cells are set to NA except the total
-count. This way it is possible the know the total count and combine total counts across data sources but it 
+count. This way it is possible the know the total count and combine total counts across data sources but it
 is not possible to identify the cell(s) that had the small counts which render the table invalid.
 </p>
 
@@ -72,8 +72,8 @@ is not possible to identify the cell(s) that had the small counts which render t
 <table summary="R valueblock">
 <tr valign="top"><td><code>counts</code></td>
 <td>
-<p> table(s) that hold counts for each level/category. If some cells counts are invalid (see 'Details' 
-section) only the total (outer) cell counts are displayed in the returned individual study tables or in the pooled 
+<p> table(s) that hold counts for each level/category. If some cells counts are invalid (see 'Details'
+section) only the total (outer) cell counts are displayed in the returned individual study tables or in the pooled
 table.</p>
 </td></tr>
 <tr valign="top"><td><code>percentages</code></td>
@@ -110,7 +110,7 @@ studies they are originated from are also mentioned in the text message.</p>
   data(logindata)
 
   # login and assign all the stored variables to R
-  opals  &lt;-  datashield.login(logins=logindata,assign=TRUE)
+  conns &lt;- datashield.login(logins=logindata,assign=TRUE)
 
   # Example 1: generate a one dimensional table, outputting combined (pooled) contingency tables
   output &lt;- ds.table1D(x='D$GENDER')
@@ -123,21 +123,21 @@ studies they are originated from are also mentioned in the text message.</p>
   output$counts
   output$percentages
   output$validity
- 
-  # Example 3: generate a one dimensional table, outputting study specific and combined 
-  # contingency tables - see what happens if the reruened table is 'invalid'. 
-  output &lt;- ds.table1D(x='D$DIS_CVA') 
+
+  # Example 3: generate a one dimensional table, outputting study specific and combined
+  # contingency tables - see what happens if the reruened table is 'invalid'.
+  output &lt;- ds.table1D(x='D$DIS_CVA')
   output$counts
   output$percentages
   output$validity
 
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(conns)
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

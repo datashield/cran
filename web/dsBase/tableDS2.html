@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: tableDS is the second of two serverside aggregate functions...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for tableDS2 {dsBase}"><tr><td>tableDS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>tableDS is the second of two serverside aggregate functions
+called by ds.table</h2>
+
+<h3>Description</h3>
+
+<p>Helps creates 1-dimensional, 2-dimensional and 3-dimensional
+tables using the table function in native R.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+tableDS2(newobj, rvar.transmit, cvar.transmit, stvar.transmit)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>newobj</code></td>
+<td>
+<p>this a character string providing a name for the output
+table object to be written to the serverside if &lt;table.assign&gt; is TRUE.
+If no explicit name for the table object is specified, but &lt;table.assign&gt;
+is nevertheless TRUE, the name for the serverside table object defaults
+to 'newObj'. Fully specified by &lt;newobj&gt; argument in ds.table.
+For more information see help for ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>rvar.transmit</code></td>
+<td>
+<p>is a character string (in inverted commas) specifiying the
+name of the variable defining the rows in all of the 2 dimensional
+tables that form the output. Fully specified by &lt;rvar&gt; argument in ds.table.
+For more information see help for ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>cvar.transmit</code></td>
+<td>
+<p>is a character string specifiying the
+name of the variable defining the columns in all of the 2 dimensional
+tables that form the output. Fully specified by &lt;cvar&gt; argument in ds.table.
+For more information see help for ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>stvar.transmit</code></td>
+<td>
+<p>is a character string specifiying the
+name of the variable that indexes the separate two dimensional
+tables in the output if the call specifies a 3 dimensional table.
+Fully specified by &lt;stvar&gt; argument in ds.table.
+For more information see help for ds.table</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If the &lt;table.assign&gt; argument of ds.table is set to TRUE,
+this aggregate function returns non-disclosive information about
+the table object written to the serverside by tableDS.assign. For more
+information see help for ds.table, tableDS.assign and tableDS
+in DataSHIELD and the table function in native R.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For information see help for ds.table
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team, 13/11/2019
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.0.0 ]</div>
+</body></html>

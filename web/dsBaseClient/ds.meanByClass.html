@@ -9,8 +9,8 @@
 
 <h3>Description</h3>
 
-<p>This function calculates the mean and SD of a continuous variable for each class 
-of up to 3 categorical variables.
+<p>This function calculates the mean and  the standard deviation (SD)
+of a continuous variable for each class of up to 3 categorical variables.
 </p>
 
 
@@ -32,61 +32,67 @@ ds.meanByClass(
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of the dataset to get the subsets from or a text formula of the 
-form 'A~B' where A is a single continuous vector and B a single factor vector</p>
+<p>a character string specifying the name of the dataset or a text formula.</p>
 </td></tr>
 <tr valign="top"><td><code>outvar</code></td>
 <td>
-<p>a character vector, the names of the continuous variables</p>
+<p>a character vector specifying the names of the continuous variables.</p>
 </td></tr>
 <tr valign="top"><td><code>covar</code></td>
 <td>
-<p>a character vector, the names of up to 3 categorical variables</p>
+<p>a character vector specifying the names of up to 3 categorical variables</p>
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represents the type of analysis to carry out. If <code>type</code> is set to 
-'combine', a pooled table of results is generated. If <code>type</code> is set to 'split', a table of results 
-is genrated for each study.</p>
+<p>a character string that represents the type of analysis to carry out.
+<code>type</code> can be set as: <code>'combine'</code> or <code>'split'</code>. 
+Default <code>'combine'</code>. 
+For more information see <strong>Details</strong>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers; these objects hold 
-also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The functions splits the input dataset into subsets (one for each category) and calculates 
-the mean and SD of the specified numeric variables. It is important to note that the process of 
-generating the final table(s) can be time consuming particularly if the subsetting is done across 
-more than one categorical variable and the run-time lengthens if the parameter 'split' is set to 
-'split' as a table is then produced for each study. It is therefore advisable to run the function 
-only for the studies of the user really interested in but including only those studies in the 
-parameter 'datasources'.
+<p>The function splits the input dataset into subsets (one for each category) and calculates
+the mean and SD of the specified numeric variables. It is important to note that the process of
+generating the final table(s) can be time consuming particularly if the subsetting is done across
+more than one categorical variable and the run-time lengthens if the parameter <code>type</code> is set to
+<code>'split'</code> as a table is then produced for each study. It is therefore advisable to run the function
+only for the studies of the user interested in but including only those studies in the
+parameter <code>datasources</code>.
+</p>
+<p>Depending on the variable <code>type</code> can be carried out two analysis:<br />
+(1) <code>'combine'</code>: a pooled table of results is generated. <br />
+(2) <code>'split'</code>: a table of results is generated for each study.
 </p>
 
 
 <h3>Value</h3>
 
-<p>a table or a list of tables that hold the length of the numeric variable(s) and their mean 
+<p><code>ds.meanByClass</code> returns to the client-side a table or a list of tables that 
+hold the length of the numeric variable(s) and their mean
 and standard deviation in each subgroup (subset).
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>DataSHIELD Development Team
 </p>
 
 
 <h3>See Also</h3>
 
-<p>ds.subsetByClass to subset by the classes of factor vector(s).
+<p><code>ds.subsetByClass</code> to subset by the classes of factor vector(s).
 </p>
-<p>ds.subset to subset by complete cases (i.e. removing missing values), threshold, columns and rows.
+<p><code>ds.subset</code> to subset by complete cases (i.e. removing missing values), threshold, columns and rows.
 </p>
 
 
@@ -95,36 +101,50 @@ and standard deviation in each subgroup (subset).
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
-
-  # Example 1: calculate the pooled mean proportion for LAB_HDL across GENDER categories where
-  # both vectors are in a tabe structure "D"
-  # login and assign LAB_HDL and GENDER to a table "D"
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE, variables=list('LAB_HDL', 'GENDER'))
-  ds.meanByClass(x='D$LAB_HDL~D$GENDER')
+ ## Version 6, for version 5 see the Wiki
   
-  # Example 2: calculate the mean proportion for LAB_HDL across GENDER categories where both
-  # vectors are 'loose' (i.e. not in a table)
-  # assign both LAB_HDL and GENDER to vectors not held in a table
-  ds.assign("D$LAB_HDL", "ldl")
-  ds.assign("D$GENDER", "sex")
-  ds.meanByClass(x='ldl~sex')
-  datashield.logout(opals)
-  
-  # Example 3: calculate the mean proportion for LAB_HDL across gender, bmi and diabetes status
-  # categories login and assign all the variables stored on opal
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
-  ds.meanByClass(x='D', outvar=c('LAB_HDL','LAB_TSC'), covar=c('GENDER','PM_BMI_CATEGORICAL',
-                 'DIS_DIAB'))
+  # connecting to the Opal servers
 
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
+
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  #Calculate mean by class
+  
+  ds.meanByClass(x = "D",
+                 outvar = c('LAB_HDL','LAB_TSC'),
+                 covar = c('PM_BMI_CATEGORICAL'),
+                 type = "combine",
+                 datasources = connections)
+                 
+  ds.meanByClass(x = "D$LAB_HDL~D$PM_BMI_CATEGORICAL",
+                 type = "combine",
+                 datasources = connections[1])#Only the frist server is used ("study1")  
+             
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
-
+  datashield.logout(connections)
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

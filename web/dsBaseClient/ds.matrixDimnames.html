@@ -1,16 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.matrixDimnames calling assign function matrixDimnamesDS</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Specifies the dimnames of the server-side matrix</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.matrixDimnames {dsBaseClient}"><tr><td>ds.matrixDimnames {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>ds.matrixDimnames calling assign function matrixDimnamesDS</h2>
+<h2>Specifies the dimnames of the server-side matrix</h2>
 
 <h3>Description</h3>
 
-<p>Adds dimnames (row names, column names or both) to
-a matrix on the serverside.
+<p>Adds the row names, the column names or both to
+a matrix on the server-side.
 </p>
 
 
@@ -31,76 +31,118 @@ ds.matrixDimnames(
 <table summary="R argblock">
 <tr valign="top"><td><code>M1</code></td>
 <td>
-<p>Specifies the name of the serverside matrix to which
-dimnames are to be added. Specified as a character string in
-inverted commas: e.g. M1=&quot;matrix.name&quot;</p>
+<p>a character string specifying
+the name of a server-side matrix.</p>
 </td></tr>
 <tr valign="top"><td><code>dimnames</code></td>
 <td>
-<p>A dimnames attribute for the matrix: NULL or a list of
-length 2 giving
-the row and column names respectively. An empty list is treated as NULL,
-and a list of length one as row names only. Components in the list can
-be specified as character strings (e.g. &quot;a&quot;, &quot;name3&quot; or &quot;77&quot;), or numbers
-(e.g. 1,-8, 1:10). Examples include:
-dimnames=list(c(&quot;a&quot;,&quot;cc&quot;,&quot;73&quot;,8,&quot;h&quot;),c(&quot;1&quot;,&quot;b&quot;,&quot;d&quot;,&quot;8&quot;,&quot;ghhj&quot;,1:4)) specifies
-the row names and column names for a matrix with 5 rows and 9 columns;
-dimnames=list(NULL,c(&quot;1&quot;,&quot;b&quot;,&quot;d&quot;,&quot;8&quot;,&quot;ghhj&quot;,1:4)) specifies just
-the column names for a matrix with 9 columns;
-dimnames=list(c(&quot;a&quot;,&quot;cc&quot;,&quot;73&quot;,8,&quot;h&quot;),NULL) specifies just
-the row names for a matrix with 5 rows.</p>
+<p>a list of length 2 giving
+the row and column names respectively. 
+An empty list is treated as NULL.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>A character string specifying the name of the matrix to which the output
-is to be written. If no &lt;newobj&gt; argument is specified or it is NULL
-the output matrix names defaults to &quot;matrixdimnames.newobj&quot;</p>
+<p>a character string that provides the name for the output 
+variable that is stored on the data servers. Default <code>matrixdimnames.newobj</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
-argument is not specified the default set of opals will be used. The default opals
-are called default.opals and the default can be set using the function
-ds.setDefaultOpals. If the &lt;datasources&gt; is to be specified, it should be set without
-inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
-apply the function solely to e.g. the second opal server in a set of three,
-the argument can be specified as: e.g. datasources=opals.em[2].
-If you wish to specify the first and third opal servers in a set you specify:
-e.g. datasources=opals.em[c(1,3)]</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Adds dimnames (row names, column names or both) to
-a matrix on the serverside. Similar to the dimnames function
-in native R.
+<p>This function is similar to the native R <code>dimnames</code> function.
+</p>
+<p>Server function called: <code>matrixDimnamesDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>the object specified by the &lt;newobj&gt; argument (or default name &quot;&lt;M1&gt;_dimnames&quot;)
-which is written to the serverside. In addition, two validity messages are returned
-indicating whether &lt;newobj&gt; has been created in each data source and if so whether
-it is in a valid form. If its form is not valid in at least one study - e.g. because
-a disclosure trap was tripped and creation of the full output object was blocked -
-ds.matrixDimnames also returns any studysideMessages that can explain the error in creating
-the full output object. As well as appearing on the screen at run time,if you wish to
-see the relevant studysideMessages at a later date you can use the ds.message
-function. If you type ds.message(&quot;newobj&quot;) it will print out the relevant
-studysideMessage from any datasource in which there was an error in creating &lt;newobj&gt;
-and a studysideMessage was saved. If there was no error and &lt;newobj&gt; was created
-without problems no studysideMessage will have been saved and ds.message(&quot;newobj&quot;)
-will return the message: &quot;ALL OK: there are no studysideMessage(s) on this datasource&quot;.
+<p><code>ds.matrixDimnames</code> returns to the server-side
+the matrix with specified row and column names. 
+Also, two validity messages are returned to the client-side 
+indicating the new object that has been created in each data source and if so whether
+it is in a valid form.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Paul Burton for DataSHIELD Development Team
+<p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+
+ ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
+
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
+
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+            
+  #Example 1: Set the row and column names of a server-side matrix
+  
+  #Create the server-side vector 
+  
+  ds.rUnif(samp.size = 9,
+           min = -10.5,
+           max = 10.5,
+           newobj = "ss.vector.9",
+           seed.as.integer = 5575,
+           force.output.to.k.decimal.places = 0,
+           datasources = connections)
+           
+  #Create the server-side matrix
+           
+  ds.matrix(mdata = "ss.vector.9",
+            from = "serverside.vector",
+            nrows.scalar = 3,
+            ncols.scalar = 4,
+            byrow = TRUE,
+            newobj = "matrix",
+            datasources = connections)
+   
+  #Specify the column and row names of the matrix
+  
+  ds.matrixDimnames(M1 = "matrix",
+                    dimnames = list(c("a","b","c"),c("a","b","c","d")),
+                    newobj = "matrix.dimnames",
+                    datasources = connections)
+  
+  # clear the Datashield R sessions and logout
+  datashield.logout(connections)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

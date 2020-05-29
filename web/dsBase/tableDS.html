@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: tableDS is the first of two serverside aggregate functions...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for tableDS {dsBase}"><tr><td>tableDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>tableDS is the first of two serverside aggregate functions
+called by ds.table</h2>
+
+<h3>Description</h3>
+
+<p>creates 1-dimensional, 2-dimensional and 3-dimensional
+tables using the table function in native R.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+tableDS(
+  rvar.transmit,
+  cvar.transmit,
+  stvar.transmit,
+  rvar.all.unique.levels.transmit,
+  cvar.all.unique.levels.transmit,
+  stvar.all.unique.levels.transmit,
+  exclude.transmit,
+  useNA.transmit,
+  force.nfilter.transmit
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>rvar.transmit</code></td>
+<td>
+<p>is a character string (in inverted commas) specifiying the
+name of the variable defining the rows in all of the 2 dimensional
+tables that form the output. Fully specified by &lt;rvar&gt; argument in ds.table.
+For more information see help for ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>cvar.transmit</code></td>
+<td>
+<p>is a character string specifiying the
+name of the variable defining the columns in all of the 2 dimensional
+tables that form the output. Fully specified by &lt;cvar&gt; argument in ds.table.
+For more information see help for ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>stvar.transmit</code></td>
+<td>
+<p>is a character string specifiying the
+name of the variable that indexes the separate two dimensional
+tables in the output if the call specifies a 3 dimensional table.
+Fully specified by &lt;stvar&gt; argument in ds.table.
+For more information see help for ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>rvar.all.unique.levels.transmit</code></td>
+<td>
+<p>is a character string containing all
+unique level in rvar, across the studies, separated by ','.</p>
+</td></tr>
+<tr valign="top"><td><code>cvar.all.unique.levels.transmit</code></td>
+<td>
+<p>is a character string containing all
+unique level in cvar, across the studies, separated by ','.</p>
+</td></tr>
+<tr valign="top"><td><code>stvar.all.unique.levels.transmit</code></td>
+<td>
+<p>is a character string containing all
+unique level in stvar, across the studies, separated by ','.</p>
+</td></tr>
+<tr valign="top"><td><code>exclude.transmit</code></td>
+<td>
+<p>for information see help on &lt;exclude&gt; argument
+of ds.table. Fully specified by &lt;exclude&gt; argument of ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>useNA.transmit</code></td>
+<td>
+<p>for information see help on &lt;useNA&gt; argument
+of ds.table. Fully specified by &lt;useNA&gt; argument of ds.table</p>
+</td></tr>
+<tr valign="top"><td><code>force.nfilter.transmit</code></td>
+<td>
+<p>for information see help on &lt;force.nfilter&gt; argument 
+of ds.table. Fully specified by &lt;force.nfilter&gt; argument of ds.table</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>this serverside function is the workhorse of ds.table - creating
+the table requested in the format specified by ds.table. For more
+information see help for ds.table in DataSHIELD and the table function
+in native R.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For information see help for ds.table
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team, 13/11/2019
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.0.0 ]</div>
+</body></html>

@@ -1,16 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes sums and means of rows or columns of numeric matrix...</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes rows and columns sums and means in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.rowColCalc {dsBaseClient}"><tr><td>ds.rowColCalc {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Computes sums and means of rows or columns of numeric matrix or data frame</h2>
+<h2>Computes rows and columns sums and means in the server-side</h2>
 
 <h3>Description</h3>
 
-<p>The function is similar to R base functions 'rowSums', 'colSums',
-'rowMeans' and 'colMeans' with some restrictions.
+<p>Computes sums and means of rows or columns 
+of a numeric matrix or data frame on the server-side.
 </p>
 
 
@@ -26,42 +26,48 @@ ds.rowColCalc(x = NULL, operation = NULL, newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a matrix or a dataframe</p>
+<p>a character string specifying  the name of a matrix or a data frame.</p>
 </td></tr>
 <tr valign="top"><td><code>operation</code></td>
 <td>
-<p>a character string which indicates the operation to carry out:
-&quot;rowSums&quot;, &quot;colSums&quot;, &quot;rowMeans&quot; or &quot;colMeans&quot;.</p>
+<p>a character string that indicates the operation to carry out:
+<code>"rowSums"</code>, <code>"colSums"</code>, <code>"rowMeans"</code> or <code>"colMeans"</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the new object. If this argument is set to NULL, the name of the new 
-variable, set by default, is 'rowcolcalc.newobj'.</p>
+<p>a character string that provides the name for the output variable 
+that is stored on the data servers. Default <code>rowcolcalc.newobj</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The results of calculation are not returned to the user if they are potentially 
+<p>The function is similar to R base functions <code>rowSums</code>, <code>colSums</code>,
+<code>rowMeans</code> and <code>colMeans</code> with some restrictions.
+</p>
+<p>The results of the calculation are not returned to the user if they are potentially
 revealing i.e. if the number of rows is less than the allowed number of observations.
+</p>
+<p>Server functions called: <code>classDS</code>, <code>dimDS</code> and <code>colnamesDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored on the server side.
+<p><code>ds.rowColCalc</code> returns to the server-side  rows and columns sums and means.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>DataSHIELD Development Team
 </p>
 
 
@@ -70,23 +76,47 @@ revealing i.e. if the number of rows is less than the allowed number of observat
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki 
+  # Connecting to the Opal servers
 
-  # login and assign two variables
-  myvar  &lt;-  list("LAB_TSC","LAB_HDL")
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # calculate the sum of each row of the above assigned dataset (default name 'D')
-  ds.rowColCalc(x='D', operation='rowSums', newobj='rsum_D')
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  myvar &lt;- list("LAB_TSC","LAB_HDL")
+   
+  # Log onto the remote Opal training servers
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, 
+  variables = myvar, symbol = "D") 
 
-  # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  
+  #Calculate the colSums
+  
+  ds.rowColCalc(x = "D",
+                operation = "colSums", 
+                newobj = "D.rowSums", 
+                datasources = connections)
+                
+  #Clear the Datashield R sessions and logout
+  datashield.logout(connections) 
 
 
 ## End(Not run)
-
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

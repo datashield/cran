@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.asList calling aggregate function asListDS</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Converts a server-side R object into a list</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.asList {dsBaseClient}"><tr><td>ds.asList {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>ds.asList calling aggregate function asListDS</h2>
+<h2>Converts a server-side R object into a list</h2>
 
 <h3>Description</h3>
 
-<p>this function is based on the native R function as.list
+<p>Coerces an R object into a list.
+This function is based on the native R function <code>as.list</code>.
 </p>
 
 
@@ -25,57 +26,86 @@ ds.asList(x.name = NULL, newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x.name</code></td>
 <td>
-<p>the name of the input object to be coerced to class
-list. Must be specified in inverted commas e.g. x.name=&quot;input.object.name&quot;</p>
+<p>a character string providing the name of the input object to be coerced to 
+a list.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the new output variable. If this argument is set
-to NULL, the name of the new variable is defaulted to aslist.newobj</p>
+<p>a character string that provides the name for the output object
+that is stored on the data servers. Default <code>aslist.newobj</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
-argument is not specified the default set of opals will be used. The default opals
-are called default.opals and the default can be set using the function
-ds.setDefaultOpals. If an explicit &lt;datasources&gt; argument is to be set,
-it should be specified without
-inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
-apply the function solely to e.g. the second opal server in a set of three,
-the argument can be specified as: e.g. datasources=opals.em[2].
-If you wish to specify the first and third opal servers in a set you specify:
-e.g. datasources=opals.em[c(1,3)]</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>See details of the native R function as.list.
-Unlike most other class coercing functions the serverside function
-that is called is an aggregate function rather than an assign function.
-This is because the datashield.assign function in opal deals
-specially with a created object (&lt;newobj&gt;) if it is of class list.
-Reconfiguring the function as an aggregate function
-works around this problem.
+<p>Server function called: <code>asListDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>the object specified by the &lt;newobj&gt; argument (or by default &lt;x.name&gt;.list
-if the &lt;newobj&gt; argument is NULL) which is written to the serverside.
-In addition, two validity messages are returned. The first confirms an output
-object has been created, the second states its class. The way that as.list
-coerces objects to list depends on the class of the object, but in general
-the class of the output object should usually be 'list'
+<p><code>ds.asList</code> returns the R object converted into a list 
+which is written to the server-side. Also, two validity messages are returned to the
+client-side indicating the name of the <code>newobj</code> which 
+has been created in each data source and if 
+it is in a valid form.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Amadou Gaye, Paul Burton, for DataSHIELD Development Team
+<p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
+
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
+
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  # Converting the R object into a List
+  ds.asList(x.name = "D",
+  newobj = "D.asList", 
+  datasources = connections[1]) #only the first Opal server is used ("study1")
+  ds.class(x = "D.asList", datasources = connections[1])   
+              
+  # Clear the Datashield R sessions and logout                 
+  datashield.logout(connections) 
+  
+
+## End(Not run)   
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

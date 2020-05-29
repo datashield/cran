@@ -1,17 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Assigns an object to a name in the server side</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Assigns an R object to a name in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.assign {dsBaseClient}"><tr><td>ds.assign {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Assigns an object to a name in the server side</h2>
+<h2>Assigns an R object to a name in the server-side</h2>
 
 <h3>Description</h3>
 
-<p>This function assigns a datashield object to a name, hence creating a new object. 
-It also calls 'assign' server side functions to generate objects stored on the server side.
-The function is a wrapper for the 'opal' package function 'datashield.assign'.
+<p>This function assigns a datashield object to a name, hence creating a new object.
 </p>
 
 
@@ -27,37 +25,42 @@ ds.assign(toAssign = NULL, newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>toAssign</code></td>
 <td>
-<p>a string character, the object to assign or the call to an assign function 
-that generates the object to assign.</p>
+<p>a character string providing the object to assign.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>the name of the new object, newobj if unspecified defaults to assign.newobj</p>
+<p>a character string that provides the name for the output object
+that is stored on the data servers. Default <code>assign.newobj</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The new object is stored on the remote R instance (i.e. on the server side).
-If no name is provided, the new object is named 'newObject', by default.
+<p>The new object is stored on the server-side.
+</p>
+<p><code>ds.assign</code>  causes a remote assignment by using <code>DSI::datashield.assign</code>. 
+The <code>toAssign</code> argument is checked at the server and 
+assigned the variable called <code>newobj</code> on the server-side.
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is returned to the client, the new object is stored on the server side.
+<p><code>ds.assign</code> returns the R object assigned to a name 
+that is written to the server-side.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>DataSHIELD Development Team
 </p>
 
 
@@ -65,28 +68,43 @@ If no name is provided, the new object is named 'newObject', by default.
 
 <pre>
 ## Not run: 
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
 
-  # load that contains the login details
-  data(logindata)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # login and assign specific variable(s)
-  # (by default the assigned dataset is a dataframe named 'D')
-  myvar &lt;- list("LAB_TSC")
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  # Assign a variable to a name
+  ds.assign(toAssign = "D$LAB_TSC",
+            newobj = "labtsc",
+            datasources = connections[1]) #only the first Opal server is used ("study1")
+                
+  # Clear the Datashield R sessions and logout                 
+  datashield.logout(connections) 
+  
 
-  # Example 1: assign the variable 'LAB_TSC' in the dataframe D
-  ds.assign(toAssign='D$LAB_TSC', newobj='labtsc')
-
-  # Example2: get the log values of the variable 'LAB_TSC' in D and assign it to 'logTSC'
-  ds.assign(toAssign='log(D$LAB_TSC)', newobj='logTSC')
-
-  # clear the Datashield R sessions and logout
-  datashield.logout(opals)
-
-
-## End(Not run)
+## End(Not run)   
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: repDS called by ds.rep</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for repDS {dsBase}"><tr><td>repDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>repDS called by ds.rep</h2>
+
+<h3>Description</h3>
+
+<p>An assign function which
+creates a repetitive sequence by repeating
+an identified scalar, or specified elements of a vector
+or list. This is analogous to the rep function in native R.
+The sequence is written as a new object to the serverside
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+repDS(
+  x1.transmit,
+  times.transmit,
+  length.out.transmit,
+  each.transmit,
+  x1.includes.characters,
+  source.x1,
+  source.times,
+  source.length.out,
+  source.each
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x1.transmit</code></td>
+<td>
+<p>This argument determines the input scalar, vector or list.
+for behaviour see help for ds.rep and &quot;details from native R
+help for &lt;rep&gt;&quot; (see above). This parameter is usually fully defined by
+the argument &lt;x1&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>times.transmit</code></td>
+<td>
+<p>This argument determines the number of replications
+and the pattern of these replications of the input scalar/vector to
+construct the output repetitive sequence.
+For behaviour see help for ds.rep and &quot;details from native R
+help for &lt;rep&gt;&quot; (see above). This parameter is usually fully defined by
+the argument &lt;times&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>length.out.transmit</code></td>
+<td>
+<p>This argument fixes the length of
+the output repetive sequence vector
+For behaviour see help for ds.rep and &quot;details from native R
+help for &lt;rep&gt;&quot; (see above). This parameter is usually fully defined by
+the argument &lt;length.out&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>each.transmit</code></td>
+<td>
+<p>This argument specifies the number of replications
+of individual elements rather than replications of the full sequence.
+For behaviour see help for ds.rep and &quot;details from native R
+help for &lt;rep&gt;&quot; (see above). This parameter is usually fully defined by
+the argument &lt;each&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>x1.includes.characters</code></td>
+<td>
+<p>Boolean parameter determining
+whether to coerce the final output sequence to numeric. Defaults
+to FALSE and output is coerced to numeric.
+For detailed behaviour see help for ds.rep.
+This parameter is usually fully defined by
+the argument &lt;x1.includes.characters&gt; in the call to ds.rep that
+itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>source.x1</code></td>
+<td>
+<p>This defines the source of the scalar or vector defined
+by the &lt;x1&gt; argument. Four character strings are allowed:
+&quot;clientside&quot; or &quot;c&quot; and serverside or &quot;s&quot;.
+For behaviour see help for ds.rep and &quot;details from native R
+help for &lt;rep&gt;&quot; (see above). This parameter is usually fully defined by
+the argument &lt;source.x1&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>source.times</code></td>
+<td>
+<p>see &quot;param source.x1&quot;
+This parameter is usually fully defined by
+the argument &lt;source.times&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>source.length.out</code></td>
+<td>
+<p>see &quot;param source.x1&quot;
+This parameter is usually fully defined by
+the argument &lt;source.length.out&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+<tr valign="top"><td><code>source.each</code></td>
+<td>
+<p>see &quot;param source.x1&quot;
+This parameter is usually fully defined by
+the argument &lt;source.each&gt; in the call to ds.rep that itself calls repDS.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Further details can be found in the help details
+for on ds.rep and the following aspects of the help for
+the function rep in native R also apply (as explained
+in more detail with exceptions identified in help for ds.rep):
+</p>
+<p>In addition a Details from R help for &lt;rep&gt;:
+</p>
+<p>The default behaviour is as if the call was 
+rep(x, times = 1, length.out = NA, each = 1)
+Normally just one of the additional arguments is specified, but if 'each' is
+specified with either of the other two, its replication is performed first, and
+then that is followed by the replication implied by times or length.out.
+</p>
+<p>If times consists of a single integer, the result consists of the whole input
+repeated this many times. If times is a vector of the same length as x (after
+replication by each), the result consists of x[1] repeated times[1] times, x[2]
+repeated times[2] times and so on. ***Note exception 1 above.
+</p>
+<p>length.out may be given in place of times, in which case x is repeated as many
+times as is necessary to create a vector of this length. If both are given,
+length.out takes priority and times is ignored. ***Note exception 3 above.
+</p>
+<p>Non-integer values of times will be truncated towards zero. If times is a
+computed quantity it is prudent to add a small fuzz or use round. And analogously
+for each.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the vector containing the specified repetitive sequence
+and write to the output object defined by the &lt;newobj&gt; argument
+(or default name seq.vect) which is written to the serverside in 
+each source. In addition, two validity messages are returned
+indicating whether &lt;newobj&gt; has been created in each data source and if so whether
+it is in a valid form. If its form is not valid in at least one study - e.g. because
+a disclosure trap was tripped and creation of the full output object was blocked -
+ds.matrixDiag also returns any studysideMessages that can explain the error in creating
+the full output object. As well as appearing on the screen at run time,if you wish to
+see the relevant studysideMessages at a later date you can use the ds.message
+function. If you type ds.message(&quot;newobj&quot;) it will print out the relevant
+studysideMessage from any datasource in which there was an error in creating &lt;newobj&gt;
+and a studysideMessage was saved. If there was no error and &lt;newobj&gt; was created
+without problems no studysideMessage will have been saved and ds.message(&quot;newobj&quot;)
+will return the message: &quot;ALL OK: there are no studysideMessage(s) on this datasource&quot;.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team, 14/10/2019
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.0.0 ]</div>
+</body></html>

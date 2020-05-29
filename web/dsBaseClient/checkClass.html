@@ -25,7 +25,8 @@ checkClass(datasources = NULL, obj = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal objects obtained after login.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. If the &lt;datasources&gt;
+the default set of connections will be used: see datashield.connections_default.</p>
 </td></tr>
 <tr valign="top"><td><code>obj</code></td>
 <td>
@@ -36,7 +37,7 @@ checkClass(datasources = NULL, obj = NULL)
 
 <h3>Details</h3>
 
-<p>In DataSHIELD an object included in analysis must be of the same type in all 
+<p>In DataSHIELD an object included in analysis must be of the same type in all
 the collaborating studies. If that is not the case the process is stopped
 </p>
 
@@ -46,5 +47,5 @@ the collaborating studies. If that is not the case the process is stopped
 <p>a message or the class of the object if the object has the same class in all studies.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

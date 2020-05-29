@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Creates a repetitive sequence in the server-side</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.rep {dsBaseClient}"><tr><td>ds.rep {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Creates a repetitive sequence in the server-side</h2>
+
+<h3>Description</h3>
+
+<p>Creates a repetitive sequence by repeating
+the specified scalar number, vector or list in each data source.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.rep(
+  x1 = NULL,
+  times = NA,
+  length.out = NA,
+  each = 1,
+  source.x1 = "clientside",
+  source.times = NULL,
+  source.length.out = NULL,
+  source.each = NULL,
+  x1.includes.characters = FALSE,
+  newobj = NULL,
+  datasources = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x1</code></td>
+<td>
+<p>an scalar number, vector or list.</p>
+</td></tr>
+<tr valign="top"><td><code>times</code></td>
+<td>
+<p>an integer from clientside or a serverside integer
+or vector.</p>
+</td></tr>
+<tr valign="top"><td><code>length.out</code></td>
+<td>
+<p>a clientside integer or a serverside integer
+or vector.</p>
+</td></tr>
+<tr valign="top"><td><code>each</code></td>
+<td>
+<p>a clientside or serverside integer.</p>
+</td></tr>
+<tr valign="top"><td><code>source.x1</code></td>
+<td>
+<p>the source <code>x1</code> argument. It can be &quot;clientside&quot; or &quot;c&quot; 
+and serverside or &quot;s&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>source.times</code></td>
+<td>
+<p>see <code>source.x1</code></p>
+</td></tr>
+<tr valign="top"><td><code>source.length.out</code></td>
+<td>
+<p>see <code>source.x1</code></p>
+</td></tr>
+<tr valign="top"><td><code>source.each</code></td>
+<td>
+<p>see <code>source.x1</code></p>
+</td></tr>
+<tr valign="top"><td><code>x1.includes.characters</code></td>
+<td>
+<p>Boolean parameter which specifies if 
+the <code>x1</code> is a character.</p>
+</td></tr>
+<tr valign="top"><td><code>newobj</code></td>
+<td>
+<p>a character string that provides the name for the output object
+that is stored on the data servers. Default <code>seq.vect</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>All arguments that can denote in a clientside  or
+a serverside (i.e. <code>x1</code>, <code>times</code>, <code>length.out</code>
+or <code>each</code>). 
+</p>
+<p>Server function called: <code>repDS</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>ds.rep</code> returns in the server-side a vector with the specified repetitive sequence.  
+Also, two validity messages are returned to the client-side
+the name of <code>newobj</code> that has been created 
+in each data source and if it is in a valid form.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>DataSHIELD Development Team
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+
+  ## Version 6, for version 5 see the Wiki
+  # Connecting to the Opal servers
+
+    require('DSI')
+    require('DSOpal')
+    require('dsBaseClient')
+
+    builder &lt;- DSI::newDSLoginBuilder()
+    builder$append(server = "study1", 
+                   url = "http://192.168.56.100:8080/", 
+                   user = "administrator", password = "datashield_test&amp;", 
+                   table = "CNSIM.CNSIM1", driver = "OpalDriver")
+    builder$append(server = "study2", 
+                   url = "http://192.168.56.100:8080/", 
+                   user = "administrator", password = "datashield_test&amp;", 
+                   table = "CNSIM.CNSIM2", driver = "OpalDriver")
+    builder$append(server = "study3",
+                   url = "http://192.168.56.100:8080/", 
+                   user = "administrator", password = "datashield_test&amp;", 
+                   table = "CNSIM.CNSIM3", driver = "OpalDriver")
+    logindata &lt;- builder$build()
+
+  # Log onto the remote Opal training servers
+    connections &lt;- DSI::datashield.login(logins = logindata, 
+                                         assign = TRUE, 
+                                         symbol = "D") 
+
+  # Creating a repetitive sequence  
+              
+     ds.rep(x1 = 4,
+            times = 6,
+            length.out = NA,
+            each = 1,
+            source.x1 = "clientside",
+            source.times = "c",
+            source.length.out = NULL,
+            source.each = "c",
+            x1.includes.characters = FALSE,
+            newobj = "rep.seq",
+            datasources = connections)
+       
+     ds.rep(x1 = "lung",
+            times = 6,
+            length.out = 7,
+            each = 1,
+            source.x1 = "clientside",
+            source.times = "c",
+            source.length.out = "c",
+            source.each = "c",
+            x1.includes.characters = TRUE,
+            newobj = "rep.seq",
+            datasources = connections)
+
+  # Clear the Datashield R sessions and logout  
+  datashield.logout(connections) 
+
+## End(Not run) 
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
+</body></html>

@@ -25,8 +25,8 @@ meanByClassHelper2(dtsources, tablenames, variables, invalidrecorder)
 <table summary="R argblock">
 <tr valign="top"><td><code>dtsources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. If the &lt;datasources&gt;
+the default set of connections will be used: see datashield.connections_default.</p>
 </td></tr>
 <tr valign="top"><td><code>tablenames</code></td>
 <td>
@@ -46,7 +46,7 @@ these objects hold also the data assign to R, as <code>dataframe</code>, from op
 <h3>Details</h3>
 
 <p>This function is called by the function 'ds.meanByClass' to produce the final table
-if the user sets the parmater 'type' to combine (the default behaviour of 'ds.meanByClass')
+if the user sets the parmater 'type' to combine (the default behaviour of 'ds.meanByClass').
 </p>
 
 
@@ -62,5 +62,5 @@ specified 'variables' in each subset table.
 <p>Gaye, A.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

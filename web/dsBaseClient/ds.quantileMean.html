@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute the quantiles</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes the quantiles of a server-side variable</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.quantileMean {dsBaseClient}"><tr><td>ds.quantileMean {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Compute the quantiles</h2>
+<h2>Computes the quantiles of a server-side variable</h2>
 
 <h3>Description</h3>
 
-<p>This function calculate the mean and quantile values of a quantitative variable
+<p>This function calculates the mean and quantile values of a 
+server-side quantitative variable.
 </p>
 
 
@@ -25,44 +26,53 @@ ds.quantileMean(x = NULL, type = "combine", datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of the numeric vector.</p>
+<p>a character string specifying the name of the numeric vector.</p>
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represent the type of graph to display. 
-If <code>type</code> is set to 'combine' pooled values are displayed and sumamries a
-returned for each study if <code>type</code> is set to 'split'</p>
+<p>a character that represents the type of graph to display.
+This can be set as <code>'combine'</code> or <code>'split'</code>.
+For more information see <strong>Details</strong>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Unlike standard r summary function the minimum and maximum values afe not returned
+<p>This function does not return the minimum and maximum values
 because they are potentially disclosive.
+</p>
+<p>Depending on the argument <code>type</code> can be carried out two types of analysis: <br />
+(1) <code>type = 'combine'</code> pooled values are displayed <br />
+(2) <code>type = 'split'</code> summaries are
+returned for each study. 
+</p>
+<p>Server functions called: <code>quantileMeanDS</code>, <code>length</code> and <code>numNaDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>quantiles and statistical mean
+<p><code>ds.quantileMean</code> returns to the client-side the quantiles and statistical mean
+of a server-side numeric vector.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>DataSHIELD Development Team
 </p>
 
 
 <h3>See Also</h3>
 
-<p><code>ds.mean</code> to compute statistical mean.
+<p><code>ds.mean</code> to compute the statistical mean.
 </p>
 <p><code>ds.summary</code> to generate the summary of a variable.
 </p>
@@ -73,26 +83,46 @@ because they are potentially disclosive.
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+ ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
 
-  # login and assign specific variable(s)
-  myvar &lt;- list('LAB_HDL')
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Example 1: plot a combined histogram of the variable 'LAB_HDL' - default behaviour
-  ds.quantileMean(x='D$LAB_HDL')
-
-  # Example 2: Plot the histograms separately (one per study)
-  ds.quantileMean(x='D$LAB_HDL', type='split')
-
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  #Get the quantiles and mean of a server-side variable
+  
+  ds.quantileMean(x = "D$LAB_TRIG",
+                  type = "combine",
+                  datasources = connections)
+  
+  
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(connections)
+
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

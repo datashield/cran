@@ -25,8 +25,8 @@ isAssigned(datasources = NULL, newobj = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. If the &lt;datasources&gt;
+the default set of connections will be used: see datashield.connections_default.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
@@ -38,16 +38,16 @@ these objects hold also the data assign to R, as <code>dataframe</code>, from op
 <h3>Details</h3>
 
 <p>After calling an assign function it is important
-to know whether or not the action has been completed by 
-cjhecking if the output actually exists on the server side.
+to know whether or not the action has been completed by
+checking if the output actually exists on the server side.
 </p>
 
 
 <h3>Value</h3>
 
-<p>nothing is return but the process is stopped if 
+<p>nothing is return but the process is stopped if
 the object was not generated in any one server.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

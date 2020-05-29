@@ -21,38 +21,38 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: dsBase
-Version: 5.1.0
-Imports: RANN, nlme
+Version: 6.0.0
+Imports: RANN, nlme, stringr, lme4
 License: GPL-3
-MD5sum: ed55f6d776298824d91261282b8ff2e3
+MD5sum: 1babe2968f0cf400a1bffac7f149e819
 NeedsCompilation: no
 Title: DataSHIELD server site base functions
 Description: DataSHIELD server site base functions.
 Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
 AggregateMethods: alphaPhiDS, asFactorDS1, asListDS, checkNegValueDS,
-        covDS, dataFrameSubsetDS1, densityGridDS, dimDS, glmDS1,
-        glmDS2, glmSLMADS1, glmSLMADS2, heatmapPlotDS, histogramDS1,
-        histogramDS2, isNaDS, isValidDS, lengthDS, lexisDS1,
-        listDisclosureSettingsDS, matrixDetDS1, meanDS, meanSdGpDS,
-        messageDS, namesDS, numNaDS, quantileMeanDS, rangeDS,
-        recodeValuesDS1, rmDS, scatterPlotDS, scoreVectDS, setSeedDS,
-        table1DDS, table2DDS, tapplyDS, testObjExistsDS, tTestFDS2,
-        varDS, class=base::class, colnames=base::colnames,
-        cor.test=stats::cor.test, dim=base::dim, exists=base::exists,
-        is.character=base::is.character, is.factor=base::is.factor,
-        is.list=base::is.list, is.null=base::is.null,
-        is.numeric=base::is.numeric, length=base::length,
-        levels=base::levels, ls=base::ls, NROW=base::NROW,
-        t.test=stats::t.test
+        classDS, corTestDS, corDS, covDS, dataFrameSubsetDS1,
+        densityGridDS, dimDS, glmDS1, glmDS2, glmerSLMADS2, glmSLMADS1,
+        glmSLMADS2, heatmapPlotDS, histogramDS1, histogramDS2, lsDS,
+        isNaDS, isValidDS, lengthDS, levelsDS, lexisDS1,
+        listDisclosureSettingsDS, lmerSLMADS2, matrixDetDS1, meanDS,
+        meanSdGpDS, messageDS, namesDS, numNaDS, quantileMeanDS,
+        rangeDS, recodeValuesDS1, rmDS, scatterPlotDS, scoreVectDS,
+        setSeedDS, table1DDS, table2DDS, tableDS, tableDS2, tapplyDS,
+        testObjExistsDS, tTestFDS2, varDS, colnamesDS,
+        exists=base::exists, is.character=base::is.character,
+        is.factor=base::is.factor, is.list=base::is.list,
+        is.null=base::is.null, is.numeric=base::is.numeric,
+        NROW=base::NROW, t.test=stats::t.test
 AssignMethods: asCharacterDS, asDataMatrixDS, asFactorDS, asFactorDS2,
         asIntegerDS, asListDS, asLogicalDS, asMatrixDS, asNumericDS,
-        BooleDS, cbindDS, cDS, changeRefGroupDS, dataFrameDS,
-        dataFrameFillDS, dataFrameSortDS, dataFrameSubsetDS2, listDS,
-        lexisDS2, lexisDS3, matrixDetDS2, matrixDiagDS,
-        matrixDimnamesDS, matrixDS, matrixInvertDS, matrixMultDS,
-        matrixTransposeDS, mergeDS, rbindDS, rBinomDS, recodeLevelsDS,
-        recodeValuesDS2, replaceNaDS, reShapeDS, rNormDS, rowColCalcDS,
-        rPoisDS, rUnifDS, seedDS, seqDS, subsetByClassDS, subsetDS,
+        BooleDS, cbindDS, cDS, changeRefGroupDS, completeCasesDS,
+        dataFrameDS, dataFrameFillDS, dataFrameSortDS,
+        dataFrameSubsetDS2, listDS, lexisDS2, lexisDS3, matrixDetDS2,
+        matrixDiagDS, matrixDimnamesDS, matrixDS, matrixInvertDS,
+        matrixMultDS, matrixTransposeDS, mergeDS, rbindDS, rBinomDS,
+        recodeLevelsDS, recodeValuesDS2, repDS, replaceNaDS, reShapeDS,
+        rNormDS, rowColCalcDS, rPoisDS, rUnifDS, sampleDS, seedDS,
+        seqDS, subsetByClassDS, subsetDS, tableDS.assign,
         tapplyDS.assign, unListDS, as.character=base::as.character,
         as.null=base::as.null, as.numeric=base::as.numeric,
         attach=base::attach, c=base::c, cbind=base::cbind,
@@ -61,56 +61,12 @@ AssignMethods: asCharacterDS, asDataMatrixDS, asFactorDS, asFactorDS2,
         unlist=base::unlist
 
 Package: dsBaseClient
-Version: 5.1.0
-Depends: R (>= 3.5.0)
-Imports: fields, metafor, opaladmin, opal
+Version: 6.0.0
+Depends: R (>= 3.5.0), DSI
+Imports: fields, metafor
 License: GPL-3
-MD5sum: 2a4a182eba87f5e9f0abb845cd7fad0d
+MD5sum: 0d6cff6e52f4c8e176b38f0f630ba069
 NeedsCompilation: no
 Title: DataSHIELD Client Functions
 Description: DataSHIELD client functions for the client side.
 Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
-
-Package: opal
-Version: 2.6.1
-Depends: R (>= 2.15.0), RCurl (>= 1.6-6), rjson, mime
-Suggests: e1071, knitr, knitrBootstrap, rmarkdown
-License: GPL-3
-MD5sum: 9b833cc578b00e5e2d3de27faa5e6548
-NeedsCompilation: no
-Title: Opal R and Datashield utils
-Description: Data integration Web application for biobanks by OBiBa.
-        Opal is OBiBa's core database application for biobanks.
-        Participant data, once collected from any data source, must be
-        integrated and stored in a central data repository under a
-        uniform model. Opal is such a central repository. It can
-        import, process, validate, query, analyze, report, and export
-        data. Opal is typically used in a research center to analyze
-        the data acquired at assessment centres. Its ultimate purpose
-        is to achieve seamless data-sharing among biobanks.
-Author: OBiBa <info@obiba.org>
-URL: http://www.obiba.org
-
-Package: opaladdons
-Version: 1.0.0
-Depends: R (>= 3.0.0), opal (>= 2.1.0)
-Suggests: knitrBootstrap
-License: GPL-3
-MD5sum: aa2f3a52da6dc98f4555dfd3ef00a7f2
-NeedsCompilation: no
-Title: Opal R utils for R 3.x
-Description: Provides some additional packages to opal R client.
-Author: OBiBa <info@obiba.org>
-URL: http://www.obiba.org
-
-Package: opaladmin
-Version: 1.20.0
-Depends: opal
-Suggests: devtools
-License: GPL-3
-MD5sum: 3f61cb4553f0195d90c02c4377fdfd39
-NeedsCompilation: no
-Title: Opal R and Datashield administration utils
-Description: R toolbox to configure the R server behind Opal.
-Author: OBiBa <info@obiba.org>
-URL: http://www.obiba.org

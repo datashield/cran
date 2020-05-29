@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Retrieves column names of a matrix-like object</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Column names of the R object in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.colnames {dsBaseClient}"><tr><td>ds.colnames {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Retrieves column names of a matrix-like object</h2>
+<h2>Column names of the R object in the server-side</h2>
 
 <h3>Description</h3>
 
-<p>this function is similar to R function <code>colnames</code>.
+<p>Retrieves column names of an R object on the server-side.  
+This function is similar to R function <code>colnames</code>.
 </p>
 
 
@@ -25,37 +26,41 @@ ds.colnames(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of a dataframe or matrix.</p>
+<p>a character string providing the name of the input data frame or matrix.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The input is restricted to object of type 'data.frame' or 'matrix'
+<p>The input is restricted to the object of type <code>data.frame</code> or <code>matrix</code>. 
+</p>
+<p>Server function called: <code>colnames</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>a character vector
+<p><code>ds.colnames</code> returns the column names of 
+the specified server-side data frame or matrix.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.; Isaeva, J.
+<p>DataSHIELD Development Team
 </p>
 
 
 <h3>See Also</h3>
 
-<p>ds.dim to obtain the dimensions of matrix or a data frame.
+<p><code>ds.dim</code> to obtain the dimensions of a matrix or a data frame.
 </p>
 
 
@@ -64,23 +69,39 @@ these objects hold also the data assign to R, as <code>dataframe</code>, from op
 <pre>
 ## Not run: 
 
-  # load that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki
+  # Connecting to the Opal servers
 
-  # login and assign all the stored variables
-  # (by default the assigned dataset is a dataframe named 'D')
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Get the column names of the assigned datasets (default name is 'D')
-  ds.colnames(x='D')
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  # Log onto the remote Opal training servers
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
 
-  # clear the Datashield R sessions and logout
-  datashield.logout(opals)
-
+  # Getting column names of the R objects stored in the server-side
+  ds.colnames(x = "D",
+              datasources = connections[1]) #only the first server ("study1") is used
+  # Clear the Datashield R sessions and logout
+  datashield.logout(connections) 
 
 ## End(Not run)
-
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

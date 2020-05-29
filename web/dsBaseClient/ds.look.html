@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.look</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Direct call to a server-side aggregate function</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.look {dsBaseClient}"><tr><td>ds.look {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>ds.look</h2>
+<h2>Direct call to a server-side aggregate function</h2>
 
 <h3>Description</h3>
 
-<p>The function is a wrapper for the 'opal' package function 'datashield.aggregate'.
+<p>The function <code>ds.look</code> can be used to make a direct call to a server-side
+aggregate function more simply than using the <code>datashield.aggregate</code> function.
 </p>
 
 
@@ -25,57 +26,101 @@ ds.look(toAggregate = NULL, checks = FALSE, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>toAggregate</code></td>
 <td>
-<p>a character string specifying the function call to be made(see above)</p>
+<p>a character string specifying the function call to be made.
+For more information see <strong>Details</strong>.</p>
 </td></tr>
 <tr valign="top"><td><code>checks</code></td>
 <td>
-<p>a Boolean object indicating whether optional checks are to be undertaken
-in this instance only one check is specified - to check that a &quot;toAggregate&quot; expression
-has been specified, nevertheless this is defaulted to FALSE to be consistent with other
-functions and to save a small amount of time.</p>
+<p>logical. If TRUE the optional checks are undertaken. 
+Default FALSE to save time.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>specifies the particular opal object(s) to use. If the &lt;datasources&gt;
-argument is not specified the default set of opals will be used. The default opals
-are called default.opals and the default can be set using the function
-ds.setDefaultOpals. If the &lt;datasources&gt; is to be specified, it should be set without
-inverted commas: e.g. datasources=opals.em or datasources=default.opals. If you wish to
-apply the function solely to e.g. the second opal server in a set of three,
-the argument can be specified as: e.g. datasources=opals.em[2].
-If you wish to specify the first and third opal servers in a set you specify:
-e.g. datasources=opals.em[c(1,3)]</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>the function ds.look can be used to make a direct call to a server side'
-aggregate function more simply than using the datashield.aggregate function.
-The ds.look and datashield.aggregate functions are generally
-only recommended for experienced developers. For example, the toAggregate argument has to
-be expressed in the same form that the serverside function would usually expect from its
-clientside pair. For example: ds.look(&quot;table1DDS(female)&quot;) works. But, if you express
-this as ds.look(&quot;table1DDS('female')&quot;) it won't work because although when
-you call this same function using its clientside function you write ds.table1D('female') 
-the inverted commas are stripped off during processing by the clientside function so the
-call to the serverside does not contain inverted commas. Apart from during development
-work (e.g. before a clientside function has been written) it is almost always easier
-and less error prone to call a serverside function using its client-side pair.
+<p>The <code>ds.look</code> and <code>datashield.aggregate</code> functions are generally
+only recommended for experienced developers. For example, the <code>toAggregate</code> argument has to
+be expressed in the same form that the server-side function would usually expect from its
+client-side pair. For example: <code>ds.look("table1DDS(female)")</code> works. But, if you express
+this as <code>ds.look("table1DDS('female')")</code> it won't work because although when
+you call this same function using its client-side function you write <code>ds.table1D('female')</code>
+the inverted commas are stripped off during processing by the client-side function so the
+call to the server-side does not contain inverted commas. 
+</p>
+<p>Apart from during development
+work (e.g. before a client-side function has been written) it is almost always easier
+and less error-prone to call a server-side function using its client-side pair.
+</p>
+<p>The function is a wrapper for the DSI package function <code>datashield.aggregate</code>.
 </p>
 
 
 <h3>Value</h3>
 
-<p>the output from the specified server side aggregate function to the client side
+<p>the output from the specified server-side aggregate function to the client-side.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A, Burton PR.
+<p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
+
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
+
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "SURVIVAL.EXPAND_NO_MISSING1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "SURVIVAL.EXPAND_NO_MISSING2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "SURVIVAL.EXPAND_NO_MISSING3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D")
+  
+  #Calculate the length of a variable using the server-side function
+  
+  ds.look(toAggregate = "lengthDS(D$age.60)", 
+          checks = FALSE,
+          datasources = connections) 
+          
+  #Calculate the column names of "D" object using the server-side function
+          
+  ds.look(toAggregate = "colnames(D)",
+          checks = FALSE, 
+          datasources = connections)        
+  
+  # clear the Datashield R sessions and logout
+  datashield.logout(connections)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

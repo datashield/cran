@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ds.listClientsideFunctions calling no server-side functions</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Client-side functions</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.listClientsideFunctions {dsBaseClient}"><tr><td>ds.listClientsideFunctions {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>ds.listClientsideFunctions calling no server-side functions</h2>
+<h2>Client-side functions</h2>
 
 <h3>Description</h3>
 
@@ -22,24 +22,42 @@ ds.listClientsideFunctions()
 
 <h3>Details</h3>
 
-<p>Depending on choice of arguments can list all client-side functions
-or any combination of: dsBaseClient, dsGraphicsClient, dsModellingClient,
-dsStatsClient, or userDefinedClient. Operates by directly interrogating
-the R objects stored in the input client packages and objects with name
-&quot;ds. .....&quot; in .GlobalEnv
+<p>This function operates by directly interrogating
+the R objects stored in the input client packages and objects of name
+starting with <code>ds.</code> character in <code>.GlobalEnv</code>. 
+</p>
+<p>This function does not call any server-side function.
 </p>
 
 
 <h3>Value</h3>
 
-<p>list containing all functions in each or all of these five classes
+<p><code>ds.listClientsideFunctions</code> returns a list containing 
+all  server-side functions.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Paul Burton for DataSHIELD Development Team
+<p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+  ## Version 6, for version 5 see the Wiki
+  
+  #Library with all DataSHIELD functions
+  require('dsBaseClient')
+  
+  #Visualise all functions
+  ds.listClientsideFunctions()
+  
+
+## End(Not run)   
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

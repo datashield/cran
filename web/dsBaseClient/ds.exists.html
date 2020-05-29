@@ -1,15 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks if an object is defined on the server side</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks if an object is defined on the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.exists {dsBaseClient}"><tr><td>ds.exists {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Checks if an object is defined on the server side</h2>
+<h2>Checks if an object is defined on the server-side</h2>
 
 <h3>Description</h3>
 
-<p>this function is similar to R function <code>exists</code>
+<p>Looks if an R object of the given name is defined on the server-side. 
+This function is similar to the R function <code>exists</code>.
 </p>
 
 
@@ -25,41 +26,49 @@ ds.exists(x = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character, the name of the object to look for.</p>
+<p>a character string providing the name of the object to look for.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In DataSHIELD it is not possible to see the data sitting on the servers
-of the collaborating studies. It is only possible to get summaries of objects stored on the 
-server side. It is however important to know if an object is defined (i.e. exists) son the server
-side. This function checks if an object do really exists on the server side. Further information
-about the object can be obtained using functions such as <code>ds.class</code>, <code>length</code> etc...
+<p>In DataSHIELD it is not possible to see the data on the servers
+of the collaborating studies. It is only possible to get summaries of objects stored on the
+server-side. 
+It is however important to know if an object is defined (i.e. exists) on the server-side.
+This function checks if an object does exist on the server-side.
+</p>
+<p>Server function called: <code>exists</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>a boolean, TRUE if the object is on the server side and FALSE otherwise
+<p><code>ds.exists</code> returns a logical object. 
+TRUE if the object is on the server-side and FALSE otherwise.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>DataSHIELD Development Team
 </p>
 
 
 <h3>See Also</h3>
 
-<p>ds.class to check the type of an object.
+<p><code>ds.class</code> to check the type of an object.
+</p>
+<p><code>ds.length</code> to check the length of an object.
+</p>
+<p><code>ds.dim</code> to check the dimension of an object.
 </p>
 
 
@@ -68,26 +77,44 @@ about the object can be obtained using functions such as <code>ds.class</code>, 
 <pre>
 ## Not run: 
 
-  # load the file that contains the login details
-  data(logindata)
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
 
-  # login and assign the required variables to R
-  myvar &lt;- list("LAB_TSC")
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # assign 'LAB_TSC' in the dataframe D to a new variable 'labtsc'
-  ds.assign(toAssign='D$LAB_TSC', newobj='labtsc')
-
-  # now let us check if the variable 'labtsc' does now 'exist' on the server side
-  ds.exists(x='labtsc')
-
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  # Check if the object exist in the server-side
+  ds.exists(x = "D", 
+            datasources = connections) #All opal servers are used
+  ds.exists(x = "D", 
+            datasources = connections[1]) #Only the first Opal server is used (study1)
+            
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(connections)
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

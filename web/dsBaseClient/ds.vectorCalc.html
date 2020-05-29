@@ -9,7 +9,7 @@
 
 <h3>Description</h3>
 
-<p>Carries out a row-wise operation on two or more vector. The function calls no 
+<p>Carries out a row-wise operation on two or more vector. The function calls no
 server side function; it uses the R operation symbols built in DataSHIELD.
 </p>
 
@@ -30,7 +30,7 @@ ds.vectorCalc(x = NULL, calc = NULL, newobj = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>calc</code></td>
 <td>
-<p>a character, a symbol that indicates the mathematical operation to carry out: 
+<p>a character, a symbol that indicates the mathematical operation to carry out:
 '+' for addition, '/' for division, *' for multiplication and '-' for subtraction.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
@@ -39,20 +39,20 @@ ds.vectorCalc(x = NULL, calc = NULL, newobj = NULL, datasources = NULL)
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. If the &lt;datasources&gt;
+the default set of connections will be used: see datashield.connections_default.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>In DataSHIELD it is possible to perform an operation on vectors by just using the relevant 
+<p>In DataSHIELD it is possible to perform an operation on vectors by just using the relevant
 R symbols (e.g. '+' for addtion, '*' for multiplication, '-' for substraction and '/' for division).
-This might however be inconvenient if the number of vectors to include in the operation is large. 
-This function takes the names of two or more vectors and performs the desired operation which could be 
+This might however be inconvenient if the number of vectors to include in the operation is large.
+This function takes the names of two or more vectors and performs the desired operation which could be
 an addition, a multiplication, a substraction or a division. If one or more vectors have a missing value
-at any one entry (i.e. observation), the operation returns a missing value ('NA') for that entry; the output 
+at any one entry (i.e. observation), the operation returns a missing value ('NA') for that entry; the output
 vectors has, hence the same length as the input vectors.
 </p>
 
@@ -79,19 +79,19 @@ vectors has, hence the same length as the input vectors.
 
   # login and assign the required variables to R
   myvar &lt;- list('LAB_TSC','LAB_HDL')
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  conns &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
 
   # performs an addtion of 'LAB_TSC' and 'LAB_HDL'
   myvectors &lt;- c('D$LAB_TSC', 'D$LAB_HDL')
   ds.vectorCalc(x=myvectors, calc='+')
 
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(conns)
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>

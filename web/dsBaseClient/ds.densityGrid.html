@@ -1,18 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates a density grid with or without a priori defined...</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates a density grid in the client-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.densityGrid {dsBaseClient}"><tr><td>ds.densityGrid {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Generates a density grid with or without a priori defined limits</h2>
+<h2>Generates a density grid in the client-side</h2>
 
 <h3>Description</h3>
 
-<p>This function generates a grid density object which can then be used to produced 
-heatmap or contour plots. The cells with a count &gt; 0 and &lt; nfilter.tab are considered invalid
-and the count is set to 0. The function prints the number of invalid cells in for participating
-study.
+<p>This function generates a grid density object which can then be used to produced
+heatmap or contour plots.
 </p>
 
 
@@ -34,49 +32,60 @@ ds.densityGrid(
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character the name of numerical vector</p>
+<p>a character string providing the name of the input numerical  vector.</p>
 </td></tr>
 <tr valign="top"><td><code>y</code></td>
 <td>
-<p>a character the name of numerical vector</p>
+<p>a character string providing the name of the input numerical  vector.</p>
 </td></tr>
 <tr valign="top"><td><code>numints</code></td>
 <td>
-<p>an integer, the number of intervals for the grid density object, by default is 20.</p>
+<p>an integer, the number of intervals for the grid density object. 
+The default value is 20.</p>
 </td></tr>
 <tr valign="top"><td><code>type</code></td>
 <td>
-<p>a character which represent the type of graph to display. If <code>type</code> is set to
-'combine', a pooled grid density matrix is generated and one grid density matrix is generated
-for each study if <code>type</code> is set to 'split'.</p>
+<p>a character string that represents the type of graph to display. 
+If <code>type</code> is set to
+<code>'combine'</code>, a pooled grid density matrix is generated, 
+instead if <code>type</code> is set to <code>'split'</code>
+one grid density matrix is generated. Default <code>'combine'</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of opal object(s) obtained after login in to opal servers;
-these objects hold also the data assign to R, as <code>dataframe</code>, from opal datasources.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
+<p>The cells with a count &gt; 0 and &lt; nfilter.tab are considered invalid
+and the count is set to 0.
+</p>
 <p>In DataSHIELD the user does not have access to the micro-data so and extreme values
-such as the maximum and the minimum are potentially disclosive so this function does not allow
-for the user to set the limits of the density grid and the minimum and maximum values of the x
-and y vectors. These elements are set by the server side function <code>densityGridDS</code> to
-'valid' values (i.e. values that do not lead to leakage of micro-data to the user).
+such as the maximum and the minimum are potentially non-disclosive so this function does not allow
+for the user to set the limits of the density grid and 
+the minimum and maximum values of the <code>x</code>
+and <code>y</code> vectors. These elements are set by the server-side function 
+<code>densityGridDS</code> to 'valid' values 
+(i.e. values that do not lead to leakage of micro-data to the user).
+</p>
+<p>Server function called: <code>densityGridDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p>a grid density matrix is returned
+<p><code>ds.densityGrid</code> returns a grid density matrix.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Julia Isaeva, Amadou Gaye, Demetris Avraam for DataSHIELD Development Team
+<p>DataSHIELD Development Team
 </p>
 
 
@@ -85,30 +94,58 @@ and y vectors. These elements are set by the server side function <code>densityG
 <pre>
 ## Not run: 
 
-  # load the file that contains the login details
-  data(logindata)
+ ## Version 6, for version 5 see the Wiki
+  # Connecting to the Opal servers
 
-  # login and assign the required variables to R
-  myvar &lt;- list("LAB_TSC","LAB_HDL")
-  opals &lt;- datashield.login(logins=logindata,assign=TRUE,variables=myvar)
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
 
-  # Example1: generate a combined grid density object (the default behaviour)
-  ds.densityGrid(x='D$LAB_TSC', y='D$LAB_HDL')
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  # Log onto the remote Opal training servers
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+ 
+  #Generate the density grid
+  # Example1: generate a combined grid density object (default)
+  ds.densityGrid(x="D$LAB_TSC",
+                 y="D$LAB_HDL",
+                 datasources = connections)#all opal servers are used
 
   # Example2: generate a grid density object for each study separately
-  ds.densityGrid(x='D$LAB_TSC', y='D$LAB_HDL', type="split")
+  ds.densityGrid(x="D$LAB_TSC",
+                 y="D$LAB_HDL",
+                 type="split"
+                 datasources = connections[1])#only the first Opal server is used ("study1")
 
-  # Example3: generate a grid density object where the number of intervals is set to 15, for 
+  # Example3: generate a grid density object where the number of intervals is set to 15, for
               each study separately
-  ds.densityGrid(x='D$LAB_TSC', y='D$LAB_HDL', type="split", numints=15)
+  ds.densityGrid(x="D$LAB_TSC",
+                 y="D$LAB_HDL",
+                 type="split",
+                 numints=15,
+                 datasources = connections)
 
   # clear the Datashield R sessions and logout
-  datashield.logout(opals)
+  datashield.logout(connections)
 
 
 ## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 5.1.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
 </body></html>
