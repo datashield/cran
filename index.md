@@ -12,14 +12,14 @@ Client side install:
 	# Install all DataSHIELD packages
 	install.packages('datashieldclient', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
 
+	# Install DataSHIELD/Opal integration packages
+	install.packages('DSOpal', dependencies=TRUE)
+
 Server side install:
-	
-	# Install opaladmin package
-	install.packages('opaladmin', repos=c(getOption('repos'), 'http://cran.datashield.org'), dependencies=TRUE)
 
 	# Login in Opal
-	library(opaladmin)
-	o<-opal.login('dsadmin', 'password', 'https://some-opal-host:8443')
+	library(opalr)
+	o <- opal.login('dsadmin', 'password', 'https://opal.example.org')
 
 	# Install all DataSHIELD packages and dependencies on R server
 	dsadmin.install_package(o, 'datashield')
@@ -39,4 +39,3 @@ See also packages detailed documentation:
 List of the packages available:
 
 <a href="https://github.com/datashield/cran/tree/gh-pages/src/contrib" class="btn btn-inverse">DataSHIELD Packages Listing</a>
-
