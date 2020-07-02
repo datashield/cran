@@ -71,7 +71,7 @@ Functions:
 * [meanSdGpDS](meanSdGpDS.html) MeanSdGpDS
 * [mergeDS](mergeDS.html) mergeDS (assign function) called by ds.merge
 * [messageDS](messageDS.html) messageDS
-* [namesDS](namesDS.html) Returns the names of a list
+* [namesDS](namesDS.html) Return the names of a list object
 * [numNaDS](numNaDS.html) Counts the number of missing values
 * [quantileMeanDS](quantileMeanDS.html) Generates quantiles and mean information without maximum and minimum
 * [rBinomDS](rBinomDS.html) rBinomDS serverside assign function
@@ -111,5 +111,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.0.0/DESCRIPTION)
-* [dsBase 6.0.0](https://github.com/datashield/dsBase/tree/6.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.0.1/DESCRIPTION)
+* [dsBase 6.0.1](https://github.com/datashield/dsBase/tree/6.0.1)

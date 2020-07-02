@@ -1,52 +1,62 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Returns the names of a list</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Return the names of a list object</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for namesDS {dsBase}"><tr><td>namesDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Returns the names of a list</h2>
+<h2>Return the names of a list object</h2>
 
 <h3>Description</h3>
 
-<p>Returns the names of the object in the list.
+<p>Returns the names of a designated server-side list
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-namesDS(xlist)
+namesDS(xname.transmit)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>xlist</code></td>
+<tr valign="top"><td><code>xname.transmit</code></td>
 <td>
-<p>a list</p>
+<p>a character string specifying the name of the list.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>This is similar to R base function <code>names</code> but restricted
-to list types only.
+<p>namesDS is an aggregate function called by ds.names.
+This function is similar to the native R function <code>names</code>
+but it does not subsume all functionality,
+for example, it only works to extract names that already exist,
+not to create new names for objects.
+The function is restricted to objects of type list,
+but this includes objects that have a primary class other than list but which
+return TRUE to the native R function is.list. As an example, this includes
+the multi-component object created by fitting a generalized linear model
+using ds.glmSLMA. The resultant object saved on each separate server
+is formally of double class &quot;glm&quot; and &quot;ls&quot; but responds TRUE to is.list(),
 </p>
 
 
 <h3>Value</h3>
 
-<p>a character vector or NULL if the list does not have names
+<p><code>namesDS</code> returns to the client-side the names
+of a list object stored on the server-side.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>Gaye, A.
+<p>Amadou Gaye, updated by Paul Burton 25/06/2020
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.0.1 ]</div>
 </body></html>

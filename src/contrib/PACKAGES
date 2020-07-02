@@ -1,8 +1,8 @@
 Package: datashield
-Version: 5.0.0
-Depends: dsBase
+Version: 6.0.0
+Depends: dsBase, resourcer
 License: GPL-3
-MD5sum: 426cc9299cdd9438e78bf18d60030656
+MD5sum: 70cc43353d6a01ae310683c1993690f1
 NeedsCompilation: no
 Title: Datashield meta-package (server side)
 Description: This package installs as dependencies all other DataSHIELD
@@ -10,10 +10,11 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: datashieldclient
-Version: 5.0.0
-Depends: dsBaseClient
+Version: 6.0.0
+Depends: DSI, DSOpal, dsBaseClient
+Suggests: DSLite
 License: GPL-3
-MD5sum: ab041cc3032779e6f3fa06b9f7f3a127
+MD5sum: a547410325fdb72d569f25847f7d3805
 NeedsCompilation: no
 Title: Datashield meta-package (client side)
 Description: This package installs as dependencies all other DataSHIELD
@@ -21,19 +22,20 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: dsBase
-Version: 6.0.0
+Version: 6.0.1
+Depends: R (>= 3.5.0)
 Imports: RANN, nlme, stringr, lme4
 License: GPL-3
-MD5sum: 1babe2968f0cf400a1bffac7f149e819
+MD5sum: 72f85dede69822ab3fc200a2934c5847
 NeedsCompilation: no
 Title: DataSHIELD server site base functions
 Description: DataSHIELD server site base functions.
 Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
-AggregateMethods: alphaPhiDS, asFactorDS1, asListDS, checkNegValueDS,
-        classDS, corTestDS, corDS, covDS, dataFrameSubsetDS1,
-        densityGridDS, dimDS, glmDS1, glmDS2, glmerSLMADS2, glmSLMADS1,
-        glmSLMADS2, heatmapPlotDS, histogramDS1, histogramDS2, lsDS,
-        isNaDS, isValidDS, lengthDS, levelsDS, lexisDS1,
+AggregateMethods: asFactorDS1, asListDS, checkNegValueDS, classDS,
+        corTestDS, corDS, covDS, dataFrameSubsetDS1, densityGridDS,
+        dimDS, glmDS1, glmDS2, glmerSLMADS2, glmSLMADS1, glmSLMADS2,
+        heatmapPlotDS, histogramDS1, histogramDS2, lsDS, isNaDS,
+        isValidDS, lengthDS, levelsDS, lexisDS1,
         listDisclosureSettingsDS, lmerSLMADS2, matrixDetDS1, meanDS,
         meanSdGpDS, messageDS, namesDS, numNaDS, quantileMeanDS,
         rangeDS, recodeValuesDS1, rmDS, scatterPlotDS, scoreVectDS,
@@ -61,11 +63,11 @@ AssignMethods: asCharacterDS, asDataMatrixDS, asFactorDS, asFactorDS2,
         unlist=base::unlist
 
 Package: dsBaseClient
-Version: 6.0.0
-Depends: R (>= 3.5.0), DSI
+Version: 6.0.1
+Depends: R (>= 3.5.0), DSI (>= 1.1.0)
 Imports: fields, metafor
 License: GPL-3
-MD5sum: 0d6cff6e52f4c8e176b38f0f630ba069
+MD5sum: 379326084ccb1382779d3a2967a7f8fd
 NeedsCompilation: no
 Title: DataSHIELD Client Functions
 Description: DataSHIELD client functions for the client side.

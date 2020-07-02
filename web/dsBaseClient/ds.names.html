@@ -1,60 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Gets the names of a server-side list</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Return the names of a list object</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.names {dsBaseClient}"><tr><td>ds.names {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Gets the names of a server-side list</h2>
+<h2>Return the names of a list object</h2>
 
 <h3>Description</h3>
 
-<p>Function to get the names of an object that is stored on the server-side.
+<p>Returns the names of a designated server-side list
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-ds.names(x = NULL, datasources = NULL)
+ds.names(xname = NULL, datasources = NULL)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>x</code></td>
+<tr valign="top"><td><code>xname</code></td>
 <td>
 <p>a character string specifying the name of the list.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of <code>DSConnection-class</code> 
-objects obtained after login. If the <code>datasources</code> argument is not specified
-the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
+<p>a list of <code>DSConnection-class</code>
+objects obtained after login that represent the particular data sources
+(studies) to be addressed by the function call. If the <code>datasources</code>
+argument is not specified the default set of connections will be used:
+see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>This function is similar to the R function <code>names</code>.
-In DataSHIELD the use of this function is restricted to objects of type list.
-</p>
-<p>Server function called: <code>namesDS</code>
+<p>ds.names calls aggregate function namesDS. This function is similar to
+the native R function <code>names</code> but it does not subsume all functionality,
+for example, it only works to extract names that already exist,
+not to create new names for objects. The function is restricted to objects of
+type list, but this includes objects that have a primary class other than list but which
+return TRUE to the native R function is.list. As an example this includes
+the multi-component object created by fitting a generalized linear model
+using ds.glmSLMA. The resultant object saved on each server separately
+is formally of class &quot;glm&quot; and &quot;ls&quot; but responds TRUE to is.list(),
 </p>
 
 
 <h3>Value</h3>
 
 <p><code>ds.names</code> returns to the client-side the names
-of a list stored on the server-side.
+of a list object stored on the server-side.
 </p>
 
 
 <h3>Author(s)</h3>
 
-<p>DataSHIELD Development Team
+<p>Amadou Gaye, updated by Paul Burton for DataSHIELD development
+team 25/06/2020
 </p>
 
 
@@ -64,7 +72,7 @@ of a list stored on the server-side.
 ## Not run: 
 
  ## Version 6, for version 5 see the Wiki
-  
+ 
   # connecting to the Opal servers
 
   require('DSI')
@@ -72,34 +80,34 @@ of a list stored on the server-side.
   require('dsBaseClient')
 
   builder &lt;- DSI::newDSLoginBuilder()
-  builder$append(server = "study1", 
-                 url = "http://192.168.56.100:8080/", 
-                 user = "administrator", password = "datashield_test&amp;", 
+  builder$append(server = "study1",
+                 url = "http://192.168.56.100:8080/",
+                 user = "administrator", password = "datashield_test&amp;",
                  table = "CNSIM.CNSIM1", driver = "OpalDriver")
-  builder$append(server = "study2", 
-                 url = "http://192.168.56.100:8080/", 
-                 user = "administrator", password = "datashield_test&amp;", 
+  builder$append(server = "study2",
+                 url = "http://192.168.56.100:8080/",
+                 user = "administrator", password = "datashield_test&amp;",
                  table = "CNSIM.CNSIM2", driver = "OpalDriver")
   builder$append(server = "study3",
-                 url = "http://192.168.56.100:8080/", 
-                 user = "administrator", password = "datashield_test&amp;", 
+                 url = "http://192.168.56.100:8080/",
+                 user = "administrator", password = "datashield_test&amp;",
                  table = "CNSIM.CNSIM3", driver = "OpalDriver")
   logindata &lt;- builder$build()
-  
-  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
-  
-  #Create a list in the server-side 
-  
+ 
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D")
+ 
+  #Create a list in the server-side
+ 
   ds.asList(x.name = "D",
             newobj = "D.list",
             datasources = connections)
-            
+           
   #Get the names of the list
-  
-  ds.names(x = "D.list",
+ 
+  ds.names(xname = "D.list",
            datasources = connections)
  
-  
+ 
   # clear the Datashield R sessions and logout
   datashield.logout(connections)
 
@@ -108,5 +116,5 @@ of a list stored on the server-side.
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.0 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
 </body></html>

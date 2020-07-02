@@ -73,7 +73,7 @@ Functions:
 * [ds.meanSdGp](ds.meanSdGp.html) Computes the mean and standard deviation across groups defined by one factor
 * [ds.merge](ds.merge.html) Merges two data frames in the server-side
 * [ds.message](ds.message.html) Returns server-side messages to the client-side
-* [ds.names](ds.names.html) Gets the names of a server-side list
+* [ds.names](ds.names.html) Return the names of a list object
 * [ds.numNA](ds.numNA.html) Gets the number of missing values in a server-side vector
 * [ds.quantileMean](ds.quantileMean.html) Computes the quantiles of a server-side variable
 * [ds.rBinom](ds.rBinom.html) Generates Binomial distribution in the server-side
@@ -123,5 +123,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.0.0/DESCRIPTION)
-* [dsBaseClient 6.0.0](https://github.com/datashield/dsBaseClient/tree/6.0.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.0.1/DESCRIPTION)
+* [dsBaseClient 6.0.1](https://github.com/datashield/dsBaseClient/tree/6.0.1)
