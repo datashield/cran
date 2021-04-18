@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculates the skewness of a numeric variable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for skewnessDS2 {dsBase}"><tr><td>skewnessDS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculates the skewness of a numeric variable</h2>
+
+<h3>Description</h3>
+
+<p>This function calculates summary statistics that are returned to the client-side and 
+used for the estimation of the combined skewness of a numeric variable across all studies.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+skewnessDS2(x, global.mean)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a string character, the name of a numeric variable.</p>
+</td></tr>
+<tr valign="top"><td><code>global.mean</code></td>
+<td>
+<p>a numeric, the combined mean of the input variable across all studies.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function calculates the sum of squared differences between the values of x and the global
+mean of x across all studies, the sum of cubed differences between the values of x and the global mean
+of x across all studies and the number of valid observations of the input variable x.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list including the sum of cubed differences between the values of x and the global mean of x across
+all studies, the sum of squared differences between the values of x and the global mean of x across all studies,
+the number of valid observations (i.e. the length of x after excluding missing values), and a validity message 
+indicating indicating a valid analysis if the number of valid observations are above the protection filter 
+nfilter.tab or invalid analysis otherwise.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam, for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

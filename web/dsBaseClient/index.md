@@ -13,6 +13,7 @@ Functions:
 * [checkClass](checkClass.html) Checks that an object has the same class in all studies
 * [colPercent](colPercent.html) Produces column percentages
 * [ds.Boole](ds.Boole.html) Converts a server-side R object into Boolean indicators
+* [ds.abs](ds.abs.html) Computes the absolute values of a variable
 * [ds.asCharacter](ds.asCharacter.html) Converts a server-side R object into a character class
 * [ds.asDataMatrix](ds.asDataMatrix.html) Converts a server-side R object into a matrix
 * [ds.asFactor](ds.asFactor.html) Converts a server-side numeric vector into a factor
@@ -22,11 +23,17 @@ Functions:
 * [ds.asMatrix](ds.asMatrix.html) Converts a server-side R object into a matrix
 * [ds.asNumeric](ds.asNumeric.html) Converts a server-side R object into a numeric class
 * [ds.assign](ds.assign.html) Assigns an R object to a name in the server-side
+* [ds.boxPlot](ds.boxPlot.html) Draw boxplot
+* [ds.boxPlotGG](ds.boxPlotGG.html) Renders boxplot
+* [ds.boxPlotGG_data_Treatment](ds.boxPlotGG_data_Treatment.html) Take a data frame on the server side an arrange it to pass it to the boxplot function
+* [ds.boxPlotGG_data_Treatment_numeric](ds.boxPlotGG_data_Treatment_numeric.html) Take a vector on the server side an arrange it to pass it to the boxplot function
+* [ds.boxPlotGG_numeric](ds.boxPlotGG_numeric.html) Draw boxplot with information from a numeric vector
+* [ds.boxPlotGG_table](ds.boxPlotGG_table.html) Draw boxplot with information from a data frame
 * [ds.c](ds.c.html) Combines values into a vector or list in the server-side
 * [ds.cbind](ds.cbind.html) Combines R objects by columns in the server-side
 * [ds.changeRefGroup](ds.changeRefGroup.html) Changes the reference level of a factor in the server-side
 * [ds.class](ds.class.html) Class of the R object in the server-side
-* [ds.colnames](ds.colnames.html) Column names of the R object in the server-side
+* [ds.colnames](ds.colnames.html) Produces column names of the R object in the server-side
 * [ds.completeCases](ds.completeCases.html) Identifies complete cases in server-side R objects
 * [ds.contourPlot](ds.contourPlot.html) Generates a contour plot
 * [ds.cor](ds.cor.html) Calculates the correlation of R objects in the server-side
@@ -34,30 +41,34 @@ Functions:
 * [ds.cov](ds.cov.html) Calculates the covariance of R objects in the server-side
 * [ds.dataFrame](ds.dataFrame.html) Generates a data frame object in the server-side
 * [ds.dataFrameFill](ds.dataFrameFill.html) Creates missing values columns in the server-side
-* [ds.dataFrameSort](ds.dataFrameSort.html) Sorting data frames in the server-side
-* [ds.dataFrameSubset](ds.dataFrameSubset.html) Subsetting data frames in the server-side
+* [ds.dataFrameSort](ds.dataFrameSort.html) Sorts data frames in the server-side
+* [ds.dataFrameSubset](ds.dataFrameSubset.html) Sub-sets data frames in the server-side
 * [ds.densityGrid](ds.densityGrid.html) Generates a density grid in the client-side
 * [ds.dim](ds.dim.html) Retrieves the dimension of a server-side R object
 * [ds.exists](ds.exists.html) Checks if an object is defined on the server-side
 * [ds.exp](ds.exp.html) Computes the exponentials in the server-side
+* [ds.getWGSR](ds.getWGSR.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [ds.glm](ds.glm.html) Fits Generalized Linear Model
-* [ds.glmSLMA](ds.glmSLMA.html) Fits Generalized Linear Model via Study-Level Meta-Analysis
-* [ds.glmerSLMA](ds.glmerSLMA.html) Fitting Generalized Linear Mixed-Effect Models via Study-Level Meta-Analysis
+* [ds.glmPredict](ds.glmPredict.html) Applies predict.glm() to a serverside glm object
+* [ds.glmSLMA](ds.glmSLMA.html) Fit a Generalized Linear Model (GLM) with pooling via Study Level Meta-Analysis (SLMA)
+* [ds.glmSummary](ds.glmSummary.html) summarize a glm object on the serverside
+* [ds.glmerSLMA](ds.glmerSLMA.html) Fits Generalized Linear Mixed-Effect Models via Study-Level Meta-Analysis
 * [ds.heatmapPlot](ds.heatmapPlot.html) Generates a Heat Map plot
 * [ds.histogram](ds.histogram.html) Generates a histogram plot
 * [ds.isNA](ds.isNA.html) Checks if a server-side vector is empty
 * [ds.isValid](ds.isValid.html) Checks if a server-side object is valid
+* [ds.kurtosis](ds.kurtosis.html) Calculates the kurtosis of a numeric variable
 * [ds.length](ds.length.html) Gets the length of an object in the server-side
-* [ds.levels](ds.levels.html) Levels attributes of a server-side factor
+* [ds.levels](ds.levels.html) Produces levels attributes of a server-side factor
 * [ds.lexis](ds.lexis.html) Represents follow-up in multiple states on multiple time scales
 * [ds.list](ds.list.html) Constructs a list of objects in the server-side
-* [ds.listClientsideFunctions](ds.listClientsideFunctions.html) Client-side functions
-* [ds.listDisclosureSettings](ds.listDisclosureSettings.html) Disclosure Settings
-* [ds.listOpals](ds.listOpals.html) ds.listOpals list all Opal objects in the analytic environment
-* [ds.listServersideFunctions](ds.listServersideFunctions.html) Server-side functions
-* [ds.lmerSLMA](ds.lmerSLMA.html) Fitting Linear Mixed-Effect Model via Study-Level Meta-Analysis
+* [ds.listClientsideFunctions](ds.listClientsideFunctions.html) Lists client-side functions
+* [ds.listDisclosureSettings](ds.listDisclosureSettings.html) Lists disclosure settings
+* [ds.listOpals](ds.listOpals.html) Lists all Opal objects in the analytic environment
+* [ds.listServersideFunctions](ds.listServersideFunctions.html) Lists server-side functions
+* [ds.lmerSLMA](ds.lmerSLMA.html) Fits Linear Mixed-Effect model via Study-Level Meta-Analysis
 * [ds.log](ds.log.html) Computes logarithms in the server-side
-* [ds.look](ds.look.html) Direct call to a server-side aggregate function
+* [ds.look](ds.look.html) Performs direct call to a server-side aggregate function
 * [ds.ls](ds.ls.html) lists all objects on a server-side environment
 * [ds.make](ds.make.html) Calculates a new object in the server-side
 * [ds.matrix](ds.matrix.html) Creates a matrix on the server-side
@@ -81,28 +92,30 @@ Functions:
 * [ds.rPois](ds.rPois.html) Generates Poisson distribution in the server-side
 * [ds.rUnif](ds.rUnif.html) Generates Uniform distribution in the server-side
 * [ds.rbind](ds.rbind.html) Combines R objects by rows in the server-side
-* [ds.reShape](ds.reShape.html) Reshape server-side grouped data
+* [ds.reShape](ds.reShape.html) Reshapes server-side grouped data
 * [ds.recodeLevels](ds.recodeLevels.html) Recodes the levels of a server-side factor vector
 * [ds.recodeValues](ds.recodeValues.html) Recodes server-side variable values
 * [ds.rep](ds.rep.html) Creates a repetitive sequence in the server-side
 * [ds.replaceNA](ds.replaceNA.html) Replaces the missing values in a server-side vector
-* [ds.rm](ds.rm.html) Deletes server-side R object
+* [ds.rm](ds.rm.html) Deletes server-side R objects
 * [ds.rowColCalc](ds.rowColCalc.html) Computes rows and columns sums and means in the server-side
-* [ds.sample](ds.sample.html) random sampling and permuting of vectors, dataframes and matrices
+* [ds.sample](ds.sample.html) Performs random sampling and permuting of vectors, dataframes and matrices
 * [ds.scatterPlot](ds.scatterPlot.html) Generates non-disclosive scatter plots
 * [ds.seq](ds.seq.html) Generates a sequence in the server-side
-* [ds.setDefaultOpals](ds.setDefaultOpals.html) ds.setDefaultOpals creates a default set of Opal objects called 'default.opals'
+* [ds.setDefaultOpals](ds.setDefaultOpals.html) Creates a default set of Opal objects called 'default.opals'
 * [ds.setSeed](ds.setSeed.html) Server-side random number generation
+* [ds.skewness](ds.skewness.html) Calculates the skewness of a server-side numeric variable
+* [ds.sqrt](ds.sqrt.html) Computes the square root values of a variable
 * [ds.subset](ds.subset.html) Generates a valid subset of a table or a vector
 * [ds.subsetByClass](ds.subsetByClass.html) Generates valid subset(s) of a data frame or a factor
 * [ds.summary](ds.summary.html) Generates the summary of a server-side object
-* [ds.table](ds.table.html) ds.table calling aggregate functions tableDS and tableDS2 and assign function tableDS.assign
+* [ds.table](ds.table.html) Generates 1-, 2-, and 3-dimensional contingency tables with option of assigning to serverside only and producing chi-squared statistics
 * [ds.table1D](ds.table1D.html) Generates 1-dimensional contingency tables
 * [ds.table2D](ds.table2D.html) Generates 2-dimensional contingency tables
 * [ds.tapply](ds.tapply.html) Applies a Function Over a Server-Side Ragged Array
 * [ds.tapply.assign](ds.tapply.assign.html) Applies a Function Over a Ragged Array on the server-side
 * [ds.testObjExists](ds.testObjExists.html) Checks if an R object exists on the server-side
-* [ds.unList](ds.unList.html) Flatten Server-Side Lists
+* [ds.unList](ds.unList.html) Flattens Server-Side Lists
 * [ds.var](ds.var.html) Computes server-side vector variance
 * [ds.vectorCalc](ds.vectorCalc.html) Performs a mathematical operation on two or more vectors
 * [extract](extract.html) Splits character by '$' and returns the single characters
@@ -111,7 +124,7 @@ Functions:
 * [glmChecks](glmChecks.html) Checks if the elements in the glm model have the right characteristics
 * [isAssigned](isAssigned.html) Checks an object has been generated on the server side
 * [isDefined](isDefined.html) Checks if the objecs are defined in studies
-* [logical2int](logical2int.html) turns a logical operator into an integer
+* [logical2int](logical2int.html) Turns a logical operator into an integer
 * [meanByClassHelper0a](meanByClassHelper0a.html) Computes the mean values of a numeric vector across a factor vector
 * [meanByClassHelper0b](meanByClassHelper0b.html) Runs the computation if variables are within a table structure
 * [meanByClassHelper1](meanByClassHelper1.html) Generates subset tables
@@ -119,9 +132,9 @@ Functions:
 * [meanByClassHelper3](meanByClassHelper3.html) Generates results tables for each study separately
 * [meanByClassHelper4](meanByClassHelper4.html) Gets the subset tables out of the list (i.e. unlist)
 * [rowPercent](rowPercent.html) Produces row percentages
-* [subsetHelper](subsetHelper.html) Ensure that the requested subset is not larger than the original object
+* [subsetHelper](subsetHelper.html) Ensures that the requested subset is not larger than the original object
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.0.1/DESCRIPTION)
-* [dsBaseClient 6.0.1](https://github.com/datashield/dsBaseClient/tree/6.0.1)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.1.1/DESCRIPTION)
+* [dsBaseClient 6.1.1](https://github.com/datashield/dsBaseClient/tree/6.1.1)

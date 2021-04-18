@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fit a Generalized Linear Model (GLM) with pooling via Study...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for glmSLMADS.assign {dsBase}"><tr><td>glmSLMADS.assign {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fit a Generalized Linear Model (GLM) with pooling via Study Level Meta-Analysis (SLMA)</h2>
+
+<h3>Description</h3>
+
+<p>Fits a generalized linear model (GLM) on data from single or multiple sources
+with pooled co-analysis across studies being based on SLMA (Study Level Meta Analysis).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+glmSLMADS.assign(formula, family, offsetName, weightsName, dataName)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>formula</code></td>
+<td>
+<p>a glm formula, specified in call to ds.glmSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>family</code></td>
+<td>
+<p>a glm family, specified in call to ds.glmSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>offsetName</code></td>
+<td>
+<p>a character string specifying a variable to be used as an offset.
+Specified in call to ds.glmSLMA.</p>
+</td></tr>
+<tr valign="top"><td><code>weightsName</code></td>
+<td>
+<p>a character string specifying a variable to be used as regression weights.
+Specified in call to ds.glmSLMA. Specified in call to ds.glmSLMA.</p>
+</td></tr>
+<tr valign="top"><td><code>dataName</code></td>
+<td>
+<p>a character string specifying the name of a data.frame
+holding the data for the model. Specified in call to ds.glmSLMA.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>glmSLMADS.assign is an assign function called by clientside function ds.glmSLMA.
+ds.glmSLMA also calls two aggregate functions glmSLMADS1 and glmSLMADS2.
+For more detailed information see help for ds.glmSLMA.
+</p>
+
+
+<h3>Value</h3>
+
+<p>writes glm object summarising the fitted model to the serverside.
+For more detailed information see help for ds.glmSLMA.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team (14/7/20)
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

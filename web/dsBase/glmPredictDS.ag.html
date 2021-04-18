@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: predict regression responses from a glm object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for glmPredictDS.ag {dsBase}"><tr><td>glmPredictDS.ag {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>predict regression responses from a glm object</h2>
+
+<h3>Description</h3>
+
+<p>identify and return key components/summaries of a serverside
+glm_predict object that can safely be returned to the clientside without
+disclosure risk
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+glmPredictDS.ag(
+  glmname.transmit,
+  newdataname.transmit,
+  output.type,
+  se.fit,
+  dispersion,
+  terms.transmit,
+  na.action
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>glmname.transmit</code></td>
+<td>
+<p>a character string specifying the name of the
+glm object on the serverside that is to be used for prediction.
+Fully specified by glmname argument in ds.glmPredict</p>
+</td></tr>
+<tr valign="top"><td><code>newdataname.transmit</code></td>
+<td>
+<p>a character string specifying an (optional) dataframe on
+the serverside in which to look for (potentially) new covariate values
+on which to base the predictions. Fully specified by newdataname argument in ds.glmPredict.</p>
+</td></tr>
+<tr valign="top"><td><code>output.type</code></td>
+<td>
+<p>a character string taking the values 'response', 'link' or 'terms'.
+Fully specified by corresponding argument in ds.glmPredict.</p>
+</td></tr>
+<tr valign="top"><td><code>se.fit</code></td>
+<td>
+<p>logical if standard errors for the fitted predictions are required.
+Fully specified by corresponding argument in ds.glmPredict.</p>
+</td></tr>
+<tr valign="top"><td><code>dispersion</code></td>
+<td>
+<p>numeric value specifying the dispersion of the GLM fit to be assumed
+in computing the standard errors. Fully specified by corresponding argument in ds.glmPredict.</p>
+</td></tr>
+<tr valign="top"><td><code>terms.transmit</code></td>
+<td>
+<p>a character vector specifying a subset of terms to return in the
+prediction. Fully specified by 'terms' argument in ds.glmPredict.</p>
+</td></tr>
+<tr valign="top"><td><code>na.action</code></td>
+<td>
+<p>character string determining what should be done with missing
+values in the data.frame identified by &lt;newdataname.transmit&gt;.
+Fully specified by na.action argument in ds.glmPredict.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Serverside aggregate function called by ds.glmPredict. It is called
+immediately after the assign function glmPredict.as has created
+a predict_glm object on the serverside by applying
+the equivalent of predict.glm() in native R to a glm object on the serverside.
+The aggregate function, glmPredict.ag, then identifies and returns components
+of that predict_glm object that can safely be returned to the clientside
+without a risk of disclosure. For further details see DataSHIELD help for
+ds.glmPredict and glmPredict.as and help in native R for predict.glm
+</p>
+
+
+<h3>Value</h3>
+
+<p>components/summarising statistics of a serverside predict_glm object
+that can safely be transmitted to the clientside
+without a risk of disclosure. For further details see DataSHIELD help for
+ds.glmPredict and glmPredict.as and help in native R for predict.glm
+predict.glm in native R
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team (20/7/20)
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

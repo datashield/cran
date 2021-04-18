@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fitting generalized linear mixed effect models - serverside...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for glmerSLMADS.assing {dsBase}"><tr><td>glmerSLMADS.assing {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fitting generalized linear mixed effect models - serverside function</h2>
+
+<h3>Description</h3>
+
+<p>glmerSLMADS.assing is the same as glmerSLMADS2 which fits a generalized linear
+mixed effects model (glme) per study and saves the outcomes in each study
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+glmerSLMADS.assing(
+  formula,
+  offset,
+  weights,
+  dataName,
+  family,
+  control_type = NULL,
+  control_value.transmit = NULL,
+  nAGQ = 1L,
+  verbose = 0,
+  theta = NULL,
+  fixef = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>formula</code></td>
+<td>
+<p>see help for ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>offset</code></td>
+<td>
+<p>see help for ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>weights</code></td>
+<td>
+<p>see help for ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>dataName</code></td>
+<td>
+<p>see help for ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>family</code></td>
+<td>
+<p>see help for ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>control_type</code></td>
+<td>
+<p>see help for ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>control_value.transmit</code></td>
+<td>
+<p>see help for argument &lt;control_value&gt; for
+function ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>nAGQ</code></td>
+<td>
+<p>integer scalar, defaulting to 1L. IN PRACTICE, IT MAY BE NECESSARY
+TO SET nAGQ TO 0L when the model appears to converge perfectly well (e.g. verbose=2
+demonstrates good initial convergence of both the log-likelihood and
+regression coefficients) but formal convergence does not get declared - 
+so no output is produced - despite running the model for many iterations.
+The nAGQ argument is set by the nAGQ argument for ds.glmerSLMA and further
+details can be found in help(ds.glmerSLMA) and in the native R help for glmer()</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>see help for ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>theta</code></td>
+<td>
+<p>see help for argument &lt;start_theta&gt; for
+function ds.glmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>fixef</code></td>
+<td>
+<p>see help for argument &lt;start_fixef&gt; for
+function ds.glmerSLMA</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>glmerSLMADS.assign is a serverside function called by ds.glmerSLMA on the clientside.
+The analytic work engine is the glmer function in R which sits in the lme4 package.
+glmerSLMADS.assign fits a generalized linear mixed effects model (glme) - e.g. a logistic or
+Poisson regression model including both fixed and random effects - on data
+from each single data source and saves the regression outcomes on the serveside.
+</p>
+
+
+<h3>Value</h3>
+
+<p>writes glmerMod object summarising the fitted model to the serverside.
+For more detailed information see help for ds.glmerSLMA.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

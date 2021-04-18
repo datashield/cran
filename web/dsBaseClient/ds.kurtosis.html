@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculates the kurtosis of a numeric variable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.kurtosis {dsBaseClient}"><tr><td>ds.kurtosis {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculates the kurtosis of a numeric variable</h2>
+
+<h3>Description</h3>
+
+<p>This function calculates the kurtosis of a numeric variable.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.kurtosis(x = NULL, method = 1, type = "both", datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a string character, the name of a numeric variable.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>an integer between 1 and 3 selecting one of the algorithms for computing kurtosis
+detailed below. The default value is set to 1.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>a character which represents the type of analysis to carry out. 
+If <code>type</code> is set to 'combine', 'combined', 'combines' or 'c', the global kurtosis is returned 
+if <code>type</code> is set to 'split', 'splits' or 's', the kurtosis is returned separately for each study.
+if <code>type</code> is set to 'both' or 'b', both sets of outputs are produced.
+The default value is set to 'both'.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified 
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function calculates the kurtosis of an input variable x with three different methods. 
+The method is specified by the argument <code>method</code>. If x contains any missings, the function removes those before
+the calculation of the kurtosis. If <code>method</code> is set to 1 the following formula is used
+<i> kurtosis= \frac{&sum;_{i=1}^{N} (x_i - \bar(x))^4 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) } - 3</i>,
+where <i> \bar{x} </i> is the mean of x and <i>N</i> is the number of observations. If <code>method</code> is set to 2
+the following formula is used <i> kurtosis= ((N+1)*(\frac{&sum;_{i=1}^{N} (x_i - \bar(x))^4 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) } - 3) + 6)*((N-1)/((N-2)*(N-3)))</i>.
+If <code>method</code> is set to 3 the following formula is used <i> kurtosis= (\frac{&sum;_{i=1}^{N} (x_i - \bar(x))^4 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) })*(1-1/N)^2 - 3</i>.
+This function is similar to the function <code>kurtosis</code> in R package <code>e1071</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a matrix showing the kurtosis of the input numeric variable, the number of valid observations and
+the validity message.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam, for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
+</body></html>

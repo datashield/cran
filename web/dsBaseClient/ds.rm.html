@@ -1,31 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Deletes server-side R object</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Deletes server-side R objects</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.rm {dsBaseClient}"><tr><td>ds.rm {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Deletes server-side R object</h2>
+<h2>Deletes server-side R objects</h2>
 
 <h3>Description</h3>
 
-<p>deletes an R object on the server-side
+<p>deletes R objects on the server-side
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-ds.rm(x.name = NULL, datasources = NULL)
+ds.rm(x.names = NULL, datasources = NULL)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>x.name</code></td>
+<tr valign="top"><td><code>x.names</code></td>
 <td>
-<p>a character string specifying the object to be deleted.</p>
+<p>a character string specifying the objects to be deleted.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -58,7 +58,7 @@ this calls an aggregate function there is no <code>type</code> argument.
 
 <p>The <code>ds.rm</code>  function deletes from the server-side 
 the specified object.  If this 
-is successful the message <code>"Object &lt;x.name&gt; successfully deleted"</code> is returned
+is successful the message <code>"Object(s) '&lt;x.names&gt;' was deleted."</code> is returned
 to the client-side.
 </p>
 
@@ -107,7 +107,7 @@ to the client-side.
   
   #Delete "labtsc" object from the server-side
   
-  ds.rm(x.name = "labtsc",
+  ds.rm(x.names = "labtsc",
         datasources = connections)
              
   # clear the Datashield R sessions and logout
@@ -116,5 +116,5 @@ to the client-side.
 ## End(Not run)
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
 </body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: recodeValuesDS an assign function called by ds.recodeValues</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for recodeValuesDS {dsBase}"><tr><td>recodeValuesDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>recodeValuesDS an assign function called by ds.recodeValues</h2>
+
+<h3>Description</h3>
+
+<p>This function recodes specified values of elements in a vector into
+a matched set of alternative specified values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+recodeValuesDS(
+  var.name.text = NULL,
+  values2replace.text = NULL,
+  new.values.text = NULL,
+  missing = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>var.name.text</code></td>
+<td>
+<p>a character string providing the name for the vector representing the
+variable to be recoded. &lt;var.name.text&gt; argument generated and passed directly to
+recodeValuesDS by ds.recodeValues</p>
+</td></tr>
+<tr valign="top"><td><code>values2replace.text</code></td>
+<td>
+<p>a character string specifying the values in the
+vector specified by the argument &lt;var.name.text&gt; that are to be replaced by new
+values as specified in the new.values.vector. The &lt;values2replace.text&gt; argument
+is generated and passed directly to recodeValuesDS by ds.recodeValues. In effect, the
+&lt;values2replace.vector&gt; argument of the ds.recodeValues function is converted
+to a character string format that is acceptable to the DataSHIELD R parser in the data repository
+and so can be accepted by recodeValuesDS</p>
+</td></tr>
+<tr valign="top"><td><code>new.values.text</code></td>
+<td>
+<p>a character string specifying the new values to which
+the specified values in the vector &lt;var.name&gt; are to be converted.
+The &lt;new.values.text&gt; argument is generated and passed directly to recodeValuesDS
+by ds.recodeValues. In effect, the &lt;new.values.vector&gt; argument of the
+ds.recodeValues function is converted to a character string format that is
+acceptable to the DataSHIELD R parser in the data repository
+and so can be used in the call to recodeValuesDS.</p>
+</td></tr>
+<tr valign="top"><td><code>missing</code></td>
+<td>
+<p>if supplied, any missing values in the variable referred to by var.name.text 
+will be replaced by this value.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For all details see the help header for ds.recodeValues
+</p>
+
+
+<h3>Value</h3>
+
+<p>the object specified by the &lt;newobj&gt; argument (or default name '&lt;var.name&gt;_recoded')
+initially specified in calling ds.recodeValues. The output object (the required
+recoded variable called &lt;newobj&gt; is written to the serverside.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton, Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

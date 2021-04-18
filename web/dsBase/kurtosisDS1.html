@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculates the kurtosis of a numeric variable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for kurtosisDS1 {dsBase}"><tr><td>kurtosisDS1 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculates the kurtosis of a numeric variable</h2>
+
+<h3>Description</h3>
+
+<p>This function calculates the kurtosis of a numeric variable for each study separately.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+kurtosisDS1(x, method)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a string character, the name of a numeric variable.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>an integer between 1 and 3 selecting one of the algorithms for computing kurtosis
+detailed in the headers of the client-side <code>ds.kurtosis</code> function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function calculates the kurtosis of an input variable x with three different methods. 
+The method is specified by the argument <code>method</code> in the client-side <code>ds.kurtosis</code> function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list including the kurtosis of the input numeric variable, the number of valid observations and
+the study-side validity message.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam, for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

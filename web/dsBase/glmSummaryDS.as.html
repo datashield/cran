@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: summarize a glm object on the serverside</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for glmSummaryDS.as {dsBase}"><tr><td>glmSummaryDS.as {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>summarize a glm object on the serverside</h2>
+
+<h3>Description</h3>
+
+<p>summarize a glm object on the serverside to create a 
+summary_glm object. Also identify and return components of 
+both the glm object and the summary_glm object 
+that can safely be sent to the clientside without a risk of disclosure
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+glmSummaryDS.as(x.transmit)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x.transmit</code></td>
+<td>
+<p>a character string specifying the name of the
+glm object on the serverside that is to be summarised. This is
+specified by x.name argument in ds.glmSummary</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Serverside assign function called by ds.glmSummary
+summarises a glm object that has already been created on the serverside by
+fitting ds.glmSLMA and writes the summary_glm object to the serverside.
+For further details see help for ds.glmSLMA and help in native R
+for glm() and summary.glm
+</p>
+
+
+<h3>Value</h3>
+
+<p>writes object to serverside which is precisely equivalent
+to summary(glm object) in native R
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team (20/7/20)
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

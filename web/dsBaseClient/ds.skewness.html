@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculates the skewness of a server-side numeric variable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.skewness {dsBaseClient}"><tr><td>ds.skewness {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculates the skewness of a server-side numeric variable</h2>
+
+<h3>Description</h3>
+
+<p>This function calculates the skewness of a numeric variable 
+that is stored on the server-side (Opal server).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.skewness(x = NULL, method = 1, type = "both", datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character string specifying the name of a numeric variable.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>an integer value between 1 and 3 selecting one of the algorithms for computing skewness. 
+For more information see <strong>Details</strong>. The default value is set to 1.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>a character string which represents the type of analysis to carry out. 
+<code>type</code> can be set as: <code>'combine'</code>, <code>'split'</code> or <code>'both'</code>. For more information
+see <strong>Details</strong>. 
+The default value is set to <code>'both'</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is similar to the function <code>skewness</code> in R package <code>e1071</code>.
+</p>
+<p>The function calculates the skewness of an input variable <code>x</code> 
+with three different methods: <br />
+(1)  If <code>method</code> is set to 1 the following formula is used <i> skewness= \frac{&sum;_{i=1}^{N} (x_i - \bar(x))^3 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(3/2) }</i>,
+where <i> \bar{x} </i> is the mean of x and <i>N</i> is the number of observations.<br />
+(2) If <code>method</code> is set to 2
+the following formula is used <i> skewness= \frac{&sum;_{i=1}^{N} (x_i - \bar(x))^3 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(3/2) } * \frac{&radic;(N(N-1)}{n-2}</i>.<br />
+(3) If <code>method</code> is set to 3 the following formula is used <i> skewness= \frac{&sum;_{i=1}^{N} (x_i - \bar(x))^3 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(3/2) } * (\frac{N-1}{N})^(3/2)</i>.
+</p>
+<p>The <code>type</code> argument can be set as follows:<br />
+(1) If <code>type</code> is set to <code>'combine'</code>, <code>'combined'</code>, <code>'combines'</code> or <code>'c'</code>, 
+the global skewness is returned.<br />
+(2) If <code>type</code> is set to <code>'split'</code>, <code>'splits'</code> or <code>'s'</code>, 
+the skewness is returned separately for each study.<br />
+(3) If <code>type</code> is set to <code>'both'</code> or <code>'b'</code>, both sets of outputs are produced.<br />
+</p>
+<p>If <code>x</code> contains any missing value, the function removes those before
+the calculation of the skewness. 
+</p>
+<p>Server functions called: <code>skewnessDS1</code> and <code>skewnessDS2</code>
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>ds.skewness</code> returns a matrix showing the skewness of the input numeric variable,
+the number of valid observations and the validity message.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam, for DataSHIELD Development Team
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+  ## Version 6, for version 5 see the Wiki
+  
+  # connecting to the Opal servers
+
+  require('DSI')
+  require('DSOpal')
+  require('dsBaseClient')
+
+  builder &lt;- DSI::newDSLoginBuilder()
+  builder$append(server = "study1", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM1", driver = "OpalDriver")
+  builder$append(server = "study2", 
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM2", driver = "OpalDriver")
+  builder$append(server = "study3",
+                 url = "http://192.168.56.100:8080/", 
+                 user = "administrator", password = "datashield_test&amp;", 
+                 table = "CNSIM.CNSIM3", driver = "OpalDriver")
+  logindata &lt;- builder$build()
+  
+  connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
+  
+  #Calculate the skewness of LAB_TSC numeric variable for each study separately and combined
+  
+  ds.skewness(x = "D$LAB_TSC",
+              method = 1, 
+              type = "both",
+             datasources = connections)
+  
+  # Clear the Datashield R sessions and logout                 
+  DSI::datashield.logout(connections) 
+  
+
+## End(Not run) 
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
+</body></html>

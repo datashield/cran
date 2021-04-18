@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fitting linear mixed effect models - serverside function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for lmerSLMADS.assign {dsBase}"><tr><td>lmerSLMADS.assign {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fitting linear mixed effect models - serverside function</h2>
+
+<h3>Description</h3>
+
+<p>lmerSLMADS.assing is the same as lmerSLMADS2 which fits a linear
+mixed effects model (lme) per study and saves the outcomes in each study
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+lmerSLMADS.assign(
+  formula,
+  offset,
+  weights,
+  dataName,
+  REML = TRUE,
+  control_type,
+  control_value.transmit,
+  optimizer,
+  verbose = 0
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>formula</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>offset</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>weights</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>dataName</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>REML</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>control_type</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>control_value.transmit</code></td>
+<td>
+<p>see help for argument &lt;control_value&gt; for
+function ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>optimizer</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>see help for ds.lmerSLMA</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>lmerSLMADS.assign is a serverside function called by ds.lmerSLMA on the clientside.
+The analytic work engine is the lmer function in R which sits in the lme4 package.
+lmerSLMADS.assign fits a linear mixed effects model (lme) including both fixed and random
+effects - on data from each single data source and saves the regression outcomes on the serveside.
+</p>
+
+
+<h3>Value</h3>
+
+<p>writes lmerMod object summarising the fitted model to the serverside.
+For more detailed information see help for ds.lmerSLMA.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>TDemetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

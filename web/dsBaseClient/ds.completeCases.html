@@ -26,19 +26,21 @@ ds.completeCases(x1 = NULL, newobj = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x1</code></td>
 <td>
-<p>a character denoting the name of the input object 
-which can be a data frame, matrix or vector.</p>
+<p>a character denoting the name of the input object which can be a data frame,
+matrix or vector.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
-<p>a character string that provides the name for the output variable 
-that is stored on the data servers.</p>
+<p>a character string that provides the name for the complete-cases object
+that is stored on the data servers. If the user does not specify a name, then the function 
+generates a name for the generated object that is the name of the input object with the 
+suffix &quot;_complete.cases&quot;</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
 <p>a list of <code>DSConnection-class</code> objects obtained after login. 
-If the <code>datasources</code> argument is not specified
-the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
+If the <code>datasources</code> argument is not specified, the default set of connections will be
+used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 </table>
 
@@ -55,12 +57,10 @@ in vectors only deletes the observation recorded as NA.
 
 <h3>Value</h3>
 
-<p><code>ds.completeCases</code> returns a modified data frame, matrix or vector from which
-all rows containing at least one NA have been deleted. 
-The output R object is stored on the server-side. 
-Also, two validity messages are returned to the client-side 
-indicating the name of <code>newobj</code> that has been created in each data source 
-and if it is in a valid form.
+<p><code>ds.completeCases</code> generates a modified data frame, matrix or vector from which
+all rows containing at least one NA have been deleted. The output object is stored on the
+server-side. Only two validity messages are returned to the client-side indicating the name
+of the <code>newobj</code> that has been created in each data source and if it is in a valid form.
 </p>
 
 
@@ -95,6 +95,7 @@ and if it is in a valid form.
                  user = "administrator", password = "datashield_test&amp;", 
                  table = "CNSIM.CNSIM3", driver = "OpalDriver")
   logindata &lt;- builder$build()
+  
   # Log onto the remote Opal training servers
   connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
 
@@ -120,5 +121,5 @@ and if it is in a valid form.
   
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
 </body></html>

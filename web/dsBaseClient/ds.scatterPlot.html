@@ -24,6 +24,7 @@ ds.scatterPlot(
   k = 3,
   noise = 0.25,
   type = "split",
+  return.coords = FALSE,
   datasources = NULL
 )
 </pre>
@@ -34,11 +35,11 @@ ds.scatterPlot(
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character string specifying  the name of a numeric vector.</p>
+<p>a character string specifying the name of the explanatory variable, a numeric vector.</p>
 </td></tr>
 <tr valign="top"><td><code>y</code></td>
 <td>
-<p>a character string specifying  the name of a numeric vector.</p>
+<p>a character string specifying the name of the response variable,  a numeric vector.</p>
 </td></tr>
 <tr valign="top"><td><code>method</code></td>
 <td>
@@ -67,6 +68,11 @@ For more information see <strong>Details</strong>.</p>
 This can be set as <code>'combine'</code> or <code>'split'</code>. 
 Default <code>'split'</code>. 
 For more information see <strong>Details</strong>.</p>
+</td></tr>
+<tr valign="top"><td><code>return.coords</code></td>
+<td>
+<p>a logical. If TRUE the coordinates of the anonymised data points are return 
+to the Console. Default value is FALSE.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -177,7 +183,8 @@ plots depending on the argument <code>type</code>.
                  datasources = connections)
 
   #Example 2: generate a combined scatter plot with the probabilistic method
-  #and noise = 0.5
+  #and noise of variance 0.5% of the variable's variance, and display the coordinates
+  # of the anonymised data points to the Console
   
   ds.scatterPlot(x = "D$PM_BMI_CONTINUOUS",
                  y = "D$LAB_GLUC_ADJUSTED",
@@ -194,5 +201,5 @@ plots depending on the argument <code>type</code>.
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
 </body></html>

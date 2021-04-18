@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fitting Generalized Linear Mixed-Effect Models via...</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fits Generalized Linear Mixed-Effect Models via Study-Level...</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body>
 
 <table width="100%" summary="page for ds.glmerSLMA {dsBaseClient}"><tr><td>ds.glmerSLMA {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Fitting Generalized Linear Mixed-Effect Models via Study-Level Meta-Analysis</h2>
+<h2>Fits Generalized Linear Mixed-Effect Models via Study-Level Meta-Analysis</h2>
 
 <h3>Description</h3>
 
@@ -32,7 +32,9 @@ ds.glmerSLMA(
   verbose = 0,
   start_theta = NULL,
   start_fixef = NULL,
-  notify.of.progress = FALSE
+  notify.of.progress = FALSE,
+  assign = FALSE,
+  newobj = NULL
 )
 </pre>
 
@@ -125,6 +127,19 @@ Specify to retain more control over the optimisation. See <code>glmer()</code> f
 <td>
 <p>specifies if console output should be produced to indicate
 progress. Default  FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>assign</code></td>
+<td>
+<p>a logical, indicates whether the function will call a second server-side function
+(an assign) in order to save the regression outcomes (i.e. a glmerMod object) on each server.
+Default FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>newobj</code></td>
+<td>
+<p>a character string specifying the name of the object to which the glmerMod object
+representing the model fit on the serverside in each study is to be written. This argument is 
+used only when the argument <code>assign</code> is set to TRUE.
+If no &lt;newobj&gt; argument is specified, the output object defaults to &quot;new.glmer.obj&quot;.</p>
 </td></tr>
 </table>
 
@@ -373,5 +388,5 @@ If it did not some information about the reason for this is reported.
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
 </body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Take a vector on the server side an arrange it to pass it to...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.boxPlotGG_data_Treatment_numeric {dsBaseClient}"><tr><td>ds.boxPlotGG_data_Treatment_numeric {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Take a vector on the server side an arrange it to pass it to the boxplot function</h2>
+
+<h3>Description</h3>
+
+<p>Internal function
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.boxPlotGG_data_Treatment_numeric(vector, datasources = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>vector</code></td>
+<td>
+<p><code>character</code> Name of the table on the server side that holds the information to be plotted later</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> (default <code>NULL</code>) objects obtained after login</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Does not return nothing, it creates the table <code>"boxPlotRawDataNumeric"</code> on the server arranged to be passed to the
+ggplot boxplot function. Structure of the created table: <br />
+</p>
+<p>Column 'x': Names on the X axis of the boxplot, aka name of the vector (vector argument) <br />
+Column 'value': Values for that variable <br />
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
+</body></html>

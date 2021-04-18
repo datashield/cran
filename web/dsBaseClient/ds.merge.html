@@ -40,12 +40,16 @@ ds.merge(
 <tr valign="top"><td><code>x.name</code></td>
 <td>
 <p>a character string specifying the name of the
-first data frame to be merged.</p>
+first data frame to be merged. The length of the string should be less than the 
+specified threshold for the nfilter.stringShort which is one of the disclosure 
+prevention checks in DataSHIELD.</p>
 </td></tr>
 <tr valign="top"><td><code>y.name</code></td>
 <td>
 <p>a character string specifying the name of the
-second data frame to be merged.</p>
+second data frame to be merged. The length of the string should be less than the 
+specified threshold for the nfilter.stringShort which is one of the disclosure 
+prevention checks in DataSHIELD.</p>
 </td></tr>
 <tr valign="top"><td><code>by.x.names</code></td>
 <td>
@@ -126,9 +130,9 @@ are explicitly identified for both data frames using the <code>by.x.names</code>
 
 <h3>Value</h3>
 
-<p><code>ds.merge</code> returns the merge data frame that is written on the server-side. 
+<p><code>ds.merge</code> returns the merged data frame that is written on the server-side. 
 Also, two validity messages are returned to the client-side
-indicating whether the new object  has been created in each data source and if so whether
+indicating whether the new object has been created in each data source and if so whether
 it is in a valid form.
 </p>
 
@@ -185,8 +189,8 @@ it is in a valid form.
                
   ds.merge(x.name = "df.x",
            y.name = "df.y",
-           by.x.names = "D$LAB_TSC",
-           by.y.names = "D$LAB_TSC",
+           by.x.names = "df.x$LAB_TSC",
+           by.y.names = "df.y$LAB_TSC",
            all.x = TRUE,
            all.y = TRUE,
            sort = TRUE,
@@ -202,5 +206,5 @@ it is in a valid form.
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
 </body></html>

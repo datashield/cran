@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Renders boxplot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.boxPlotGG {dsBaseClient}"><tr><td>ds.boxPlotGG {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Renders boxplot</h2>
+
+<h3>Description</h3>
+
+<p>Internal function. Renders a ggplot boxplot by retrieving from the server side a list with the identity stats and other
+parameters to render the plot without passing any data from the original dataset
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.boxPlotGG(
+  x,
+  group = NULL,
+  group2 = NULL,
+  xlabel = "x axis",
+  ylabel = "y axis",
+  type = "pooled",
+  datasources = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p><code>character</code> Name on the server side of the data frame to form a boxplot. Structure on the server 
+of this object must be: <br />
+</p>
+<p>Column 'x': Names on the X axis of the boxplot, aka variables to plot <br />
+Column 'value': Values for that variable (raw data of columns rbinded) <br />
+Column 'group': (Optional) Values of the grouping variable <br />
+Column 'group2': (Optional) Values of the second grouping variable <br /></p>
+</td></tr>
+<tr valign="top"><td><code>group</code></td>
+<td>
+<p><code>character</code> (default <code>NULL</code>) Name of the first grouping variable.</p>
+</td></tr>
+<tr valign="top"><td><code>group2</code></td>
+<td>
+<p><code>character</code> (default <code>NULL</code>) Name of the second grouping variable.</p>
+</td></tr>
+<tr valign="top"><td><code>xlabel</code></td>
+<td>
+<p><code>caracter</code> (default <code>"x axis"</code>) Label to put on the x axis of the plot</p>
+</td></tr>
+<tr valign="top"><td><code>ylabel</code></td>
+<td>
+<p><code>caracter</code> (default <code>"y axis"</code>) Label to put on the y axis of the plot</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p><code>character</code> Return a pooled plot (<code>"pooled"</code>) or a split plot (one for each study server
+<code>"split"</code>)</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> (default <code>NULL</code>) objects obtained after login</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>ggplot</code> object
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
+</body></html>

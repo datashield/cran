@@ -21,7 +21,7 @@ ds.recodeValues(
   var.name = NULL,
   values2replace.vector = NULL,
   new.values.vector = NULL,
-  force.output.format = "no",
+  missing = NULL,
   newobj = NULL,
   datasources = NULL,
   notify.of.progress = FALSE
@@ -45,11 +45,12 @@ in the variable <code>var.name</code> to be replaced.</p>
 <td>
 <p>a numeric or character vector specifying the new values.</p>
 </td></tr>
-<tr valign="top"><td><code>force.output.format</code></td>
+<tr valign="top"><td><code>missing</code></td>
 <td>
-<p>a character string specifying the format of the output variable. 
-This can be set as <code>"numeric"</code>, <code>"character"</code> or <code>"no"</code>. Default <code>"no"</code>.  
-For more information see <strong>Details</strong>.</p>
+<p>If supplied, any missing values in var.name will be replaced by this value. 
+Must be of length 1. If the analyst want to recode only missing values then it should also 
+specify an identical vector of values in both arguments <code>values2replace.vector</code> and 
+<code>new.values.vector</code>. Otherwise please look the <code>ds.replaceNA</code> function.</p>
 </td></tr>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
@@ -74,32 +75,20 @@ progress. Default FALSE.</p>
 <h3>Details</h3>
 
 <p>This function recodes individual values with new individual values. This can
-apply to numeric values, character values and NAs. 
-</p>
-<p>One particular use of
-<code>ds.recodeValues</code> is to convert NAs to an explicit value or vice-versa.
-</p>
-<p>The argument <code>force.output.formata</code> can be specified in 3 ways: <br />
-(1) <code>force.output.formata = "numeric"</code> the output 
-vector will be of type numeric and any non-numeric values in 
-<code>new.values.vector</code> will appear as <code>NaN</code> in the recoded vector.<br />
-(2) <code>force.output.format = "character"</code>  all values
-in the output vector will be in character format. <br />
-(3) <code>force.output.format = "no"</code> 
-if the vector identified by the <code>values2replace.vector</code> argument is itself
-numeric and if all values in the <code>new.values.vector</code> are numeric,
-the recoded output vector will also be numeric. Otherwise, it will be coerced
-to character format.
-</p>
-<p>Server functions called: <code>recodeValuesDS1</code> and <code>recodeValuesDS2</code>
+apply to numeric and character values, factor levels and NAs. One particular use of
+<code>ds.recodeValues</code> is to convert NAs to an explicit value. This value is specified
+in the argument <code>missing</code>. If tthe user want to recode only missing values, then it
+should also specify an identical vector of values in both arguments <code>values2replace.vector</code>
+and <code>new.values.vector</code> (see Example 2 below).
+Server function called: <code>recodeValuesDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p><code>ds.recodeValues</code> returns to the server-side the new variable with the recode values. 
+<p>Assigns to each server a new variable with the recoded values. 
 Also, two validity messages are returned to the client-side 
-indicating whether the new object  has been created in each data source and if so whether
+indicating whether the new object has been created in each data source and if so whether
 it is in a valid form.
 </p>
 
@@ -140,21 +129,20 @@ it is in a valid form.
   
   connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
   
-  #Create a vector in the server-side
-  
-  ds.assign(toAssign = "D$LAB_TSC", 
-            newobj = "ss.vector", 
-            datasources = connections)
-  
-  # Recode the values of the vector
-  
-  ds.recodeValues(var.name = "ss.vector",
-                  values2replace.vector = c(0,NA),
-                  new.values.vector = c(0,0),
-                  force.output.format = "numeric",
-                  newobj = "recode.vector",
-                  datasources = connections,
-                  notify.of.progress = FALSE)
+  # Example 1: recode the levels of D$GENDER
+  ds.recodeValues(var.name = "D$GENDER", 
+                  values2replace.vector = c(0,1), 
+                  new.values.vector = c(10,20),
+                  newobj = 'gender_recoded',
+                  datasources = connections)
+                  
+  # Example 2: recode NAs in D$PM_BMI_CATEGORICAL          
+  ds.recodeValues(var.name = "D$PM_BMI_CATEGORICAL", 
+                  values2replace.vector = c(1,2), 
+                  new.values.vector = c(1,2),
+                  missing = 99, 
+                  newobj = 'bmi_recoded'
+                  datasources = connections)
                  
   # Clear the Datashield R sessions and logout                 
   datashield.logout(connections) 
@@ -163,5 +151,5 @@ it is in a valid form.
 ## End(Not run)   
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
 </body></html>

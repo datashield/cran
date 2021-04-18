@@ -31,8 +31,7 @@ filled with extra columns of missing values.</p>
 <tr valign="top"><td><code>newobj</code></td>
 <td>
 <p>a character string that provides the name for the output data frame
-that is stored on the data servers. Default <code>dataframefill.newobj</code>. 
-Default value is the name of the input data frame with the suffix &quot;_filled&quot;.</p>
+that is stored on the data servers. Default value is &quot;dataframefill.newobj&quot;.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -48,7 +47,9 @@ the default set of connections will be used: see <code>datashield.connections_de
 <p>This function checks if the input data frames have the same variables (i.e. the same
 column names) in all of the used studies. When a study does not have some of the variables, the
 function generates those variables as vectors of missing values and combines them as columns to
-the input data frame. 
+the input data frame. If any of the generated variables are of class factor, the function 
+assigns to those the corresponding levels of the factors given from the studies where such 
+factors exist.
 </p>
 <p>Server function called: <code>dataFrameFillDS</code>
 </p>
@@ -65,7 +66,7 @@ and if it is in a valid form.
 
 <h3>Author(s)</h3>
 
-<p>DataSHIELD Development Team
+<p>Demetris Avraam for DataSHIELD Development Team
 </p>
 
 
@@ -100,7 +101,7 @@ and if it is in a valid form.
   # Log onto the remote Opal training servers
   connections &lt;- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
   
-  #Create two data frames with one different column
+  # Create two data frames with one different column
   
   ds.dataFrame(x = c("D$LAB_TSC","D$LAB_TRIG","D$LAB_HDL",
                      "D$LAB_GLUC_ADJUSTED","D$PM_BMI_CONTINUOUS"),
@@ -115,7 +116,7 @@ and if it is in a valid form.
   
   ds.dataFrameFill(df.name = "df1",
                    newobj = "D.Fill",
-                   datasources = connections[c(1,2)]) #All servers are used
+                   datasources = connections[c(1,2)]) # Two servers are used
 
 
   # Clear the Datashield R sessions and logout
@@ -124,5 +125,5 @@ and if it is in a valid form.
 ## End(Not run)
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
 </body></html>

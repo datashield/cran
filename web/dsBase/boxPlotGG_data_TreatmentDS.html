@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Arrange data frame to pass it to the boxplot function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for boxPlotGG_data_TreatmentDS {dsBase}"><tr><td>boxPlotGG_data_TreatmentDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Arrange data frame to pass it to the boxplot function</h2>
+
+<h3>Description</h3>
+
+<p>Arrange data frame to pass it to the boxplot function
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+boxPlotGG_data_TreatmentDS(table, variables, group = NULL, group2 = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>table</code></td>
+<td>
+<p><code>data frame</code> Table that holds the information to be plotted later</p>
+</td></tr>
+<tr valign="top"><td><code>variables</code></td>
+<td>
+<p><code>character vector</code> Name of the column(s) of the data frame to include on the boxplot</p>
+</td></tr>
+<tr valign="top"><td><code>group</code></td>
+<td>
+<p><code>character</code> (default <code>NULL</code>) Name of the first grouping variable.</p>
+</td></tr>
+<tr valign="top"><td><code>group2</code></td>
+<td>
+<p><code>character</code> (default <code>NULL</code>) Name of the second grouping variable.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>data frame</code> with the following structure: <br />
+</p>
+<p>Column 'x': Names on the X axis of the boxplot, aka variables to plot <br />
+Column 'value': Values for that variable (raw data of columns rbinded) <br />
+Column 'group': (Optional) Values of the grouping variable <br />
+Column 'group2': (Optional) Values of the second grouping variable <br />
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create the identity stats and necessary data to draw a plot...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for boxPlotGGDS {dsBase}"><tr><td>boxPlotGGDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create the identity stats and necessary data to draw a plot on the client</h2>
+
+<h3>Description</h3>
+
+<p>In order to create a non disclosive box plot, the data that is passed to the client
+is purely geometrical aspects of the plot, as a ggplot object contains all the data inside, only the graphical
+parameters are passed. There are three different cases depending if there are grouping variables. 
+The outliers are also removed from the graphical parameters.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+boxPlotGGDS(data_table, group = NULL, group2 = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data_table</code></td>
+<td>
+<p><code>data frame</code> Table that holds the information to be plotted, arranged as: <br />
+</p>
+<p>Column 'x': Names on the X axis of the boxplot, aka variables to plot <br />
+Column 'value': Values for that variable (raw data of columns rbinded) <br />
+Column 'group': (Optional) Values of the grouping variable <br />
+Column 'group2': (Optional) Values of the second grouping variable <br /></p>
+</td></tr>
+<tr valign="top"><td><code>group</code></td>
+<td>
+<p><code>character</code> (default <code>NULL</code>) Name of the first grouping variable.</p>
+</td></tr>
+<tr valign="top"><td><code>group2</code></td>
+<td>
+<p><code>character</code> (default <code>NULL</code>) Name of the second grouping variable.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><br />
+</p>
+<p><code>list</code> with: <br />
+-<code>data frame</code> Geometrical parameters (identity stats of ggplot) <br />
+-<code>character</code> Type of plot (single_group, double_group or no_group) <br />
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
+</body></html>

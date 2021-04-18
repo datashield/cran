@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Draw boxplot with information from a numeric vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body>
+
+<table width="100%" summary="page for ds.boxPlotGG_numeric {dsBaseClient}"><tr><td>ds.boxPlotGG_numeric {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Draw boxplot with information from a numeric vector</h2>
+
+<h3>Description</h3>
+
+<p>Draw boxplot with information from a numeric vector
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.boxPlotGG_numeric(
+  x,
+  xlabel = "x axis",
+  ylabel = "y axis",
+  type = "pooled",
+  datasources = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p><code>character</code> Name of the numeric vector on the server side that holds the information to be plotted</p>
+</td></tr>
+<tr valign="top"><td><code>xlabel</code></td>
+<td>
+<p><code>caracter</code> (default <code>"x axis"</code>) Label to put on the x axis of the plot</p>
+</td></tr>
+<tr valign="top"><td><code>ylabel</code></td>
+<td>
+<p><code>caracter</code> (default <code>"y axis"</code>) Label to put on the y axis of the plot</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p><code>character</code> Return a pooled plot (<code>"pooled"</code>) or a split plot (one for each study server
+<code>"split"</code>)</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> (default <code>NULL</code>) objects obtained after login</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>ggplot</code> object
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
+</body></html>

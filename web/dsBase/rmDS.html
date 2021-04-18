@@ -16,18 +16,18 @@
 <h3>Usage</h3>
 
 <pre>
-rmDS(x.name.transmit)
+rmDS(x.names.transmit)
 </pre>
 
 
 <h3>Arguments</h3>
 
 <table summary="R argblock">
-<tr valign="top"><td><code>x.name.transmit, </code></td>
+<tr valign="top"><td><code>x.names.transmit, </code></td>
 <td>
-<p>the name of the object to be deleted converted
-into transmissable form. The argument is specified via the &lt;x.name&gt;
-argument of ds.rm</p>
+<p>the names of the objects to be deleted converted
+into transmissable form, a comma seperated list of character  string. The
+argument is specified via the &lt;x.names&gt; argument of ds.rm</p>
 </td></tr>
 </table>
 
@@ -48,16 +48,11 @@ it would be impossible to write it anywhere.
 <h3>Value</h3>
 
 <p>the specified object is deleted from the serverside. If this
-is successful the message &quot;Object &lt;x.name&gt; successfully deleted&quot; is returned
-to the clientside (where x.name is the name of the object to be deleted).
-If the object to be deleted is already absent on a given
-source, that source will return the message: &quot;Object to be deleted, i.e. &lt;x.name&gt; ,
-does not exist so does not need deleting&quot;. Finally, if the specified name
-of the object to be deleted is too long (&gt;nfilter.stringShort) there is
-a potential disclosure risk (active code hidden in the name) and the
-rmDS returns a message such as: &quot;Disclosure risk, number of characters
-in x.name must not exceed nfilter.stringShort which is currently set at: 25&quot; where
-'25' is the current setting of the R_Option value of nfilter.stringShort.
+is successful the message &quot;Object &lt;x.names&gt; successfully deleted&quot; is returned
+to the clientside (where x.names are the names of the object to be deleted).
+If the objects to be deleted is already absent on a given
+source, that source will return the message: &quot;Object to be deleted, i.e. &lt;x.names&gt;,
+does not exist so does not need deleting&quot;.
 </p>
 
 
@@ -66,5 +61,5 @@ in x.name must not exceed nfilter.stringShort which is currently set at: 25&quot
 <p>Paul Burton for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.0.1 ]</div>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
 </body></html>
