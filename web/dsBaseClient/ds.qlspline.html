@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Basis for a piecewise linear spline with meaningful...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for ds.qlspline {dsBaseClient}"><tr><td>ds.qlspline {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Basis for a piecewise linear spline with meaningful coefficients</h2>
+
+<h3>Description</h3>
+
+<p>This function is based on the native R function <code>qlspline</code> from the
+<code>lspline</code> package. This function computes the basis of piecewise-linear spline
+such that, depending on the argument marginal, the coefficients can be interpreted as
+(1) slopes of consecutive spline segments, or (2) slope change at consecutive knots.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.qlspline(
+  x,
+  q,
+  na.rm = TRUE,
+  marginal = FALSE,
+  names = NULL,
+  newobj = NULL,
+  datasources = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the name of the input numeric variable</p>
+</td></tr>
+<tr valign="top"><td><code>q</code></td>
+<td>
+<p>numeric, a single scalar greater or equal to 2 for a number of equal-frequency
+intervals along x or a vector of numbers in (0; 1) specifying the quantiles explicitly.</p>
+</td></tr>
+<tr valign="top"><td><code>na.rm</code></td>
+<td>
+<p>logical, whether NA should be removed when calculating quantiles, passed
+to na.rm of quantile. Default set to TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>marginal</code></td>
+<td>
+<p>logical, how to parametrize the spline, see Details</p>
+</td></tr>
+<tr valign="top"><td><code>names</code></td>
+<td>
+<p>character, vector of names for constructed variables</p>
+</td></tr>
+<tr valign="top"><td><code>newobj</code></td>
+<td>
+<p>a character string that provides the name for the output 
+variable that is stored on the data servers. Default <code>qlspline.newobj</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If marginal is FALSE (default) the coefficients of the spline correspond to
+slopes of the consecutive segments. If it is TRUE the first coefficient correspond to
+the slope of the first segment. The consecutive coefficients correspond to the change
+in slope as compared to the previous segment.
+Function qlspline wraps lspline and calculates the knot positions to be at quantiles
+of x. If q is a numerical scalar greater or equal to 2, the quantiles are computed at 
+seq(0, 1, length.out = q + 1)[-c(1, q+1)], i.e. knots are at q-tiles of the distribution
+of x. Alternatively, q can be a vector of values in [0; 1] specifying the quantile
+probabilities directly (the vector is passed to argument probs of quantile).
+</p>
+
+
+<h3>Value</h3>
+
+<p>an object of class &quot;lspline&quot; and &quot;matrix&quot;, which its name is specified by the
+<code>newobj</code> argument (or its default name &quot;qlspline.newobj&quot;), is assigned on the serverside.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
+</div></body></html>

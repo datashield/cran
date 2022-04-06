@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for ranksSecureDS3 {dsBase}"><tr><td>ranksSecureDS3 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all sources</h2>
+
+<h3>Description</h3>
+
+<p>takes key non-disclosive components of the serverside data frame
+blackbox.ranks.df over to the clientside to enable global re-ranking of the
+global ranks just applying to the real data (not the pseudo-data).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ranksSecureDS3()
+</pre>
+
+
+<h3>Details</h3>
+
+<p>Severside aggregate function called by ds.ranksSecure. The
+non-disclosive components of blackbox.ranks.df that are transmitted to the
+clientside are: (1) final values of the encrypted global ranks vector
+after all seven rounds of encryption have been completed; (2) a set of
+sequential IDs allocated to the global ranks vector in each study in their
+current order based on increasing value of V2BR. This allows later re-linkage
+of values back on the serverside and confirmation that that linkage is
+correct. (3) a studyid vector with all values n in the nth study. This
+facilitates data management on the serverside during the global ranking
+of global ranks. For more details about the cluster of functions that
+collectively enable secure global ranking and estimation of global quantiles
+see the associated document entitled &quot;secure.global.ranking.docx&quot;. Also see
+the header file for ds.ranksSecure
+</p>
+
+
+<h3>Value</h3>
+
+<p>the non-disclosive elements of blackbox.output.df (see details)
+on the serverside as a data frame object (called sR6.df)
+on the clientside. After processing within ds.ranksSecure to create the
+global ranks and global quantiles (of real data only) across all studies,
+this is returned to the serverside as data frame &quot;global.ranks.quantiles.df&quot;
+using the clientside function ds.dmtC2S. To illustrate the difference between
+ranks and quantiles, if there are a total of 1000 original real observations
+across all studies and one particular observation has the rank 250, it will
+have quantile value 0.25 (i.e. 25
+increasing value). Both ranks and quantiles can have ties. For more details
+about the cluster of functions that collectively enable secure global ranking
+and estimation of global quantiles see the associated document entitled
+&quot;secure.global.ranking.docx&quot;. Also see the header file for ds.ranksSecure
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton 9th November, 2021
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

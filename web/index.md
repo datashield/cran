@@ -30,6 +30,7 @@ Functions:
 * [ds.asCharacter](dsBaseClient/ds.asCharacter.html) Converts a server-side R object into a character class
 * [ds.asDataMatrix](dsBaseClient/ds.asDataMatrix.html) Converts a server-side R object into a matrix
 * [ds.asFactor](dsBaseClient/ds.asFactor.html) Converts a server-side numeric vector into a factor
+* [ds.asFactorSimple](dsBaseClient/ds.asFactorSimple.html) Converts a numeric vector into a factor
 * [ds.asInteger](dsBaseClient/ds.asInteger.html) Converts a server-side R object into an integer class
 * [ds.asList](dsBaseClient/ds.asList.html) Converts a server-side R object into a list
 * [ds.asLogical](dsBaseClient/ds.asLogical.html) Converts a server-side R object into a logical class
@@ -58,15 +59,20 @@ Functions:
 * [ds.dataFrameSubset](dsBaseClient/ds.dataFrameSubset.html) Sub-sets data frames in the server-side
 * [ds.densityGrid](dsBaseClient/ds.densityGrid.html) Generates a density grid in the client-side
 * [ds.dim](dsBaseClient/ds.dim.html) Retrieves the dimension of a server-side R object
+* [ds.dmtC2S](dsBaseClient/ds.dmtC2S.html) Copy a clientside data.frame, matrix or tibble to the serverside
+* [ds.elspline](dsBaseClient/ds.elspline.html) Basis for a piecewise linear spline with meaningful coefficients
 * [ds.exists](dsBaseClient/ds.exists.html) Checks if an object is defined on the server-side
 * [ds.exp](dsBaseClient/ds.exp.html) Computes the exponentials in the server-side
+* [ds.extractQuantiles](dsBaseClient/ds.extractQuantiles.html) Secure ranking of a vector across all sources and use of these ranks to estimate global quantiles across all studies
+* [ds.forestplot](dsBaseClient/ds.forestplot.html) Forestplot for SLMA models
 * [ds.getWGSR](dsBaseClient/ds.getWGSR.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [ds.glm](dsBaseClient/ds.glm.html) Fits Generalized Linear Model
 * [ds.glmPredict](dsBaseClient/ds.glmPredict.html) Applies predict.glm() to a serverside glm object
 * [ds.glmSLMA](dsBaseClient/ds.glmSLMA.html) Fit a Generalized Linear Model (GLM) with pooling via Study Level Meta-Analysis (SLMA)
-* [ds.glmSummary](dsBaseClient/ds.glmSummary.html) summarize a glm object on the serverside
+* [ds.glmSummary](dsBaseClient/ds.glmSummary.html) Summarize a glm object on the serverside
 * [ds.glmerSLMA](dsBaseClient/ds.glmerSLMA.html) Fits Generalized Linear Mixed-Effect Models via Study-Level Meta-Analysis
 * [ds.heatmapPlot](dsBaseClient/ds.heatmapPlot.html) Generates a Heat Map plot
+* [ds.hetcor](dsBaseClient/ds.hetcor.html) Heterogeneous Correlation Matrix
 * [ds.histogram](dsBaseClient/ds.histogram.html) Generates a histogram plot
 * [ds.isNA](dsBaseClient/ds.isNA.html) Checks if a server-side vector is empty
 * [ds.isValid](dsBaseClient/ds.isValid.html) Checks if a server-side object is valid
@@ -83,6 +89,7 @@ Functions:
 * [ds.log](dsBaseClient/ds.log.html) Computes logarithms in the server-side
 * [ds.look](dsBaseClient/ds.look.html) Performs direct call to a server-side aggregate function
 * [ds.ls](dsBaseClient/ds.ls.html) lists all objects on a server-side environment
+* [ds.lspline](dsBaseClient/ds.lspline.html) Basis for a piecewise linear spline with meaningful coefficients
 * [ds.make](dsBaseClient/ds.make.html) Calculates a new object in the server-side
 * [ds.matrix](dsBaseClient/ds.matrix.html) Creates a matrix on the server-side
 * [ds.matrixDet](dsBaseClient/ds.matrixDet.html) Calculates de determinant of a matrix in the server-side
@@ -97,13 +104,17 @@ Functions:
 * [ds.meanSdGp](dsBaseClient/ds.meanSdGp.html) Computes the mean and standard deviation across groups defined by one factor
 * [ds.merge](dsBaseClient/ds.merge.html) Merges two data frames in the server-side
 * [ds.message](dsBaseClient/ds.message.html) Returns server-side messages to the client-side
+* [ds.metadata](dsBaseClient/ds.metadata.html) Gets the metadata associated with a variable held on the server
 * [ds.names](dsBaseClient/ds.names.html) Return the names of a list object
+* [ds.ns](dsBaseClient/ds.ns.html) Generate a Basis Matrix for Natural Cubic Splines
 * [ds.numNA](dsBaseClient/ds.numNA.html) Gets the number of missing values in a server-side vector
+* [ds.qlspline](dsBaseClient/ds.qlspline.html) Basis for a piecewise linear spline with meaningful coefficients
 * [ds.quantileMean](dsBaseClient/ds.quantileMean.html) Computes the quantiles of a server-side variable
 * [ds.rBinom](dsBaseClient/ds.rBinom.html) Generates Binomial distribution in the server-side
 * [ds.rNorm](dsBaseClient/ds.rNorm.html) Generates Normal distribution in the server-side
 * [ds.rPois](dsBaseClient/ds.rPois.html) Generates Poisson distribution in the server-side
 * [ds.rUnif](dsBaseClient/ds.rUnif.html) Generates Uniform distribution in the server-side
+* [ds.ranksSecure](dsBaseClient/ds.ranksSecure.html) Secure ranking of a vector across all sources
 * [ds.rbind](dsBaseClient/ds.rbind.html) Combines R objects by rows in the server-side
 * [ds.reShape](dsBaseClient/ds.reShape.html) Reshapes server-side grouped data
 * [ds.recodeLevels](dsBaseClient/ds.recodeLevels.html) Recodes the levels of a server-side factor vector
@@ -129,6 +140,7 @@ Functions:
 * [ds.tapply.assign](dsBaseClient/ds.tapply.assign.html) Applies a Function Over a Ragged Array on the server-side
 * [ds.testObjExists](dsBaseClient/ds.testObjExists.html) Checks if an R object exists on the server-side
 * [ds.unList](dsBaseClient/ds.unList.html) Flattens Server-Side Lists
+* [ds.unique](dsBaseClient/ds.unique.html) Perform 'unique' on a variable on the server-side
 * [ds.var](dsBaseClient/ds.var.html) Computes server-side vector variance
 * [ds.vectorCalc](dsBaseClient/ds.vectorCalc.html) Performs a mathematical operation on two or more vectors
 * [extract](dsBaseClient/extract.html) Splits character by '$' and returns the single characters
@@ -136,7 +148,7 @@ Functions:
 * [getPooledVar](dsBaseClient/getPooledVar.html) Gets a pooled variance
 * [glmChecks](dsBaseClient/glmChecks.html) Checks if the elements in the glm model have the right characteristics
 * [isAssigned](dsBaseClient/isAssigned.html) Checks an object has been generated on the server side
-* [isDefined](dsBaseClient/isDefined.html) Checks if the objecs are defined in studies
+* [isDefined](dsBaseClient/isDefined.html) Checks if the objects are defined in all studies
 * [logical2int](dsBaseClient/logical2int.html) Turns a logical operator into an integer
 * [meanByClassHelper0a](dsBaseClient/meanByClassHelper0a.html) Computes the mean values of a numeric vector across a factor vector
 * [meanByClassHelper0b](dsBaseClient/meanByClassHelper0b.html) Runs the computation if variables are within a table structure
@@ -149,8 +161,35 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.1.1/DESCRIPTION)
-* [dsBaseClient 6.1.1](https://github.com/datashield/dsBaseClient/tree/6.1.1)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.2.0/DESCRIPTION)
+* [dsBaseClient 6.2.0](https://github.com/datashield/dsBaseClient/tree/6.2.0)
+
+
+### dsDangerClient
+
+Installation command:
+
+	# Install dsDangerClient package (client side)
+	install.packages('dsDangerClient', repos=c(getOption('repos'), 'http://cran.obiba.org'), dependencies=TRUE)
+
+Functions:
+
+
+* [ds.DANGERc2sMATDF](dsDangerClient/ds.DANGERc2sMATDF.html) DANGER FUNCTION copying clientside matrix to serverside
+* [ds.DANGERdfEXTRACT](dsDangerClient/ds.DANGERdfEXTRACT.html) DANGER function returning data.frame (df) from processing servers to clientside - *** DEPRECATED BY ds.DANGERdmtEXTRACT ***
+* [ds.DANGERdmtEXTRACT](dsDangerClient/ds.DANGERdmtEXTRACT.html) DANGER function returning data.frame, Matrix or tibble (DMT) from processing servers to clientside
+* [ds.DANGERlistcode](dsDangerClient/ds.DANGERlistcode.html) list the code for a function
+* [ds.DANGERpassPARSER](dsDangerClient/ds.DANGERpassPARSER.html) determines how a given R object or character string is managed by the DataSHIELD parser
+* [ds.DANGERplot](dsDangerClient/ds.DANGERplot.html) DANGER function
+* [ds.DANGERprint](dsDangerClient/ds.DANGERprint.html) DANGER function
+* [ds.DANGERsearch](dsDangerClient/ds.DANGERsearch.html) lists all R environments on serverside
+* [ds.DANGERseedEXTRACT](dsDangerClient/ds.DANGERseedEXTRACT.html) ds.DANGERseedEXTRACT
+* [ds.DANGERvarsEXTRACT](dsDangerClient/ds.DANGERvarsEXTRACT.html) ds.DANGERvarsEXTRACT
+
+Sources:
+
+* [DESCRIPTION](https://raw.github.com/datashield/dsDangerClient/6.2.0/DESCRIPTION)
+* [dsDangerClient 6.2.0](https://github.com/datashield/dsDangerClient/tree/6.2.0)
 
 
 ## Server Packages
@@ -173,11 +212,14 @@ Functions:
 * [asDataMatrixDS](dsBase/asDataMatrixDS.html) asDataMatrixDS a serverside assign function called by ds.asDataMatrix
 * [asFactorDS1](dsBase/asFactorDS1.html) Determines the levels of the input variable in each single study
 * [asFactorDS2](dsBase/asFactorDS2.html) Converts a numeric vector into a factor
+* [asFactorSimpleDS](dsBase/asFactorSimpleDS.html) Converts a numeric vector into a factor
 * [asIntegerDS](dsBase/asIntegerDS.html) Coerces an R object into class integer
 * [asListDS](dsBase/asListDS.html) asListDS a serverside aggregate function called by ds.asList
 * [asLogicalDS](dsBase/asLogicalDS.html) Coerces an R object into class numeric
 * [asMatrixDS](dsBase/asMatrixDS.html) Coerces an R object into a matrix
 * [asNumericDS](dsBase/asNumericDS.html) Coerces an R object into class numeric
+* [blackBoxDS](dsBase/blackBoxDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [blackBoxRanksDS](dsBase/blackBoxRanksDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [boxPlotGGDS](dsBase/boxPlotGGDS.html) Create the identity stats and necessary data to draw a plot on the client
 * [boxPlotGG_data_TreatmentDS](dsBase/boxPlotGG_data_TreatmentDS.html) Arrange data frame to pass it to the boxplot function
 * [boxPlotGG_data_Treatment_numericDS](dsBase/boxPlotGG_data_Treatment_numericDS.html) Arrange vector to pass it to the boxplot function
@@ -185,6 +227,7 @@ Functions:
 * [cbindDS](dsBase/cbindDS.html) cbindDS called by ds.cbind
 * [changeRefGroupDS](dsBase/changeRefGroupDS.html) Changes a reference level of a factor
 * [checkNegValueDS](dsBase/checkNegValueDS.html) Checks if a numeric variable has negative values
+* [checkPermissivePrivacyControlLevel](dsBase/checkPermissivePrivacyControlLevel.html) checkPermissivePrivacyControlLevel
 * [classDS](dsBase/classDS.html) Returns the class of an object
 * [colnamesDS](dsBase/colnamesDS.html) Returns the column names of a data frame or matrix
 * [completeCasesDS](dsBase/completeCasesDS.html) completeCasesDS: an assign function called by ds.completeCases
@@ -198,7 +241,11 @@ Functions:
 * [dataFrameSubsetDS2](dsBase/dataFrameSubsetDS2.html) dataFrameSubsetDS2 an assign function called by ds.dataFrameSubset
 * [densityGridDS](dsBase/densityGridDS.html) Generates a density grid with or without a priori defined limits
 * [dimDS](dsBase/dimDS.html) Returns the dimension of a data frame or matrix
+* [dmtC2SDS](dsBase/dmtC2SDS.html) Copy a clientside data.frame, matrix or tibble (DMT) to the serverside.
+* [elsplineDS](dsBase/elsplineDS.html) Basis for a piecewise linear spline with meaningful coefficients
 * [extract](dsBase/extract.html) Splits character by '$' and returns the single characters
+* [extractQuantilesDS1](dsBase/extractQuantilesDS1.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
+* [extractQuantilesDS2](dsBase/extractQuantilesDS2.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
 * [getWGSRDS](dsBase/getWGSRDS.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [glmDS1](dsBase/glmDS1.html) glmDS1 called by ds.glm
 * [glmDS2](dsBase/glmDS2.html) glmDS2 called by ds.glm
@@ -209,9 +256,10 @@ Functions:
 * [glmSLMADS2](dsBase/glmSLMADS2.html) Fit a Generalized Linear Model (GLM) with pooling via Study Level Meta-Analysis (SLMA)
 * [glmSummaryDS.ag](dsBase/glmSummaryDS.ag.html) summarize a glm object on the serverside
 * [glmSummaryDS.as](dsBase/glmSummaryDS.as.html) summarize a glm object on the serverside
-* [glmerSLMADS.assing](dsBase/glmerSLMADS.assing.html) Fitting generalized linear mixed effect models - serverside function
+* [glmerSLMADS.assign](dsBase/glmerSLMADS.assign.html) Fitting generalized linear mixed effect models - serverside function
 * [glmerSLMADS2](dsBase/glmerSLMADS2.html) Fitting generalized linear mixed effect models - serverside function
 * [heatmapPlotDS](dsBase/heatmapPlotDS.html) Calculates the coordinates of the centroid of each n nearest neighbours
+* [hetcorDS](dsBase/hetcorDS.html) Heterogeneous Correlation Matrix
 * [histogramDS1](dsBase/histogramDS1.html) returns the minimum and the maximum of the input numeric vector
 * [histogramDS2](dsBase/histogramDS2.html) Computes a histogram of the input variable without plotting.
 * [isNaDS](dsBase/isNaDS.html) Checks if a vector is empty
@@ -228,6 +276,7 @@ Functions:
 * [lmerSLMADS.assign](dsBase/lmerSLMADS.assign.html) Fitting linear mixed effect models - serverside function
 * [lmerSLMADS2](dsBase/lmerSLMADS2.html) Fitting linear mixed effect models - serverside function
 * [lsDS](dsBase/lsDS.html) lists all objects on a serverside environment
+* [lsplineDS](dsBase/lsplineDS.html) Basis for a piecewise linear spline with meaningful coefficients
 * [matrixDS](dsBase/matrixDS.html) matrixDS assign function called by ds.matrix
 * [matrixDetDS1](dsBase/matrixDetDS1.html) matrixDetDS aggregate function called by ds.matrixDet.report
 * [matrixDetDS2](dsBase/matrixDetDS2.html) matrixDetDS assign function called by ds.matrixDet
@@ -240,14 +289,23 @@ Functions:
 * [meanSdGpDS](dsBase/meanSdGpDS.html) MeanSdGpDS
 * [mergeDS](dsBase/mergeDS.html) mergeDS (assign function) called by ds.merge
 * [messageDS](dsBase/messageDS.html) messageDS
+* [metadataDS](dsBase/metadataDS.html) Returns the metadata, if any, about the specified variable
+* [minMaxRandDS](dsBase/minMaxRandDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [namesDS](dsBase/namesDS.html) Return the names of a list object
+* [nsDS](dsBase/nsDS.html) Generate a Basis Matrix for Natural Cubic Splines
 * [numNaDS](dsBase/numNaDS.html) Counts the number of missing values
+* [qlsplineDS](dsBase/qlsplineDS.html) Basis for a piecewise linear spline with meaningful coefficients
 * [quantileMeanDS](dsBase/quantileMeanDS.html) Generates quantiles and mean information without maximum and minimum
 * [rBinomDS](dsBase/rBinomDS.html) rBinomDS serverside assign function
 * [rNormDS](dsBase/rNormDS.html) rNormDS serverside assign function
 * [rPoisDS](dsBase/rPoisDS.html) rPoisDS serverside assign function
 * [rUnifDS](dsBase/rUnifDS.html) rUnifDS serverside assign function
 * [rangeDS](dsBase/rangeDS.html) returns the minimum and maximum of a numeric vector
+* [ranksSecureDS1](dsBase/ranksSecureDS1.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS2](dsBase/ranksSecureDS2.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS3](dsBase/ranksSecureDS3.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS4](dsBase/ranksSecureDS4.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS5](dsBase/ranksSecureDS5.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [rbindDS](dsBase/rbindDS.html) rbindDS called by ds.rbind
 * [reShapeDS](dsBase/reShapeDS.html) reShapeDS (assign function) called by ds.reShape
 * [recodeLevelsDS](dsBase/recodeLevelsDS.html) Recodes the levels of a categorical variables
@@ -278,9 +336,40 @@ Functions:
 * [tapplyDS.assign](dsBase/tapplyDS.assign.html) tapplyDS.assign called by ds.tapply.assign
 * [testObjExistsDS](dsBase/testObjExistsDS.html) testObjExistsDS
 * [unListDS](dsBase/unListDS.html) unListDS a serverside assign function called by ds.unList
+* [uniqueDS](dsBase/uniqueDS.html) Applies the 'unique' method to a server-side variable.
 * [varDS](dsBase/varDS.html) Computes the variance of vector
+* [vectorDS](dsBase/vectorDS.html) Creates a vector on the server-side.
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.1.1/DESCRIPTION)
-* [dsBase 6.1.1](https://github.com/datashield/dsBase/tree/6.1.1)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.2.0/DESCRIPTION)
+* [dsBase 6.2.0](https://github.com/datashield/dsBase/tree/6.2.0)
+
+
+### dsDanger
+
+Installation command:
+
+	# Install dsDanger package (server side)
+	library(opaladmin)
+	o<-opal.login(...)
+	dsadmin.install_package(o, 'dsDanger')
+
+Functions:
+
+
+* [DANGERc2sMATDFDS](dsDanger/DANGERc2sMATDFDS.html) DANGER FUNCTION copying clientside matrix to serverside
+* [DANGERdfEXTRACTDS](dsDanger/DANGERdfEXTRACTDS.html) DANGER function returning data.frame (df) from processing servers to clientside - *** DEPRECATED DANGERdmtEXTRACTDS ***
+* [DANGERdmtEXTRACTDS](dsDanger/DANGERdmtEXTRACTDS.html) DANGER function returning data.frame, Matrix or tibble (DMT) from processing servers to clientside
+* [DANGERlistcodeDS](dsDanger/DANGERlistcodeDS.html) lists the code for a function
+* [DANGERpassPARSERDS](dsDanger/DANGERpassPARSERDS.html) determines how a given R object or character string is managed by the DataSHIELD parser
+* [DANGERplotDS](dsDanger/DANGERplotDS.html) DANGERplotDS
+* [DANGERprintDS](dsDanger/DANGERprintDS.html) DANGERprintDS
+* [DANGERsearchDS](dsDanger/DANGERsearchDS.html) lists all environments on serverside
+* [DANGERseedEXTRACTDS](dsDanger/DANGERseedEXTRACTDS.html) DANGERseedEXTRACT
+* [DANGERvarsEXTRACTDS](dsDanger/DANGERvarsEXTRACTDS.html) DANGERvarsEXTRACT
+
+Sources:
+
+* [DESCRIPTION](https://raw.github.com/datashield/dsDanger/6.2.0/DESCRIPTION)
+* [dsDanger 6.2.0](https://github.com/datashield/dsDanger/tree/6.2.0)

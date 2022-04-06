@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fit a Generalized Linear Model (GLM) with pooling via Study...</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
-</head><body>
+</head><body><div class="container">
 
 <table width="100%" summary="page for ds.glmSLMA {dsBaseClient}"><tr><td>ds.glmSLMA {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
@@ -27,6 +28,7 @@ ds.glmSLMA(
   dataName = NULL,
   checks = FALSE,
   maxit = 30,
+  notify.of.progress = FALSE,
   datasources = NULL
 )
 </pre>
@@ -88,6 +90,11 @@ of the model. Default FALSE. For more information see <strong>Details</strong>.<
 <p>a numeric scalar denoting the maximum number of iterations that
 are permitted before <code>ds.glmSLMA</code> declares that the model has failed to converge. 
 For more information see <strong>Details</strong>.</p>
+</td></tr>
+<tr valign="top"><td><code>notify.of.progress</code></td>
+<td>
+<p>specifies if console output should be produced to indicate
+progress. Default FALSE.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -509,5 +516,5 @@ datashield.logout(connections)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
-</body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
+</div></body></html>

@@ -1,11 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks if the objecs are defined in studies</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checks if the objects are defined in all studies</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
-</head><body>
+</head><body><div class="container">
 
 <table width="100%" summary="page for isDefined {dsBaseClient}"><tr><td>isDefined {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Checks if the objecs are defined in studies</h2>
+<h2>Checks if the objects are defined in all studies</h2>
 
 <h3>Description</h3>
 
@@ -16,7 +17,7 @@
 <h3>Usage</h3>
 
 <pre>
-isDefined(datasources = NULL, obj = NULL)
+isDefined(datasources = NULL, obj = NULL, error.message = TRUE)
 </pre>
 
 
@@ -25,12 +26,19 @@ isDefined(datasources = NULL, obj = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>datasources</code></td>
 <td>
-<p>a list of <code>DSConnection-class</code> objects obtained after login. If the &lt;datasources&gt;
-the default set of connections will be used: see datashield.connections_default.</p>
+<p>a list of <code>DSConnection-class</code> objects obtained after login. 
+If the <code>datasources</code> argument is not specified, the default set of connections will be
+used: see <code>datashield.connections_default</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>obj</code></td>
 <td>
-<p>a character vector, the name of the objects to look for.</p>
+<p>a character vector, the name of the object(s) to look for.</p>
+</td></tr>
+<tr valign="top"><td><code>error.message</code></td>
+<td>
+<p>a Boolean which specifies if the function should stop and return
+an error message when the input object is not defined in one or more studies or to
+return a list of TRUE/FALSE indicating in which studies the object is defined</p>
 </td></tr>
 </table>
 
@@ -44,8 +52,16 @@ in all the studies. If not the process should halt.
 
 <h3>Value</h3>
 
-<p>a boolean vector.
+<p>returns an error message if <code>error.message</code> argument is set to TRUE (default)
+and if the input object is not defined in one or more studies, or a Boolean value if
+<code>error.message</code> argument is set to FALSE.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
-</body></html>
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
+</div></body></html>

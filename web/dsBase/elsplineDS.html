@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Basis for a piecewise linear spline with meaningful...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for elsplineDS {dsBase}"><tr><td>elsplineDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Basis for a piecewise linear spline with meaningful coefficients</h2>
+
+<h3>Description</h3>
+
+<p>This function is based on the native R function <code>elspline</code> from the
+<code>lspline</code> package. This function computes the basis of piecewise-linear spline
+such that, depending on the argument marginal, the coefficients can be interpreted as
+(1) slopes of consecutive spline segments, or (2) slope change at consecutive knots.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+elsplineDS(x = x, n = n, marginal = FALSE, names = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the name of the input numeric variable</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>integer greater than 2, knots are computed such that they cut n equally-spaced
+intervals along the range of x</p>
+</td></tr>
+<tr valign="top"><td><code>marginal</code></td>
+<td>
+<p>logical, how to parametrize the spline, see Details</p>
+</td></tr>
+<tr valign="top"><td><code>names</code></td>
+<td>
+<p>character, vector of names for constructed variables</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If marginal is FALSE (default) the coefficients of the spline correspond to
+slopes of the consecutive segments. If it is TRUE the first coefficient correspond to
+the slope of the first segment. The consecutive coefficients correspond to the change
+in slope as compared to the previous segment.
+Function elspline wraps lspline and computes the knot positions such that they cut the
+range of x into n equal-width intervals.
+</p>
+
+
+<h3>Value</h3>
+
+<p>an object of class &quot;lspline&quot; and &quot;matrix&quot;, which its name is specified by the
+<code>newobj</code> argument (or its default name &quot;elspline.newobj&quot;), is assigned on the serverside.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

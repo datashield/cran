@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Tests for correlation between paired samples in the...</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
-</head><body>
+</head><body><div class="container">
 
 <table width="100%" summary="page for ds.corTest {dsBaseClient}"><tr><td>ds.corTest {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
@@ -9,14 +10,22 @@
 
 <h3>Description</h3>
 
-<p>This is similar to the R base function <code>cor.test</code>.
+<p>This is similar to the R stats function <code>cor.test</code>.
 </p>
 
 
 <h3>Usage</h3>
 
 <pre>
-ds.corTest(x = NULL, y = NULL, datasources = NULL)
+ds.corTest(
+  x = NULL,
+  y = NULL,
+  method = "pearson",
+  exact = NULL,
+  conf.level = 0.95,
+  type = "split",
+  datasources = NULL
+)
 </pre>
 
 
@@ -25,11 +34,36 @@ ds.corTest(x = NULL, y = NULL, datasources = NULL)
 <table summary="R argblock">
 <tr valign="top"><td><code>x</code></td>
 <td>
-<p>a character string providing  the name of a numerical vector.</p>
+<p>a character string providing the name of a numerical vector.</p>
 </td></tr>
 <tr valign="top"><td><code>y</code></td>
 <td>
-<p>a character string providing  the name of a numerical vector.</p>
+<p>a character string providing the name of a numerical vector.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>a character string indicating which correlation coefficient is to be
+used for the test. One of &quot;pearson&quot;, &quot;kendall&quot;, or &quot;spearman&quot;, can be abbreviated. 
+Default is set to &quot;pearson&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>exact</code></td>
+<td>
+<p>a logical indicating whether an exact p-value should be computed. Used for
+Kendall's tau and Spearman's rho. See ‘Details’ of R stats function <code>cor.test</code> for
+the meaning of NULL (the default).</p>
+</td></tr>
+<tr valign="top"><td><code>conf.level</code></td>
+<td>
+<p>confidence level for the returned confidence interval. Currently
+only used for the Pearson product moment correlation coefficient if there are at least
+4 complete pairs of observations. Default is set to 0.95.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>a character string that represents the type of analysis to carry out. 
+This must be set to <code>'split'</code> or <code>'combine'</code>. Default is set to <code>'split'</code>. If 
+<code>type</code> is set to &quot;combine&quot; then an approximated pooled correlation is estimated based on 
+Fisher's z transformation.</p>
 </td></tr>
 <tr valign="top"><td><code>datasources</code></td>
 <td>
@@ -42,15 +76,15 @@ the default set of connections will be used: see <code>datashield.connections_de
 
 <h3>Details</h3>
 
-<p>Runs a two-sided Pearson test with a 0.95 confidence level.
-</p>
-<p>Server function called: <code>cor.test</code>
+<p>Runs a two-sided correlation test between paired samples, using one of
+Pearson's product moment correlation coefficient, Kendall's tau or Spearman's rho.
+Server function called: <code>corTestDS</code>
 </p>
 
 
 <h3>Value</h3>
 
-<p><code>ds.corTest</code> returns to the client-side the results of the Pearson test.
+<p><code>ds.corTest</code> returns to the client-side the results of the correlation test.
 </p>
 
 
@@ -101,8 +135,7 @@ the default set of connections will be used: see <code>datashield.connections_de
 
 ## End(Not run)   
 
-
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
-</body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
+</div></body></html>

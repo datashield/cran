@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: DANGER function returning data.frame (df) from processing...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for ds.DANGERdfEXTRACT {dsDangerClient}"><tr><td>ds.DANGERdfEXTRACT {dsDangerClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>DANGER function returning data.frame (df) from processing servers to
+clientside - *** DEPRECATED BY ds.DANGERdmtEXTRACT ***</h2>
+
+<h3>Description</h3>
+
+<p>Copies a df from data servers to clientside.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ds.DANGERdfEXTRACT(
+  dataframeName = NULL,
+  extract.study.specific = TRUE,
+  extract.all.studies.combined = TRUE,
+  datasources = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dataframeName</code></td>
+<td>
+<p>character string that specifies the name of the df 
+to be copied from the serverside to the clientside</p>
+</td></tr>
+<tr valign="top"><td><code>extract.study.specific</code></td>
+<td>
+<p>logical defaulted to TRUE which means that the
+df from each processing source will be combined and returned as a single object.
+If FALSE this will not be returned. If the &lt;extract.study.specific&gt; and the
+&lt;extract.all.studies.combined&gt; arguments are both TRUE separate and
+combined dmts will be returned.</p>
+</td></tr>
+<tr valign="top"><td><code>extract.all.studies.combined</code></td>
+<td>
+<p>logical defaulted to TRUE which means that the
+dfs from each processing source will be returned as a separate object. If FALSE
+these will not be returned</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>specifies the particular 'connection object(s)' to use.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>*** DEPRECATED BY ds.DANGERdmtEXTRACT ***
+</p>
+
+
+<h3>Value</h3>
+
+<p>the serverside df specified by name dfName as a
+data.frame/matrix/tibble on the clientside.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsDangerClient</em> version 6.2.0 ]</div>
+</div></body></html>

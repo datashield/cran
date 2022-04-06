@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for ranksSecureDS1 {dsBase}"><tr><td>ranksSecureDS1 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all sources</h2>
+
+<h3>Description</h3>
+
+<p>takes key non-disclosive components of the serverside data frame
+blackbox.output.df over to the clientside to enable global ranking.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ranksSecureDS1()
+</pre>
+
+
+<h3>Details</h3>
+
+<p>Severside aggregate function called by ds.ranksSecure. The
+non-disclosive components of blackbox.output.df that are transmitted to the
+clientside are: (1) final values of the &quot;combined real+pseudo data vector&quot;
+after all seven rounds of encryption have been completed; (2) a set of
+sequential IDs allocated after sorting the &quot;combined real+pseudo data vector&quot;
+by value (in ascending order). This allows later re-linkage of values back on
+the serverside and confirmation that that linkage is correct. For more
+details about the cluster of functions that collectively enable secure global
+ranking and estimation of global quantiles see the associated document
+entitled &quot;secure.global.ranking.docx&quot;. Also see the header file
+for ds.ranksSecure
+</p>
+
+
+<h3>Value</h3>
+
+<p>the non-disclosive elements of blackbox.output.df (see details)
+on the serverside as a data frame object (called blackbox.output)
+on the clientside. After processing to create the global ranks across all
+studies, this is returned to the serverside as the data frame sR4.df using
+the clientside function ds.dmtC2S
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton 9th November, 2021
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

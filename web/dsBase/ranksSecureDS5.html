@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for ranksSecureDS5 {dsBase}"><tr><td>ranksSecureDS5 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all sources</h2>
+
+<h3>Description</h3>
+
+<p>Summarises the serverside data frame written by ranksSecureDS4
+which is identified by the name given by the argument (&lt;output.ranks.df&gt;) of
+the ds.ranksSecure function to produce a new output data frame containing
+only 5 key variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ranksSecureDS5(output.ranks.df)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>output.ranks.df</code></td>
+<td>
+<p>a character string which specifies an optional name
+for the data.frame written to the serverside on each data source that
+contains 11 of the key output variables from the ranking procedure pertaining
+to that particular data source. This argument is set by the argument with
+the same name in ds.ranksSecure.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Serverside assign function called by clientside function
+ds.ranksSecure. Takes the serverside data frame written by ranksSecureDS4
+which is identified by the name given by the argument (&lt;output.ranks.df&gt;) of
+the ds.ranksSecure function. This holds 11 vectors including the final
+global ranks across all studies and final global quantiles. The data frame
+is ordered according to the argument &lt;ranks.sort.by&gt; in ds.ranksSecure. The
+ranksSecureDS5 function then extracts 5 key vectors from the larger data
+frame to produce a summary data frame that is given a name specified by
+the argument (&lt;summary.output.ranks.df&gt;) the ds.ranksSecure function.
+This data frame includes the following components: (1) The values of a
+sequential ID variable (ID.seq.real.orig) created to lie alongside the
+original V2BR vector in the same order as that vector was itself ordered.
+These ID values therefore reflect which row in the original data corresponds
+to a given row in the output. If the argument &lt;ranks.sort.by&gt; in
+ds.ranksSecure is set to &quot;ID.orig&quot; the values of the ID.seq.real.orig vector
+in the output data frame simply run sequentially from 1 to N where N is the
+number of individuals in the corresponding study. If &lt;ranks.sort.by&gt; is
+set to &quot;vals.orig&quot; the values of the ID.seq.real.orig vector will be
+determined by the magnitude of the corresponding V2BR value and will
+appear to be ordered in a haphazard manner; (2) the original values of V2BR;
+(3) the global ranks corresponding to the original values in V2BR, with ties
+reflected appropriately; (4) the global quantiles corresponding to the
+original values in V2BR, with ties reflected appropriately; (5) a studyid
+vector in which all elements take the value n in the nth study.
+</p>
+
+
+<h3>Value</h3>
+
+<p>extracts 5 key vectors from the larger data frame created by
+ranksSecureDS4 to produce a summary data frame that is written to the
+serverside. It is given a name specified by the argument.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton 9th November, 2021
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

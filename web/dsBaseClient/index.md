@@ -17,6 +17,7 @@ Functions:
 * [ds.asCharacter](ds.asCharacter.html) Converts a server-side R object into a character class
 * [ds.asDataMatrix](ds.asDataMatrix.html) Converts a server-side R object into a matrix
 * [ds.asFactor](ds.asFactor.html) Converts a server-side numeric vector into a factor
+* [ds.asFactorSimple](ds.asFactorSimple.html) Converts a numeric vector into a factor
 * [ds.asInteger](ds.asInteger.html) Converts a server-side R object into an integer class
 * [ds.asList](ds.asList.html) Converts a server-side R object into a list
 * [ds.asLogical](ds.asLogical.html) Converts a server-side R object into a logical class
@@ -45,15 +46,20 @@ Functions:
 * [ds.dataFrameSubset](ds.dataFrameSubset.html) Sub-sets data frames in the server-side
 * [ds.densityGrid](ds.densityGrid.html) Generates a density grid in the client-side
 * [ds.dim](ds.dim.html) Retrieves the dimension of a server-side R object
+* [ds.dmtC2S](ds.dmtC2S.html) Copy a clientside data.frame, matrix or tibble to the serverside
+* [ds.elspline](ds.elspline.html) Basis for a piecewise linear spline with meaningful coefficients
 * [ds.exists](ds.exists.html) Checks if an object is defined on the server-side
 * [ds.exp](ds.exp.html) Computes the exponentials in the server-side
+* [ds.extractQuantiles](ds.extractQuantiles.html) Secure ranking of a vector across all sources and use of these ranks to estimate global quantiles across all studies
+* [ds.forestplot](ds.forestplot.html) Forestplot for SLMA models
 * [ds.getWGSR](ds.getWGSR.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [ds.glm](ds.glm.html) Fits Generalized Linear Model
 * [ds.glmPredict](ds.glmPredict.html) Applies predict.glm() to a serverside glm object
 * [ds.glmSLMA](ds.glmSLMA.html) Fit a Generalized Linear Model (GLM) with pooling via Study Level Meta-Analysis (SLMA)
-* [ds.glmSummary](ds.glmSummary.html) summarize a glm object on the serverside
+* [ds.glmSummary](ds.glmSummary.html) Summarize a glm object on the serverside
 * [ds.glmerSLMA](ds.glmerSLMA.html) Fits Generalized Linear Mixed-Effect Models via Study-Level Meta-Analysis
 * [ds.heatmapPlot](ds.heatmapPlot.html) Generates a Heat Map plot
+* [ds.hetcor](ds.hetcor.html) Heterogeneous Correlation Matrix
 * [ds.histogram](ds.histogram.html) Generates a histogram plot
 * [ds.isNA](ds.isNA.html) Checks if a server-side vector is empty
 * [ds.isValid](ds.isValid.html) Checks if a server-side object is valid
@@ -70,6 +76,7 @@ Functions:
 * [ds.log](ds.log.html) Computes logarithms in the server-side
 * [ds.look](ds.look.html) Performs direct call to a server-side aggregate function
 * [ds.ls](ds.ls.html) lists all objects on a server-side environment
+* [ds.lspline](ds.lspline.html) Basis for a piecewise linear spline with meaningful coefficients
 * [ds.make](ds.make.html) Calculates a new object in the server-side
 * [ds.matrix](ds.matrix.html) Creates a matrix on the server-side
 * [ds.matrixDet](ds.matrixDet.html) Calculates de determinant of a matrix in the server-side
@@ -84,13 +91,17 @@ Functions:
 * [ds.meanSdGp](ds.meanSdGp.html) Computes the mean and standard deviation across groups defined by one factor
 * [ds.merge](ds.merge.html) Merges two data frames in the server-side
 * [ds.message](ds.message.html) Returns server-side messages to the client-side
+* [ds.metadata](ds.metadata.html) Gets the metadata associated with a variable held on the server
 * [ds.names](ds.names.html) Return the names of a list object
+* [ds.ns](ds.ns.html) Generate a Basis Matrix for Natural Cubic Splines
 * [ds.numNA](ds.numNA.html) Gets the number of missing values in a server-side vector
+* [ds.qlspline](ds.qlspline.html) Basis for a piecewise linear spline with meaningful coefficients
 * [ds.quantileMean](ds.quantileMean.html) Computes the quantiles of a server-side variable
 * [ds.rBinom](ds.rBinom.html) Generates Binomial distribution in the server-side
 * [ds.rNorm](ds.rNorm.html) Generates Normal distribution in the server-side
 * [ds.rPois](ds.rPois.html) Generates Poisson distribution in the server-side
 * [ds.rUnif](ds.rUnif.html) Generates Uniform distribution in the server-side
+* [ds.ranksSecure](ds.ranksSecure.html) Secure ranking of a vector across all sources
 * [ds.rbind](ds.rbind.html) Combines R objects by rows in the server-side
 * [ds.reShape](ds.reShape.html) Reshapes server-side grouped data
 * [ds.recodeLevels](ds.recodeLevels.html) Recodes the levels of a server-side factor vector
@@ -116,6 +127,7 @@ Functions:
 * [ds.tapply.assign](ds.tapply.assign.html) Applies a Function Over a Ragged Array on the server-side
 * [ds.testObjExists](ds.testObjExists.html) Checks if an R object exists on the server-side
 * [ds.unList](ds.unList.html) Flattens Server-Side Lists
+* [ds.unique](ds.unique.html) Perform 'unique' on a variable on the server-side
 * [ds.var](ds.var.html) Computes server-side vector variance
 * [ds.vectorCalc](ds.vectorCalc.html) Performs a mathematical operation on two or more vectors
 * [extract](extract.html) Splits character by '$' and returns the single characters
@@ -123,7 +135,7 @@ Functions:
 * [getPooledVar](getPooledVar.html) Gets a pooled variance
 * [glmChecks](glmChecks.html) Checks if the elements in the glm model have the right characteristics
 * [isAssigned](isAssigned.html) Checks an object has been generated on the server side
-* [isDefined](isDefined.html) Checks if the objecs are defined in studies
+* [isDefined](isDefined.html) Checks if the objects are defined in all studies
 * [logical2int](logical2int.html) Turns a logical operator into an integer
 * [meanByClassHelper0a](meanByClassHelper0a.html) Computes the mean values of a numeric vector across a factor vector
 * [meanByClassHelper0b](meanByClassHelper0b.html) Runs the computation if variables are within a table structure
@@ -136,5 +148,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.1.1/DESCRIPTION)
-* [dsBaseClient 6.1.1](https://github.com/datashield/dsBaseClient/tree/6.1.1)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.2.0/DESCRIPTION)
+* [dsBaseClient 6.2.0](https://github.com/datashield/dsBaseClient/tree/6.2.0)

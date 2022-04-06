@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Converts a server-side R object into a numeric class</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
-</head><body>
+</head><body><div class="container">
 
 <table width="100%" summary="page for ds.asNumeric {dsBaseClient}"><tr><td>ds.asNumeric {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
@@ -46,12 +47,12 @@ the default set of connections will be used: see <code>datashield.connections_de
 <h3>Details</h3>
 
 <p>This function is based on the native R function <code>as.numeric</code>.
-The only difference is that the DataSHIELD 
-function first converts the values of the input object into characters and then convert 
-those to numerics. This addition is important for the case where the input object is of class
-factor having numbers as levels. In that case, the native R <code>as.numeric</code> function returns
-the underlying level codes and not the values as numbers. For example <code>as.numeric</code> in R
-converts the factor vector: <br />
+However, it behaves differently with some specific classes of variables. For example, if the input 
+object is of class factor, it first converts its values into characters and then convert those to
+numerics. This behavior is important for the case where the input object is of class factor having
+numbers as levels. In that case, the native R 
+<code>as.numeric</code> function returns the underlying level codes and not the values as numbers. 
+For example <code>as.numeric</code> in R converts the factor vector: <br />
 0 1 1 2 1 0 1 0 2 2 2 1 <br />
 Levels: 0 1 2 <br />
 to the following numeric vector:
@@ -121,5 +122,5 @@ it is in a valid form.
 ## End(Not run)   
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
-</body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
+</div></body></html>

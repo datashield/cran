@@ -18,11 +18,14 @@ Functions:
 * [asDataMatrixDS](asDataMatrixDS.html) asDataMatrixDS a serverside assign function called by ds.asDataMatrix
 * [asFactorDS1](asFactorDS1.html) Determines the levels of the input variable in each single study
 * [asFactorDS2](asFactorDS2.html) Converts a numeric vector into a factor
+* [asFactorSimpleDS](asFactorSimpleDS.html) Converts a numeric vector into a factor
 * [asIntegerDS](asIntegerDS.html) Coerces an R object into class integer
 * [asListDS](asListDS.html) asListDS a serverside aggregate function called by ds.asList
 * [asLogicalDS](asLogicalDS.html) Coerces an R object into class numeric
 * [asMatrixDS](asMatrixDS.html) Coerces an R object into a matrix
 * [asNumericDS](asNumericDS.html) Coerces an R object into class numeric
+* [blackBoxDS](blackBoxDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [blackBoxRanksDS](blackBoxRanksDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [boxPlotGGDS](boxPlotGGDS.html) Create the identity stats and necessary data to draw a plot on the client
 * [boxPlotGG_data_TreatmentDS](boxPlotGG_data_TreatmentDS.html) Arrange data frame to pass it to the boxplot function
 * [boxPlotGG_data_Treatment_numericDS](boxPlotGG_data_Treatment_numericDS.html) Arrange vector to pass it to the boxplot function
@@ -30,6 +33,7 @@ Functions:
 * [cbindDS](cbindDS.html) cbindDS called by ds.cbind
 * [changeRefGroupDS](changeRefGroupDS.html) Changes a reference level of a factor
 * [checkNegValueDS](checkNegValueDS.html) Checks if a numeric variable has negative values
+* [checkPermissivePrivacyControlLevel](checkPermissivePrivacyControlLevel.html) checkPermissivePrivacyControlLevel
 * [classDS](classDS.html) Returns the class of an object
 * [colnamesDS](colnamesDS.html) Returns the column names of a data frame or matrix
 * [completeCasesDS](completeCasesDS.html) completeCasesDS: an assign function called by ds.completeCases
@@ -43,7 +47,11 @@ Functions:
 * [dataFrameSubsetDS2](dataFrameSubsetDS2.html) dataFrameSubsetDS2 an assign function called by ds.dataFrameSubset
 * [densityGridDS](densityGridDS.html) Generates a density grid with or without a priori defined limits
 * [dimDS](dimDS.html) Returns the dimension of a data frame or matrix
+* [dmtC2SDS](dmtC2SDS.html) Copy a clientside data.frame, matrix or tibble (DMT) to the serverside.
+* [elsplineDS](elsplineDS.html) Basis for a piecewise linear spline with meaningful coefficients
 * [extract](extract.html) Splits character by '$' and returns the single characters
+* [extractQuantilesDS1](extractQuantilesDS1.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
+* [extractQuantilesDS2](extractQuantilesDS2.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
 * [getWGSRDS](getWGSRDS.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [glmDS1](glmDS1.html) glmDS1 called by ds.glm
 * [glmDS2](glmDS2.html) glmDS2 called by ds.glm
@@ -54,9 +62,10 @@ Functions:
 * [glmSLMADS2](glmSLMADS2.html) Fit a Generalized Linear Model (GLM) with pooling via Study Level Meta-Analysis (SLMA)
 * [glmSummaryDS.ag](glmSummaryDS.ag.html) summarize a glm object on the serverside
 * [glmSummaryDS.as](glmSummaryDS.as.html) summarize a glm object on the serverside
-* [glmerSLMADS.assing](glmerSLMADS.assing.html) Fitting generalized linear mixed effect models - serverside function
+* [glmerSLMADS.assign](glmerSLMADS.assign.html) Fitting generalized linear mixed effect models - serverside function
 * [glmerSLMADS2](glmerSLMADS2.html) Fitting generalized linear mixed effect models - serverside function
 * [heatmapPlotDS](heatmapPlotDS.html) Calculates the coordinates of the centroid of each n nearest neighbours
+* [hetcorDS](hetcorDS.html) Heterogeneous Correlation Matrix
 * [histogramDS1](histogramDS1.html) returns the minimum and the maximum of the input numeric vector
 * [histogramDS2](histogramDS2.html) Computes a histogram of the input variable without plotting.
 * [isNaDS](isNaDS.html) Checks if a vector is empty
@@ -73,6 +82,7 @@ Functions:
 * [lmerSLMADS.assign](lmerSLMADS.assign.html) Fitting linear mixed effect models - serverside function
 * [lmerSLMADS2](lmerSLMADS2.html) Fitting linear mixed effect models - serverside function
 * [lsDS](lsDS.html) lists all objects on a serverside environment
+* [lsplineDS](lsplineDS.html) Basis for a piecewise linear spline with meaningful coefficients
 * [matrixDS](matrixDS.html) matrixDS assign function called by ds.matrix
 * [matrixDetDS1](matrixDetDS1.html) matrixDetDS aggregate function called by ds.matrixDet.report
 * [matrixDetDS2](matrixDetDS2.html) matrixDetDS assign function called by ds.matrixDet
@@ -85,14 +95,23 @@ Functions:
 * [meanSdGpDS](meanSdGpDS.html) MeanSdGpDS
 * [mergeDS](mergeDS.html) mergeDS (assign function) called by ds.merge
 * [messageDS](messageDS.html) messageDS
+* [metadataDS](metadataDS.html) Returns the metadata, if any, about the specified variable
+* [minMaxRandDS](minMaxRandDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [namesDS](namesDS.html) Return the names of a list object
+* [nsDS](nsDS.html) Generate a Basis Matrix for Natural Cubic Splines
 * [numNaDS](numNaDS.html) Counts the number of missing values
+* [qlsplineDS](qlsplineDS.html) Basis for a piecewise linear spline with meaningful coefficients
 * [quantileMeanDS](quantileMeanDS.html) Generates quantiles and mean information without maximum and minimum
 * [rBinomDS](rBinomDS.html) rBinomDS serverside assign function
 * [rNormDS](rNormDS.html) rNormDS serverside assign function
 * [rPoisDS](rPoisDS.html) rPoisDS serverside assign function
 * [rUnifDS](rUnifDS.html) rUnifDS serverside assign function
 * [rangeDS](rangeDS.html) returns the minimum and maximum of a numeric vector
+* [ranksSecureDS1](ranksSecureDS1.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS2](ranksSecureDS2.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS3](ranksSecureDS3.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS4](ranksSecureDS4.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
+* [ranksSecureDS5](ranksSecureDS5.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [rbindDS](rbindDS.html) rbindDS called by ds.rbind
 * [reShapeDS](reShapeDS.html) reShapeDS (assign function) called by ds.reShape
 * [recodeLevelsDS](recodeLevelsDS.html) Recodes the levels of a categorical variables
@@ -123,9 +142,11 @@ Functions:
 * [tapplyDS.assign](tapplyDS.assign.html) tapplyDS.assign called by ds.tapply.assign
 * [testObjExistsDS](testObjExistsDS.html) testObjExistsDS
 * [unListDS](unListDS.html) unListDS a serverside assign function called by ds.unList
+* [uniqueDS](uniqueDS.html) Applies the 'unique' method to a server-side variable.
 * [varDS](varDS.html) Computes the variance of vector
+* [vectorDS](vectorDS.html) Creates a vector on the server-side.
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.1.1/DESCRIPTION)
-* [dsBase 6.1.1](https://github.com/datashield/dsBase/tree/6.1.1)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.2.0/DESCRIPTION)
+* [dsBase 6.2.0](https://github.com/datashield/dsBase/tree/6.2.0)

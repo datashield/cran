@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: DANGER FUNCTION copying clientside matrix to serverside</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for DANGERc2sMATDFDS {dsDanger}"><tr><td>DANGERc2sMATDFDS {dsDanger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>DANGER FUNCTION copying clientside matrix to serverside</h2>
+
+<h3>Description</h3>
+
+<p>Creates a matrix A on the serverside from matrix A on the clientside
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+DANGERc2sMATDFDS(
+  mdata.transmit,
+  from,
+  nrows.transmit,
+  ncols.transmit,
+  colnames.transmit,
+  colclass.transmit,
+  byrow,
+  dimnames
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mdata.transmit</code></td>
+<td>
+<p>is a character string in a format that can pass through
+the DataSHIELD R parser which specifies the name of the matrix or
+data.frame to be copied from the clientside to the serverside.</p>
+</td></tr>
+<tr valign="top"><td><code>from</code></td>
+<td>
+<p>a character string specifying the source and nature of &lt;mdata&gt;.
+Fixed by clientside function to &quot;clientside.matdf&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>nrows.transmit</code></td>
+<td>
+<p>specifies the number of rows in the matrix to be created
+in a format that can pass through the DataSHIELD R parser. Fixed by the clientside
+function as equal to the number of rows in the clientside matrix to be transferred</p>
+</td></tr>
+<tr valign="top"><td><code>ncols.transmit</code></td>
+<td>
+<p>specifies the number of columns in the matrix to be created
+in a format that can pass through the DataSHIELD R parser. Fixed by the clientside
+function as equal to the number of columns in the clientside matrix to be transferred</p>
+</td></tr>
+<tr valign="top"><td><code>colnames.transmit</code></td>
+<td>
+<p>a transmissable vector specifying the name of each column
+in the matrix or data.frame being transferred from clientside to serverside.
+Generated automatically by clientside function.</p>
+</td></tr>
+<tr valign="top"><td><code>colclass.transmit</code></td>
+<td>
+<p>a transmissable vector specifying the class of the vector representing
+each column in the matrix or data.frame being transferred from clientside to serverside.
+Generated automatically by clientside function. This allows the transmission of data.frames
+containing data of multiple classes.</p>
+</td></tr>
+<tr valign="top"><td><code>byrow</code></td>
+<td>
+<p>a logical value specifying whether the matrix created on the serverside
+should be filled row by row or column by column fixed by the clientside function
+as FALSE (fill column by column).</p>
+</td></tr>
+<tr valign="top"><td><code>dimnames</code></td>
+<td>
+<p>A dimnames attribute for the matrix: NULL or a list of length 2 giving
+the row and column names respectively. An empty list is treated as NULL,
+and a list of length one as row names only. If NULL (the default) the column names
+of the original &lt;mdata&gt; data.frame or matrix are taken across to specify the 
+column names of the serverside matrix</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>DANGERc2sMATDF is a serverside assign function called by ds.DANGERc2sMATDF
+This is a DANGER FUNCTION because it gives the clientside analyst
+a lot of power to create a data structure that is precise and complex
+on the severside. In fact this may be absolutely fine - the general rule is that
+concerns about disclosure relate entirely to aggregate functions rather than
+assign functions. However, for the moment this wil be kept as a DANGER FUNCTION
+and could later be considered for conversion to a standard function, if requested.
+This DANGER function was created from the ds.matrix function.
+A number of the parameters specifying the matrix to be generated
+are fixed by the nature of the clientside matrix
+itself rather than by explicitly stating them as arguments. In consequence, 
+they have been removed from the list of arguments and are instead given invariant
+values in the first few lines of code. These include: from&lt;-&quot;clientside.matdf&quot;,
+nrows.scalar=NULL, ncols.scalar=NULL, byrow = FALSE. The &lt;from&gt; argument
+was originally a character string specifying the source and nature of &lt;mdata&gt;. Because
+this DANGER function is only intended to copy a clientside matrix or data.frame to the
+serverside, its value is fixed to &quot;clientside.matdf&quot;. The &lt;nrows.scalar&gt;
+and &lt;ncols.scalar&gt; are fixed empirically by the number of rows and columns of
+the matrix to be transferred. &lt;byrow&gt; specifies writing the serverside matrix by
+columns or rows and this is always set as by column (i.e. FALSE).
+</p>
+
+
+<h3>Value</h3>
+
+<p>the object specified by the &lt;newobj&gt; argument (or default name &quot;new_matrix&quot;)
+which is written as a data.frame to the serverside. In addition,
+two validity messages are returned indicating whether &lt;newobj&gt; has been created in each
+data source and if so whether it is in a valid form.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsDanger</em> version 6.2.0 ]</div>
+</div></body></html>

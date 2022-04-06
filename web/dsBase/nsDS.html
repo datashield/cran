@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generate a Basis Matrix for Natural Cubic Splines</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for nsDS {dsBase}"><tr><td>nsDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Generate a Basis Matrix for Natural Cubic Splines</h2>
+
+<h3>Description</h3>
+
+<p>This function is based on the native R function <code>ns</code> from the
+<code>splines</code> package. This function generate the B-spline basis matrix for a natural
+cubic spline.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+nsDS(x, df, knots, intercept, Boundary.knots)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the predictor variable. Missing values are allowed.</p>
+</td></tr>
+<tr valign="top"><td><code>df</code></td>
+<td>
+<p>degrees of freedom. One can supply df rather than knots; ns() then chooses 
+df - 1 - intercept knots at suitably chosen quantiles of x (which will ignore missing values).
+The default, df = NULL, sets the number of inner knots as length(knots).</p>
+</td></tr>
+<tr valign="top"><td><code>knots</code></td>
+<td>
+<p>breakpoints that define the spline. The default is no knots; together with the
+natural boundary conditions this results in a basis for linear regression on x. Typical values
+are the mean or median for one knot, quantiles for more knots. See also Boundary.knots.</p>
+</td></tr>
+<tr valign="top"><td><code>intercept</code></td>
+<td>
+<p>if TRUE, an intercept is included in the basis; default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>Boundary.knots</code></td>
+<td>
+<p>boundary points at which to impose the natural boundary conditions and
+anchor the B-spline basis (default the range of the data). If both knots and Boundary.knots
+are supplied, the basis parameters do not depend on x. Data can extend beyond Boundary.knots</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>ns</code> is native R is based on the function <code>splineDesign</code>. It generates
+a basis matrix for representing the family of piecewise-cubic splines with the specified
+sequence of interior knots, and the natural boundary conditions. These enforce the constraint
+that the function is linear beyond the boundary knots, which can either be supplied or default
+to the extremes of the data.
+A primary use is in modeling formula to directly specify a natural spline term in a model.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A matrix of dimension length(x) * df where either df was supplied or if knots were
+supplied, df = length(knots) + 1 + intercept. Attributes are returned that correspond to the
+arguments to ns, and explicitly give the knots, Boundary.knots etc for use by predict.ns().
+The object is assigned at each serverside.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

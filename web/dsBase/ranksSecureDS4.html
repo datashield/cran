@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for ranksSecureDS4 {dsBase}"><tr><td>ranksSecureDS4 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all sources</h2>
+
+<h3>Description</h3>
+
+<p>Creates a data frame &quot;sR8.df&quot; by cbinding the data frame
+&quot;blackBox.ranks.df&quot; with the global ranks and global quantiles vectors in
+&quot;global.ranks.quantiles.df&quot;. Performs QA on this matrix and orders the
+sR8.df data frame according to the argument &lt;ranks.sort.by&gt; in ds.ranksSecure
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ranksSecureDS4(ranks.sort.by)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>ranks.sort.by</code></td>
+<td>
+<p>a character string taking two possible values. These
+are &quot;ID.orig&quot; and &quot;vals.orig&quot;. These define the order in which the
+output.ranks.df and summary.output.ranks.df data frames are presented. This
+argument is set by the argument with the same name in ds.ranksSecure.
+Default value is &quot;ID.orig&quot;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Severside assign function called by ds.ranksSecure.
+Creates a data frame &quot;sR8.df&quot; by cbinding the data frame &quot;blackBox.ranks.df&quot;
+with the global ranks and global quantiles vectors in
+&quot;global.ranks.quantiles.df&quot;. Checks that all components of sR8.df have the
+correct dimensions and  are consistent in their ordering. If either the
+number of rows or the order of the rows are inconsistent with those in
+&quot;blackBox.ranks.df&quot; an error message is returned and the processing stops.
+If sR8.df passes all QA tests it is written to the serverside as a data
+frame with its name identified by the argument &lt;output.ranks.df&gt; in
+ds.ranksSecure. If that argument is NULL or unspecified the data frame
+is called &quot;main.ranks.df&quot;. The ranksSecureDS4 function also orders the
+combined data frame (&lt;output.ranks.df&gt;) in one of two ways: if
+the argument &lt;ranks.sort.by&gt; in ds.ranksSecure is set to &quot;ID.orig&quot; the
+combined data frame is ordered in the same way as the original V2BR vector;
+if the argument &lt;ranks.sort.by&gt; is set to vals.orig&quot; the combined data frame
+is ordered by the magnitude of the values of V2BR (ascending). Having
+created the data frame (&lt;output.ranks.df&gt;) in this manner it can now be
+directly cbinded to either the V2BR vector itself or to a data frame, tibble
+or matrix containing V2BR (assuming they are also in the order corresponding
+to the argument &lt;ranks.sort.by&gt;) and this combined object can be used as the
+basis of analysis based on the global ranks or quantiles including a range
+of types of non-parametric analysis.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Creates the data frame identified by the name given by the argument
+(&lt;output.ranks.df&gt;) of the ds.ranksSecure function and writes it to the
+serverside. If the argument &lt;output.ranks.df&gt; is NULL or unspecified the
+output data frame is called &quot;main.ranks.df&quot;. The data frame is ordered
+according to the argument &lt;ranks.sort.by&gt; in ds.ranksSecure.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton 9th November, 2021
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

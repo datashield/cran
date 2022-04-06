@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Tests for correlation between paired samples</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
-</head><body>
+</head><body><div class="container">
 
 <table width="100%" summary="page for corTestDS {dsBase}"><tr><td>corTestDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
@@ -16,7 +17,7 @@
 <h3>Usage</h3>
 
 <pre>
-corTestDS(x, y)
+corTestDS(x, y, method, exact, conf.level)
 </pre>
 
 
@@ -31,18 +32,34 @@ corTestDS(x, y)
 <td>
 <p>a character string providing  the name of a numerical vector.</p>
 </td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>a character string indicating which correlation coefficient is to be
+used for the test. One of &quot;pearson&quot;, &quot;kendall&quot;, or &quot;spearman&quot;, can be abbreviated.</p>
+</td></tr>
+<tr valign="top"><td><code>exact</code></td>
+<td>
+<p>a logical indicating whether an exact p-value should be computed. Used for
+Kendall's tau and Spearman's rho.</p>
+</td></tr>
+<tr valign="top"><td><code>conf.level</code></td>
+<td>
+<p>confidence level for the returned confidence interval. Currently
+only used for the Pearson product moment correlation coefficient if there are at least
+4 complete pairs of observations.</p>
+</td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>The function runs a two-sided Pearson test with a 0.95 confidence level.
+<p>The function runs a two-sided correlation test
 </p>
 
 
 <h3>Value</h3>
 
-<p>the results of the Pearson test.
+<p>the results of the correlation test.
 </p>
 
 
@@ -51,5 +68,5 @@ corTestDS(x, y)
 <p>Demetris Avraam, for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.1.1 ]</div>
-</body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

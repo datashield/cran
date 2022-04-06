@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for minMaxRandDS {dsBase}"><tr><td>minMaxRandDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all sources</h2>
+
+<h3>Description</h3>
+
+<p>Creates a minimum value that is more negative, and less positive
+than any real value in V2BR and a maximum value that is more positive and
+less negative than any value of V2BR.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+minMaxRandDS(input.var.name)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>input.var.name</code></td>
+<td>
+<p>a character string specifying the name of V2BR. This
+argument is set by the argument with the same name in the clientside function
+ds.ranksSecure</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Severside aggregate function called by ds.ranksSecure. The minimum
+and maximum values it creates are used to replace missing values
+(NAs) in V2BR if the argument &lt;NA.manag&gt;e is set to &quot;NA.low&quot; or &quot;NA.hi&quot;
+respectively. For more details about the cluster of functions that
+collectively enable secure global ranking and estimation of global quantiles
+see the associated document entitled &quot;secure.global.ranking.docx&quot;. Also
+see the header file for ds.ranksSecure
+</p>
+
+
+<h3>Value</h3>
+
+<p>the data frame objects containing the global ranks and quantiles.
+For more details see the associated document entitled
+&quot;secure.global.ranking.docx&quot;
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton 9th November, 2021
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>

@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Converts a server-side R object into a matrix</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
-</head><body>
+</head><body><div class="container">
 
 <table width="100%" summary="page for ds.asMatrix {dsBaseClient}"><tr><td>ds.asMatrix {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
@@ -46,7 +47,7 @@ the default set of connections will be used: see <code>datashield.connections_de
 <h3>Details</h3>
 
 <p>This function is based on the native R function <code>as.matrix</code>. 
-If this function is applied to a data frame,  all columns are converted into a character class.
+If this function is applied to a data frame, all columns are converted into a character class.
 If you wish to convert a data frame to a matrix but maintain all data columns in their
 original class you should use the function <code>ds.asDataMatrix</code>. 
 </p>
@@ -59,8 +60,7 @@ original class you should use the function <code>ds.asDataMatrix</code>.
 <p><code>ds.asMatrix</code> returns the object converted into a matrix 
 that is written to the server-side. Also, two validity messages are returned
 to the client-side indicating the name of the <code>newobj</code> which 
-has been created in each data source and if 
-it is in a valid form.
+has been created in each data source and if it is in a valid form.
 </p>
 
 
@@ -111,5 +111,5 @@ it is in a valid form.
 ## End(Not run) 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.1.1 ]</div>
-</body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
+</div></body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for extractQuantilesDS2 {dsBase}"><tr><td>extractQuantilesDS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all sources
+and use of these ranks to estimate global quantiles across all studies</h2>
+
+<h3>Description</h3>
+
+<p>identify the global values of V2BR (i.e. the values across all
+studies) that relate to a set of quantiles to be evaluated.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+extractQuantilesDS2(extract.summary.output.ranks.df)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>extract.summary.output.ranks.df</code></td>
+<td>
+<p>character string specifies an optional
+name for the data.frame written to the serverside on each data source that
+contains 5 of the key output variables from the ranking procedure pertaining
+to that particular data source. This data frame represents the key source of
+information - including global ranks - that determines the values of V2BR
+that are identified as corresponding to the particular set of quantiles to
+be estimated as specified by the &lt;quantiles.for.estimation&gt; argument of
+function ds.ranksSecure (and the &lt;extract.quantiles&gt; argument of
+ds.extractQuantiles).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Severside aggregate function called by ds.extractQuantiles via
+ds.ranksSecure. This takes the &quot;global.bounds.df&quot; data frame saved on the
+serverside following construction by extractQuantilesDS1. This
+data frame includes the two quantile values that most closely span each
+quartile value to be estimated. If either of the values had been the correct 
+value for a given quantile, both the bounding values would have taken that
+value in global.bounds.df. This is because the upper bound was defined as
+the lowest value that was equal to or greater than the true value for that
+quantile while the lower bound was defined as the highest value that was
+equal to or lower than the true value. Next, the function extractQuantileDS2
+goes round study by study to identify the values of V2BR that actually
+correspond to each of the spanning values around each quantile. Then the
+function goes quantile by quantile and estimates the mean of the
+two values of V2BR that correspond to the the spanning quantiles. If these
+two values are the same it means that that value of V2BR is the
+&quot;true&quot; value and the mean of two (or potentially several) instances of that
+value is inevitably also equal to that true value. If the upper and lower
+bounding values of V2BR differ, neither can  be the precisely correct single
+value of V2BR for that quantile (see above for explanation) and so the mean
+of the two is a reasonable interpolated summary.
+</p>
+
+
+<h3>Value</h3>
+
+<p>the single value of V2BR which best corresponds to each key quantile
+value to be estimated as specified by the argument &lt;quantiles.for.estimation&gt;
+A data frame (final.quantile.df)summarising the results of this analysis
+is written to the clientside.  This data frame consists of two vectors. The
+first is named &quot;evaluation.quantiles&quot;. It lists the full set of quantiles
+you have requested for evaluation as specified by the argument
+&quot;quantiles.for.estimation&quot; The second vector which is called
+&quot;final.quantile.vector&quot; details the values of V2BR that correspond to the
+the key quantiles listed in vector 1.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Burton 11th November, 2021
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
+</div></body></html>
