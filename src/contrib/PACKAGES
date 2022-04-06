@@ -22,60 +22,90 @@ Description: This package installs as dependencies all other DataSHIELD
 Author: <datashield@obiba.org>
 
 Package: dsBase
-Version: 6.1.1
+Version: 6.2.0
 Depends: R (>= 3.5.0)
-Imports: RANN, nlme, stringr, lme4, dplyr, reshape2
+Imports: RANN, nlme, stringr, lme4, dplyr, reshape2, polycor (>= 0.8),
+        splines
 License: GPL-3
-MD5sum: 0df94c3d778f0d85d1c69a84885b0929
+MD5sum: 60d1ad9b23f86c8e5af9023bf9641b9d
 NeedsCompilation: no
 Title: DataSHIELD server site base functions
 Description: DataSHIELD server site base functions.
 Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
 AggregateMethods: asFactorDS1, asListDS, boxPlotGGDS, checkNegValueDS,
         classDS, corTestDS, corDS, covDS, dataFrameSubsetDS1,
-        densityGridDS, dimDS, glmDS1, glmDS2, glmerSLMADS2,
-        glmPredictDS.ag, glmSLMADS1, glmSLMADS2, glmSummaryDS.ag,
-        heatmapPlotDS, histogramDS1, histogramDS2, lsDS, isNaDS,
-        isValidDS, kurtosisDS1, kurtosisDS2, lengthDS, levelsDS,
-        lexisDS1, listDisclosureSettingsDS, lmerSLMADS2, matrixDetDS1,
-        meanDS, meanSdGpDS, messageDS, namesDS, numNaDS,
-        quantileMeanDS, rangeDS, rmDS, scatterPlotDS, scoreVectDS,
-        setSeedDS, skewnessDS1, skewnessDS2, table1DDS, table2DDS,
-        tableDS, tableDS2, tapplyDS, testObjExistsDS, tTestFDS2, varDS,
-        colnamesDS, exists=base::exists,
-        is.character=base::is.character, is.factor=base::is.factor,
-        is.list=base::is.list, is.null=base::is.null,
-        is.numeric=base::is.numeric, NROW=base::NROW,
-        t.test=stats::t.test
-AssignMethods: absDS, asCharacterDS, asDataMatrixDS, asFactorDS,
-        asFactorDS2, asIntegerDS, asListDS, asLogicalDS, asMatrixDS,
-        asNumericDS, BooleDS, boxPlotGG_data_TreatmentDS,
-        boxPlotGG_data_Treatment_numericDS, cbindDS, cDS,
-        changeRefGroupDS, completeCasesDS, dataFrameDS,
-        dataFrameFillDS, dataFrameSortDS, dataFrameSubsetDS2,
-        glmerSLMADS.assign, glmPredictDS.as, glmSLMADS.assign,
-        glmSummaryDS.as, getWGSRDS, listDS, lexisDS2, lexisDS3,
-        lmerSLMADS.assign, matrixDetDS2, matrixDiagDS,
-        matrixDimnamesDS, matrixDS, matrixInvertDS, matrixMultDS,
-        matrixTransposeDS, mergeDS, rbindDS, rBinomDS, recodeLevelsDS,
-        recodeValuesDS, repDS, replaceNaDS, reShapeDS, rNormDS,
-        rowColCalcDS, rPoisDS, rUnifDS, sampleDS, seedDS, seqDS,
-        sqrtDS, subsetByClassDS, subsetDS, tableDS.assign,
-        tapplyDS.assign, unListDS, as.character=base::as.character,
-        as.null=base::as.null, as.numeric=base::as.numeric,
-        attach=base::attach, c=base::c, cbind=base::cbind,
-        complete.cases=stats::complete.cases, exp=base::exp,
-        list=base::list, log=base::log, rep=base::rep, sum=base::sum,
-        unlist=base::unlist
+        densityGridDS, extractQuantilesDS1, extractQuantilesDS2, dimDS,
+        glmDS1, glmDS2, glmerSLMADS2, glmPredictDS.ag, glmSLMADS1,
+        glmSLMADS2, glmSummaryDS.ag, heatmapPlotDS, hetcorDS,
+        histogramDS1, histogramDS2, lsDS, isNaDS, isValidDS,
+        kurtosisDS1, kurtosisDS2, lengthDS, levelsDS, lexisDS1,
+        listDisclosureSettingsDS, lmerSLMADS2, matrixDetDS1, meanDS,
+        meanSdGpDS, messageDS, metadataDS, minMaxRandDS, namesDS,
+        numNaDS, quantileMeanDS, rangeDS, ranksSecureDS1,
+        ranksSecureDS3, rmDS, scatterPlotDS, scoreVectDS, setSeedDS,
+        skewnessDS1, skewnessDS2, table1DDS, table2DDS, tableDS,
+        tableDS2, tapplyDS, testObjExistsDS, varDS, colnamesDS,
+        exists=base::exists, is.character=base::is.character,
+        is.factor=base::is.factor, is.list=base::is.list,
+        is.null=base::is.null, is.numeric=base::is.numeric,
+        NROW=base::NROW, t.test=stats::t.test
+AssignMethods: absDS, asCharacterDS, asDataMatrixDS, asFactorDS2,
+        asFactorSimpleDS, asIntegerDS, asListDS, asLogicalDS,
+        asMatrixDS, asNumericDS, blackBoxDS, blackBoxRanksDS, BooleDS,
+        boxPlotGG_data_TreatmentDS, boxPlotGG_data_Treatment_numericDS,
+        cbindDS, cDS, changeRefGroupDS, completeCasesDS, dataFrameDS,
+        dataFrameFillDS, dataFrameSortDS, dataFrameSubsetDS2, dmtC2SDS,
+        elsplineDS, glmerSLMADS.assign, glmPredictDS.as,
+        glmSLMADS.assign, glmSummaryDS.as, getWGSRDS, listDS, lexisDS2,
+        lexisDS3, lmerSLMADS.assign, lsplineDS, matrixDetDS2,
+        matrixDiagDS, matrixDimnamesDS, matrixDS, matrixInvertDS,
+        matrixMultDS, matrixTransposeDS, mergeDS, nsDS, qlsplineDS,
+        ranksSecureDS2, ranksSecureDS4, ranksSecureDS5, rbindDS,
+        rBinomDS, recodeLevelsDS, recodeValuesDS, repDS, replaceNaDS,
+        reShapeDS, rNormDS, rowColCalcDS, rPoisDS, rUnifDS, sampleDS,
+        seedDS, seqDS, sqrtDS, subsetByClassDS, subsetDS,
+        tableDS.assign, tapplyDS.assign, uniqueDS, unListDS, vectorDS,
+        as.character=base::as.character, as.null=base::as.null,
+        as.numeric=base::as.numeric, attach=base::attach,
+        c=dsBase::vectorDS, complete.cases=stats::complete.cases,
+        list=base::list, exp=base::exp, log=base::log, sqrt=base::sqrt,
+        abs=base::abs, sin=base::sin, cos=base::cos, tan=base::tan,
+        asin=base::asin, acos=base::acos, atan=base::atan,
+        sum=base::sum, unlist=base::unlist
 
 Package: dsBaseClient
-Version: 6.1.1
-Depends: R (>= 3.5.0), DSI (>= 1.2.0)
-Imports: fields, metafor, ggplot2, gridExtra, data.table,
-        panelaggregation, methods
+Version: 6.2.0
+Depends: R (>= 3.5.0), DSI (>= 1.3.0)
+Imports: fields, metafor, meta, ggplot2, gridExtra, data.table,
+        RColorBrewer, forestplot, panelaggregation, methods, dplyr
 License: GPL-3
-MD5sum: fe9be047a9bc2f8975c2f0a4bc802aff
+MD5sum: c199b7edb6319064aade21eb74b9d67b
 NeedsCompilation: no
 Title: DataSHIELD Client Functions
 Description: DataSHIELD client functions for the client side.
+Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
+
+Package: dsDanger
+Version: 6.2.0
+License: GPL-3
+MD5sum: 76533db77cd7033fd8edce30f7164fe2
+NeedsCompilation: no
+Title: DataSHIELD server side DANGER functions
+Description: DataSHIELD server side DANGER functions.
+Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
+AggregateMethods: DANGERc2sMATDFDS, DANGERlistcodeDS,
+        DANGERdfEXTRACTDS, DANGERdmtEXTRACTDS, DANGERpassPARSERDS,
+        DANGERprintDS, DANGERplotDS, DANGERsearchDS,
+        DANGERseedEXTRACTDS, DANGERvarsEXTRACTDS
+
+Package: dsDangerClient
+Version: 6.2.0
+Imports: fields, DSI, dplyr
+Suggests: testthat
+License: GPL-3
+MD5sum: 2e6bca5a9ef8f2706a2277badf367801
+NeedsCompilation: no
+Title: Client-side DataSHIELD functions - DANGER for development only
+Description: Client-side DataSHIELD functions - returns server side
+        objects - only use in development environment.
 Author: DataSHIELD Developers <datashield@newcastle.ac.uk>
