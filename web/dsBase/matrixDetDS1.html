@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: matrixDetDS aggregate function called by ds.matrixDet.report</title>
+<!DOCTYPE html><html><head><title>R: matrixDetDS aggregate function called by ds.matrixDet.report</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for matrixDetDS1 {dsBase}"><tr><td>matrixDetDS1 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>matrixDetDS1 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>matrixDetDS aggregate function called by ds.matrixDet.report</h2>
 
@@ -17,14 +27,13 @@ the output to the clientside
 
 <h3>Usage</h3>
 
-<pre>
-matrixDetDS1(M1.name = NULL, logarithm)
-</pre>
+<pre><code class='language-R'>matrixDetDS1(M1.name = NULL, logarithm)
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>M1.name</code></td>
 <td>
 <p>A character string specifying the name of the matrix for which
@@ -58,5 +67,6 @@ which is returned to the clientside. For more details see help for ds.matrixDet
 <p>Paul Burton for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

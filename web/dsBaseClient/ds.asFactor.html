@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Converts a server-side numeric vector into a factor</title>
+<!DOCTYPE html><html><head><title>R: Converts a server-side numeric vector into a factor</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.asFactor {dsBaseClient}"><tr><td>ds.asFactor {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.asFactor {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Converts a server-side numeric vector into a factor</h2>
 
@@ -16,8 +26,7 @@
 
 <h3>Usage</h3>
 
-<pre>
-ds.asFactor(
+<pre><code class='language-R'>ds.asFactor(
   input.var.name = NULL,
   newobj.name = NULL,
   forced.factor.levels = NULL,
@@ -25,12 +34,12 @@ ds.asFactor(
   baseline.level = 1,
   datasources = NULL
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>input.var.name</code></td>
 <td>
 <p>a character string which provides 
@@ -120,7 +129,7 @@ If we set the argument <code>fixed.dummy.vars = TRUE</code>,
 The input vector is converted to the following matrix of dummy variables: 
 </p>
 
-<table summary="Rd table">
+<table>
 <tr>
  <td style="text-align: right;">
   <strong>DV2</strong> </td><td style="text-align: right;"> <strong>DV3</strong> </td><td style="text-align: right;"> <strong>DV4</strong> </td><td style="text-align: right;"> <strong>DV5</strong> </td>
@@ -172,7 +181,7 @@ The input vector is converted to the following matrix of dummy variables:
 <p>For the same example if the <code>baseline.level = 3</code> then the matrix is: 
 </p>
 
-<table summary="Rd table">
+<table>
 <tr>
  <td style="text-align: right;">
    <strong>DV1</strong> </td><td style="text-align: right;"> <strong>DV2</strong> </td><td style="text-align: right;"> <strong>DV4</strong> </td><td style="text-align: right;"> <strong>DV5</strong>  </td>
@@ -244,7 +253,7 @@ belong to those five levels (<code>baseline.level=8</code>)
 the matrix of dummy variables is:
 </p>
 
-<table summary="Rd table">
+<table>
 <tr>
  <td style="text-align: right;">
        <strong>DV1</strong>  </td><td style="text-align: right;"> <strong>DV2</strong> </td><td style="text-align: right;"> <strong>DV3</strong> </td><td style="text-align: right;"> <strong>DV4</strong> </td><td style="text-align: right;"> <strong>DV5</strong></td>
@@ -314,8 +323,7 @@ the output matrix or vector in the server-side.
 
 <h3>Examples</h3>
 
-<pre>
-## Not run: 
+<pre><code class='language-R'>## Not run: 
 
   ## Version 6, for version 5 see Wiki
   # Connecting to the Opal servers
@@ -361,7 +369,8 @@ the output matrix or vector in the server-side.
    datashield.logout(connections) 
 
 ## End(Not run)
-</pre>
+</code></pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

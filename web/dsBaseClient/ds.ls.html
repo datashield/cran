@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: lists all objects on a server-side environment</title>
+<!DOCTYPE html><html><head><title>R: lists all objects on a server-side environment</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.ls {dsBaseClient}"><tr><td>ds.ls {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.ls {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>lists all objects on a server-side environment</h2>
 
@@ -17,19 +27,18 @@ a specified serverside environment.
 
 <h3>Usage</h3>
 
-<pre>
-ds.ls(
+<pre><code class='language-R'>ds.ls(
   search.filter = NULL,
   env.to.search = 1L,
   search.GlobalEnv = TRUE,
   datasources = NULL
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>search.filter</code></td>
 <td>
 <p>character string (potentially including <code>*</code> symbol) specifying the filter 
@@ -121,8 +130,7 @@ specified R server-side environment;<br />
 
 <h3>Examples</h3>
 
-<pre>
-## Not run: 
+<pre><code class='language-R'>## Not run: 
 
   ## Version 6, for version 5 see the Wiki
   
@@ -176,7 +184,8 @@ specified R server-side environment;<br />
 
 ## End(Not run)
 
-</pre>
+</code></pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

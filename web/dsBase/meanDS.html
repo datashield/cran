@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes statistical mean of a vectores</title>
+<!DOCTYPE html><html><head><title>R: Computes statistical mean of a vectores</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for meanDS {dsBase}"><tr><td>meanDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>meanDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Computes statistical mean of a vectores</h2>
 
@@ -16,14 +26,13 @@
 
 <h3>Usage</h3>
 
-<pre>
-meanDS(xvect)
-</pre>
+<pre><code class='language-R'>meanDS(xvect)
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>xvect</code></td>
 <td>
 <p>a vector</p>
@@ -49,5 +58,6 @@ a missing value is returned.
 <p>Gaye A, Burton PR
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fits Generalized Linear Mixed-Effect Models via Study-Level...</title>
+<!DOCTYPE html><html><head><title>R: Fits Generalized Linear Mixed-Effect Models via Study-Level...</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.glmerSLMA {dsBaseClient}"><tr><td>ds.glmerSLMA {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.glmerSLMA {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Fits Generalized Linear Mixed-Effect Models via Study-Level Meta-Analysis</h2>
 
@@ -17,8 +27,7 @@
 
 <h3>Usage</h3>
 
-<pre>
-ds.glmerSLMA(
+<pre><code class='language-R'>ds.glmerSLMA(
   formula = NULL,
   offset = NULL,
   weights = NULL,
@@ -37,12 +46,12 @@ ds.glmerSLMA(
   assign = FALSE,
   newobj = NULL
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>formula</code></td>
 <td>
 <p>an object of class formula describing the model to be fitted. 
@@ -109,8 +118,8 @@ For more information see  R <code>glmer</code> function help.</p>
 </td></tr>
 <tr valign="top"><td><code>verbose</code></td>
 <td>
-<p>an integer value. If <i>verbose &gt; 0</i> the output is generated during the optimization of
-the parameter estimates. If <i>verbose &gt; 1</i> the output is generated during the individual penalized 
+<p>an integer value. If <code class="reqn">verbose &gt; 0</code> the output is generated during the optimization of
+the parameter estimates. If <code class="reqn">verbose &gt; 1</code> the output is generated during the individual penalized 
 iteratively reweighted least squares (PIRLS) steps. Default <code>verbose</code> 
 value is 0 which means no additional output.</p>
 </td></tr>
@@ -165,7 +174,8 @@ using <code>glmer</code> function can be obtained using R help for <code>glmer</
 also allowed by <code>ds.glmerSLMA</code>. 
 Many GLMEs can be fitted very simply using a formula like:
 </p>
-<p style="text-align: center;"><i>y~a+b+(1|c)</i></p>
+<p style="text-align: center;"><code class="reqn">y~a+b+(1|c)</code>
+</p>
  
 <p>which simply means fit an GLME  with <code>y</code> as the outcome variable (e.g. 
 a binary case-control using a logistic regression model or a count or a survival
@@ -174,16 +184,17 @@ as fixed effects, and <code>c</code> as a random effect or grouping factor.
 </p>
 <p>It is also possible to fit models with random slopes by specifying a model such as 
 </p>
-<p style="text-align: center;"><i>y~a+b+(1+b|c)</i></p>
+<p style="text-align: center;"><code class="reqn">y~a+b+(1+b|c)</code>
+</p>
  
 <p>where the effect of <code>b</code> can vary randomly between groups defined by <code>c</code>.
-Implicit nesting can be specified with formulas such as: <i>y~a+b+(1|c/d)</i>
-or <i>y~a+b+(1|c)+(1|c:d)</i>. 
+Implicit nesting can be specified with formulas such as: <code class="reqn">y~a+b+(1|c/d)</code>
+or <code class="reqn">y~a+b+(1|c)+(1|c:d)</code>. 
 </p>
 <p>The <code>dataName</code> argument avoids you having to specify the name of the
 data frame in front of each covariate in the formula. 
 For example, if the data frame is called <code>DataFrame</code> you avoid having to write: 
-<i>DataFrame$y~DataFrame$a+DataFrame$b+(1|DataFrame$c)</i>.
+<code class="reqn">DataFrame$y~DataFrame$a+DataFrame$b+(1|DataFrame$c)</code>.
 </p>
 <p>The <code>checks</code> argument verifies that the variables in the model are all defined (exist) 
 on the server-site at every study
@@ -310,8 +321,7 @@ If it did not some information about the reason for this is reported.
 
 <h3>Examples</h3>
 
-<pre>
-## Not run: 
+<pre><code class='language-R'>## Not run: 
 
  ## Version 6, for version 5 see Wiki
   # Connecting to the Opal servers
@@ -387,7 +397,8 @@ If it did not some information about the reason for this is reported.
   
 
 
-</pre>
+</code></pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

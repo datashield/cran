@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
+<!DOCTYPE html><html><head><title>R: Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all...</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ranksSecureDS2 {dsBase}"><tr><td>ranksSecureDS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ranksSecureDS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Secure ranking of &quot;V2BR&quot; (vector to be ranked) across all sources</h2>
 
@@ -23,9 +33,8 @@ the real data
 
 <h3>Usage</h3>
 
-<pre>
-ranksSecureDS2()
-</pre>
+<pre><code class='language-R'>ranksSecureDS2()
+</code></pre>
 
 
 <h3>Details</h3>
@@ -62,5 +71,6 @@ sorted in ascending order of the magnitude of V2BR
 <p>Paul Burton 9th November, 2021
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

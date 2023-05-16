@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: dataFrameDS called by ds.dataFrame</title>
+<!DOCTYPE html><html><head><title>R: dataFrameDS called by ds.dataFrame</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for dataFrameDS {dsBase}"><tr><td>dataFrameDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>dataFrameDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>dataFrameDS called by ds.dataFrame</h2>
 
@@ -18,8 +28,7 @@ single variables; and/or matrices
 
 <h3>Usage</h3>
 
-<pre>
-dataFrameDS(
+<pre><code class='language-R'>dataFrameDS(
   vectors = NULL,
   r.names = NULL,
   ch.rows = FALSE,
@@ -28,12 +37,12 @@ dataFrameDS(
   strAsFactors = TRUE,
   completeCases = FALSE
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>vectors</code></td>
 <td>
 <p>a list which contains the elemental components to combine.
@@ -105,5 +114,6 @@ function ds.dataFrame()
 <p>DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

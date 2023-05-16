@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Return the names of a list object</title>
+<!DOCTYPE html><html><head><title>R: Return the names of a list object</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for namesDS {dsBase}"><tr><td>namesDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>namesDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Return the names of a list object</h2>
 
@@ -16,14 +26,13 @@
 
 <h3>Usage</h3>
 
-<pre>
-namesDS(xname.transmit)
-</pre>
+<pre><code class='language-R'>namesDS(xname.transmit)
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>xname.transmit</code></td>
 <td>
 <p>a character string specifying the name of the list.</p>
@@ -59,5 +68,6 @@ of a list object stored on the server-side.
 <p>Amadou Gaye, updated by Paul Burton 25/06/2020
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

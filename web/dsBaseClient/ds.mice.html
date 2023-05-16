@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>R: Multivariate Imputation by Chained Equations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%"><tr><td>ds.mice {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Multivariate Imputation by Chained Equations</h2>
+
+<h3>Description</h3>
+
+<p>This function calls the miceDS that is a wrapper function of the mice 
+from the mice R package. The function creates multiple imputations (replacement values)
+for multivariate missing data. The method is based on Fully Conditional Specification, 
+where each incomplete variable is imputed by a separate model. The MICE algorithm can
+impute mixes of continuous, binary, unordered categorical and ordered categorical data.
+In addition, MICE can impute continuous two-level data, and maintain consistency between
+imputations by means of passive imputation. It is recommended that the imputation is
+done in each datasource separately. Otherwise the user should make sure that the input 
+data have the same columns in all datasources and in the same order.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ds.mice(
+  data = NULL,
+  m = 5,
+  maxit = 5,
+  method = NULL,
+  predictorMatrix = NULL,
+  post = NULL,
+  seed = NA,
+  newobj_mids = NULL,
+  newobj_df = NULL,
+  datasources = NULL
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>a data frame or a matrix containing the incomplete data.</p>
+</td></tr>
+<tr valign="top"><td><code>m</code></td>
+<td>
+<p>Number of multiple imputations. The default is m=5.</p>
+</td></tr>
+<tr valign="top"><td><code>maxit</code></td>
+<td>
+<p>A scalar giving the number of iterations. The default is 5.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>Can be either a single string, or a vector of strings with length 
+ncol(data), specifying the imputation method to be used for each column in data. If 
+specified as a single string, the same method will be used for all blocks. The default 
+imputation method (when no argument is specified) depends on the measurement level of 
+the target column, as regulated by the defaultMethod argument in native R mice function. 
+Columns that need not be imputed have the empty method &quot;&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>predictorMatrix</code></td>
+<td>
+<p>A numeric matrix of ncol(data) rows and ncol(data) columns, 
+containing 0/1 data specifying the set of predictors to be used for each target column.
+Each row corresponds to a variable to be imputed. A value of 1 means that the column 
+variable is used as a predictor for the target variables (in the rows). By default, the
+predictorMatrix is a square matrix of ncol(data) rows and columns with all 1's, except 
+for the diagonal.</p>
+</td></tr>
+<tr valign="top"><td><code>post</code></td>
+<td>
+<p>A vector of strings with length ncol(data) specifying expressions as strings. 
+Each string is parsed and executed within the sampler() function to post-process imputed 
+values during the iterations. The default is a vector of empty strings, indicating no 
+post-processing. Multivariate (block) imputation methods ignore the post parameter.</p>
+</td></tr>
+<tr valign="top"><td><code>seed</code></td>
+<td>
+<p>either NA (default) or &quot;fixed&quot;. If seed is set to &quot;fixed&quot; then a fixed
+seed random number generator which is study-specific is used.</p>
+</td></tr>
+<tr valign="top"><td><code>newobj_mids</code></td>
+<td>
+<p>a character string that provides the name for the output mids object
+that is stored on the data servers. Default <code>mids_object</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>newobj_df</code></td>
+<td>
+<p>a character string that provides the name for the output dataframes 
+that are stored on the data servers. Default <code>imputationSet</code>. For example, if m=5, and 
+newobj_df=&quot;imputationSet&quot;, then five imputed dataframes are saved on the servers with names
+imputationSet.1, imputationSet.2, imputationSet.3, imputationSet.4, imputationSet.5.</p>
+</td></tr>
+<tr valign="top"><td><code>datasources</code></td>
+<td>
+<p>a list of <code>DSConnection-class</code> 
+objects obtained after login. If the <code>datasources</code> argument is not specified
+the default set of connections will be used: see <code>datashield.connections_default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For additional details see the help header of mice function in native R mice
+package.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list with three elements: the method, the predictorMatrix and the post.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

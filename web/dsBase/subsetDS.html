@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates a valid subset of a table or a vector</title>
+<!DOCTYPE html><html><head><title>R: Generates a valid subset of a table or a vector</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for subsetDS {dsBase}"><tr><td>subsetDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>subsetDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Generates a valid subset of a table or a vector</h2>
 
@@ -18,8 +28,7 @@ or charcater) or a table (data.frame or matrix).
 
 <h3>Usage</h3>
 
-<pre>
-subsetDS(
+<pre><code class='language-R'>subsetDS(
   dt = NULL,
   complt = NULL,
   rs = NULL,
@@ -28,12 +37,12 @@ subsetDS(
   th = NULL,
   varname = NULL
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>dt</code></td>
 <td>
 <p>a string character, the name of the dataframe or the factor vector and the range of the subset.</p>
@@ -94,5 +103,6 @@ for any subsequent process using the output of the function to proceed after inf
 <p>Gaye, A.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

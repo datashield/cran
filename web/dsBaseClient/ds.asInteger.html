@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Converts a server-side R object into an integer class</title>
+<!DOCTYPE html><html><head><title>R: Converts a server-side R object into an integer class</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.asInteger {dsBaseClient}"><tr><td>ds.asInteger {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.asInteger {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Converts a server-side R object into an integer class</h2>
 
@@ -17,14 +27,13 @@ This function is based on the native R function <code>as.integer</code>.
 
 <h3>Usage</h3>
 
-<pre>
-ds.asInteger(x.name = NULL, newobj = NULL, datasources = NULL)
-</pre>
+<pre><code class='language-R'>ds.asInteger(x.name = NULL, newobj = NULL, datasources = NULL)
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>x.name</code></td>
 <td>
 <p>a character string providing the name of the input object to be coerced to 
@@ -83,8 +92,7 @@ it is in a valid form.
 
 <h3>Examples</h3>
 
-<pre>
-## Not run: 
+<pre><code class='language-R'>## Not run: 
   ## Version 6, for version 5 see the Wiki
   
   # connecting to the Opal servers
@@ -121,7 +129,8 @@ it is in a valid form.
   
 
 ## End(Not run)   
-</pre>
+</code></pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

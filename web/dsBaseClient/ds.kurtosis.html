@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculates the kurtosis of a numeric variable</title>
+<!DOCTYPE html><html><head><title>R: Calculates the kurtosis of a numeric variable</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.kurtosis {dsBaseClient}"><tr><td>ds.kurtosis {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.kurtosis {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Calculates the kurtosis of a numeric variable</h2>
 
@@ -16,14 +26,13 @@
 
 <h3>Usage</h3>
 
-<pre>
-ds.kurtosis(x = NULL, method = 1, type = "both", datasources = NULL)
-</pre>
+<pre><code class='language-R'>ds.kurtosis(x = NULL, method = 1, type = "both", datasources = NULL)
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>x</code></td>
 <td>
 <p>a string character, the name of a numeric variable.</p>
@@ -55,10 +64,10 @@ the default set of connections will be used: see <code>datashield.connections_de
 <p>The function calculates the kurtosis of an input variable x with three different methods. 
 The method is specified by the argument <code>method</code>. If x contains any missings, the function removes those before
 the calculation of the kurtosis. If <code>method</code> is set to 1 the following formula is used
-<i> kurtosis= \frac{&sum;_{i=1}^{N} (x_i - \bar(x))^4 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) } - 3</i>,
-where <i> \bar{x} </i> is the mean of x and <i>N</i> is the number of observations. If <code>method</code> is set to 2
-the following formula is used <i> kurtosis= ((N+1)*(\frac{&sum;_{i=1}^{N} (x_i - \bar(x))^4 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) } - 3) + 6)*((N-1)/((N-2)*(N-3)))</i>.
-If <code>method</code> is set to 3 the following formula is used <i> kurtosis= (\frac{&sum;_{i=1}^{N} (x_i - \bar(x))^4 /N}{(&sum;_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) })*(1-1/N)^2 - 3</i>.
+<code class="reqn"> kurtosis= \frac{\sum_{i=1}^{N} (x_i - \bar(x))^4 /N}{(\sum_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) } - 3</code>,
+where <code class="reqn"> \bar{x} </code> is the mean of x and <code class="reqn">N</code> is the number of observations. If <code>method</code> is set to 2
+the following formula is used <code class="reqn"> kurtosis= ((N+1)*(\frac{\sum_{i=1}^{N} (x_i - \bar(x))^4 /N}{(\sum_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) } - 3) + 6)*((N-1)/((N-2)*(N-3)))</code>.
+If <code>method</code> is set to 3 the following formula is used <code class="reqn"> kurtosis= (\frac{\sum_{i=1}^{N} (x_i - \bar(x))^4 /N}{(\sum_{i=1}^{N} ((x_i - \bar(x))^2) /N)^(2) })*(1-1/N)^2 - 3</code>.
 This function is similar to the function <code>kurtosis</code> in R package <code>e1071</code>.
 </p>
 
@@ -75,5 +84,6 @@ the validity message.
 <p>Demetris Avraam, for DataSHIELD Development Team
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

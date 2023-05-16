@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Computes the mean and standard deviation across categories</title>
+<!DOCTYPE html><html><head><title>R: Computes the mean and standard deviation across categories</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.meanByClass {dsBaseClient}"><tr><td>ds.meanByClass {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.meanByClass {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Computes the mean and standard deviation across categories</h2>
 
@@ -17,20 +27,19 @@ of a continuous variable for each class of up to 3 categorical variables.
 
 <h3>Usage</h3>
 
-<pre>
-ds.meanByClass(
+<pre><code class='language-R'>ds.meanByClass(
   x = NULL,
   outvar = NULL,
   covar = NULL,
   type = "combine",
   datasources = NULL
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>x</code></td>
 <td>
 <p>a character string specifying the name of the dataset or a text formula.</p>
@@ -99,8 +108,7 @@ and standard deviation in each subgroup (subset).
 
 <h3>Examples</h3>
 
-<pre>
-## Not run: 
+<pre><code class='language-R'>## Not run: 
 
  ## Version 6, for version 5 see the Wiki
   
@@ -145,7 +153,8 @@ and standard deviation in each subgroup (subset).
 
 ## End(Not run)
 
-</pre>
+</code></pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

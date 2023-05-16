@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates 1-, 2-, and 3-dimensional contingency tables with...</title>
+<!DOCTYPE html><html><head><title>R: Generates 1-, 2-, and 3-dimensional contingency tables with...</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.table {dsBaseClient}"><tr><td>ds.table {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.table {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Generates 1-, 2-, and 3-dimensional contingency tables with option
 of assigning to serverside only and producing chi-squared statistics</h2>
@@ -18,8 +28,7 @@ tables using the <code>table</code> function in native R.
 
 <h3>Usage</h3>
 
-<pre>
-ds.table(
+<pre><code class='language-R'>ds.table(
   rvar = NULL,
   cvar = NULL,
   stvar = NULL,
@@ -32,12 +41,12 @@ ds.table(
   datasources = NULL,
   force.nfilter = NULL
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>rvar</code></td>
 <td>
 <p>is a character string (in inverted commas) specifying the
@@ -268,5 +277,6 @@ table object written to the serverside can be seen under 'details' (above).
 <p>Paul Burton and Alex Westerberg for DataSHIELD Development Team, 01/05/2020
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>

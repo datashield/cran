@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Converts birth measurements to intergrowth z-scores/centiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%"><tr><td>igb_standardsDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Converts birth measurements to intergrowth z-scores/centiles</h2>
+
+<h3>Description</h3>
+
+<p>Converts birth measurements to INTERGROWTH z-scores/centiles (generic)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>igb_standardsDS(
+  gagebrth = gagebrth,
+  z = z,
+  p = p,
+  val = val,
+  var = var,
+  sex = sex,
+  fun = fun
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr valign="top"><td><code>gagebrth</code></td>
+<td>
+<p>the name of the &quot;gestational age at birth in days&quot; variable.</p>
+</td></tr>
+<tr valign="top"><td><code>z</code></td>
+<td>
+<p>z-score(s) to convert (must be between 0 and 1). Default value is 0.
+This value is used only if <code>fun</code> is set to &quot;igb_zscore2value&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+<p>centile(s) to convert (must be between 0 and 100). Default value is p=50. 
+This value is used only if <code>fun</code> is set to &quot;igb_centile2value&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>val</code></td>
+<td>
+<p>the name of the anthropometric variable to convert.</p>
+</td></tr>
+<tr valign="top"><td><code>var</code></td>
+<td>
+<p>the name of the measurement to convert (&quot;lencm&quot;, &quot;wtkg&quot;, &quot;hcircm&quot;, &quot;wlr&quot;)</p>
+</td></tr>
+<tr valign="top"><td><code>sex</code></td>
+<td>
+<p>the name of the sex factor variable. The variable should be coded as Male/Female.
+If it is coded differently (e.g. 0/1), then you can use the ds.recodeValues function to 
+recode the categories to Male/Female before the use of ds.igb_standards</p>
+</td></tr>
+<tr valign="top"><td><code>fun</code></td>
+<td>
+<p>the name of the function to be used. This can be one of: &quot;igb_centile2value&quot;,
+&quot;igb_zscore2value&quot;, &quot;igb_value2zscore&quot; (default), &quot;igb_value2centile&quot;.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>assigns the converted measurement as a new object on the server-side
+</p>
+
+
+<h3>Note</h3>
+
+<p>For gestational ages between 24 and 33 weeks, the INTERGROWTH very early preterm 
+standard is used.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

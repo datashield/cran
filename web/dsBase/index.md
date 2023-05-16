@@ -24,11 +24,13 @@ Functions:
 * [asLogicalDS](asLogicalDS.html) Coerces an R object into class numeric
 * [asMatrixDS](asMatrixDS.html) Coerces an R object into a matrix
 * [asNumericDS](asNumericDS.html) Coerces an R object into class numeric
+* [aucDS](aucDS.html) aucDS an aggregate function called by ds.auc
 * [blackBoxDS](blackBoxDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [blackBoxRanksDS](blackBoxRanksDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [boxPlotGGDS](boxPlotGGDS.html) Create the identity stats and necessary data to draw a plot on the client
 * [boxPlotGG_data_TreatmentDS](boxPlotGG_data_TreatmentDS.html) Arrange data frame to pass it to the boxplot function
 * [boxPlotGG_data_Treatment_numericDS](boxPlotGG_data_Treatment_numericDS.html) Arrange vector to pass it to the boxplot function
+* [bp_standardsDS](bp_standardsDS.html) Calculates Blood pressure z-scores
 * [cDS](cDS.html) Concatenates objects into a vector or list
 * [cbindDS](cbindDS.html) cbindDS called by ds.cbind
 * [changeRefGroupDS](changeRefGroupDS.html) Changes a reference level of a factor
@@ -52,6 +54,7 @@ Functions:
 * [extract](extract.html) Splits character by '$' and returns the single characters
 * [extractQuantilesDS1](extractQuantilesDS1.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
 * [extractQuantilesDS2](extractQuantilesDS2.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
+* [gamlssDS](gamlssDS.html) gamlssDS an aggregate function called by ds.galmss
 * [getWGSRDS](getWGSRDS.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [glmDS1](glmDS1.html) glmDS1 called by ds.glm
 * [glmDS2](glmDS2.html) glmDS2 called by ds.glm
@@ -68,6 +71,7 @@ Functions:
 * [hetcorDS](hetcorDS.html) Heterogeneous Correlation Matrix
 * [histogramDS1](histogramDS1.html) returns the minimum and the maximum of the input numeric vector
 * [histogramDS2](histogramDS2.html) Computes a histogram of the input variable without plotting.
+* [igb_standardsDS](igb_standardsDS.html) Converts birth measurements to intergrowth z-scores/centiles
 * [isNaDS](isNaDS.html) Checks if a vector is empty
 * [isValidDS](isValidDS.html) Checks if an input is valid
 * [kurtosisDS1](kurtosisDS1.html) Calculates the kurtosis of a numeric variable
@@ -96,6 +100,7 @@ Functions:
 * [mergeDS](mergeDS.html) mergeDS (assign function) called by ds.merge
 * [messageDS](messageDS.html) messageDS
 * [metadataDS](metadataDS.html) Returns the metadata, if any, about the specified variable
+* [miceDS](miceDS.html) Aggregate function called by ds.mice
 * [minMaxRandDS](minMaxRandDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [namesDS](namesDS.html) Return the names of a list object
 * [nsDS](nsDS.html) Generate a Basis Matrix for Natural Cubic Splines
@@ -148,5 +153,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.2.0/DESCRIPTION)
-* [dsBase 6.2.0](https://github.com/datashield/dsBase/tree/6.2.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.3.0/DESCRIPTION)
+* [dsBase 6.3.0](https://github.com/datashield/dsBase/tree/6.3.0)

@@ -24,12 +24,14 @@ Functions:
 * [ds.asMatrix](ds.asMatrix.html) Converts a server-side R object into a matrix
 * [ds.asNumeric](ds.asNumeric.html) Converts a server-side R object into a numeric class
 * [ds.assign](ds.assign.html) Assigns an R object to a name in the server-side
+* [ds.auc](ds.auc.html) Calculates the Area under the curve (AUC)
 * [ds.boxPlot](ds.boxPlot.html) Draw boxplot
 * [ds.boxPlotGG](ds.boxPlotGG.html) Renders boxplot
 * [ds.boxPlotGG_data_Treatment](ds.boxPlotGG_data_Treatment.html) Take a data frame on the server side an arrange it to pass it to the boxplot function
 * [ds.boxPlotGG_data_Treatment_numeric](ds.boxPlotGG_data_Treatment_numeric.html) Take a vector on the server side an arrange it to pass it to the boxplot function
 * [ds.boxPlotGG_numeric](ds.boxPlotGG_numeric.html) Draw boxplot with information from a numeric vector
 * [ds.boxPlotGG_table](ds.boxPlotGG_table.html) Draw boxplot with information from a data frame
+* [ds.bp_standards](ds.bp_standards.html) Calculates Blood pressure z-scores
 * [ds.c](ds.c.html) Combines values into a vector or list in the server-side
 * [ds.cbind](ds.cbind.html) Combines R objects by columns in the server-side
 * [ds.changeRefGroup](ds.changeRefGroup.html) Changes the reference level of a factor in the server-side
@@ -52,6 +54,7 @@ Functions:
 * [ds.exp](ds.exp.html) Computes the exponentials in the server-side
 * [ds.extractQuantiles](ds.extractQuantiles.html) Secure ranking of a vector across all sources and use of these ranks to estimate global quantiles across all studies
 * [ds.forestplot](ds.forestplot.html) Forestplot for SLMA models
+* [ds.gamlss](ds.gamlss.html) Generalized Additive Models for Location Scale and Shape
 * [ds.getWGSR](ds.getWGSR.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [ds.glm](ds.glm.html) Fits Generalized Linear Model
 * [ds.glmPredict](ds.glmPredict.html) Applies predict.glm() to a serverside glm object
@@ -61,6 +64,7 @@ Functions:
 * [ds.heatmapPlot](ds.heatmapPlot.html) Generates a Heat Map plot
 * [ds.hetcor](ds.hetcor.html) Heterogeneous Correlation Matrix
 * [ds.histogram](ds.histogram.html) Generates a histogram plot
+* [ds.igb_standards](ds.igb_standards.html) Converts birth measurements to intergrowth z-scores/centiles
 * [ds.isNA](ds.isNA.html) Checks if a server-side vector is empty
 * [ds.isValid](ds.isValid.html) Checks if a server-side object is valid
 * [ds.kurtosis](ds.kurtosis.html) Calculates the kurtosis of a numeric variable
@@ -92,6 +96,7 @@ Functions:
 * [ds.merge](ds.merge.html) Merges two data frames in the server-side
 * [ds.message](ds.message.html) Returns server-side messages to the client-side
 * [ds.metadata](ds.metadata.html) Gets the metadata associated with a variable held on the server
+* [ds.mice](ds.mice.html) Multivariate Imputation by Chained Equations
 * [ds.names](ds.names.html) Return the names of a list object
 * [ds.ns](ds.ns.html) Generate a Basis Matrix for Natural Cubic Splines
 * [ds.numNA](ds.numNA.html) Gets the number of missing values in a server-side vector
@@ -148,5 +153,5 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.2.0/DESCRIPTION)
-* [dsBaseClient 6.2.0](https://github.com/datashield/dsBaseClient/tree/6.2.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.3.0/DESCRIPTION)
+* [dsBaseClient 6.3.0](https://github.com/datashield/dsBaseClient/tree/6.3.0)

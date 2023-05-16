@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Calculates Blood pressure z-scores</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/R.css" />
+</head><body><div class="container">
+
+<table width="100%"><tr><td>bp_standardsDS {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculates Blood pressure z-scores</h2>
+
+<h3>Description</h3>
+
+<p>The function calculates blood pressure z-scores in two steps:
+Step 1. Calculates z-score of height according to CDC growth chart (Not the 
+WHO growth chart!). Step 2. Calculates z-score of BP according to the fourth
+report on BP management, USA
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>bp_standardsDS(
+  sex = sex,
+  age = age,
+  height = height,
+  bp = bp,
+  systolic = systolic
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr valign="top"><td><code>sex</code></td>
+<td>
+<p>the name of the sex variable. The variable should be coded as 1 for males
+and 2 for females. If it is coded differently (e.g. 0/1), then you can use the 
+ds.recodeValues function to recode the categories to 1/2 before the use of 
+ds.bp_standards</p>
+</td></tr>
+<tr valign="top"><td><code>age</code></td>
+<td>
+<p>the name of the age variable in years.</p>
+</td></tr>
+<tr valign="top"><td><code>height</code></td>
+<td>
+<p>the name of the height variable in cm</p>
+</td></tr>
+<tr valign="top"><td><code>bp</code></td>
+<td>
+<p>the name of the blood pressure variable.</p>
+</td></tr>
+<tr valign="top"><td><code>systolic</code></td>
+<td>
+<p>logical. If TRUE (default) the function assumes conversion of 
+systolic blood pressure. If FALSE the function assumes conversion of diastolic 
+blood pressure.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>assigns a new object on the server-side. The assigned object is a list 
+with two elements: the 'Zbp' which is the zscores of the blood pressure and 'perc'
+which is the percentiles of the BP zscores.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The z-scores of height based on CDC growth charts are calculated 
+by the sds function from the childsds R package.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Demetris Avraam for DataSHIELD Development Team
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

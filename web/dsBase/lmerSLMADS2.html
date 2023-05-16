@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fitting linear mixed effect models - serverside function</title>
+<!DOCTYPE html><html><head><title>R: Fitting linear mixed effect models - serverside function</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for lmerSLMADS2 {dsBase}"><tr><td>lmerSLMADS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>lmerSLMADS2 {dsBase}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Fitting linear mixed effect models - serverside function</h2>
 
@@ -18,8 +28,7 @@ one or multiple sources with pooling via SLMA (study level meta-analysis)
 
 <h3>Usage</h3>
 
-<pre>
-lmerSLMADS2(
+<pre><code class='language-R'>lmerSLMADS2(
   formula,
   offset,
   weights,
@@ -30,12 +39,12 @@ lmerSLMADS2(
   optimizer,
   verbose = 0
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>formula</code></td>
 <td>
 <p>see help for ds.lmerSLMA</p>
@@ -105,5 +114,6 @@ the lme4 package
 <p>Tom Bishop, with some additions by Paul Burton
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBase</em> version 6.3.0 ]</div>
+</div>
+</body></html>

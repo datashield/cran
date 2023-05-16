@@ -37,12 +37,14 @@ Functions:
 * [ds.asMatrix](dsBaseClient/ds.asMatrix.html) Converts a server-side R object into a matrix
 * [ds.asNumeric](dsBaseClient/ds.asNumeric.html) Converts a server-side R object into a numeric class
 * [ds.assign](dsBaseClient/ds.assign.html) Assigns an R object to a name in the server-side
+* [ds.auc](dsBaseClient/ds.auc.html) Calculates the Area under the curve (AUC)
 * [ds.boxPlot](dsBaseClient/ds.boxPlot.html) Draw boxplot
 * [ds.boxPlotGG](dsBaseClient/ds.boxPlotGG.html) Renders boxplot
 * [ds.boxPlotGG_data_Treatment](dsBaseClient/ds.boxPlotGG_data_Treatment.html) Take a data frame on the server side an arrange it to pass it to the boxplot function
 * [ds.boxPlotGG_data_Treatment_numeric](dsBaseClient/ds.boxPlotGG_data_Treatment_numeric.html) Take a vector on the server side an arrange it to pass it to the boxplot function
 * [ds.boxPlotGG_numeric](dsBaseClient/ds.boxPlotGG_numeric.html) Draw boxplot with information from a numeric vector
 * [ds.boxPlotGG_table](dsBaseClient/ds.boxPlotGG_table.html) Draw boxplot with information from a data frame
+* [ds.bp_standards](dsBaseClient/ds.bp_standards.html) Calculates Blood pressure z-scores
 * [ds.c](dsBaseClient/ds.c.html) Combines values into a vector or list in the server-side
 * [ds.cbind](dsBaseClient/ds.cbind.html) Combines R objects by columns in the server-side
 * [ds.changeRefGroup](dsBaseClient/ds.changeRefGroup.html) Changes the reference level of a factor in the server-side
@@ -65,6 +67,7 @@ Functions:
 * [ds.exp](dsBaseClient/ds.exp.html) Computes the exponentials in the server-side
 * [ds.extractQuantiles](dsBaseClient/ds.extractQuantiles.html) Secure ranking of a vector across all sources and use of these ranks to estimate global quantiles across all studies
 * [ds.forestplot](dsBaseClient/ds.forestplot.html) Forestplot for SLMA models
+* [ds.gamlss](dsBaseClient/ds.gamlss.html) Generalized Additive Models for Location Scale and Shape
 * [ds.getWGSR](dsBaseClient/ds.getWGSR.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [ds.glm](dsBaseClient/ds.glm.html) Fits Generalized Linear Model
 * [ds.glmPredict](dsBaseClient/ds.glmPredict.html) Applies predict.glm() to a serverside glm object
@@ -74,6 +77,7 @@ Functions:
 * [ds.heatmapPlot](dsBaseClient/ds.heatmapPlot.html) Generates a Heat Map plot
 * [ds.hetcor](dsBaseClient/ds.hetcor.html) Heterogeneous Correlation Matrix
 * [ds.histogram](dsBaseClient/ds.histogram.html) Generates a histogram plot
+* [ds.igb_standards](dsBaseClient/ds.igb_standards.html) Converts birth measurements to intergrowth z-scores/centiles
 * [ds.isNA](dsBaseClient/ds.isNA.html) Checks if a server-side vector is empty
 * [ds.isValid](dsBaseClient/ds.isValid.html) Checks if a server-side object is valid
 * [ds.kurtosis](dsBaseClient/ds.kurtosis.html) Calculates the kurtosis of a numeric variable
@@ -105,6 +109,7 @@ Functions:
 * [ds.merge](dsBaseClient/ds.merge.html) Merges two data frames in the server-side
 * [ds.message](dsBaseClient/ds.message.html) Returns server-side messages to the client-side
 * [ds.metadata](dsBaseClient/ds.metadata.html) Gets the metadata associated with a variable held on the server
+* [ds.mice](dsBaseClient/ds.mice.html) Multivariate Imputation by Chained Equations
 * [ds.names](dsBaseClient/ds.names.html) Return the names of a list object
 * [ds.ns](dsBaseClient/ds.ns.html) Generate a Basis Matrix for Natural Cubic Splines
 * [ds.numNA](dsBaseClient/ds.numNA.html) Gets the number of missing values in a server-side vector
@@ -161,8 +166,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.2.0/DESCRIPTION)
-* [dsBaseClient 6.2.0](https://github.com/datashield/dsBaseClient/tree/6.2.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBaseClient/6.3.0/DESCRIPTION)
+* [dsBaseClient 6.3.0](https://github.com/datashield/dsBaseClient/tree/6.3.0)
 
 
 ### dsDangerClient
@@ -218,11 +223,13 @@ Functions:
 * [asLogicalDS](dsBase/asLogicalDS.html) Coerces an R object into class numeric
 * [asMatrixDS](dsBase/asMatrixDS.html) Coerces an R object into a matrix
 * [asNumericDS](dsBase/asNumericDS.html) Coerces an R object into class numeric
+* [aucDS](dsBase/aucDS.html) aucDS an aggregate function called by ds.auc
 * [blackBoxDS](dsBase/blackBoxDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [blackBoxRanksDS](dsBase/blackBoxRanksDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [boxPlotGGDS](dsBase/boxPlotGGDS.html) Create the identity stats and necessary data to draw a plot on the client
 * [boxPlotGG_data_TreatmentDS](dsBase/boxPlotGG_data_TreatmentDS.html) Arrange data frame to pass it to the boxplot function
 * [boxPlotGG_data_Treatment_numericDS](dsBase/boxPlotGG_data_Treatment_numericDS.html) Arrange vector to pass it to the boxplot function
+* [bp_standardsDS](dsBase/bp_standardsDS.html) Calculates Blood pressure z-scores
 * [cDS](dsBase/cDS.html) Concatenates objects into a vector or list
 * [cbindDS](dsBase/cbindDS.html) cbindDS called by ds.cbind
 * [changeRefGroupDS](dsBase/changeRefGroupDS.html) Changes a reference level of a factor
@@ -246,6 +253,7 @@ Functions:
 * [extract](dsBase/extract.html) Splits character by '$' and returns the single characters
 * [extractQuantilesDS1](dsBase/extractQuantilesDS1.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
 * [extractQuantilesDS2](dsBase/extractQuantilesDS2.html) Secure ranking of "V2BR" (vector to be ranked) across all sources and use of these ranks to estimate global quantiles across all studies
+* [gamlssDS](dsBase/gamlssDS.html) gamlssDS an aggregate function called by ds.galmss
 * [getWGSRDS](dsBase/getWGSRDS.html) Computes the WHO Growth Reference z-scores of anthropometric data
 * [glmDS1](dsBase/glmDS1.html) glmDS1 called by ds.glm
 * [glmDS2](dsBase/glmDS2.html) glmDS2 called by ds.glm
@@ -262,6 +270,7 @@ Functions:
 * [hetcorDS](dsBase/hetcorDS.html) Heterogeneous Correlation Matrix
 * [histogramDS1](dsBase/histogramDS1.html) returns the minimum and the maximum of the input numeric vector
 * [histogramDS2](dsBase/histogramDS2.html) Computes a histogram of the input variable without plotting.
+* [igb_standardsDS](dsBase/igb_standardsDS.html) Converts birth measurements to intergrowth z-scores/centiles
 * [isNaDS](dsBase/isNaDS.html) Checks if a vector is empty
 * [isValidDS](dsBase/isValidDS.html) Checks if an input is valid
 * [kurtosisDS1](dsBase/kurtosisDS1.html) Calculates the kurtosis of a numeric variable
@@ -290,6 +299,7 @@ Functions:
 * [mergeDS](dsBase/mergeDS.html) mergeDS (assign function) called by ds.merge
 * [messageDS](dsBase/messageDS.html) messageDS
 * [metadataDS](dsBase/metadataDS.html) Returns the metadata, if any, about the specified variable
+* [miceDS](dsBase/miceDS.html) Aggregate function called by ds.mice
 * [minMaxRandDS](dsBase/minMaxRandDS.html) Secure ranking of "V2BR" (vector to be ranked) across all sources
 * [namesDS](dsBase/namesDS.html) Return the names of a list object
 * [nsDS](dsBase/nsDS.html) Generate a Basis Matrix for Natural Cubic Splines
@@ -342,8 +352,8 @@ Functions:
 
 Sources:
 
-* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.2.0/DESCRIPTION)
-* [dsBase 6.2.0](https://github.com/datashield/dsBase/tree/6.2.0)
+* [DESCRIPTION](https://raw.github.com/datashield/dsBase/6.3.0/DESCRIPTION)
+* [dsBase 6.3.0](https://github.com/datashield/dsBase/tree/6.3.0)
 
 
 ### dsDanger

@@ -1,10 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generates Normal distribution in the server-side</title>
+<!DOCTYPE html><html><head><title>R: Generates Normal distribution in the server-side</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/R.css" />
 </head><body><div class="container">
 
-<table width="100%" summary="page for ds.rNorm {dsBaseClient}"><tr><td>ds.rNorm {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
+<table width="100%"><tr><td>ds.rNorm {dsBaseClient}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
 <h2>Generates Normal distribution in the server-side</h2>
 
@@ -17,8 +27,7 @@ Besides, <code>ds.rNorm</code> allows creating different vector lengths in each 
 
 <h3>Usage</h3>
 
-<pre>
-ds.rNorm(
+<pre><code class='language-R'>ds.rNorm(
   samp.size = 1,
   mean = 0,
   sd = 1,
@@ -28,12 +37,12 @@ ds.rNorm(
   force.output.to.k.decimal.places = 9,
   datasources = NULL
 )
-</pre>
+</code></pre>
 
 
 <h3>Arguments</h3>
 
-<table summary="R argblock">
+<table>
 <tr valign="top"><td><code>samp.size</code></td>
 <td>
 <p>an integer value or an integer vector that defines the length
@@ -137,8 +146,7 @@ generated in each source  (see info for the argument <code>return.full.seed.as.s
 
 <h3>Examples</h3>
 
-<pre>
-## Not run: 
+<pre><code class='language-R'>## Not run: 
 
   ## Version 6, for version 5 see the Wiki
   # Connecting to the Opal servers
@@ -191,7 +199,8 @@ generated in each source  (see info for the argument <code>return.full.seed.as.s
   datashield.logout(connections) 
 
 ## End(Not run)
-</pre>
+</code></pre>
 
-<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.2.0 ]</div>
-</div></body></html>
+<hr /><div style="text-align: center;">[Package <em>dsBaseClient</em> version 6.3.0 ]</div>
+</div>
+</body></html>
